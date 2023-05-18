@@ -1,0 +1,11 @@
+select 
+	p.id
+	, p.name
+	, p.surname
+	, p.patronymic
+	,  COUNT(*) 
+from matches m 
+	INNER JOIN teams t ON t.id = m.team1_id or t.id = m.team2_id
+	INNER JOIN players p ON t.id = p.team_id
+GROUP by p.id
+HAVING count(*) > 0;

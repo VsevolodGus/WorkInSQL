@@ -1,0 +1,3 @@
+CREATE VIEW view_players_data
+AS SELECT select id, name, surname, patronymic,  number_in_team
+from players;

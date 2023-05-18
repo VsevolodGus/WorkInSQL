@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION delete_user_with_team() RETURNS trigger AS
+$$
+BEGIN
+   delete from players where team_id = 1;
+END;
+$$ 
+LANGUAGE plpgsql;
+
+CREATE TRIGGER delete_user_with_team
+   BEFORE DELETE ON teams FOR EACH ROW
+   EXECUTE PROCEDURE delete_user_with_team();

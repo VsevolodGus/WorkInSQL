@@ -1,6 +1,6 @@
 CREATE TABLE public.matches
 (
-    id integer,
+    id integer GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
     date timestamp without time zone NOT NULL,
     team1_id integer NOT NULL,
     team2_id integer NOT NULL,
