@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9B68
 		CreateProcedureWithTransaction.txt = CreateProcedureWithTransaction.txt
 		CreateScalarFunction.txt = CreateScalarFunction.txt
 		CreateTrigger.txt = CreateTrigger.txt
+		CreateVectorFunction.txt = CreateVectorFunction.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreateTableScripts", "CreateTableScripts", "{8B80B6B5-01FA-4D5D-8972-F1C002692C3E}"
@@ -29,6 +30,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SelectScripts", "SelectScri
 	ProjectSection(SolutionItems) = preProject
 		ScriptsWithAnyAndAll.txt = ScriptsWithAnyAndAll.txt
 		SelectWithCases.txt = SelectWithCases.txt
+		SelectWithGrouByAndHaving.txt = SelectWithGrouByAndHaving.txt
+		ViewNotUpdated.txt = ViewNotUpdated.txt
+		ViewUpdating.txt = ViewUpdating.txt
 	EndProjectSection
 EndProject
 Global
