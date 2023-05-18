@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace KursachMasha.DAL;
 public abstract class SqlWorker<T>
@@ -8,19 +7,23 @@ public abstract class SqlWorker<T>
     protected abstract string Table { get; }
     public SqlWorker()
     {
-        sqlConnection = new SqlConnection();
-        sqlConnection.Open();
+        sqlConnection = new SqlConnection("");
     }
 
-    protected void ExecuteQuery(string deletetQuety)
+    protected void ExecuteQuery(string query)
     {
-        SqlCommand command = new SqlCommand(deletetQuety, sqlConnection);
+        sqlConnection.Open();
 
+        var command = new SqlCommand(query, sqlConnection);
         command.ExecuteNonQuery();
+
+        sqlConnection.Close();
     }
 
     protected T[] ExecuteGettingQuery(string gettingQuery)
     {
+        sqlConnection.Open();
+
         var command = new SqlCommand(gettingQuery, sqlConnection);
         var reader = command.ExecuteReader();
 
@@ -29,6 +32,7 @@ public abstract class SqlWorker<T>
             result.Add(Map(reader));
 
         reader.Close();
+        sqlConnection.Close();
 
         return result.ToArray();
     }
