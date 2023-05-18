@@ -1,0 +1,7 @@
+CREATE TABLE public.role_players
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
+    name character varying(100) NOT NULL DEFAULT '',
+    description character varying(500),
+    CONSTRAINT pk_role_players PRIMARY KEY (id)
+);

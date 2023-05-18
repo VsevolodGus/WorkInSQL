@@ -13,24 +13,6 @@ internal class Class1
     public List<Stadium> StadiumList { get; set; }
     public List<Location> LocationList { get; set; }
 
-    //Several Case
-    public void FirstQuery()
-    {
-        StadiumList.Select(c => new
-        {
-            c,
-            Размер = c.Volume <= 100 ? "Маленький"
-                : c.Volume <= 500 ? "Средний"
-                : c.Volume <= 1000 ? "Большой"
-                : "Невероятный",
-
-            Populiar = c.Matches.Count() < 1 ? "Заброшен"
-                : c.Volume <= 5 ? "Не очень"
-                : c.Volume <= 10 ? "Достаточно"
-                : "Очень"
-        });
-    }
-
     /// <summary>
     /// View
     /// </summary>
@@ -69,9 +51,4 @@ internal class Class1
             .Where(c => c.Count > 10);
     }
 
-    //Any and ALL
-    public void SixthQuery()
-    {
-        SponsorList.Where(c => c.Teams.All(v => v.Matches.Any(d => d.StadiumID == 1)));
-    }
 }

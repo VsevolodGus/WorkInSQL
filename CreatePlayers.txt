@@ -1,0 +1,39 @@
+CREATE TABLE public.players
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
+    name character varying(100) NOT NULL,
+    surname character varying(100) NOT NULL,
+    patronymic character varying,
+    "number" integer NOT NULL,
+    team_id integer NOT NULL,
+    role_id integer NOT NULL,
+    CONSTRAINT pk_players PRIMARY KEY (id)
+);
+
+CREATE UNIQUE INDEX ui_number_in_team
+    ON public.players (team_id, number_in_team);
+
+
+CREATE INDEX ic_id
+    ON public.players (id);
+
+ALTER TABLE IF EXISTS public.players
+    CLUSTER ON ic_id;
+
+
+ALTER TABLE IF EXISTS public.players
+    ADD CONSTRAINT fk_team FOREIGN KEY (team_id)
+    REFERENCES public.teams (id);
+
+CREATE INDEX IF NOT EXISTS ix_team_id
+    ON public.players(team_id);
+
+
+
+ALTER TABLE IF EXISTS public.players
+    ADD CONSTRAINT fk_role FOREIGN KEY (role_id)
+    REFERENCES public.role_players (id)
+    ON DELETE CASCADE;
+
+CREATE INDEX IF NOT EXISTS ix_role_id
+    ON public.players(role_id);
