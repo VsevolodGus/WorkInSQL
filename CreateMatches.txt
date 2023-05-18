@@ -1,0 +1,38 @@
+CREATE TABLE public.matches
+(
+    id integer,
+    date timestamp without time zone NOT NULL,
+    team1_id integer NOT NULL,
+    team2_id integer NOT NULL,
+    stadium_id integer NOT NULL,
+    CONSTRAINT pk_mathes PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.matches
+     ADD CONSTRAINT fk_team1  FOREIGN KEY (team1_id)
+    REFERENCES public.teams (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE;
+
+CREATE INDEX IF NOT EXISTS ix_team1_id
+    ON public.matches(team1_id);
+
+
+ALTER TABLE IF EXISTS public.matches
+    ADD CONSTRAINT fk_team2 FOREIGN KEY (team2_id)
+    REFERENCES public.teams (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE;
+
+CREATE INDEX IF NOT EXISTS fk_team2
+    ON public.matches(team2_id);
+
+
+ALTER TABLE IF EXISTS public.matches
+    ADD CONSTRAINT fk_staduims FOREIGN KEY (stadium_id)
+    REFERENCES public.stadiums (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE;
+
+CREATE INDEX IF NOT EXISTS ix_staduims
+    ON public.matches(stadium_id);

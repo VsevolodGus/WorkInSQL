@@ -1,6 +1,6 @@
 ﻿using KursachMasha.Classes;
 
-namespace KursachMasha.DAL.Location;
+namespace KursachMasha.DAL.Locations;
 public class Location
 {
     public int ID { get; set; }

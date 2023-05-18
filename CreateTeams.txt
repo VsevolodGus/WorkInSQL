@@ -1,0 +1,14 @@
+CREATE TABLE public.teams
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
+    name character varying(100) NOT NULL,
+    sponsor_id integer,
+    CONSTRAINT pk_teams PRIMARY KEY (id),
+    CONSTRAINT fk_sponsors FOREIGN KEY (sponsor_id)
+        REFERENCES public.sponsors (id)
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS ix_sponsor_id
+    ON public.teams(sponsor_id);

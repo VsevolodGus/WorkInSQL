@@ -1,4 +1,4 @@
-﻿using KursachMasha.DAL.Location;
+﻿using KursachMasha.DAL.Locations;
 
 namespace KursachMasha.Classes;
 public class Stadium

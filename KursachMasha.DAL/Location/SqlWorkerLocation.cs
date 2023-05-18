@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Text;
 
-namespace KursachMasha.DAL.Location;
+namespace KursachMasha.DAL.Locations;
 public class SqlWorkerLocation :
     SqlWorker<Location>
     , ISqlWorkerEntity<Location, LocationFilter>

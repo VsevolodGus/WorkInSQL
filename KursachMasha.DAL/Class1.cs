@@ -1,6 +1,7 @@
 ﻿using KursachMasha.Classes;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Sponsors;
+using KursachMasha.DAL.Locations;
 
 namespace KursachMasha.DAL;
 internal class Class1

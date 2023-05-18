@@ -1,0 +1,8 @@
+select * from stadiums
+where stadiums.id = ANY (select matches.stadium_id from matches);
+
+
+select * from stadiums
+where stadiums.id 
+    = ALL (select matches.stadium_id from matches 
+                where matches.date between now() and now() + interval '5 day');

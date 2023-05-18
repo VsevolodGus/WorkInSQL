@@ -1,0 +1,17 @@
+CREATE TABLE public.stadiums
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
+    name character varying(100),
+    location_id integer,
+    volume bigint,
+    CONSTRAINT pk_stadiums PRIMARY KEY (id),
+);
+
+ALTER TABLE IF EXISTS public.stadiums
+    ADD CONSTRAINT fk_location FOREIGN KEY (location_id)
+    REFERENCES public.locations (id)
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE
+    NOT VALID;
+CREATE INDEX IF NOT EXISTS ix_locations
+    ON public.stadiums(location_id);

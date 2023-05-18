@@ -1,0 +1,7 @@
+CREATE FUNCTION public.get_count_matches_by_stadium_id(IN stadium_id integer)
+    RETURNS integer
+    LANGUAGE 'sql'
+    
+AS $BODY$
+select count(*) from matches m where m.stadium_id = stadium_id;  
+$BODY$;

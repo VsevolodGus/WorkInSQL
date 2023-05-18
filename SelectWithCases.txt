@@ -1,0 +1,19 @@
+select count(*) from matches m where m.stadium_id = stadium_id;  
+select s.id
+, name
+, CASE
+    WHEN  volume > 0 AND volume <= 1000 THEN 'Небольшой'
+    WHEN  volume > 0 AND volume <= 1000 THEN 'Небольшой'
+    WHEN  volume > 1000 AND volume <= 5000 THEN 'Средний'
+    WHEN  volume > 5000 THEN 'Огромный'
+    ELSE 'Не используется'
+    end as Size
+, CASE
+    WHEN  get_count_matches_by_stadium_id(s.id) > 0 
+            and get_count_matches_by_stadium_id(s.id) < 5
+          THEN 'Не популярный'
+    WHEN  get_count_matches_by_stadium_id(s.id) >= 5
+          THEN 'Популярный'
+    ELSE 'Заброшен'  
+    end as Popular
+from stadiums s
