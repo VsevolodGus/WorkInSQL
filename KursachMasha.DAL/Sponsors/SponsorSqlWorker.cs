@@ -1,4 +1,4 @@
-﻿using System.Data.SqlClient;
+﻿using Npgsql;
 using System.Text;
 
 namespace KursachMasha.DAL.Sponsors;
@@ -52,7 +52,7 @@ public sealed class SponsorSqlWorker :
         return ExecuteGettingQuery(stringBuilder.ToString());
     }
 
-    protected override Sponsor Map(SqlDataReader sqlDataReader)
+    protected override Sponsor Map(NpgsqlDataReader sqlDataReader)
     {
         return new Sponsor()
         {

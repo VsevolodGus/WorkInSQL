@@ -1,12 +1,13 @@
-﻿using System.Data.SqlClient;
+﻿using Npgsql;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace KursachMasha.DAL.Players;
-internal class PlayerSqlWorker :
+public class PlayerRepository :
     SqlWorker<Player>
     , ISqlWorkerEntity<Player, PlayerFilter>
 {
-    public PlayerSqlWorker() : base()
+    public PlayerRepository() : base()
     { }
 
     protected override string Table => "players";
@@ -41,9 +42,11 @@ internal class PlayerSqlWorker :
 
     public Player[] GetArray(PlayerFilter filter)
     {
-        var stringBuilder = new StringBuilder("select * from {Table} where 1 = 1");
+        var stringBuilder = new StringBuilder($"SELECT id, name, surname, patronymic, number_in_team, team_id, role_id" +
+            $"\r\n\tFROM public.players" +
+            $"\r\n\twhere 1 = 1");
 
-        if (string.IsNullOrEmpty(filter.Search))
+        if (!string.IsNullOrEmpty(filter.Search))
             stringBuilder.Append($"and name like %{filter.Search}%");
 
         if (filter.TeamID.HasValue)
@@ -51,18 +54,21 @@ internal class PlayerSqlWorker :
 
         stringBuilder.Append(';');
 
-
+        var sql = stringBuilder.ToString();
         return ExecuteGettingQuery(stringBuilder.ToString());
     }
 
-    protected override Player Map(SqlDataReader sqlDataReader)
+    protected override Player Map(NpgsqlDataReader sqlDataReader)
     {
         return new Player()
         {
             ID = sqlDataReader.GetInt32(0),
             Name = sqlDataReader.GetString(1),
-            TeamID = sqlDataReader.GetInt32(2),
-            Description = sqlDataReader.GetString(3),
+            Surname = sqlDataReader.GetString(2),
+            Patronymic = sqlDataReader.GetString(3),
+            Number = sqlDataReader.GetInt32(4),
+            TeamID = sqlDataReader.GetInt32(5),
+            RoleID= sqlDataReader.GetInt32(6),
         };
     }
 }

@@ -32,6 +32,12 @@ partial class Form1
         dataGridView1 = new DataGridView();
         Tabs = new TabControl();
         tabPage1 = new TabPage();
+        comboBox5 = new ComboBox();
+        label14 = new Label();
+        textBox4 = new TextBox();
+        label3 = new Label();
+        button6 = new Button();
+        textBox3 = new TextBox();
         comboBox1 = new ComboBox();
         button4 = new Button();
         button5 = new Button();
@@ -41,10 +47,11 @@ partial class Form1
         label5 = new Label();
         label6 = new Label();
         tabPage2 = new TabPage();
+        button1 = new Button();
+        button17 = new Button();
+        button16 = new Button();
         label1 = new Label();
         label2 = new Label();
-        button1 = new Button();
-        button2 = new Button();
         textBox2 = new TextBox();
         textBox1 = new TextBox();
         dataGridView2 = new DataGridView();
@@ -79,6 +86,12 @@ partial class Form1
         dataGridView5 = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
+        comboBox6 = new ComboBox();
+        label15 = new Label();
+        comboBox7 = new ComboBox();
+        label16 = new Label();
+        label17 = new Label();
+        label18 = new Label();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -95,7 +108,7 @@ partial class Form1
         // 
         // button3
         // 
-        button3.Location = new Point(293, 104);
+        button3.Location = new Point(993, 512);
         button3.Name = "button3";
         button3.Size = new Size(94, 29);
         button3.TabIndex = 2;
@@ -109,7 +122,7 @@ partial class Form1
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
         dataGridView1.RowTemplate.Height = 29;
-        dataGridView1.Size = new Size(677, 550);
+        dataGridView1.Size = new Size(677, 497);
         dataGridView1.TabIndex = 9;
         // 
         // Tabs
@@ -128,6 +141,18 @@ partial class Form1
         // 
         // tabPage1
         // 
+        tabPage1.Controls.Add(label18);
+        tabPage1.Controls.Add(label17);
+        tabPage1.Controls.Add(comboBox6);
+        tabPage1.Controls.Add(label15);
+        tabPage1.Controls.Add(comboBox7);
+        tabPage1.Controls.Add(label16);
+        tabPage1.Controls.Add(comboBox5);
+        tabPage1.Controls.Add(label14);
+        tabPage1.Controls.Add(textBox4);
+        tabPage1.Controls.Add(label3);
+        tabPage1.Controls.Add(button6);
+        tabPage1.Controls.Add(textBox3);
         tabPage1.Controls.Add(comboBox1);
         tabPage1.Controls.Add(button4);
         tabPage1.Controls.Add(button5);
@@ -146,17 +171,66 @@ partial class Form1
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
         // 
+        // comboBox5
+        // 
+        comboBox5.FormattingEnabled = true;
+        comboBox5.Location = new Point(85, 122);
+        comboBox5.Name = "comboBox5";
+        comboBox5.Size = new Size(305, 28);
+        comboBox5.TabIndex = 24;
+        // 
+        // label14
+        // 
+        label14.AutoSize = true;
+        label14.Location = new Point(8, 125);
+        label14.Name = "label14";
+        label14.Size = new Size(72, 20);
+        label14.TabIndex = 23;
+        label14.Text = "Команда";
+        // 
+        // textBox4
+        // 
+        textBox4.Location = new Point(85, 89);
+        textBox4.Name = "textBox4";
+        textBox4.Size = new Size(305, 27);
+        textBox4.TabIndex = 22;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(6, 96);
+        label3.Name = "label3";
+        label3.Size = new Size(76, 20);
+        label3.TabIndex = 21;
+        label3.Text = "Отчество";
+        // 
+        // button6
+        // 
+        button6.Location = new Point(410, 512);
+        button6.Name = "button6";
+        button6.Size = new Size(94, 29);
+        button6.TabIndex = 20;
+        button6.Text = "Получить";
+        button6.UseVisualStyleBackColor = true;
+        // 
+        // textBox3
+        // 
+        textBox3.Location = new Point(127, 328);
+        textBox3.Name = "textBox3";
+        textBox3.Size = new Size(263, 27);
+        textBox3.TabIndex = 19;
+        // 
         // comboBox1
         // 
         comboBox1.FormattingEnabled = true;
-        comboBox1.Location = new Point(85, 106);
+        comboBox1.Location = new Point(85, 156);
         comboBox1.Name = "comboBox1";
-        comboBox1.Size = new Size(193, 28);
+        comboBox1.Size = new Size(305, 28);
         comboBox1.TabIndex = 18;
         // 
         // button4
         // 
-        button4.Location = new Point(293, 22);
+        button4.Location = new Point(759, 515);
         button4.Name = "button4";
         button4.Size = new Size(94, 29);
         button4.TabIndex = 10;
@@ -165,7 +239,7 @@ partial class Form1
         // 
         // button5
         // 
-        button5.Location = new Point(293, 65);
+        button5.Location = new Point(874, 515);
         button5.Name = "button5";
         button5.Size = new Size(94, 29);
         button5.TabIndex = 11;
@@ -174,9 +248,9 @@ partial class Form1
         // 
         // textBox5
         // 
-        textBox5.Location = new Point(85, 63);
+        textBox5.Location = new Point(85, 56);
         textBox5.Name = "textBox5";
-        textBox5.Size = new Size(193, 27);
+        textBox5.Size = new Size(305, 27);
         textBox5.TabIndex = 16;
         // 
         // label4
@@ -192,13 +266,13 @@ partial class Form1
         // 
         textBox6.Location = new Point(85, 23);
         textBox6.Name = "textBox6";
-        textBox6.Size = new Size(193, 27);
+        textBox6.Size = new Size(305, 27);
         textBox6.TabIndex = 15;
         // 
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(6, 70);
+        label5.Location = new Point(6, 63);
         label5.Name = "label5";
         label5.Size = new Size(74, 20);
         label5.TabIndex = 13;
@@ -207,18 +281,19 @@ partial class Form1
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(8, 109);
+        label6.Location = new Point(8, 159);
         label6.Name = "label6";
-        label6.Size = new Size(72, 20);
+        label6.Size = new Size(45, 20);
         label6.TabIndex = 14;
-        label6.Text = "Команда";
+        label6.Text = "Роль";
         // 
         // tabPage2
         // 
+        tabPage2.Controls.Add(button1);
+        tabPage2.Controls.Add(button17);
+        tabPage2.Controls.Add(button16);
         tabPage2.Controls.Add(label1);
         tabPage2.Controls.Add(label2);
-        tabPage2.Controls.Add(button1);
-        tabPage2.Controls.Add(button2);
         tabPage2.Controls.Add(textBox2);
         tabPage2.Controls.Add(textBox1);
         tabPage2.Controls.Add(dataGridView2);
@@ -229,6 +304,33 @@ partial class Form1
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(993, 512);
+        button1.Name = "button1";
+        button1.Size = new Size(94, 29);
+        button1.TabIndex = 19;
+        button1.Text = "Удалить";
+        button1.UseVisualStyleBackColor = true;
+        // 
+        // button17
+        // 
+        button17.Location = new Point(893, 512);
+        button17.Name = "button17";
+        button17.Size = new Size(94, 29);
+        button17.TabIndex = 18;
+        button17.Text = "Обновить";
+        button17.UseVisualStyleBackColor = true;
+        // 
+        // button16
+        // 
+        button16.Location = new Point(793, 512);
+        button16.Name = "button16";
+        button16.Size = new Size(94, 29);
+        button16.TabIndex = 17;
+        button16.Text = "Добавить";
+        button16.UseVisualStyleBackColor = true;
         // 
         // label1
         // 
@@ -247,24 +349,6 @@ partial class Form1
         label2.Size = new Size(70, 20);
         label2.TabIndex = 16;
         label2.Text = "Спонсор";
-        // 
-        // button1
-        // 
-        button1.Location = new Point(265, 17);
-        button1.Name = "button1";
-        button1.Size = new Size(94, 29);
-        button1.TabIndex = 13;
-        button1.Text = "Добавить";
-        button1.UseVisualStyleBackColor = true;
-        // 
-        // button2
-        // 
-        button2.Location = new Point(265, 52);
-        button2.Name = "button2";
-        button2.Size = new Size(94, 29);
-        button2.TabIndex = 14;
-        button2.Text = "Обновить";
-        button2.UseVisualStyleBackColor = true;
         // 
         // textBox2
         // 
@@ -287,7 +371,7 @@ partial class Form1
         dataGridView2.Name = "dataGridView2";
         dataGridView2.RowHeadersWidth = 51;
         dataGridView2.RowTemplate.Height = 29;
-        dataGridView2.Size = new Size(603, 550);
+        dataGridView2.Size = new Size(603, 403);
         dataGridView2.TabIndex = 0;
         // 
         // tabPage3
@@ -591,6 +675,58 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += logoutMenuStrip_Click;
         // 
+        // comboBox6
+        // 
+        comboBox6.FormattingEnabled = true;
+        comboBox6.Location = new Point(85, 361);
+        comboBox6.Name = "comboBox6";
+        comboBox6.Size = new Size(305, 28);
+        comboBox6.TabIndex = 28;
+        // 
+        // label15
+        // 
+        label15.AutoSize = true;
+        label15.Location = new Point(8, 364);
+        label15.Name = "label15";
+        label15.Size = new Size(72, 20);
+        label15.TabIndex = 27;
+        label15.Text = "Команда";
+        // 
+        // comboBox7
+        // 
+        comboBox7.FormattingEnabled = true;
+        comboBox7.Location = new Point(85, 395);
+        comboBox7.Name = "comboBox7";
+        comboBox7.Size = new Size(305, 28);
+        comboBox7.TabIndex = 26;
+        // 
+        // label16
+        // 
+        label16.AutoSize = true;
+        label16.Location = new Point(8, 398);
+        label16.Name = "label16";
+        label16.Size = new Size(45, 20);
+        label16.TabIndex = 25;
+        label16.Text = "Роль";
+        // 
+        // label17
+        // 
+        label17.AutoSize = true;
+        label17.Location = new Point(8, 335);
+        label17.Name = "label17";
+        label17.Size = new Size(113, 20);
+        label17.TabIndex = 29;
+        label17.Text = "Строка поиска";
+        // 
+        // label18
+        // 
+        label18.AutoSize = true;
+        label18.Location = new Point(127, 289);
+        label18.Name = "label18";
+        label18.Size = new Size(62, 20);
+        label18.TabIndex = 30;
+        label18.Text = "Фильтр";
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -638,8 +774,6 @@ partial class Form1
     private TextBox textBox6;
     private Label label5;
     private Label label6;
-    private Button button1;
-    private Button button2;
     private TextBox textBox2;
     private TextBox textBox1;
     private DataGridView dataGridView2;
@@ -675,4 +809,19 @@ partial class Form1
     private ComboBox comboBox2;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
+    private ComboBox comboBox5;
+    private Label label14;
+    private TextBox textBox4;
+    private Label label3;
+    private Button button6;
+    private TextBox textBox3;
+    private Button button1;
+    private Button button17;
+    private Button button16;
+    private Label label18;
+    private Label label17;
+    private ComboBox comboBox6;
+    private Label label15;
+    private ComboBox comboBox7;
+    private Label label16;
 }

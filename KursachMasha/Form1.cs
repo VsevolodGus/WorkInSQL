@@ -1,12 +1,16 @@
+using KursachMasha.DAL.Players;
+
 namespace KursachMasha;
 
 public partial class Form1 : Form
 {
     private readonly LoginForm _loginForm;
+    private readonly PlayerRepository _playerRepository;
     public Form1(LoginForm loginForm)
     {
         _loginForm = loginForm;
 
+        _playerRepository = new PlayerRepository();
         InitializeComponent();
         DateTimePickerMatch.Format = DateTimePickerFormat.Custom;
         DateTimePickerMatch.CustomFormat = "MM.dd.yyyy hh:mm:ss";
@@ -21,6 +25,7 @@ public partial class Form1 : Form
             foreach (var textBox in textBoxs)
                 textBox.Enabled = false;
         }
+        this.tabPage2.Select();
     }
 
     private void logoutMenuStrip_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Npgsql;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace KursachMasha.DAL.Locations;
@@ -50,7 +51,7 @@ public class SqlWorkerLocation :
         return ExecuteGettingQuery(stringBuilder.ToString());
     }
 
-    protected override Location Map(SqlDataReader sqlDataReader)
+    protected override Location Map(NpgsqlDataReader sqlDataReader)
     {
         return new Location()
         {

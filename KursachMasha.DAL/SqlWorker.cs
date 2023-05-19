@@ -1,20 +1,20 @@
-﻿using System.Data.SqlClient;
+﻿using Npgsql;
+using System.Data.SqlClient;
 
 namespace KursachMasha.DAL;
 public abstract class SqlWorker<T>
 {
-    protected readonly SqlConnection sqlConnection;
+    protected readonly NpgsqlConnection sqlConnection;
     protected abstract string Table { get; }
     public SqlWorker()
     {
-        sqlConnection = new SqlConnection("");
+        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=kursach; Password=1;");
     }
 
     protected void ExecuteQuery(string query)
     {
         sqlConnection.Open();
-
-        var command = new SqlCommand(query, sqlConnection);
+        var command = new NpgsqlCommand(query, sqlConnection);
         command.ExecuteNonQuery();
 
         sqlConnection.Close();
@@ -24,7 +24,7 @@ public abstract class SqlWorker<T>
     {
         sqlConnection.Open();
 
-        var command = new SqlCommand(gettingQuery, sqlConnection);
+        var command = new NpgsqlCommand(gettingQuery, sqlConnection);
         var reader = command.ExecuteReader();
 
         var result = new List<T>();
@@ -37,5 +37,5 @@ public abstract class SqlWorker<T>
         return result.ToArray();
     }
 
-    protected abstract T Map(SqlDataReader sqlDataReader);
+    protected abstract T Map(NpgsqlDataReader sqlDataReader);
 }

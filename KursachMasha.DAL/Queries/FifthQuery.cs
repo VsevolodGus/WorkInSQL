@@ -1,15 +1,14 @@
-﻿using KursachMasha.Classes;
-using System.Data.SqlClient;
+﻿using Npgsql;
 
 namespace KursachMasha.DAL.Queries;
 
 internal class FifthQuery
 {
     
-    protected readonly SqlConnection sqlConnection;
+    protected readonly NpgsqlConnection sqlConnection;
     public FifthQuery()
     {
-        sqlConnection = new SqlConnection();
+        sqlConnection = new NpgsqlConnection();
         sqlConnection.Open();
     }
 
@@ -23,7 +22,7 @@ internal class FifthQuery
             "inner join matches m ON m.teamd1_id = t.id OR m.teamd2_id = t.id " +
             $"where m.stadium_id = {stadiumID}";
 
-        new SqlCommand(query, sqlConnection).ExecuteNonQuery();
+        new NpgsqlCommand(query, sqlConnection).ExecuteNonQuery();
     }
 
 }
