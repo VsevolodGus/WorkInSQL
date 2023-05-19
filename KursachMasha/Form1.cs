@@ -25,13 +25,22 @@ public partial class Form1 : Form
             foreach (var textBox in textBoxs)
                 textBox.Enabled = false;
         }
-        this.tabPage2.Select();
-    }
+
+        typeof(Player).GetProperties().Select(c => tablePlayers.Columns.Add(c.Name, c.Name + "123"));
+        }
 
     private void logoutMenuStrip_Click(object sender, EventArgs e)
     {
         Global.CurrentUser = null;
         _loginForm.Show();
         this.Close();
+    }
+
+    private void buttonGettinngPlayers_Click(object sender, EventArgs e)
+    {
+        tablePlayers.DataSource = _playerRepository.GetArray(new PlayerFilter 
+        { 
+            Search = playerSearchTextBox.Text
+        });
     }
 }

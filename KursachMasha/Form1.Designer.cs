@@ -29,15 +29,21 @@ partial class Form1
     private void InitializeComponent()
     {
         button3 = new Button();
-        dataGridView1 = new DataGridView();
+        tablePlayers = new DataGridView();
         Tabs = new TabControl();
         tabPage1 = new TabPage();
+        label18 = new Label();
+        label17 = new Label();
+        comboBox6 = new ComboBox();
+        label15 = new Label();
+        comboBox7 = new ComboBox();
+        label16 = new Label();
         comboBox5 = new ComboBox();
         label14 = new Label();
         textBox4 = new TextBox();
         label3 = new Label();
-        button6 = new Button();
-        textBox3 = new TextBox();
+        buttonGettingPlayers = new Button();
+        playerSearchTextBox = new TextBox();
         comboBox1 = new ComboBox();
         button4 = new Button();
         button5 = new Button();
@@ -86,13 +92,7 @@ partial class Form1
         dataGridView5 = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        comboBox6 = new ComboBox();
-        label15 = new Label();
-        comboBox7 = new ComboBox();
-        label16 = new Label();
-        label17 = new Label();
-        label18 = new Label();
-        ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -115,15 +115,15 @@ partial class Form1
         button3.Text = "Удалить";
         button3.UseVisualStyleBackColor = true;
         // 
-        // dataGridView1
+        // tablePlayers
         // 
-        dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView1.Location = new Point(410, 6);
-        dataGridView1.Name = "dataGridView1";
-        dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.RowTemplate.Height = 29;
-        dataGridView1.Size = new Size(677, 497);
-        dataGridView1.TabIndex = 9;
+        tablePlayers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        tablePlayers.Location = new Point(410, 6);
+        tablePlayers.Name = "tablePlayers";
+        tablePlayers.RowHeadersWidth = 51;
+        tablePlayers.RowTemplate.Height = 29;
+        tablePlayers.Size = new Size(677, 497);
+        tablePlayers.TabIndex = 9;
         // 
         // Tabs
         // 
@@ -151,8 +151,8 @@ partial class Form1
         tabPage1.Controls.Add(label14);
         tabPage1.Controls.Add(textBox4);
         tabPage1.Controls.Add(label3);
-        tabPage1.Controls.Add(button6);
-        tabPage1.Controls.Add(textBox3);
+        tabPage1.Controls.Add(buttonGettingPlayers);
+        tabPage1.Controls.Add(playerSearchTextBox);
         tabPage1.Controls.Add(comboBox1);
         tabPage1.Controls.Add(button4);
         tabPage1.Controls.Add(button5);
@@ -161,7 +161,7 @@ partial class Form1
         tabPage1.Controls.Add(textBox6);
         tabPage1.Controls.Add(label5);
         tabPage1.Controls.Add(label6);
-        tabPage1.Controls.Add(dataGridView1);
+        tabPage1.Controls.Add(tablePlayers);
         tabPage1.Controls.Add(button3);
         tabPage1.Location = new Point(4, 29);
         tabPage1.Name = "tabPage1";
@@ -170,6 +170,58 @@ partial class Form1
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // label18
+        // 
+        label18.AutoSize = true;
+        label18.Location = new Point(127, 289);
+        label18.Name = "label18";
+        label18.Size = new Size(62, 20);
+        label18.TabIndex = 30;
+        label18.Text = "Фильтр";
+        // 
+        // label17
+        // 
+        label17.AutoSize = true;
+        label17.Location = new Point(8, 335);
+        label17.Name = "label17";
+        label17.Size = new Size(113, 20);
+        label17.TabIndex = 29;
+        label17.Text = "Строка поиска";
+        // 
+        // comboBox6
+        // 
+        comboBox6.FormattingEnabled = true;
+        comboBox6.Location = new Point(85, 361);
+        comboBox6.Name = "comboBox6";
+        comboBox6.Size = new Size(305, 28);
+        comboBox6.TabIndex = 28;
+        // 
+        // label15
+        // 
+        label15.AutoSize = true;
+        label15.Location = new Point(8, 364);
+        label15.Name = "label15";
+        label15.Size = new Size(72, 20);
+        label15.TabIndex = 27;
+        label15.Text = "Команда";
+        // 
+        // comboBox7
+        // 
+        comboBox7.FormattingEnabled = true;
+        comboBox7.Location = new Point(85, 395);
+        comboBox7.Name = "comboBox7";
+        comboBox7.Size = new Size(305, 28);
+        comboBox7.TabIndex = 26;
+        // 
+        // label16
+        // 
+        label16.AutoSize = true;
+        label16.Location = new Point(8, 398);
+        label16.Name = "label16";
+        label16.Size = new Size(45, 20);
+        label16.TabIndex = 25;
+        label16.Text = "Роль";
         // 
         // comboBox5
         // 
@@ -204,21 +256,22 @@ partial class Form1
         label3.TabIndex = 21;
         label3.Text = "Отчество";
         // 
-        // button6
+        // buttonGettingPlayers
         // 
-        button6.Location = new Point(410, 512);
-        button6.Name = "button6";
-        button6.Size = new Size(94, 29);
-        button6.TabIndex = 20;
-        button6.Text = "Получить";
-        button6.UseVisualStyleBackColor = true;
+        buttonGettingPlayers.Location = new Point(410, 512);
+        buttonGettingPlayers.Name = "buttonGettingPlayers";
+        buttonGettingPlayers.Size = new Size(94, 29);
+        buttonGettingPlayers.TabIndex = 20;
+        buttonGettingPlayers.Text = "Получить";
+        buttonGettingPlayers.UseVisualStyleBackColor = true;
+        buttonGettingPlayers.Click += buttonGettinngPlayers_Click;
         // 
-        // textBox3
+        // playerSearchTextBox
         // 
-        textBox3.Location = new Point(127, 328);
-        textBox3.Name = "textBox3";
-        textBox3.Size = new Size(263, 27);
-        textBox3.TabIndex = 19;
+        playerSearchTextBox.Location = new Point(127, 328);
+        playerSearchTextBox.Name = "playerSearchTextBox";
+        playerSearchTextBox.Size = new Size(263, 27);
+        playerSearchTextBox.TabIndex = 19;
         // 
         // comboBox1
         // 
@@ -230,7 +283,7 @@ partial class Form1
         // 
         // button4
         // 
-        button4.Location = new Point(759, 515);
+        button4.Location = new Point(770, 512);
         button4.Name = "button4";
         button4.Size = new Size(94, 29);
         button4.TabIndex = 10;
@@ -239,7 +292,7 @@ partial class Form1
         // 
         // button5
         // 
-        button5.Location = new Point(874, 515);
+        button5.Location = new Point(880, 512);
         button5.Name = "button5";
         button5.Size = new Size(94, 29);
         button5.TabIndex = 11;
@@ -675,58 +728,6 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += logoutMenuStrip_Click;
         // 
-        // comboBox6
-        // 
-        comboBox6.FormattingEnabled = true;
-        comboBox6.Location = new Point(85, 361);
-        comboBox6.Name = "comboBox6";
-        comboBox6.Size = new Size(305, 28);
-        comboBox6.TabIndex = 28;
-        // 
-        // label15
-        // 
-        label15.AutoSize = true;
-        label15.Location = new Point(8, 364);
-        label15.Name = "label15";
-        label15.Size = new Size(72, 20);
-        label15.TabIndex = 27;
-        label15.Text = "Команда";
-        // 
-        // comboBox7
-        // 
-        comboBox7.FormattingEnabled = true;
-        comboBox7.Location = new Point(85, 395);
-        comboBox7.Name = "comboBox7";
-        comboBox7.Size = new Size(305, 28);
-        comboBox7.TabIndex = 26;
-        // 
-        // label16
-        // 
-        label16.AutoSize = true;
-        label16.Location = new Point(8, 398);
-        label16.Name = "label16";
-        label16.Size = new Size(45, 20);
-        label16.TabIndex = 25;
-        label16.Text = "Роль";
-        // 
-        // label17
-        // 
-        label17.AutoSize = true;
-        label17.Location = new Point(8, 335);
-        label17.Name = "label17";
-        label17.Size = new Size(113, 20);
-        label17.TabIndex = 29;
-        label17.Text = "Строка поиска";
-        // 
-        // label18
-        // 
-        label18.AutoSize = true;
-        label18.Location = new Point(127, 289);
-        label18.Name = "label18";
-        label18.Size = new Size(62, 20);
-        label18.TabIndex = 30;
-        label18.Text = "Фильтр";
-        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -737,7 +738,7 @@ partial class Form1
         MainMenuStrip = menuStrip1;
         Name = "Form1";
         Text = "Курсач";
-        ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+        ((System.ComponentModel.ISupportInitialize)tablePlayers).EndInit();
         Tabs.ResumeLayout(false);
         tabPage1.ResumeLayout(false);
         tabPage1.PerformLayout();
@@ -761,7 +762,7 @@ partial class Form1
 
     #endregion
     private Button button3;
-    private DataGridView dataGridView1;
+    private DataGridView tablePlayers;
     private TabControl Tabs;
     private TabPage tabPage1;
     private TabPage tabPage2;
@@ -813,8 +814,8 @@ partial class Form1
     private Label label14;
     private TextBox textBox4;
     private Label label3;
-    private Button button6;
-    private TextBox textBox3;
+    private Button buttonGettingPlayers;
+    private TextBox playerSearchTextBox;
     private Button button1;
     private Button button17;
     private Button button16;

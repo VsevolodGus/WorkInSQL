@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using System.Data.SqlClient;
 using System.Text;
 
 namespace KursachMasha.DAL.Players;
@@ -18,7 +17,6 @@ public class PlayerRepository :
                         $"set " +
                         $"Name = {sponsor.Name}" +
                         $", team_id = {sponsor.TeamID}" +
-                        $", description = {sponsor.Description}" +
                     $"where id = {sponsor.ID};";
 
         ExecuteQuery(query);
@@ -34,8 +32,8 @@ public class PlayerRepository :
 
     public void Add(Player obj)
     {
-        var query = $"insert into {Table} (name, team_id, description)" +
-            $"values ({obj.Name}, {obj.TeamID} ,{obj.Description});";
+        var query = $"insert into {Table} (name, team_id)" +
+            $"values ({obj.Name}, {obj.TeamID});";
 
         ExecuteQuery(query);
     }
@@ -47,15 +45,13 @@ public class PlayerRepository :
             $"\r\n\twhere 1 = 1");
 
         if (!string.IsNullOrEmpty(filter.Search))
-            stringBuilder.Append($"and name like %{filter.Search}%");
+            stringBuilder.Append($"\nand name like '%{filter.Search}%'");
 
         if (filter.TeamID.HasValue)
             stringBuilder.Append($"and team_id = %{filter.TeamID}%");
 
         stringBuilder.Append(';');
-
-        var sql = stringBuilder.ToString();
-        return ExecuteGettingQuery(stringBuilder.ToString());
+        return ExecuteGettingQuery(sql);
     }
 
     protected override Player Map(NpgsqlDataReader sqlDataReader)

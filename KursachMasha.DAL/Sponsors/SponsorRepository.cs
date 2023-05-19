@@ -3,11 +3,11 @@ using System.Text;
 
 namespace KursachMasha.DAL.Sponsors;
 
-public sealed class SponsorSqlWorker : 
+public sealed class SponsorRepository : 
     SqlWorker<Sponsor>
     , ISqlWorkerEntity<Sponsor, SponsorFilter>
 {
-    public SponsorSqlWorker() : base()
+    public SponsorRepository() : base()
     { }
 
     protected override string Table => "sponsors";

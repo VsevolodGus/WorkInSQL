@@ -1,13 +1,12 @@
 ﻿using Npgsql;
-using System.Data.SqlClient;
 using System.Text;
 
 namespace KursachMasha.DAL.Locations;
-public class SqlWorkerLocation :
+public class LocationRepository :
     SqlWorker<Location>
     , ISqlWorkerEntity<Location, LocationFilter>
 {
-    public SqlWorkerLocation() : base()
+    public LocationRepository() : base()
     { }
 
     protected override string Table => "locations";
