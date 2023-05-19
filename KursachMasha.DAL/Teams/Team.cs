@@ -1,7 +1,8 @@
-﻿using KursachMasha.DAL.Players;
+﻿using KursachMasha.Classes;
+using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Sponsors;
 
-namespace KursachMasha.Classes;
+namespace KursachMasha.DAL.Teams;
 public class Team
 {
     public int ID { get; set; }

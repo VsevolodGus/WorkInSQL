@@ -25,7 +25,7 @@ public class PlayerRepository :
     public void Delete(int id)
     {
         var query = $"delete from {Table} " +
-                    $"where id = {id}"; ;
+                    $"where id = {id}";
 
         ExecuteQuery(query);
     }
@@ -38,8 +38,11 @@ public class PlayerRepository :
         ExecuteQuery(query);
     }
 
-    public Player[] GetArray(PlayerFilter filter)
+    public Player[] GetArray(PlayerFilter filter = null)
     {
+        if(filter is null)
+            filter = new PlayerFilter();
+
         var stringBuilder = new StringBuilder($"SELECT id, name, surname, patronymic, number_in_team, team_id, role_id" +
             $"\r\n\tFROM public.players" +
             $"\r\n\twhere 1 = 1");
@@ -48,10 +51,11 @@ public class PlayerRepository :
             stringBuilder.Append($"\nand name like '%{filter.Search}%'");
 
         if (filter.TeamID.HasValue)
-            stringBuilder.Append($"and team_id = %{filter.TeamID}%");
+            stringBuilder.Append($"\nand team_id = {filter.TeamID}");
 
         stringBuilder.Append(';');
-        return ExecuteGettingQuery(stringBuilder.ToString());
+        var sql = stringBuilder.ToString();
+        return ExecuteGettingQuery(sql);
     }
 
     protected override Player Map(NpgsqlDataReader sqlDataReader)

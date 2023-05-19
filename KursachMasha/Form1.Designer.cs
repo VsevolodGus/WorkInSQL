@@ -34,9 +34,9 @@ partial class Form1
         tabPage1 = new TabPage();
         label18 = new Label();
         label17 = new Label();
-        comboBox6 = new ComboBox();
+        searchTeamComboBox = new ComboBox();
         label15 = new Label();
-        comboBox7 = new ComboBox();
+        searchRoleComboBox = new ComboBox();
         label16 = new Label();
         comboBox5 = new ComboBox();
         label14 = new Label();
@@ -73,7 +73,6 @@ partial class Form1
         label9 = new Label();
         label8 = new Label();
         label7 = new Label();
-        dataGridView3 = new DataGridView();
         tabPage4 = new TabPage();
         button10 = new Button();
         button11 = new Button();
@@ -92,13 +91,13 @@ partial class Form1
         dataGridView5 = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
+        tableLayoutPanel1 = new TableLayoutPanel();
         ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
         tabPage3.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
         tabPage4.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
         tabPage5.SuspendLayout();
@@ -114,6 +113,7 @@ partial class Form1
         button3.TabIndex = 2;
         button3.Text = "Удалить";
         button3.UseVisualStyleBackColor = true;
+        button3.Click += DeletePlayers_Click;
         // 
         // tablePlayers
         // 
@@ -143,9 +143,9 @@ partial class Form1
         // 
         tabPage1.Controls.Add(label18);
         tabPage1.Controls.Add(label17);
-        tabPage1.Controls.Add(comboBox6);
+        tabPage1.Controls.Add(searchTeamComboBox);
         tabPage1.Controls.Add(label15);
-        tabPage1.Controls.Add(comboBox7);
+        tabPage1.Controls.Add(searchRoleComboBox);
         tabPage1.Controls.Add(label16);
         tabPage1.Controls.Add(comboBox5);
         tabPage1.Controls.Add(label14);
@@ -189,13 +189,14 @@ partial class Form1
         label17.TabIndex = 29;
         label17.Text = "Строка поиска";
         // 
-        // comboBox6
+        // searchTeamComboBox
         // 
-        comboBox6.FormattingEnabled = true;
-        comboBox6.Location = new Point(85, 361);
-        comboBox6.Name = "comboBox6";
-        comboBox6.Size = new Size(305, 28);
-        comboBox6.TabIndex = 28;
+        searchTeamComboBox.FormattingEnabled = true;
+        searchTeamComboBox.Location = new Point(85, 361);
+        searchTeamComboBox.Name = "searchTeamComboBox";
+        searchTeamComboBox.Size = new Size(305, 28);
+        searchTeamComboBox.TabIndex = 28;
+        searchTeamComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label15
         // 
@@ -206,13 +207,13 @@ partial class Form1
         label15.TabIndex = 27;
         label15.Text = "Команда";
         // 
-        // comboBox7
+        // searchRoleComboBox
         // 
-        comboBox7.FormattingEnabled = true;
-        comboBox7.Location = new Point(85, 395);
-        comboBox7.Name = "comboBox7";
-        comboBox7.Size = new Size(305, 28);
-        comboBox7.TabIndex = 26;
+        searchRoleComboBox.FormattingEnabled = true;
+        searchRoleComboBox.Location = new Point(85, 395);
+        searchRoleComboBox.Name = "searchRoleComboBox";
+        searchRoleComboBox.Size = new Size(305, 28);
+        searchRoleComboBox.TabIndex = 26;
         // 
         // label16
         // 
@@ -264,7 +265,7 @@ partial class Form1
         buttonGettingPlayers.TabIndex = 20;
         buttonGettingPlayers.Text = "Получить";
         buttonGettingPlayers.UseVisualStyleBackColor = true;
-        buttonGettingPlayers.Click += buttonGettinngPlayers_Click;
+        buttonGettingPlayers.Click += ButtonGettingPlayers_Click;
         // 
         // playerSearchTextBox
         // 
@@ -429,6 +430,7 @@ partial class Form1
         // 
         // tabPage3
         // 
+        tabPage3.Controls.Add(tableLayoutPanel1);
         tabPage3.Controls.Add(comboBox4);
         tabPage3.Controls.Add(comboBox3);
         tabPage3.Controls.Add(comboBox2);
@@ -440,7 +442,6 @@ partial class Form1
         tabPage3.Controls.Add(label9);
         tabPage3.Controls.Add(label8);
         tabPage3.Controls.Add(label7);
-        tabPage3.Controls.Add(dataGridView3);
         tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
         tabPage3.Padding = new Padding(3);
@@ -543,16 +544,6 @@ partial class Form1
         label7.Size = new Size(90, 20);
         label7.TabIndex = 13;
         label7.Text = "Дата матча";
-        // 
-        // dataGridView3
-        // 
-        dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView3.Location = new Point(456, 6);
-        dataGridView3.Name = "dataGridView3";
-        dataGridView3.RowHeadersWidth = 51;
-        dataGridView3.RowTemplate.Height = 29;
-        dataGridView3.Size = new Size(635, 550);
-        dataGridView3.TabIndex = 1;
         // 
         // tabPage4
         // 
@@ -726,7 +717,21 @@ partial class Form1
         logoutMenuStrip.Name = "logoutMenuStrip";
         logoutMenuStrip.Size = new Size(67, 24);
         logoutMenuStrip.Text = "Выход";
-        logoutMenuStrip.Click += logoutMenuStrip_Click;
+        logoutMenuStrip.Click += LogoutMenuStrip_Click;
+        // 
+        // tableLayoutPanel1
+        // 
+        tableLayoutPanel1.ColumnCount = 3;
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 248F));
+        tableLayoutPanel1.Location = new Point(504, 6);
+        tableLayoutPanel1.Name = "tableLayoutPanel1";
+        tableLayoutPanel1.RowCount = 2;
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        tableLayoutPanel1.Size = new Size(585, 535);
+        tableLayoutPanel1.TabIndex = 24;
         // 
         // Form1
         // 
@@ -747,7 +752,6 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
         tabPage3.ResumeLayout(false);
         tabPage3.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
         tabPage4.ResumeLayout(false);
         tabPage4.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
@@ -780,7 +784,6 @@ partial class Form1
     private DataGridView dataGridView2;
     private Label label1;
     private Label label2;
-    private DataGridView dataGridView3;
     private Label label7;
     private Label label10;
     private Label label9;
@@ -821,8 +824,9 @@ partial class Form1
     private Button button16;
     private Label label18;
     private Label label17;
-    private ComboBox comboBox6;
+    private ComboBox searchTeamComboBox;
     private Label label15;
-    private ComboBox comboBox7;
+    private ComboBox searchRoleComboBox;
     private Label label16;
+    private TableLayoutPanel tableLayoutPanel1;
 }

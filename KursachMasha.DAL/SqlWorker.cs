@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using System.Data.SqlClient;
 
 namespace KursachMasha.DAL;
 public abstract class SqlWorker<T>

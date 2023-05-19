@@ -24,6 +24,8 @@ public partial class LoginForm : Form
 
         Global.CurrentUser = user;
         new Form1(this).Show();
+        inputLogin.Clear(); 
+        inputPassword.Clear();
         Hide();
     }
 }

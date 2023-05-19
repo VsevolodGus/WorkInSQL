@@ -1,4 +1,6 @@
-﻿namespace KursachMasha.Classes;
+﻿using KursachMasha.DAL.Teams;
+
+namespace KursachMasha.Classes;
 public class Match
 {
     public int ID { get; set; }

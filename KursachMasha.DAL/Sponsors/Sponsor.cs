@@ -1,4 +1,4 @@
-﻿using KursachMasha.Classes;
+﻿using KursachMasha.DAL.Teams;
 
 namespace KursachMasha.DAL.Sponsors;
 public class Sponsor
