@@ -51,7 +51,7 @@ public class PlayerRepository :
             stringBuilder.Append($"and team_id = %{filter.TeamID}%");
 
         stringBuilder.Append(';');
-        return ExecuteGettingQuery(sql);
+        return ExecuteGettingQuery(stringBuilder.ToString());
     }
 
     protected override Player Map(NpgsqlDataReader sqlDataReader)
