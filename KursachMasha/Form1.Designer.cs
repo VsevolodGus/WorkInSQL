@@ -77,6 +77,8 @@ partial class Form1
         label13 = new Label();
         textBox12 = new TextBox();
         dataGridView5 = new DataGridView();
+        menuStrip1 = new MenuStrip();
+        logoutMenuStrip = new ToolStripMenuItem();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -88,6 +90,7 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
         tabPage5.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
+        menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
         // button3
@@ -117,10 +120,10 @@ partial class Form1
         Tabs.Controls.Add(tabPage4);
         Tabs.Controls.Add(tabPage5);
         Tabs.Font = new Font("Segoe UI Emoji", 9F, FontStyle.Regular, GraphicsUnit.Point);
-        Tabs.Location = new Point(6, 12);
+        Tabs.Location = new Point(6, 27);
         Tabs.Name = "Tabs";
         Tabs.SelectedIndex = 0;
-        Tabs.Size = new Size(1137, 603);
+        Tabs.Size = new Size(1137, 588);
         Tabs.TabIndex = 10;
         // 
         // tabPage1
@@ -138,7 +141,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 29);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(1129, 570);
+        tabPage1.Size = new Size(1129, 555);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
@@ -222,7 +225,7 @@ partial class Form1
         tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1129, 570);
+        tabPage2.Size = new Size(1129, 555);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
@@ -304,7 +307,7 @@ partial class Form1
         tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
         tabPage3.Padding = new Padding(3);
-        tabPage3.Size = new Size(1129, 570);
+        tabPage3.Size = new Size(1129, 555);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Матчи";
         tabPage3.UseVisualStyleBackColor = true;
@@ -428,7 +431,7 @@ partial class Form1
         tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
         tabPage4.Padding = new Padding(3);
-        tabPage4.Size = new Size(1129, 570);
+        tabPage4.Size = new Size(1129, 555);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Стадионы";
         tabPage4.UseVisualStyleBackColor = true;
@@ -513,7 +516,7 @@ partial class Form1
         tabPage5.Location = new Point(4, 29);
         tabPage5.Name = "tabPage5";
         tabPage5.Padding = new Padding(3);
-        tabPage5.Size = new Size(1129, 570);
+        tabPage5.Size = new Size(1129, 555);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Спонсоры";
         tabPage5.UseVisualStyleBackColor = true;
@@ -571,12 +574,31 @@ partial class Form1
         dataGridView5.Size = new Size(603, 550);
         dataGridView5.TabIndex = 3;
         // 
+        // menuStrip1
+        // 
+        menuStrip1.ImageScalingSize = new Size(20, 20);
+        menuStrip1.Items.AddRange(new ToolStripItem[] { logoutMenuStrip });
+        menuStrip1.Location = new Point(0, 0);
+        menuStrip1.Name = "menuStrip1";
+        menuStrip1.Size = new Size(1111, 28);
+        menuStrip1.TabIndex = 11;
+        menuStrip1.Text = "menuStrip1";
+        // 
+        // logoutMenuStrip
+        // 
+        logoutMenuStrip.Name = "logoutMenuStrip";
+        logoutMenuStrip.Size = new Size(67, 24);
+        logoutMenuStrip.Text = "Выход";
+        logoutMenuStrip.Click += logoutMenuStrip_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1111, 609);
         Controls.Add(Tabs);
+        Controls.Add(menuStrip1);
+        MainMenuStrip = menuStrip1;
         Name = "Form1";
         Text = "Курсач";
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -595,7 +617,10 @@ partial class Form1
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
+        menuStrip1.ResumeLayout(false);
+        menuStrip1.PerformLayout();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -648,4 +673,6 @@ partial class Form1
     private ComboBox comboBox4;
     private ComboBox comboBox3;
     private ComboBox comboBox2;
+    private MenuStrip menuStrip1;
+    private ToolStripMenuItem logoutMenuStrip;
 }

@@ -16,12 +16,14 @@ public partial class LoginForm : Form
     private void button1_Click(object sender, EventArgs e)
     {
         var user = userRepository.GetByLoginAndPassword(inputLogin.Text, inputPassword.Text);
-        if (user is not null)
+        if (user is null)
         {
-            new Form1().Show();
-            Close();
+            MessageBox.Show("Был введет не правильно пароль или логин!");
+            return;
         }
 
-        MessageBox.Show("Был введет не правильно пароль или логин!");
+        Global.CurrentUser = user;
+        new Form1(this).Show();
+        Hide();
     }
 }
