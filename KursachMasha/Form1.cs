@@ -36,6 +36,8 @@ public partial class Form1 : Form
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
+        SelectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
+        SelectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
     }
 
     #region Общие
@@ -88,17 +90,18 @@ public partial class Form1 : Form
 
     private void searchTeamComboBox_DropDown(object sender, EventArgs e)
     {
-        searchTeamComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
         {
-            Search = searchTeamComboBox.Text,
+            Search = thisComboBox.Text,
         });
     }
 
     private void DeletePlayers_Click(object sender, EventArgs e)
     {
-        var countDeletelayers = tablePlayers.SelectedRows.Count;
-        var playersID = new List<int>(countDeletelayers);
-        for (int i = 0; i < countDeletelayers; i++)
+        var countDeletePlayers = tablePlayers.SelectedRows.Count;
+        var playersID = new List<int>(countDeletePlayers);
+        for (int i = 0; i < countDeletePlayers; i++)
         {
             var playerID = (int)tablePlayers.SelectedRows[i].Cells[0].Value;
             playersID.Add(playerID);
@@ -116,4 +119,8 @@ public partial class Form1 : Form
 
 
 
+    private void searchTeamComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

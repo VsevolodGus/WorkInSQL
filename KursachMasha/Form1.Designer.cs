@@ -38,7 +38,7 @@ partial class Form1
         label15 = new Label();
         searchRoleComboBox = new ComboBox();
         label16 = new Label();
-        comboBox5 = new ComboBox();
+        SelectTeamPlayerComboBox = new ComboBox();
         label14 = new Label();
         textBox4 = new TextBox();
         label3 = new Label();
@@ -53,6 +53,8 @@ partial class Form1
         label5 = new Label();
         label6 = new Label();
         tabPage2 = new TabPage();
+        button2 = new Button();
+        comboBox6 = new ComboBox();
         button1 = new Button();
         button17 = new Button();
         button16 = new Button();
@@ -90,8 +92,6 @@ partial class Form1
         dataGridView5 = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        comboBox6 = new ComboBox();
-        button2 = new Button();
         ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -147,7 +147,7 @@ partial class Form1
         tabPage1.Controls.Add(label15);
         tabPage1.Controls.Add(searchRoleComboBox);
         tabPage1.Controls.Add(label16);
-        tabPage1.Controls.Add(comboBox5);
+        tabPage1.Controls.Add(SelectTeamPlayerComboBox);
         tabPage1.Controls.Add(label14);
         tabPage1.Controls.Add(textBox4);
         tabPage1.Controls.Add(label3);
@@ -226,13 +226,14 @@ partial class Form1
         label16.TabIndex = 25;
         label16.Text = "Роль";
         // 
-        // comboBox5
+        // SelectTeamPlayerComboBox
         // 
-        comboBox5.FormattingEnabled = true;
-        comboBox5.Location = new Point(85, 122);
-        comboBox5.Name = "comboBox5";
-        comboBox5.Size = new Size(305, 28);
-        comboBox5.TabIndex = 24;
+        SelectTeamPlayerComboBox.FormattingEnabled = true;
+        SelectTeamPlayerComboBox.Location = new Point(85, 122);
+        SelectTeamPlayerComboBox.Name = "SelectTeamPlayerComboBox";
+        SelectTeamPlayerComboBox.Size = new Size(305, 28);
+        SelectTeamPlayerComboBox.TabIndex = 24;
+        SelectTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label14
         // 
@@ -363,6 +364,23 @@ partial class Form1
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(429, 512);
+        button2.Name = "button2";
+        button2.Size = new Size(94, 29);
+        button2.TabIndex = 26;
+        button2.Text = "Получить";
+        button2.UseVisualStyleBackColor = true;
+        // 
+        // comboBox6
+        // 
+        comboBox6.FormattingEnabled = true;
+        comboBox6.Location = new Point(118, 50);
+        comboBox6.Name = "comboBox6";
+        comboBox6.Size = new Size(305, 28);
+        comboBox6.TabIndex = 25;
         // 
         // button1
         // 
@@ -716,23 +734,6 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
-        // comboBox6
-        // 
-        comboBox6.FormattingEnabled = true;
-        comboBox6.Location = new Point(118, 50);
-        comboBox6.Name = "comboBox6";
-        comboBox6.Size = new Size(305, 28);
-        comboBox6.TabIndex = 25;
-        // 
-        // button2
-        // 
-        button2.Location = new Point(429, 512);
-        button2.Name = "button2";
-        button2.Size = new Size(94, 29);
-        button2.TabIndex = 26;
-        button2.Text = "Получить";
-        button2.UseVisualStyleBackColor = true;
-        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -813,7 +814,7 @@ partial class Form1
     private ComboBox comboBox2;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private ComboBox comboBox5;
+    private ComboBox SelectTeamPlayerComboBox;
     private Label label14;
     private TextBox textBox4;
     private Label label3;
