@@ -36,7 +36,7 @@ public partial class Form1 : Form
                 textBox.Enabled = false;
         }
 
-        tablePlayers.ConfigColumns<Player>();
+        tablePlayers.Configuration<Player>();
         FillingTablePlayers();
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);

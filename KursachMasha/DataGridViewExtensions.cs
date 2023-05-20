@@ -4,7 +4,7 @@ using System.Reflection;
 namespace KursachMasha;
 internal static class DataGridViewExtensions
 {
-    public static void ConfigColumns<T>(this DataGridView table)
+    public static void Configuration<T>(this DataGridView table)
     {
         table.AutoGenerateColumns = false;
         var properties = typeof(T).GetProperties();
@@ -23,6 +23,8 @@ internal static class DataGridViewExtensions
                     table.Columns[column.Name].Visible = false;
             }
         }
+        table.ReadOnly = true;
+
     }
 
     public static void DeleteObject<T>(this DataGridView dataGriedView, ISqlWorkerEntityManipulation<T> repository)
