@@ -1,61 +1,66 @@
-﻿using Npgsql;
-using System.Text;
+﻿//using Npgsql;
+//using System.Text;
 
-namespace KursachMasha.DAL.Locations;
-public class LocationRepository :
-    SqlWorker<Location>
-    , ISqlWorkerEntity<Location, LocationFilter>
-{
-    public LocationRepository() : base()
-    { }
+//namespace KursachMasha.DAL.Locations;
+//public class LocationRepository :
+//    SqlWorker<Location>
+//    , ISqlWorkerEntity<Location, LocationFilter>
+//{
+//    public LocationRepository() : base()
+//    { }
 
-    protected override string Table => "locations";
+//    protected override string Table => "locations";
 
-    public void Update(Location sponsor)
-    {
-        var query = $"update from {Table} " +
-                        $"SET " +
-                        $"Name = {sponsor.Name}" +
-                    $"where id = {sponsor.ID};";
+//    public void Update(Location sponsor)
+//    {
+//        var query = $"update from {Table} " +
+//                        $"SET " +
+//                        $"Name = {sponsor.Name}" +
+//                    $"where id = {sponsor.ID};";
 
-        ExecuteQuery(query);
-    }
+//        ExecuteQuery(query);
+//    }
 
-    public void Delete(int id)
-    {
-        var query = $"delete from {Table} " +
-                    $"where id = {id}"; ;
+//    public void Delete(int id)
+//    {
+//        var query = $"delete from {Table} " +
+//                    $"where id = {id}"; ;
 
-        ExecuteQuery(query);
-    }
+//        ExecuteQuery(query);
+//    }
 
-    public void Add(Location sponsor)
-    {
-        var query = $"insert into {Table} (name)" +
-            $"values ({sponsor.Name});";
+//    public void Add(Location sponsor)
+//    {
+//        var query = $"insert into {Table} (name)" +
+//            $"values ({sponsor.Name});";
 
-        ExecuteQuery(query);
-    }
+//        ExecuteQuery(query);
+//    }
 
-    public Location[] GetArray(LocationFilter filter)
-    {
-        var stringBuilder = new StringBuilder($"select * from {Table}");
+//    public Location[] GetArray(LocationFilter filter)
+//    {
+//        var stringBuilder = new StringBuilder($"select * from {Table}");
 
-        if (string.IsNullOrEmpty(filter.Search))
-            stringBuilder.Append($"where name like %{filter.Search}%");
+//        if (string.IsNullOrEmpty(filter.Search))
+//            stringBuilder.Append($"where name like %{filter.Search}%");
 
-        stringBuilder.Append(';');
+//        stringBuilder.Append(';');
 
 
-        return ExecuteGettingQuery(stringBuilder.ToString());
-    }
+//        return ExecuteGetArrayQuery(stringBuilder.ToString());
+//    }
 
-    protected override Location Map(NpgsqlDataReader sqlDataReader)
-    {
-        return new Location()
-        {
-            ID = sqlDataReader.GetInt32(0),
-            Name = sqlDataReader.GetString(1),
-        };
-    }
-}
+//    protected override Location Map(NpgsqlDataReader sqlDataReader)
+//    {
+//        return new Location()
+//        {
+//            ID = sqlDataReader.GetInt32(0),
+//            Name = sqlDataReader.GetString(1),
+//        };
+//    }
+
+//    public Location GetByID(int id)
+//    {
+//        throw new NotImplementedException();
+//    }
+//}

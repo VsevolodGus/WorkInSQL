@@ -35,7 +35,7 @@ public class TeamRepository :
             stringBuilder.Append($"and sponsor_id = %{filter.SponsorID}%");
 
         stringBuilder.Append(';');
-        return ExecuteGettingQuery(stringBuilder.ToString());
+        return ExecuteGetArrayQuery(stringBuilder.ToString());
     }
 
    
@@ -47,4 +47,13 @@ public class TeamRepository :
             Name = sqlDataReader.GetString(1),
             SponsorID = sqlDataReader.GetInt32(2),
         };
+
+    public Team GetByID(int id)
+    {
+        var query = $"SELECT t.id, t.name, t.sponsor_id" +
+            $"\r\n\tFROM public.{Table} t" +
+            $"\r\n\twhere t.id = {id}";
+
+        return base.ExecuteGetQuery(query);
+    }
 }

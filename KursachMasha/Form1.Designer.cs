@@ -40,16 +40,16 @@ partial class Form1
         label16 = new Label();
         selectTeamPlayerComboBox = new ComboBox();
         label14 = new Label();
-        textBox4 = new TextBox();
+        playerPatronymicTetBox = new TextBox();
         label3 = new Label();
         buttonGettingPlayers = new Button();
         playerSearchTextBox = new TextBox();
         propertyPlayerRoleComboBox = new ComboBox();
         button4 = new Button();
         button5 = new Button();
-        textBox5 = new TextBox();
+        playerSurnameTextBox = new TextBox();
         label4 = new Label();
-        textBox6 = new TextBox();
+        playerNameTextBox = new TextBox();
         label5 = new Label();
         label6 = new Label();
         tabPage2 = new TabPage();
@@ -124,6 +124,7 @@ partial class Form1
         tablePlayers.RowTemplate.Height = 29;
         tablePlayers.Size = new Size(677, 535);
         tablePlayers.TabIndex = 9;
+        tablePlayers.RowStateChanged += tablePlayers_RowStateChanged;
         // 
         // Tabs
         // 
@@ -149,16 +150,16 @@ partial class Form1
         tabPage1.Controls.Add(label16);
         tabPage1.Controls.Add(selectTeamPlayerComboBox);
         tabPage1.Controls.Add(label14);
-        tabPage1.Controls.Add(textBox4);
+        tabPage1.Controls.Add(playerPatronymicTetBox);
         tabPage1.Controls.Add(label3);
         tabPage1.Controls.Add(buttonGettingPlayers);
         tabPage1.Controls.Add(playerSearchTextBox);
         tabPage1.Controls.Add(propertyPlayerRoleComboBox);
         tabPage1.Controls.Add(button4);
         tabPage1.Controls.Add(button5);
-        tabPage1.Controls.Add(textBox5);
+        tabPage1.Controls.Add(playerSurnameTextBox);
         tabPage1.Controls.Add(label4);
-        tabPage1.Controls.Add(textBox6);
+        tabPage1.Controls.Add(playerNameTextBox);
         tabPage1.Controls.Add(label5);
         tabPage1.Controls.Add(label6);
         tabPage1.Controls.Add(tablePlayers);
@@ -227,11 +228,11 @@ partial class Form1
         label16.TabIndex = 25;
         label16.Text = "Роль";
         // 
-        // SelectTeamPlayerComboBox
+        // selectTeamPlayerComboBox
         // 
         selectTeamPlayerComboBox.FormattingEnabled = true;
         selectTeamPlayerComboBox.Location = new Point(85, 122);
-        selectTeamPlayerComboBox.Name = "SelectTeamPlayerComboBox";
+        selectTeamPlayerComboBox.Name = "selectTeamPlayerComboBox";
         selectTeamPlayerComboBox.Size = new Size(305, 28);
         selectTeamPlayerComboBox.TabIndex = 24;
         selectTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
@@ -245,12 +246,12 @@ partial class Form1
         label14.TabIndex = 23;
         label14.Text = "Команда";
         // 
-        // textBox4
+        // playerPatronymicTetBox
         // 
-        textBox4.Location = new Point(85, 89);
-        textBox4.Name = "textBox4";
-        textBox4.Size = new Size(305, 27);
-        textBox4.TabIndex = 22;
+        playerPatronymicTetBox.Location = new Point(85, 89);
+        playerPatronymicTetBox.Name = "playerPatronymicTetBox";
+        playerPatronymicTetBox.Size = new Size(305, 27);
+        playerPatronymicTetBox.TabIndex = 22;
         // 
         // label3
         // 
@@ -307,12 +308,12 @@ partial class Form1
         button5.Text = "Обновить";
         button5.UseVisualStyleBackColor = true;
         // 
-        // textBox5
+        // playerSurnameTextBox
         // 
-        textBox5.Location = new Point(85, 56);
-        textBox5.Name = "textBox5";
-        textBox5.Size = new Size(305, 27);
-        textBox5.TabIndex = 16;
+        playerSurnameTextBox.Location = new Point(85, 56);
+        playerSurnameTextBox.Name = "playerSurnameTextBox";
+        playerSurnameTextBox.Size = new Size(305, 27);
+        playerSurnameTextBox.TabIndex = 16;
         // 
         // label4
         // 
@@ -323,12 +324,12 @@ partial class Form1
         label4.TabIndex = 12;
         label4.Text = "Имя";
         // 
-        // textBox6
+        // playerNameTextBox
         // 
-        textBox6.Location = new Point(85, 23);
-        textBox6.Name = "textBox6";
-        textBox6.Size = new Size(305, 27);
-        textBox6.TabIndex = 15;
+        playerNameTextBox.Location = new Point(85, 23);
+        playerNameTextBox.Name = "playerNameTextBox";
+        playerNameTextBox.Size = new Size(305, 27);
+        playerNameTextBox.TabIndex = 15;
         // 
         // label5
         // 
@@ -778,9 +779,9 @@ partial class Form1
     private TabPage tabPage4;
     private Button button4;
     private Button button5;
-    private TextBox textBox5;
+    private TextBox playerSurnameTextBox;
     private Label label4;
-    private TextBox textBox6;
+    private TextBox playerNameTextBox;
     private Label label5;
     private Label label6;
     private TextBox textBox1;
@@ -818,7 +819,7 @@ partial class Form1
     private ToolStripMenuItem logoutMenuStrip;
     private ComboBox selectTeamPlayerComboBox;
     private Label label14;
-    private TextBox textBox4;
+    private TextBox playerPatronymicTetBox;
     private Label label3;
     private Button buttonGettingPlayers;
     private TextBox playerSearchTextBox;

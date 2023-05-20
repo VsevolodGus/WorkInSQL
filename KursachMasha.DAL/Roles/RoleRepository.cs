@@ -1,5 +1,4 @@
-﻿using KursachMasha.DAL.Players;
-using Npgsql;
+﻿using Npgsql;
 using System.Text;
 
 namespace KursachMasha.DAL.Roles;
@@ -7,7 +6,7 @@ public class RoleRepository :
     SqlWorker<Role>
     , ISqlWorkerEntity<Role, RoleFilter>
 {
-    protected override string Table => throw new NotImplementedException();
+    protected override string Table => "roles";
 
     public void Add(Role sponsor)
     {
@@ -21,7 +20,7 @@ public class RoleRepository :
 
         var stringBuilder = new StringBuilder($"SELECT " +
             $"r.id, r.name, r.description" +
-            $"\r\n\tFROM public.roles r" +
+            $"\r\n\tFROM public.{Table} r" +
             $"\r\n\twhere 1 = 1");
 
         if (!string.IsNullOrEmpty(filter.Search))
@@ -29,7 +28,17 @@ public class RoleRepository :
 
         stringBuilder.Append(';');
         var sql = stringBuilder.ToString();
-        return ExecuteGettingQuery(sql);
+        return ExecuteGetArrayQuery(sql);
+    }
+
+    public Role GetByID(int id)
+    {
+        var query = $"SELECT " +
+            $"r.id, r.name, r.description" +
+            $"\r\n\tFROM public.{Table} r" +
+            $"\r\n\twhere r.id = {id}";
+
+        return base.ExecuteGetQuery(query);
     }
 
     public void Update(Role sponsor)

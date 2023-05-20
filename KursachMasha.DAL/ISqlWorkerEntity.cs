@@ -7,6 +7,7 @@ public interface ISqlWorkerEntityManipulation<T>
     void Delete(int id);
     void Delete(int[] ids);
     void Add(T sponsor);
+    T GetByID(int id);
 }
 
 public interface ISqlWorkerEntity<T, TFilter> : ISqlWorkerEntityManipulation<T>

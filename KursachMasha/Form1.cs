@@ -45,7 +45,7 @@ public partial class Form1 : Form
         selectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
 
         searchRoleComboBox.ValueMember = nameof(Role.ID);
-        searchRoleComboBox.DisplayMember= nameof(Role.Name);
+        searchRoleComboBox.DisplayMember = nameof(Role.Name);
         propertyPlayerRoleComboBox.ValueMember = nameof(Role.ID);
         propertyPlayerRoleComboBox.DisplayMember = nameof(Role.Name);
     }
@@ -60,7 +60,7 @@ public partial class Form1 : Form
 
     private void Form1_FormClosed(object sender, FormClosedEventArgs e)
     {
-        _loginForm.Close();
+        //_loginForm.Close();
         this.Close();
     }
     #endregion
@@ -94,12 +94,13 @@ public partial class Form1 : Form
         if (e is KeyEventArgs && eventKey.KeyCode != Keys.Enter)
             return;
 
+        //var asd = selectTeamPlayerComboBox.SelectedValue;
 
         FillingTablePlayers(new PlayerFilter
         {
             Search = playerSearchTextBox.Text,
-            TeamID = (searchTeamComboBox.SelectedItem as Team)?.ID,
-            //RoleID = (searchTeamComboBox.SelectedItem as Team)?.ID,
+            TeamID = (int?)searchTeamComboBox.SelectedValue,
+            RoleID = (int?)searchRoleComboBox.SelectedValue,
         });
     }
 
@@ -130,4 +131,40 @@ public partial class Form1 : Form
     #endregion
 
 
+    private void tablePlayers_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+    {
+        #region Обнуление полей с данными
+        playerNameTextBox.Text = string.Empty;
+        playerSurnameTextBox.Text = string.Empty;
+        playerPatronymicTetBox.Text = string.Empty;
+
+        selectTeamPlayerComboBox.SelectedItem = null;
+        selectTeamPlayerComboBox.SelectedValue = null;
+        selectTeamPlayerComboBox.Text = null;
+
+        propertyPlayerRoleComboBox.SelectedItem = null;
+        propertyPlayerRoleComboBox.SelectedValue = null;
+        propertyPlayerRoleComboBox.Text = null;
+        #endregion
+
+        if (e.StateChanged != DataGridViewElementStates.Selected)
+            return;
+
+        var row = tablePlayers.Rows[e.Row.Index];
+        
+        var player = _playerRepository.GetByID((int)row.Cells[0].Value);
+        playerNameTextBox.Text = player.Name;
+        playerSurnameTextBox.Text = player.Surname;
+        playerPatronymicTetBox.Text = player.Patronymic;
+
+        var team = _teamRepository.GetByID(player.TeamID);
+        selectTeamPlayerComboBox.SelectedItem = team;
+        selectTeamPlayerComboBox.SelectedValue = team.ID;
+        selectTeamPlayerComboBox.SelectedText = team.Name;
+
+        var role = _roleRepository.GetByID(player.RoleID);
+        propertyPlayerRoleComboBox.SelectedItem = role;
+        propertyPlayerRoleComboBox.SelectedValue = role.ID;
+        propertyPlayerRoleComboBox.SelectedText = role.Name;
+    }
 }

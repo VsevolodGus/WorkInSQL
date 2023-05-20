@@ -24,7 +24,6 @@ internal static class DataGridViewExtensions
             }
         }
         table.ReadOnly = true;
-
     }
 
     public static void DeleteObject<T>(this DataGridView dataGriedView, ISqlWorkerEntityManipulation<T> repository)

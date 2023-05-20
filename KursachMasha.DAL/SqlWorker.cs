@@ -34,7 +34,7 @@ public abstract class SqlWorker<T>
         sqlConnection.Close();
     }
 
-    protected T[] ExecuteGettingQuery(string gettingQuery)
+    protected T[] ExecuteGetArrayQuery(string gettingQuery)
     {
         sqlConnection.Open();
 
@@ -49,6 +49,21 @@ public abstract class SqlWorker<T>
         sqlConnection.Close();
 
         return result.ToArray();
+    }
+
+    protected T ExecuteGetQuery(string gettingQuery)
+    {
+        sqlConnection.Open();
+
+        var command = new NpgsqlCommand(gettingQuery, sqlConnection);
+        var reader = command.ExecuteReader();
+
+        reader.Read();
+        var result = Map(reader);
+        reader.Close();
+        sqlConnection.Close();
+
+        return result;
     }
 
     protected abstract T Map(NpgsqlDataReader sqlDataReader);

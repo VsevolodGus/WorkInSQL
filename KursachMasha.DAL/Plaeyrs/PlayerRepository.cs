@@ -45,14 +45,17 @@ public class PlayerRepository :
             $"\r\n\twhere 1 = 1");
 
         if (!string.IsNullOrEmpty(filter.Search))
-            stringBuilder.Append($"\nand name like '%{filter.Search}%'");
+            stringBuilder.Append($"\nand p.name like '%{filter.Search}%'");
 
         if (filter.TeamID.HasValue)
-            stringBuilder.Append($"\nand team_id = {filter.TeamID}");
+            stringBuilder.Append($"\nand p.team_id = {filter.TeamID}");
+        if (filter.TeamID.HasValue)
+            stringBuilder.Append($"\nand p.role_id = {filter.RoleID}");
+
 
         stringBuilder.Append(';');
         var sql = stringBuilder.ToString();
-        return ExecuteGettingQuery(sql);
+        return base.ExecuteGetArrayQuery(sql);
     }
 
     protected override Player Map(NpgsqlDataReader sqlDataReader)
@@ -69,5 +72,18 @@ public class PlayerRepository :
             TeamName = sqlDataReader.GetString(7),
             RoleName = sqlDataReader.GetString(8),
         };
+    }
+
+    public Player GetByID(int id)
+    {
+        var query = "SELECT " +
+            $"p.id, p.name, p.surname, p.patronymic, p.number_in_team, p.team_id, p.role_id, t.name, r.name" +
+            $"\r\n\tFROM public.players p" +
+            $"\r\n\tINNER JOIN public.roles r ON r.id = p.role_id" +
+            $"\r\n\tINNER JOIN public.teams t ON t.id = p.team_id" +
+            $"\r\n\twhere p.id = {id}";
+
+
+        return base.ExecuteGetQuery(query);
     }
 }
