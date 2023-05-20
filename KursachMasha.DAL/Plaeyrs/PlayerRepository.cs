@@ -40,7 +40,7 @@ public class PlayerRepository :
         var stringBuilder = new StringBuilder($"SELECT " +
             $"p.id, p.name, p.surname, p.patronymic, p.number_in_team, p.team_id, p.role_id, t.name, r.name" +
             $"\r\n\tFROM public.players p" +
-            $"\r\n\tINNER JOIN public.role_players r ON r.id = p.role_id" +
+            $"\r\n\tINNER JOIN public.roles r ON r.id = p.role_id" +
             $"\r\n\tINNER JOIN public.teams t ON t.id = p.team_id" +
             $"\r\n\twhere 1 = 1");
 

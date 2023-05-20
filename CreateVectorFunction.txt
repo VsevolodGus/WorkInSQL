@@ -24,7 +24,7 @@ BEGIN
         t.role_name
     from players p
     INNER JOIN teams t ON t.id = p.team_id
-    INNER JOIN role_players rp ON rp.id = p.role_id
+    INNER JOIN roles rp ON rp.id = p.role_id
     WHERE search IS NULL or search = ''
         or p.name + p.surname + p.patronymic LIKE '%' + search + '%' ;
 END; $$ 

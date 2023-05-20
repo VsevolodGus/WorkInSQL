@@ -1,4 +1,5 @@
 using KursachMasha.DAL.Players;
+using KursachMasha.DAL.Roles;
 using KursachMasha.DAL.Teams;
 
 namespace KursachMasha;
@@ -6,8 +7,10 @@ namespace KursachMasha;
 public partial class Form1 : Form
 {
     private readonly LoginForm _loginForm;
+
     private readonly PlayerRepository _playerRepository;
     private readonly TeamRepository _teamRepository;
+    private readonly RoleRepository _roleRepository;
 
 
     public Form1(LoginForm loginForm)
@@ -16,6 +19,7 @@ public partial class Form1 : Form
 
         _playerRepository = new PlayerRepository();
         _teamRepository = new TeamRepository();
+        _roleRepository = new RoleRepository();
 
         InitializeComponent();
         DateTimePickerMatch.Format = DateTimePickerFormat.Custom;
@@ -37,8 +41,13 @@ public partial class Form1 : Form
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
-        SelectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
-        SelectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
+        selectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
+        selectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
+
+        searchRoleComboBox.ValueMember = nameof(Role.ID);
+        searchRoleComboBox.DisplayMember= nameof(Role.Name);
+        propertyPlayerRoleComboBox.ValueMember = nameof(Role.ID);
+        propertyPlayerRoleComboBox.DisplayMember = nameof(Role.Name);
     }
 
     #region Общие
@@ -113,7 +122,7 @@ public partial class Form1 : Form
     private void searchRoleComboBox_DropDown(object sender, EventArgs e)
     {
         var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
+        thisComboBox.DataSource = _roleRepository.GetArray(new RoleFilter()
         {
             Search = thisComboBox.Text,
         });

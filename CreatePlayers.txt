@@ -32,7 +32,7 @@ CREATE INDEX IF NOT EXISTS ix_team_id
 
 ALTER TABLE IF EXISTS public.players
     ADD CONSTRAINT fk_role FOREIGN KEY (role_id)
-    REFERENCES public.role_players (id)
+    REFERENCES public.roles (id)
     ON DELETE CASCADE;
 
 CREATE INDEX IF NOT EXISTS ix_role_id

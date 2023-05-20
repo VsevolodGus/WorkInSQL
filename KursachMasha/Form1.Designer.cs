@@ -38,7 +38,7 @@ partial class Form1
         label15 = new Label();
         searchRoleComboBox = new ComboBox();
         label16 = new Label();
-        SelectTeamPlayerComboBox = new ComboBox();
+        selectTeamPlayerComboBox = new ComboBox();
         label14 = new Label();
         textBox4 = new TextBox();
         label3 = new Label();
@@ -147,7 +147,7 @@ partial class Form1
         tabPage1.Controls.Add(label15);
         tabPage1.Controls.Add(searchRoleComboBox);
         tabPage1.Controls.Add(label16);
-        tabPage1.Controls.Add(SelectTeamPlayerComboBox);
+        tabPage1.Controls.Add(selectTeamPlayerComboBox);
         tabPage1.Controls.Add(label14);
         tabPage1.Controls.Add(textBox4);
         tabPage1.Controls.Add(label3);
@@ -229,12 +229,12 @@ partial class Form1
         // 
         // SelectTeamPlayerComboBox
         // 
-        SelectTeamPlayerComboBox.FormattingEnabled = true;
-        SelectTeamPlayerComboBox.Location = new Point(85, 122);
-        SelectTeamPlayerComboBox.Name = "SelectTeamPlayerComboBox";
-        SelectTeamPlayerComboBox.Size = new Size(305, 28);
-        SelectTeamPlayerComboBox.TabIndex = 24;
-        SelectTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
+        selectTeamPlayerComboBox.FormattingEnabled = true;
+        selectTeamPlayerComboBox.Location = new Point(85, 122);
+        selectTeamPlayerComboBox.Name = "SelectTeamPlayerComboBox";
+        selectTeamPlayerComboBox.Size = new Size(305, 28);
+        selectTeamPlayerComboBox.TabIndex = 24;
+        selectTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label14
         // 
@@ -816,7 +816,7 @@ partial class Form1
     private ComboBox comboBox2;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private ComboBox SelectTeamPlayerComboBox;
+    private ComboBox selectTeamPlayerComboBox;
     private Label label14;
     private TextBox textBox4;
     private Label label3;
