@@ -24,4 +24,18 @@ internal static class DataGridViewExtensions
             }
         }
     }
+
+    public static void DeleteObject<T>(this DataGridView dataGriedView, ISqlWorkerEntityManipulation<T> repository)
+        where T : class
+    {
+        var countDeletePlayers = dataGriedView.SelectedRows.Count;
+        var playersID = new List<int>(countDeletePlayers);
+        for (int i = 0; i < countDeletePlayers; i++)
+        {
+            var playerID = (int)dataGriedView.SelectedRows[i].Cells[0].Value;
+            playersID.Add(playerID);
+        }
+
+        repository.Delete(playersID.ToArray());
+    }
 }

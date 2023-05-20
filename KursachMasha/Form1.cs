@@ -1,7 +1,6 @@
 using KursachMasha.DAL;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Teams;
-using System.Windows.Forms;
 
 namespace KursachMasha;
 
@@ -75,6 +74,11 @@ public partial class Form1 : Form
                 , player.RoleName);
     }
 
+    private void DeletePlayers_Click(object sender, EventArgs e)
+    {
+        tablePlayers.DeleteObject(_playerRepository);
+        ButtonGettingPlayers_Click(sender, e);
+    }
 
     private void ButtonGettingPlayers_Click(object sender, EventArgs e)
     {
@@ -91,6 +95,10 @@ public partial class Form1 : Form
         });
     }
 
+
+    #endregion
+
+    #region Логика с командами
     private void searchTeamComboBox_DropDown(object sender, EventArgs e)
     {
         var thisComboBox = sender as ComboBox;
@@ -99,44 +107,19 @@ public partial class Form1 : Form
             Search = thisComboBox.Text,
         });
     }
-
-    private void DeletePlayers_Click(object sender, EventArgs e)
-    {
-        DeleteObject(tablePlayers, _playerRepository);
-        //var countDeletePlayers = tablePlayers.SelectedRows.Count;
-        //var playersID = new List<int>(countDeletePlayers);
-        //for (int i = 0; i < countDeletePlayers; i++)
-        //{
-        //    var playerID = (int)tablePlayers.SelectedRows[i].Cells[0].Value;
-        //    playersID.Add(playerID);
-        //}
-
-        //_playerRepository.Delete(playersID.ToArray());
-        ButtonGettingPlayers_Click(sender, e);
-    }
-
     #endregion
-    private void DeleteObject<T>(DataGridView dataGriedView, ISqlWorkerEntityManipulation<T> repository) 
-        where T : class
+
+
+    #region Логика с ролями
+    private void searchRoleComboBox_DropDown(object sender, EventArgs e)
     {
-        var countDeletePlayers = dataGriedView.SelectedRows.Count;
-        var playersID = new List<int>(countDeletePlayers);
-        for (int i = 0; i < countDeletePlayers; i++)
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
         {
-            var playerID = (int)dataGriedView.SelectedRows[i].Cells[0].Value;
-            playersID.Add(playerID);
-        }
-
-        repository.Delete(playersID.ToArray());
+            Search = thisComboBox.Text,
+        });
     }
+    #endregion
 
 
-
-
-
-
-    private void searchTeamComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
 }

@@ -44,7 +44,7 @@ partial class Form1
         label3 = new Label();
         buttonGettingPlayers = new Button();
         playerSearchTextBox = new TextBox();
-        comboBox1 = new ComboBox();
+        propertyPlayerRoleComboBox = new ComboBox();
         button4 = new Button();
         button5 = new Button();
         textBox5 = new TextBox();
@@ -153,7 +153,7 @@ partial class Form1
         tabPage1.Controls.Add(label3);
         tabPage1.Controls.Add(buttonGettingPlayers);
         tabPage1.Controls.Add(playerSearchTextBox);
-        tabPage1.Controls.Add(comboBox1);
+        tabPage1.Controls.Add(propertyPlayerRoleComboBox);
         tabPage1.Controls.Add(button4);
         tabPage1.Controls.Add(button5);
         tabPage1.Controls.Add(textBox5);
@@ -215,6 +215,7 @@ partial class Form1
         searchRoleComboBox.Name = "searchRoleComboBox";
         searchRoleComboBox.Size = new Size(305, 28);
         searchRoleComboBox.TabIndex = 26;
+        searchRoleComboBox.DropDown += searchRoleComboBox_DropDown;
         searchRoleComboBox.Enter += ButtonGettingPlayers_Click;
         // 
         // label16
@@ -279,13 +280,14 @@ partial class Form1
         playerSearchTextBox.Enter += ButtonGettingPlayers_Click;
         playerSearchTextBox.KeyDown += ButtonGettingPlayers_Click;
         // 
-        // comboBox1
+        // propertyPlayerRoleComboBox
         // 
-        comboBox1.FormattingEnabled = true;
-        comboBox1.Location = new Point(85, 156);
-        comboBox1.Name = "comboBox1";
-        comboBox1.Size = new Size(305, 28);
-        comboBox1.TabIndex = 18;
+        propertyPlayerRoleComboBox.FormattingEnabled = true;
+        propertyPlayerRoleComboBox.Location = new Point(85, 156);
+        propertyPlayerRoleComboBox.Name = "propertyPlayerRoleComboBox";
+        propertyPlayerRoleComboBox.Size = new Size(305, 28);
+        propertyPlayerRoleComboBox.TabIndex = 18;
+        propertyPlayerRoleComboBox.DropDown += searchRoleComboBox_DropDown;
         // 
         // button4
         // 
@@ -808,7 +810,7 @@ partial class Form1
     private Button button13;
     private Button button14;
     private Button button15;
-    private ComboBox comboBox1;
+    private ComboBox propertyPlayerRoleComboBox;
     private ComboBox comboBox4;
     private ComboBox comboBox3;
     private ComboBox comboBox2;
