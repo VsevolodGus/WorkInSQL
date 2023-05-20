@@ -1,6 +1,6 @@
+using KursachMasha.DAL;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Teams;
-using System.Data;
 using System.Reflection;
 
 namespace KursachMasha;
@@ -34,11 +34,17 @@ public partial class Form1 : Form
         }
 
 
-        #region Настройка DataGried
-        tablePlayers.AutoGenerateColumns = false;
-        var properties = typeof(Player).GetProperties();
-        //    .Where(c=> c.GetCustomAttributes<ColumnAttribute>().Any() || !c.PropertyType.IsClass)
-        //    .ToArray();
+        ConfigDataGried<Player>(tablePlayers);
+        FillingTablePlayers();
+
+        searchTeamComboBox.ValueMember = nameof(Team.ID);
+        searchTeamComboBox.DisplayMember = nameof(Team.Name);
+    }
+
+    private void ConfigDataGried<T>(DataGridView table)
+    {
+        table.AutoGenerateColumns = false;
+        var properties = typeof(T).GetProperties();
         foreach (var column in properties)
         {
             var attributes = column.GetCustomAttribute<ColumnAttribute>();
@@ -48,33 +54,34 @@ public partial class Form1 : Form
                 if (attributes is not null)
                     columnsName = attributes.Name;
 
-                tablePlayers.Columns.Add(column.Name, columnsName);
+                table.Columns.Add(column.Name, columnsName);
+
+                if (column.Name.ToLower().Contains("id"))
+                    table.Columns[column.Name].Visible = false;
             }
         }
-        tablePlayers.Columns[nameof(Player.ID)].Visible = false;
-        #endregion
-
-        FillingTablePlayers();
-
-
-
-
-        searchTeamComboBox.ValueMember = nameof(Team.ID);
-        searchTeamComboBox.DisplayMember = nameof(Team.Name);
     }
 
     private void LogoutMenuStrip_Click(object sender, EventArgs e)
     {
         Global.CurrentUser = null;
         _loginForm.Show();
-        this.Close();
+        this.Hide();
     }
 
     private void FillingTablePlayers(PlayerFilter filter = null)
     {
         tablePlayers.Rows.Clear();
         foreach (var player in _playerRepository.GetArray(filter))
-            tablePlayers.Rows.Add(player.ID, player.Name, player.Surname, player.Patronymic, player.Number, player.TeamID, player.RoleID);
+            tablePlayers.Rows.Add(player.ID
+                , player.Name
+                , player.Surname
+                , player.Patronymic
+                , player.Number
+                , player.TeamID
+                , player.TeamName
+                , player.RoleID
+                , player.RoleName);
     }
 
 
@@ -105,5 +112,10 @@ public partial class Form1 : Form
     private void DeletePlayers_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _loginForm.Close();
     }
 }

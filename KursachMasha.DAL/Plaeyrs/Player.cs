@@ -3,16 +3,7 @@
 namespace KursachMasha.DAL.Players;
 
 
-[AttributeUsage(AttributeTargets.Property)]
-public class ColumnAttribute : Attribute
-{
-    public ColumnAttribute(string name)
-    {
-        Name = name;
-    }
-    
-    public string Name { get; init; }
-}
+
 
 public class Player
 {
@@ -30,11 +21,15 @@ public class Player
     [Column("Номер в команде")]
     public int Number { get; set; }
 
-    [Column("Команда")]
     public int TeamID { get; set; }
 
-    [Column("Роль")]
+    [Column("Команда")]
+    public string TeamName { get; set; }
+
     public int RoleID { get; set; }
-    
+
+    [Column("Роль")]
+    public string RoleName { get; set; }
+
     public Team Team { get; set; }
 }

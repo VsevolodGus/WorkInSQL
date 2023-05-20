@@ -731,6 +731,7 @@ partial class Form1
         MainMenuStrip = menuStrip1;
         Name = "Form1";
         Text = "Курсач";
+        FormClosed += Form1_FormClosed;
         ((System.ComponentModel.ISupportInitialize)tablePlayers).EndInit();
         Tabs.ResumeLayout(false);
         tabPage1.ResumeLayout(false);

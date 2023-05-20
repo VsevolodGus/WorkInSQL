@@ -11,13 +11,13 @@ public class PlayerRepository :
 
     protected override string Table => "players";
 
-    public void Update(Player sponsor)
+    public void Update(Player obj)
     {
         var query = $"update from {Table} " +
                         $"set " +
-                        $"Name = {sponsor.Name}" +
-                        $", team_id = {sponsor.TeamID}" +
-                    $"where id = {sponsor.ID};";
+                        $"Name = {obj.Name}" +
+                        $", team_id = {obj.TeamID}" +
+                    $"where id = {obj.ID};";
 
         ExecuteQuery(query);
     }
@@ -43,8 +43,11 @@ public class PlayerRepository :
         if(filter is null)
             filter = new PlayerFilter();
 
-        var stringBuilder = new StringBuilder($"SELECT id, name, surname, patronymic, number_in_team, team_id, role_id" +
-            $"\r\n\tFROM public.players" +
+        var stringBuilder = new StringBuilder($"SELECT " +
+            $"p.id, p.name, p.surname, p.patronymic, p.number_in_team, p.team_id, p.role_id, t.name, r.name" +
+            $"\r\n\tFROM public.players p" +
+            $"\r\n\tINNER JOIN public.role_players r ON r.id = p.role_id" +
+            $"\r\n\tINNER JOIN public.teams t ON t.id = p.team_id" +
             $"\r\n\twhere 1 = 1");
 
         if (!string.IsNullOrEmpty(filter.Search))
@@ -69,6 +72,8 @@ public class PlayerRepository :
             Number = sqlDataReader.GetInt32(4),
             TeamID = sqlDataReader.GetInt32(5),
             RoleID= sqlDataReader.GetInt32(6),
+            TeamName = sqlDataReader.GetString(7),
+            RoleName = sqlDataReader.GetString(8),
         };
     }
 }
