@@ -1,9 +1,9 @@
 ﻿namespace KursachMasha.DAL;
 
 [AttributeUsage(AttributeTargets.Property)]
-public class ColumnAttribute : Attribute
+public class ColumnHeadrAttribute : Attribute
 {
-    public ColumnAttribute(string name)
+    public ColumnHeadrAttribute(string name)
     {
         Name = name;
     }

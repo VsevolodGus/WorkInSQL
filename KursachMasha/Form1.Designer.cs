@@ -58,7 +58,6 @@ partial class Form1
         button16 = new Button();
         label1 = new Label();
         label2 = new Label();
-        textBox2 = new TextBox();
         textBox1 = new TextBox();
         dataGridView2 = new DataGridView();
         tabPage3 = new TabPage();
@@ -91,6 +90,8 @@ partial class Form1
         dataGridView5 = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
+        comboBox6 = new ComboBox();
+        button2 = new Button();
         ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -106,7 +107,7 @@ partial class Form1
         // 
         // button3
         // 
-        button3.Location = new Point(993, 512);
+        button3.Location = new Point(296, 204);
         button3.Name = "button3";
         button3.Size = new Size(94, 29);
         button3.TabIndex = 2;
@@ -121,7 +122,7 @@ partial class Form1
         tablePlayers.Name = "tablePlayers";
         tablePlayers.RowHeadersWidth = 51;
         tablePlayers.RowTemplate.Height = 29;
-        tablePlayers.Size = new Size(677, 497);
+        tablePlayers.Size = new Size(677, 535);
         tablePlayers.TabIndex = 9;
         // 
         // Tabs
@@ -260,7 +261,7 @@ partial class Form1
         // 
         // buttonGettingPlayers
         // 
-        buttonGettingPlayers.Location = new Point(410, 512);
+        buttonGettingPlayers.Location = new Point(296, 429);
         buttonGettingPlayers.Name = "buttonGettingPlayers";
         buttonGettingPlayers.Size = new Size(94, 29);
         buttonGettingPlayers.TabIndex = 20;
@@ -287,7 +288,7 @@ partial class Form1
         // 
         // button4
         // 
-        button4.Location = new Point(770, 512);
+        button4.Location = new Point(96, 204);
         button4.Name = "button4";
         button4.Size = new Size(94, 29);
         button4.TabIndex = 10;
@@ -296,7 +297,7 @@ partial class Form1
         // 
         // button5
         // 
-        button5.Location = new Point(880, 512);
+        button5.Location = new Point(196, 204);
         button5.Name = "button5";
         button5.Size = new Size(94, 29);
         button5.TabIndex = 11;
@@ -346,12 +347,13 @@ partial class Form1
         // 
         // tabPage2
         // 
+        tabPage2.Controls.Add(button2);
+        tabPage2.Controls.Add(comboBox6);
         tabPage2.Controls.Add(button1);
         tabPage2.Controls.Add(button17);
         tabPage2.Controls.Add(button16);
         tabPage2.Controls.Add(label1);
         tabPage2.Controls.Add(label2);
-        tabPage2.Controls.Add(textBox2);
         tabPage2.Controls.Add(textBox1);
         tabPage2.Controls.Add(dataGridView2);
         tabPage2.Location = new Point(4, 29);
@@ -401,34 +403,27 @@ partial class Form1
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(6, 50);
+        label2.Location = new Point(6, 53);
         label2.Name = "label2";
         label2.Size = new Size(70, 20);
         label2.TabIndex = 16;
         label2.Text = "Спонсор";
         // 
-        // textBox2
-        // 
-        textBox2.Location = new Point(118, 50);
-        textBox2.Name = "textBox2";
-        textBox2.Size = new Size(125, 27);
-        textBox2.TabIndex = 2;
-        // 
         // textBox1
         // 
         textBox1.Location = new Point(118, 17);
         textBox1.Name = "textBox1";
-        textBox1.Size = new Size(125, 27);
+        textBox1.Size = new Size(305, 27);
         textBox1.TabIndex = 1;
         // 
         // dataGridView2
         // 
         dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView2.Location = new Point(484, 6);
+        dataGridView2.Location = new Point(429, 6);
         dataGridView2.Name = "dataGridView2";
         dataGridView2.RowHeadersWidth = 51;
         dataGridView2.RowTemplate.Height = 29;
-        dataGridView2.Size = new Size(603, 403);
+        dataGridView2.Size = new Size(658, 500);
         dataGridView2.TabIndex = 0;
         // 
         // tabPage3
@@ -721,6 +716,23 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
+        // comboBox6
+        // 
+        comboBox6.FormattingEnabled = true;
+        comboBox6.Location = new Point(118, 50);
+        comboBox6.Name = "comboBox6";
+        comboBox6.Size = new Size(305, 28);
+        comboBox6.TabIndex = 25;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(429, 512);
+        button2.Name = "button2";
+        button2.Size = new Size(94, 29);
+        button2.TabIndex = 26;
+        button2.Text = "Получить";
+        button2.UseVisualStyleBackColor = true;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -768,7 +780,6 @@ partial class Form1
     private TextBox textBox6;
     private Label label5;
     private Label label6;
-    private TextBox textBox2;
     private TextBox textBox1;
     private DataGridView dataGridView2;
     private Label label1;
@@ -817,4 +828,6 @@ partial class Form1
     private Label label15;
     private ComboBox searchRoleComboBox;
     private Label label16;
+    private Button button2;
+    private ComboBox comboBox6;
 }

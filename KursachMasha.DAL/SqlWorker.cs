@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using System.Text;
 
 namespace KursachMasha.DAL;
 public abstract class SqlWorker<T>
@@ -8,6 +9,21 @@ public abstract class SqlWorker<T>
     public SqlWorker()
     {
         sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=kursach; Password=1;");
+    }
+    public void Delete(int id)
+    {
+        var query = $"delete from {Table} " +
+                    $"where id = {id}";
+
+        ExecuteQuery(query);
+    }
+
+    public void Delete(int[] ids)
+    {
+        var query = $"delete from {Table} " +
+                    $"where id in ({string.Join(',',ids)})";
+
+        ExecuteQuery(query);
     }
 
     protected void ExecuteQuery(string query)

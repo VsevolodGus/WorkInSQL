@@ -22,13 +22,7 @@ public class PlayerRepository :
         ExecuteQuery(query);
     }
 
-    public void Delete(int id)
-    {
-        var query = $"delete from {Table} " +
-                    $"where id = {id}";
-
-        ExecuteQuery(query);
-    }
+    
 
     public void Add(Player obj)
     {

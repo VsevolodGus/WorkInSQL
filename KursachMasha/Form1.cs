@@ -1,7 +1,5 @@
-using KursachMasha.DAL;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Teams;
-using System.Reflection;
 
 namespace KursachMasha;
 
@@ -33,35 +31,14 @@ public partial class Form1 : Form
                 textBox.Enabled = false;
         }
 
-
-        ConfigDataGried<Player>(tablePlayers);
+        tablePlayers.ConfigColumns<Player>();
         FillingTablePlayers();
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
     }
 
-    private void ConfigDataGried<T>(DataGridView table)
-    {
-        table.AutoGenerateColumns = false;
-        var properties = typeof(T).GetProperties();
-        foreach (var column in properties)
-        {
-            var attributes = column.GetCustomAttribute<ColumnAttribute>();
-            if (attributes is not null || !column.PropertyType.IsClass)
-            {
-                string columnsName = column.Name;
-                if (attributes is not null)
-                    columnsName = attributes.Name;
-
-                table.Columns.Add(column.Name, columnsName);
-
-                if (column.Name.ToLower().Contains("id"))
-                    table.Columns[column.Name].Visible = false;
-            }
-        }
-    }
-
+    #region Общие
     private void LogoutMenuStrip_Click(object sender, EventArgs e)
     {
         Global.CurrentUser = null;
@@ -69,6 +46,15 @@ public partial class Form1 : Form
         this.Hide();
     }
 
+    private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _loginForm.Close();
+        this.Close();
+    }
+    #endregion
+
+
+    #region Логика с юзерами
     private void FillingTablePlayers(PlayerFilter filter = null)
     {
         tablePlayers.Rows.Clear();
@@ -83,7 +69,6 @@ public partial class Form1 : Form
                 , player.RoleID
                 , player.RoleName);
     }
-
 
 
     private void ButtonGettingPlayers_Click(object sender, EventArgs e)
@@ -111,11 +96,24 @@ public partial class Form1 : Form
 
     private void DeletePlayers_Click(object sender, EventArgs e)
     {
+        var countDeletelayers = tablePlayers.SelectedRows.Count;
+        var playersID = new List<int>(countDeletelayers);
+        for (int i = 0; i < countDeletelayers; i++)
+        {
+            var playerID = (int)tablePlayers.SelectedRows[i].Cells[0].Value;
+            playersID.Add(playerID);
+        }
 
+        _playerRepository.Delete(playersID.ToArray());
+        ButtonGettingPlayers_Click(sender, e);
     }
 
-    private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-    {
-        _loginForm.Close();
-    }
+    #endregion
+
+
+
+
+
+
+
 }
