@@ -1,10 +1,23 @@
-﻿using Npgsql;
+﻿
+using Npgsql;
 using System.Text;
 
 namespace KursachMasha.DAL.Teams;
-public class TeamRepository : SqlWorker<Team>
+public class TeamRepository :
+    SqlWorker<Team>
+    , ISqlWorkerEntity<Team, TeamFilter>
 {
     protected override string Table => "teams";
+
+    public void Add(Team sponsor)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Update(Team sponsor)
+    {
+        throw new NotImplementedException();
+    }
 
     public Team[] GetArray(TeamFilter filter = null)
     {
@@ -24,6 +37,8 @@ public class TeamRepository : SqlWorker<Team>
         stringBuilder.Append(';');
         return ExecuteGettingQuery(stringBuilder.ToString());
     }
+
+   
 
     protected override Team Map(NpgsqlDataReader sqlDataReader)
         => new Team()

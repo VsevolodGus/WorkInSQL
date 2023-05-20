@@ -1,5 +1,7 @@
+using KursachMasha.DAL;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Teams;
+using System.Windows.Forms;
 
 namespace KursachMasha;
 
@@ -8,6 +10,7 @@ public partial class Form1 : Form
     private readonly LoginForm _loginForm;
     private readonly PlayerRepository _playerRepository;
     private readonly TeamRepository _teamRepository;
+
 
     public Form1(LoginForm loginForm)
     {
@@ -99,20 +102,33 @@ public partial class Form1 : Form
 
     private void DeletePlayers_Click(object sender, EventArgs e)
     {
-        var countDeletePlayers = tablePlayers.SelectedRows.Count;
-        var playersID = new List<int>(countDeletePlayers);
-        for (int i = 0; i < countDeletePlayers; i++)
-        {
-            var playerID = (int)tablePlayers.SelectedRows[i].Cells[0].Value;
-            playersID.Add(playerID);
-        }
+        DeleteObject(tablePlayers, _playerRepository);
+        //var countDeletePlayers = tablePlayers.SelectedRows.Count;
+        //var playersID = new List<int>(countDeletePlayers);
+        //for (int i = 0; i < countDeletePlayers; i++)
+        //{
+        //    var playerID = (int)tablePlayers.SelectedRows[i].Cells[0].Value;
+        //    playersID.Add(playerID);
+        //}
 
-        _playerRepository.Delete(playersID.ToArray());
+        //_playerRepository.Delete(playersID.ToArray());
         ButtonGettingPlayers_Click(sender, e);
     }
 
     #endregion
+    private void DeleteObject<T>(DataGridView dataGriedView, ISqlWorkerEntityManipulation<T> repository) 
+        where T : class
+    {
+        var countDeletePlayers = dataGriedView.SelectedRows.Count;
+        var playersID = new List<int>(countDeletePlayers);
+        for (int i = 0; i < countDeletePlayers; i++)
+        {
+            var playerID = (int)dataGriedView.SelectedRows[i].Cells[0].Value;
+            playersID.Add(playerID);
+        }
 
+        repository.Delete(playersID.ToArray());
+    }
 
 
 
