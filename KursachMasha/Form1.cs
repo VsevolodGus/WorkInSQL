@@ -137,6 +137,7 @@ public partial class Form1 : Form
         playerNameTextBox.Text = string.Empty;
         playerSurnameTextBox.Text = string.Empty;
         playerPatronymicTetBox.Text = string.Empty;
+        playerNumberTetBox.Text = string.Empty;
 
         selectTeamPlayerComboBox.SelectedItem = null;
         selectTeamPlayerComboBox.SelectedValue = null;
@@ -151,11 +152,12 @@ public partial class Form1 : Form
             return;
 
         var row = tablePlayers.Rows[e.Row.Index];
-        
+
         var player = _playerRepository.GetByID((int)row.Cells[0].Value);
         playerNameTextBox.Text = player.Name;
         playerSurnameTextBox.Text = player.Surname;
         playerPatronymicTetBox.Text = player.Patronymic;
+        playerNumberTetBox.Text = player.Number.ToString();
 
         var team = _teamRepository.GetByID(player.TeamID);
         selectTeamPlayerComboBox.SelectedItem = team;
@@ -167,4 +169,6 @@ public partial class Form1 : Form
         propertyPlayerRoleComboBox.SelectedValue = role.ID;
         propertyPlayerRoleComboBox.SelectedText = role.Name;
     }
+
+
 }

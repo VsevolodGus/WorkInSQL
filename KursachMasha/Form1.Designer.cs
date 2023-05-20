@@ -32,6 +32,8 @@ partial class Form1
         tablePlayers = new DataGridView();
         Tabs = new TabControl();
         tabPage1 = new TabPage();
+        playerNumberTetBox = new TextBox();
+        label19 = new Label();
         label18 = new Label();
         label17 = new Label();
         searchTeamComboBox = new ComboBox();
@@ -107,7 +109,7 @@ partial class Form1
         // 
         // button3
         // 
-        button3.Location = new Point(296, 204);
+        button3.Location = new Point(296, 233);
         button3.Name = "button3";
         button3.Size = new Size(94, 29);
         button3.TabIndex = 2;
@@ -142,6 +144,8 @@ partial class Form1
         // 
         // tabPage1
         // 
+        tabPage1.Controls.Add(playerNumberTetBox);
+        tabPage1.Controls.Add(label19);
         tabPage1.Controls.Add(label18);
         tabPage1.Controls.Add(label17);
         tabPage1.Controls.Add(searchTeamComboBox);
@@ -171,6 +175,22 @@ partial class Form1
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // playerNumberTetBox
+        // 
+        playerNumberTetBox.Location = new Point(85, 123);
+        playerNumberTetBox.Name = "playerNumberTetBox";
+        playerNumberTetBox.Size = new Size(305, 27);
+        playerNumberTetBox.TabIndex = 32;
+        // 
+        // label19
+        // 
+        label19.AutoSize = true;
+        label19.Location = new Point(6, 128);
+        label19.Name = "label19";
+        label19.Size = new Size(56, 20);
+        label19.TabIndex = 31;
+        label19.Text = "Номер";
         // 
         // label18
         // 
@@ -231,7 +251,7 @@ partial class Form1
         // selectTeamPlayerComboBox
         // 
         selectTeamPlayerComboBox.FormattingEnabled = true;
-        selectTeamPlayerComboBox.Location = new Point(85, 122);
+        selectTeamPlayerComboBox.Location = new Point(85, 190);
         selectTeamPlayerComboBox.Name = "selectTeamPlayerComboBox";
         selectTeamPlayerComboBox.Size = new Size(305, 28);
         selectTeamPlayerComboBox.TabIndex = 24;
@@ -240,7 +260,7 @@ partial class Form1
         // label14
         // 
         label14.AutoSize = true;
-        label14.Location = new Point(8, 125);
+        label14.Location = new Point(8, 193);
         label14.Name = "label14";
         label14.Size = new Size(72, 20);
         label14.TabIndex = 23;
@@ -292,7 +312,7 @@ partial class Form1
         // 
         // button4
         // 
-        button4.Location = new Point(96, 204);
+        button4.Location = new Point(95, 233);
         button4.Name = "button4";
         button4.Size = new Size(94, 29);
         button4.TabIndex = 10;
@@ -301,7 +321,7 @@ partial class Form1
         // 
         // button5
         // 
-        button5.Location = new Point(196, 204);
+        button5.Location = new Point(196, 233);
         button5.Name = "button5";
         button5.Size = new Size(94, 29);
         button5.TabIndex = 11;
@@ -834,4 +854,6 @@ partial class Form1
     private Label label16;
     private Button button2;
     private ComboBox comboBox6;
+    private TextBox playerNumberTetBox;
+    private Label label19;
 }
