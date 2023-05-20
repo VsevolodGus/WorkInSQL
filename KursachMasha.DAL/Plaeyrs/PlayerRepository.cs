@@ -38,7 +38,7 @@ public class PlayerRepository :
         ExecuteQuery(query);
     }
 
-    public Player[] GetArray(PlayerFilter filter = null)
+    public Player[] GetArray(PlayerFilter filter)
     {
         if(filter is null)
             filter = new PlayerFilter();

@@ -1,7 +1,7 @@
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Teams;
 using System.Data;
-
+using System.Reflection;
 
 namespace KursachMasha;
 
@@ -36,19 +36,27 @@ public partial class Form1 : Form
 
         #region Настройка DataGried
         tablePlayers.AutoGenerateColumns = false;
-        var properties = typeof(Player).GetProperties()
-            .Where(c => !c.PropertyType.IsClass || c.PropertyType == typeof(string))
-            .ToArray();
+        var properties = typeof(Player).GetProperties();
+        //    .Where(c=> c.GetCustomAttributes<ColumnAttribute>().Any() || !c.PropertyType.IsClass)
+        //    .ToArray();
         foreach (var column in properties)
-            tablePlayers.Columns.Add(column.Name, column.Name);
+        {
+            var attributes = column.GetCustomAttribute<ColumnAttribute>();
+            if (attributes is not null || !column.PropertyType.IsClass)
+            {
+                string columnsName = column.Name;
+                if (attributes is not null)
+                    columnsName = attributes.Name;
 
-        #region Добавление в таблицу
-        foreach (var player in _playerRepository.GetArray())
-            tablePlayers.Rows.Add(player.ID, player.Name, player.Surname, player.Patronymic, player.Number, player.TeamID, player.RoleID);
-        #endregion
-
+                tablePlayers.Columns.Add(column.Name, columnsName);
+            }
+        }
         tablePlayers.Columns[nameof(Player.ID)].Visible = false;
         #endregion
+
+        FillingTablePlayers();
+
+
 
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);
@@ -62,9 +70,23 @@ public partial class Form1 : Form
         this.Close();
     }
 
+    private void FillingTablePlayers(PlayerFilter filter = null)
+    {
+        tablePlayers.Rows.Clear();
+        foreach (var player in _playerRepository.GetArray(filter))
+            tablePlayers.Rows.Add(player.ID, player.Name, player.Surname, player.Patronymic, player.Number, player.TeamID, player.RoleID);
+    }
+
+
+
     private void ButtonGettingPlayers_Click(object sender, EventArgs e)
     {
-        tablePlayers.DataSource = _playerRepository.GetArray(new PlayerFilter
+        var eventKey = e as KeyEventArgs;
+        if (e is KeyEventArgs && eventKey.KeyCode != Keys.Enter)
+            return;
+
+
+        FillingTablePlayers(new PlayerFilter
         {
             Search = playerSearchTextBox.Text,
             TeamID = (searchTeamComboBox.SelectedItem as Team)?.ID,

@@ -91,7 +91,6 @@ partial class Form1
         dataGridView5 = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        tableLayoutPanel1 = new TableLayoutPanel();
         ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -197,6 +196,7 @@ partial class Form1
         searchTeamComboBox.Size = new Size(305, 28);
         searchTeamComboBox.TabIndex = 28;
         searchTeamComboBox.DropDown += searchTeamComboBox_DropDown;
+        searchTeamComboBox.Enter += ButtonGettingPlayers_Click;
         // 
         // label15
         // 
@@ -214,6 +214,7 @@ partial class Form1
         searchRoleComboBox.Name = "searchRoleComboBox";
         searchRoleComboBox.Size = new Size(305, 28);
         searchRoleComboBox.TabIndex = 26;
+        searchRoleComboBox.Enter += ButtonGettingPlayers_Click;
         // 
         // label16
         // 
@@ -273,6 +274,8 @@ partial class Form1
         playerSearchTextBox.Name = "playerSearchTextBox";
         playerSearchTextBox.Size = new Size(263, 27);
         playerSearchTextBox.TabIndex = 19;
+        playerSearchTextBox.Enter += ButtonGettingPlayers_Click;
+        playerSearchTextBox.KeyDown += ButtonGettingPlayers_Click;
         // 
         // comboBox1
         // 
@@ -430,7 +433,6 @@ partial class Form1
         // 
         // tabPage3
         // 
-        tabPage3.Controls.Add(tableLayoutPanel1);
         tabPage3.Controls.Add(comboBox4);
         tabPage3.Controls.Add(comboBox3);
         tabPage3.Controls.Add(comboBox2);
@@ -719,20 +721,6 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
-        // tableLayoutPanel1
-        // 
-        tableLayoutPanel1.ColumnCount = 3;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 248F));
-        tableLayoutPanel1.Location = new Point(504, 6);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 2;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.Size = new Size(585, 535);
-        tableLayoutPanel1.TabIndex = 24;
-        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -828,5 +816,4 @@ partial class Form1
     private Label label15;
     private ComboBox searchRoleComboBox;
     private Label label16;
-    private TableLayoutPanel tableLayoutPanel1;
 }
