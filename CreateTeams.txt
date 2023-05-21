@@ -12,3 +12,4 @@ CREATE TABLE public.teams
 
 CREATE INDEX IF NOT EXISTS ix_sponsor_id
     ON public.teams(sponsor_id);
+

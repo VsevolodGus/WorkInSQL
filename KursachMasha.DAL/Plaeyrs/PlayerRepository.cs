@@ -26,8 +26,8 @@ public class PlayerRepository :
 
     public void Add(Player obj)
     {
-        var query = $"insert into {Table} (name, team_id)" +
-            $"values ({obj.Name}, {obj.TeamID});";
+        var query = $"insert into {Table} (name, surname, patronymic, number_in_team, team_id, role_id)" +
+            $"values ('{obj.Name}', '{obj.Surname}', '{obj.Patronymic}', '{obj.Number}', {obj.TeamID}, {obj.RoleID});";
 
         ExecuteQuery(query);
     }
@@ -57,7 +57,7 @@ public class PlayerRepository :
         var sql = stringBuilder.ToString();
         return base.ExecuteGetArrayQuery(sql);
     }
-
+    
     protected override Player Map(NpgsqlDataReader sqlDataReader)
     {
         return new Player()

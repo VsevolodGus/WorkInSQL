@@ -1,5 +1,6 @@
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Roles;
+using KursachMasha.DAL.Sponsors;
 using KursachMasha.DAL.Teams;
 
 namespace KursachMasha;
@@ -11,6 +12,7 @@ public partial class Form1 : Form
     private readonly PlayerRepository _playerRepository;
     private readonly TeamRepository _teamRepository;
     private readonly RoleRepository _roleRepository;
+    private readonly SponsorRepository _sponsorRepository;
 
 
     public Form1(LoginForm loginForm)
@@ -20,6 +22,7 @@ public partial class Form1 : Form
         _playerRepository = new PlayerRepository();
         _teamRepository = new TeamRepository();
         _roleRepository = new RoleRepository();
+        _sponsorRepository = new SponsorRepository();
 
         InitializeComponent();
         DateTimePickerMatch.Format = DateTimePickerFormat.Custom;
@@ -38,6 +41,9 @@ public partial class Form1 : Form
 
         tablePlayers.Configuration<Player>();
         FillingTablePlayers();
+
+        tableSponsors.Configuration<Sponsor>();
+        FillingTableSponsors();
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
@@ -64,7 +70,6 @@ public partial class Form1 : Form
         this.Close();
     }
     #endregion
-
 
     #region Ћогика с юзерами
     private void FillingTablePlayers(PlayerFilter filter = null)
@@ -94,7 +99,8 @@ public partial class Form1 : Form
         if (e is KeyEventArgs && eventKey.KeyCode != Keys.Enter)
             return;
 
-        //var asd = selectTeamPlayerComboBox.SelectedValue;
+        //var asd = selectTeamPlayerComboBox.SelectedItem;
+        //var qwe = selectTeamPlayerComboBox.SelectedValue;
 
         FillingTablePlayers(new PlayerFilter
         {
@@ -104,8 +110,15 @@ public partial class Form1 : Form
         });
     }
 
-
+    private void playerNumberTextBox(object sender, KeyPressEventArgs e)
+    {
+        if (!(char.IsDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+        {
+            e.Handled = true;
+        }
+    }
     #endregion
+
 
     #region Ћогика с командами
     private void searchTeamComboBox_DropDown(object sender, EventArgs e)
@@ -139,12 +152,12 @@ public partial class Form1 : Form
         playerPatronymicTetBox.Text = string.Empty;
         playerNumberTetBox.Text = string.Empty;
 
-        selectTeamPlayerComboBox.SelectedItem = null;
-        selectTeamPlayerComboBox.SelectedValue = null;
+        selectTeamPlayerComboBox.SelectedItem = new object();
+        selectTeamPlayerComboBox.SelectedValue = new object();
         selectTeamPlayerComboBox.Text = null;
 
-        propertyPlayerRoleComboBox.SelectedItem = null;
-        propertyPlayerRoleComboBox.SelectedValue = null;
+        propertyPlayerRoleComboBox.SelectedItem = new object();
+        propertyPlayerRoleComboBox.SelectedValue = new object();
         propertyPlayerRoleComboBox.Text = null;
         #endregion
 
@@ -170,5 +183,72 @@ public partial class Form1 : Form
         propertyPlayerRoleComboBox.SelectedText = role.Name;
     }
 
+    private void playerAddButton_Click(object sender, EventArgs e)
+    {
 
+        Player player = new Player();
+        player.Name = playerNameTextBox.Text;
+        player.Surname = playerSurnameTextBox.Text;
+        player.Patronymic = playerPatronymicTetBox.Text;
+        player.Number = int.Parse(playerNumberTetBox.Text);
+        player.TeamID = (int)selectTeamPlayerComboBox.SelectedValue;
+        player.RoleID = (int)propertyPlayerRoleComboBox.SelectedValue;
+
+        _playerRepository.Add(player); ;
+
+        ButtonGettingPlayers_Click(sender, e);
+
+        //Ќужно сделать добавление игрока
+        //1) нужно собрать€ из полей модельку
+        //  1.1) ѕолучить все пол€ из TextBox-ов
+        //  1.1) ѕолучить ID роли и команды(смотри как работает получение игроков с фильтрацией)
+        //2) написать скрипт в репозитории дл€ добавлени€ 
+        //  2.1) определитьс€ с пол€ми, какие пол€ нужны, см.Ќастройки полей в Ѕƒ
+        //  2.2) написать и протестировать в pgAdmin
+        //  2.3) внедрить в репозиторий, сделать так чтобы добавл€емые пол€ могли динамически измен€тьс€ в строке, а не были статично захордкожены
+        //3) нужно будет сделать проверки на корректноcть
+        //  3.1) им€ не может быть пустой или null
+        //  3.2) фамили€ не может быть пустой или null
+        //  3.3) номер в команде должен быть уникальным
+        //  3.4) игрок не может быть без роль и команды 
+    }
+
+    #region Ћогика со спонсорами
+    private void FillingTableSponsors(SponsorFilter filter = null)
+    {
+        tableSponsors.Rows.Clear();
+        foreach (var sponsor in _sponsorRepository.GetArray(filter))
+
+            tableSponsors.Rows.Add(sponsor.ID
+                , sponsor.Name
+                , sponsor.Description);
+    }
+
+
+    private void sposorAddButton_Click(object sender, EventArgs e)
+    {
+        Sponsor sponsor = new Sponsor();
+        sponsor.Name = sponsorNameTextBox.Text;
+        sponsor.Description = descriptionNameTextBox.Text;
+
+        _sponsorRepository.Add(sponsor);
+
+        buttonGettingSponsors_Click(sender, e);
+    }
+
+    private void buttonGettingSponsors_Click(object sender, EventArgs e)
+    {
+        FillingTableSponsors(new SponsorFilter
+        {
+            Search = sponsorSearchTextBox.Text
+
+        });
+    }
+    #endregion
+
+    private void DeleteSponsors_Button_Click(object sender, EventArgs e)
+    {
+        tableSponsors.DeleteObject(_sponsorRepository);
+        buttonGettingSponsors_Click(sender, e);
+    }
 }

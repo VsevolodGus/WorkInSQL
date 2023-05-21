@@ -26,17 +26,18 @@ internal static class DataGridViewExtensions
         table.ReadOnly = true;
     }
 
-    public static void DeleteObject<T>(this DataGridView dataGriedView, ISqlWorkerEntityManipulation<T> repository)
+    public static void DeleteObject<T>(this DataGridView dataGridView, ISqlWorkerEntityManipulation<T> repository)
         where T : class
     {
-        var countDeletePlayers = dataGriedView.SelectedRows.Count;
-        var playersID = new List<int>(countDeletePlayers);
-        for (int i = 0; i < countDeletePlayers; i++)
+        var countDeleteObjects = dataGridView.SelectedRows.Count;
+        var objectsID = new List<int>(countDeleteObjects);
+        for (int i = 0; i < countDeleteObjects; i++)
         {
-            var playerID = (int)dataGriedView.SelectedRows[i].Cells[0].Value;
-            playersID.Add(playerID);
+            var id = (int)dataGridView.SelectedRows[i].Cells[0].Value;
+            objectsID.Add(id);
         }
 
-        repository.Delete(playersID.ToArray());
+        if(objectsID.Count != 0)
+            repository.Delete(objectsID.ToArray());
     }
 }

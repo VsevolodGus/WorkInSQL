@@ -3,7 +3,7 @@
 namespace KursachMasha.DAL;
 public abstract class SqlWorker<T>
 {
-    protected readonly NpgsqlConnection sqlConnection;
+    private readonly NpgsqlConnection sqlConnection;
     protected abstract string Table { get; }
     public SqlWorker()
     {
@@ -65,6 +65,8 @@ public abstract class SqlWorker<T>
 
         return result;
     }
+
+   
 
     protected abstract T Map(NpgsqlDataReader sqlDataReader);
 }

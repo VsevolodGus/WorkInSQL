@@ -2,9 +2,6 @@
 
 namespace KursachMasha.DAL.Players;
 
-
-
-
 public class Player
 {
     public int ID { get; set; }
