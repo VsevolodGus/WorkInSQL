@@ -1,8 +1,8 @@
 CREATE OR REPLACE FUNCTION delete_user_with_team() RETURNS trigger AS
 $$
 BEGIN
-   delete from players where team_id = CAST ( TG_ARGV [0] AS integer );
-   RETURN NULL;
+   delete from players where team_id = OLD.id;
+   RETURN OLD;
 END;
 $$ 
 LANGUAGE plpgsql;
