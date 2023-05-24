@@ -77,14 +77,19 @@ partial class Form1
         label8 = new Label();
         label7 = new Label();
         tabPage4 = new TabPage();
-        button10 = new Button();
+        selectLocationComboBox = new ComboBox();
+        label24 = new Label();
+        stadiumSearchTextBox = new TextBox();
+        buttonGettingStadiums = new Button();
+        stadiumVolumeTextBox = new TextBox();
+        label23 = new Label();
+        stadiumAddButton = new Button();
         button11 = new Button();
-        button12 = new Button();
-        textBox11 = new TextBox();
-        textBox7 = new TextBox();
+        DeleteStadium_Button = new Button();
+        stadiumNameTextBox = new TextBox();
         label12 = new Label();
         label11 = new Label();
-        dataGridView4 = new DataGridView();
+        tableStadiums = new DataGridView();
         tabPage5 = new TabPage();
         label21 = new Label();
         label22 = new Label();
@@ -107,7 +112,7 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
         tabPage3.SuspendLayout();
         tabPage4.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)tableStadiums).BeginInit();
         tabPage5.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).BeginInit();
         menuStrip1.SuspendLayout();
@@ -593,14 +598,19 @@ partial class Form1
         // 
         // tabPage4
         // 
-        tabPage4.Controls.Add(button10);
+        tabPage4.Controls.Add(selectLocationComboBox);
+        tabPage4.Controls.Add(label24);
+        tabPage4.Controls.Add(stadiumSearchTextBox);
+        tabPage4.Controls.Add(buttonGettingStadiums);
+        tabPage4.Controls.Add(stadiumVolumeTextBox);
+        tabPage4.Controls.Add(label23);
+        tabPage4.Controls.Add(stadiumAddButton);
         tabPage4.Controls.Add(button11);
-        tabPage4.Controls.Add(button12);
-        tabPage4.Controls.Add(textBox11);
-        tabPage4.Controls.Add(textBox7);
+        tabPage4.Controls.Add(DeleteStadium_Button);
+        tabPage4.Controls.Add(stadiumNameTextBox);
         tabPage4.Controls.Add(label12);
         tabPage4.Controls.Add(label11);
-        tabPage4.Controls.Add(dataGridView4);
+        tabPage4.Controls.Add(tableStadiums);
         tabPage4.ForeColor = Color.Black;
         tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
@@ -610,14 +620,66 @@ partial class Form1
         tabPage4.Text = "Стадионы";
         tabPage4.UseVisualStyleBackColor = true;
         // 
-        // button10
+        // selectLocationComboBox
         // 
-        button10.Location = new Point(380, 29);
-        button10.Name = "button10";
-        button10.Size = new Size(94, 29);
-        button10.TabIndex = 22;
-        button10.Text = "Добавить";
-        button10.UseVisualStyleBackColor = true;
+        selectLocationComboBox.FormattingEnabled = true;
+        selectLocationComboBox.Location = new Point(95, 117);
+        selectLocationComboBox.Name = "selectLocationComboBox";
+        selectLocationComboBox.Size = new Size(214, 28);
+        selectLocationComboBox.TabIndex = 36;
+        selectLocationComboBox.DropDown += selectLocationComboBox_DropDown;
+        // 
+        // label24
+        // 
+        label24.AutoSize = true;
+        label24.Location = new Point(14, 388);
+        label24.Name = "label24";
+        label24.Size = new Size(113, 20);
+        label24.TabIndex = 35;
+        label24.Text = "Строка поиска";
+        // 
+        // stadiumSearchTextBox
+        // 
+        stadiumSearchTextBox.Location = new Point(148, 385);
+        stadiumSearchTextBox.Name = "stadiumSearchTextBox";
+        stadiumSearchTextBox.Size = new Size(311, 27);
+        stadiumSearchTextBox.TabIndex = 34;
+        // 
+        // buttonGettingStadiums
+        // 
+        buttonGettingStadiums.Location = new Point(365, 435);
+        buttonGettingStadiums.Name = "buttonGettingStadiums";
+        buttonGettingStadiums.Size = new Size(94, 29);
+        buttonGettingStadiums.TabIndex = 33;
+        buttonGettingStadiums.Text = "Получить";
+        buttonGettingStadiums.UseVisualStyleBackColor = true;
+        buttonGettingStadiums.Click += buttonGettingStadiums_Click;
+        // 
+        // stadiumVolumeTextBox
+        // 
+        stadiumVolumeTextBox.Location = new Point(184, 77);
+        stadiumVolumeTextBox.Name = "stadiumVolumeTextBox";
+        stadiumVolumeTextBox.Size = new Size(125, 27);
+        stadiumVolumeTextBox.TabIndex = 25;
+        // 
+        // label23
+        // 
+        label23.AutoSize = true;
+        label23.Location = new Point(14, 80);
+        label23.Name = "label23";
+        label23.Size = new Size(131, 20);
+        label23.TabIndex = 24;
+        label23.Text = "Размер стадиона";
+        // 
+        // stadiumAddButton
+        // 
+        stadiumAddButton.Location = new Point(380, 29);
+        stadiumAddButton.Name = "stadiumAddButton";
+        stadiumAddButton.Size = new Size(94, 29);
+        stadiumAddButton.TabIndex = 22;
+        stadiumAddButton.Text = "Добавить";
+        stadiumAddButton.UseVisualStyleBackColor = true;
+        stadiumAddButton.Click += stadiumAddButton_Click;
         // 
         // button11
         // 
@@ -628,33 +690,27 @@ partial class Form1
         button11.Text = "Обновить";
         button11.UseVisualStyleBackColor = true;
         // 
-        // button12
+        // DeleteStadium_Button
         // 
-        button12.Location = new Point(380, 125);
-        button12.Name = "button12";
-        button12.Size = new Size(94, 29);
-        button12.TabIndex = 21;
-        button12.Text = "Удалить";
-        button12.UseVisualStyleBackColor = true;
+        DeleteStadium_Button.Location = new Point(380, 125);
+        DeleteStadium_Button.Name = "DeleteStadium_Button";
+        DeleteStadium_Button.Size = new Size(94, 29);
+        DeleteStadium_Button.TabIndex = 21;
+        DeleteStadium_Button.Text = "Удалить";
+        DeleteStadium_Button.UseVisualStyleBackColor = true;
+        DeleteStadium_Button.Click += DeleteStadium_Button_Click;
         // 
-        // textBox11
+        // stadiumNameTextBox
         // 
-        textBox11.Location = new Point(184, 70);
-        textBox11.Name = "textBox11";
-        textBox11.Size = new Size(125, 27);
-        textBox11.TabIndex = 18;
-        // 
-        // textBox7
-        // 
-        textBox7.Location = new Point(184, 31);
-        textBox7.Name = "textBox7";
-        textBox7.Size = new Size(125, 27);
-        textBox7.TabIndex = 17;
+        stadiumNameTextBox.Location = new Point(184, 31);
+        stadiumNameTextBox.Name = "stadiumNameTextBox";
+        stadiumNameTextBox.Size = new Size(125, 27);
+        stadiumNameTextBox.TabIndex = 17;
         // 
         // label12
         // 
         label12.AutoSize = true;
-        label12.Location = new Point(14, 70);
+        label12.Location = new Point(14, 125);
         label12.Name = "label12";
         label12.Size = new Size(53, 20);
         label12.TabIndex = 16;
@@ -669,15 +725,15 @@ partial class Form1
         label11.TabIndex = 15;
         label11.Text = "Название стадиона";
         // 
-        // dataGridView4
+        // tableStadiums
         // 
-        dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView4.Location = new Point(492, 17);
-        dataGridView4.Name = "dataGridView4";
-        dataGridView4.RowHeadersWidth = 51;
-        dataGridView4.RowTemplate.Height = 29;
-        dataGridView4.Size = new Size(603, 539);
-        dataGridView4.TabIndex = 2;
+        tableStadiums.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        tableStadiums.Location = new Point(498, 6);
+        tableStadiums.Name = "tableStadiums";
+        tableStadiums.RowHeadersWidth = 51;
+        tableStadiums.RowTemplate.Height = 29;
+        tableStadiums.Size = new Size(603, 539);
+        tableStadiums.TabIndex = 2;
         // 
         // tabPage5
         // 
@@ -846,7 +902,7 @@ partial class Form1
         tabPage3.PerformLayout();
         tabPage4.ResumeLayout(false);
         tabPage4.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
+        ((System.ComponentModel.ISupportInitialize)tableStadiums).EndInit();
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).EndInit();
@@ -883,14 +939,13 @@ partial class Form1
     private Button button8;
     private Button button9;
     private DateTimePicker DateTimePickerMatch;
-    private Button button10;
+    private Button stadiumAddButton;
     private Button button11;
-    private Button button12;
-    private TextBox textBox11;
-    private TextBox textBox7;
+    private Button DeleteStadium_Button;
+    private TextBox stadiumNameTextBox;
     private Label label12;
     private Label label11;
-    private DataGridView dataGridView4;
+    private DataGridView tableStadiums;
     private TabPage tabPage5;
     private Label label13;
     private TextBox sponsorNameTextBox;
@@ -929,4 +984,10 @@ partial class Form1
     private Label label21;
     private Label label22;
     private TextBox sponsorSearchTextBox;
+    private TextBox stadiumVolumeTextBox;
+    private Label label23;
+    private Label label24;
+    private TextBox stadiumSearchTextBox;
+    private Button buttonGettingStadiums;
+    private ComboBox selectLocationComboBox;
 }

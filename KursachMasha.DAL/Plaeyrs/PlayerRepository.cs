@@ -49,7 +49,7 @@ public class PlayerRepository :
 
         if (filter.TeamID.HasValue)
             stringBuilder.Append($"\nand p.team_id = {filter.TeamID}");
-        if (filter.TeamID.HasValue)
+        if (filter.RoleID.HasValue)
             stringBuilder.Append($"\nand p.role_id = {filter.RoleID}");
 
 

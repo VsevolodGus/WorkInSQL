@@ -1,6 +1,8 @@
+using KursachMasha.DAL.Locations;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Roles;
 using KursachMasha.DAL.Sponsors;
+using KursachMasha.DAL.Stadiums;
 using KursachMasha.DAL.Teams;
 
 namespace KursachMasha;
@@ -13,6 +15,8 @@ public partial class Form1 : Form
     private readonly TeamRepository _teamRepository;
     private readonly RoleRepository _roleRepository;
     private readonly SponsorRepository _sponsorRepository;
+    private readonly StadiumRepository _stadiumRepository;
+    private readonly LocationRepository _locationRepository;
 
 
     public Form1(LoginForm loginForm)
@@ -23,6 +27,9 @@ public partial class Form1 : Form
         _teamRepository = new TeamRepository();
         _roleRepository = new RoleRepository();
         _sponsorRepository = new SponsorRepository();
+        _stadiumRepository = new StadiumRepository();
+        _locationRepository = new LocationRepository();
+
 
         InitializeComponent();
         DateTimePickerMatch.Format = DateTimePickerFormat.Custom;
@@ -45,6 +52,14 @@ public partial class Form1 : Form
         tableSponsors.Configuration<Sponsor>();
         FillingTableSponsors();
 
+        tableStadiums.Configuration<Stadium>();
+        FillingTableStadiums();
+
+        
+
+
+
+
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
         selectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
@@ -54,6 +69,10 @@ public partial class Form1 : Form
         searchRoleComboBox.DisplayMember = nameof(Role.Name);
         propertyPlayerRoleComboBox.ValueMember = nameof(Role.ID);
         propertyPlayerRoleComboBox.DisplayMember = nameof(Role.Name);
+
+        selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
+        selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
+        
     }
 
     #region Общие
@@ -244,6 +263,7 @@ public partial class Form1 : Form
 
         });
     }
+
     #endregion
 
     private void DeleteSponsors_Button_Click(object sender, EventArgs e)
@@ -251,4 +271,60 @@ public partial class Form1 : Form
         tableSponsors.DeleteObject(_sponsorRepository);
         buttonGettingSponsors_Click(sender, e);
     }
+
+
+    #region Логика со стадионами
+
+    private void FillingTableStadiums(StadiumFilter filter = null)
+    {
+        tableStadiums.Rows.Clear();
+        foreach (var stadium in _stadiumRepository.GetArray(filter))
+            tableStadiums.Rows.Add(stadium.ID
+                , stadium.Name
+                , stadium.Volume
+                , stadium.LocationID
+                , stadium.LocationName);
+    }
+
+    private void stadiumAddButton_Click(object sender, EventArgs e)
+    {
+        Stadium stadium = new Stadium();
+        stadium.Name = stadiumNameTextBox.Text;
+        stadium.Volume = int.Parse(stadiumVolumeTextBox.Text);
+        stadium.LocationID = (int)selectLocationComboBox.SelectedValue;
+
+        _stadiumRepository.Add(stadium);
+
+        buttonGettingStadiums_Click(sender, e);
+
+    }
+
+    private void buttonGettingStadiums_Click(object sender, EventArgs e)
+    {
+        FillingTableStadiums(new StadiumFilter
+        {
+            Search = stadiumSearchTextBox.Text
+        });
+
+    }
+
+    private void DeleteStadium_Button_Click(object sender, EventArgs e)
+    {
+        tableStadiums.DeleteObject(_stadiumRepository);
+        buttonGettingStadiums_Click(sender, e);
+    }
+    private void selectLocationComboBox_DropDown(object sender, EventArgs e)
+    {
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _locationRepository.GetArray(new LocationFilter()
+        {
+            Search = thisComboBox.Text
+        });
+    }
+
+    #endregion
+
+
+
+    
 }

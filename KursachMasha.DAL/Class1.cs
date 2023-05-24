@@ -3,6 +3,7 @@ using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Sponsors;
 using KursachMasha.DAL.Locations;
 using KursachMasha.DAL.Teams;
+using KursachMasha.DAL.Stadiums;
 
 namespace KursachMasha.DAL;
 internal class Class1
@@ -12,7 +13,7 @@ internal class Class1
     public List<Sponsor> SponsorList { get; set; }
     public List<Match> MatchList { get; set; }
     public List<Stadium> StadiumList { get; set; }
-    public List<Location> LocationList { get; set; }
+    public List<MyLocation> LocationList { get; set; }
 
     /// <summary>
     /// View
