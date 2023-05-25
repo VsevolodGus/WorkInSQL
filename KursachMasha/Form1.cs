@@ -57,8 +57,8 @@ public partial class Form1 : Form
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
 
-        selectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
-        selectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
+        propertyTeamPlayerComboBox.ValueMember = nameof(Team.ID);
+        propertyTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
 
         searchRoleComboBox.ValueMember = nameof(Role.ID);
         searchRoleComboBox.DisplayMember = nameof(Role.Name);
@@ -138,9 +138,9 @@ public partial class Form1 : Form
         playerPatronymicTetBox.Text = string.Empty;
         playerNumberTetBox.Text = string.Empty;
 
-        selectTeamPlayerComboBox.SelectedItem = new object();
-        selectTeamPlayerComboBox.SelectedValue = new object();
-        selectTeamPlayerComboBox.Text = null;
+        propertyTeamPlayerComboBox.SelectedItem = new object();
+        propertyTeamPlayerComboBox.SelectedValue = new object();
+        propertyTeamPlayerComboBox.Text = null;
 
         propertyPlayerRoleComboBox.SelectedItem = new object();
         propertyPlayerRoleComboBox.SelectedValue = new object();
@@ -159,9 +159,9 @@ public partial class Form1 : Form
         playerNumberTetBox.Text = player.Number.ToString();
 
         var team = _teamRepository.GetByID(player.TeamID);
-        selectTeamPlayerComboBox.SelectedItem = team;
-        selectTeamPlayerComboBox.SelectedValue = team.ID;
-        selectTeamPlayerComboBox.SelectedText = team.Name;
+        propertyTeamPlayerComboBox.SelectedItem = team;
+        propertyTeamPlayerComboBox.SelectedValue = team.ID;
+        propertyTeamPlayerComboBox.SelectedText = team.Name;
 
         var role = _roleRepository.GetByID(player.RoleID);
         propertyPlayerRoleComboBox.SelectedItem = role;
@@ -169,15 +169,16 @@ public partial class Form1 : Form
         propertyPlayerRoleComboBox.SelectedText = role.Name;
 
         searchRoleComboBox_DropDown(propertyPlayerRoleComboBox, e);
-        searchTeamComboBox_DropDown(selectTeamPlayerComboBox, e);
+        searchTeamComboBox_DropDown(propertyTeamPlayerComboBox, e);
     }
 
-    private void playerAddButton_Click(object sender, EventArgs e)
+    private void addPlayerButton_Click(object sender, EventArgs e)
     {
         ShowMessageBoxIfTextEmpty(playerNameTextBox, "»м€ не заполнено");
         ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "‘амили€ не заполнена");
 
-        var teamID = (int)searchTeamComboBox.SelectedValue;
+        //TODO решить проблему с невыбранными пол€ми при добавление, почему-то Select пол€ не заполн€ютс€
+        var teamID = (int)propertyTeamPlayerComboBox.SelectedValue;
         if (!IsCorrectNumber(teamID))
             return;
 
@@ -188,7 +189,7 @@ public partial class Form1 : Form
             Patronymic = playerPatronymicTetBox.Text,
             Number = int.Parse(playerNumberTetBox.Text),
             TeamID = teamID,
-            RoleID = (int) searchRoleComboBox.SelectedValue,
+            RoleID = (int)propertyPlayerRoleComboBox.SelectedValue,
         };
 
         _playerRepository.Add(player);
@@ -196,7 +197,7 @@ public partial class Form1 : Form
         ButtonGettingPlayers_Click(sender, e);
     }
 
-    private void button5_Click(object sender, EventArgs e)
+    private void updatePlayerButton_Click(object sender, EventArgs e)
     {
         ShowMessageBoxIfTextEmpty(playerNameTextBox, "»м€ не заполнено");
         ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "‘амили€ не заполнена");

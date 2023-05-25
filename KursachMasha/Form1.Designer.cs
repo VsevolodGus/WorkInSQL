@@ -40,7 +40,7 @@ partial class Form1
         label15 = new Label();
         searchRoleComboBox = new ComboBox();
         label16 = new Label();
-        selectTeamPlayerComboBox = new ComboBox();
+        propertyTeamPlayerComboBox = new ComboBox();
         label14 = new Label();
         playerPatronymicTetBox = new TextBox();
         label3 = new Label();
@@ -163,7 +163,7 @@ partial class Form1
         tabPage1.Controls.Add(label15);
         tabPage1.Controls.Add(searchRoleComboBox);
         tabPage1.Controls.Add(label16);
-        tabPage1.Controls.Add(selectTeamPlayerComboBox);
+        tabPage1.Controls.Add(propertyTeamPlayerComboBox);
         tabPage1.Controls.Add(label14);
         tabPage1.Controls.Add(playerPatronymicTetBox);
         tabPage1.Controls.Add(label3);
@@ -262,12 +262,12 @@ partial class Form1
         // 
         // selectTeamPlayerComboBox
         // 
-        selectTeamPlayerComboBox.FormattingEnabled = true;
-        selectTeamPlayerComboBox.Location = new Point(85, 190);
-        selectTeamPlayerComboBox.Name = "selectTeamPlayerComboBox";
-        selectTeamPlayerComboBox.Size = new Size(305, 28);
-        selectTeamPlayerComboBox.TabIndex = 24;
-        selectTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
+        propertyTeamPlayerComboBox.FormattingEnabled = true;
+        propertyTeamPlayerComboBox.Location = new Point(85, 190);
+        propertyTeamPlayerComboBox.Name = "selectTeamPlayerComboBox";
+        propertyTeamPlayerComboBox.Size = new Size(305, 28);
+        propertyTeamPlayerComboBox.TabIndex = 24;
+        propertyTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label14
         // 
@@ -330,7 +330,7 @@ partial class Form1
         playerAddButton.TabIndex = 10;
         playerAddButton.Text = "Добавить";
         playerAddButton.UseVisualStyleBackColor = true;
-        playerAddButton.Click += playerAddButton_Click;
+        playerAddButton.Click += addPlayerButton_Click;
         // 
         // button5
         // 
@@ -340,7 +340,7 @@ partial class Form1
         button5.TabIndex = 11;
         button5.Text = "Обновить";
         button5.UseVisualStyleBackColor = true;
-        button5.Click += button5_Click;
+        button5.Click += updatePlayerButton_Click;
         // 
         // playerSurnameTextBox
         // 
@@ -960,7 +960,7 @@ partial class Form1
     private ComboBox comboBox2;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private ComboBox selectTeamPlayerComboBox;
+    private ComboBox propertyTeamPlayerComboBox;
     private Label label14;
     private TextBox playerPatronymicTetBox;
     private Label label3;
