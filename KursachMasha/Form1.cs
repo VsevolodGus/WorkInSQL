@@ -363,8 +363,5 @@ public partial class Form1 : Form
     {
         if (string.IsNullOrEmpty(textBox.Text))
             MessageBox.Show(messageBoxText);
-
     }
-
-
 }
