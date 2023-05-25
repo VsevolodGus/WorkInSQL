@@ -18,7 +18,6 @@ public partial class Form1 : Form
     private readonly StadiumRepository _stadiumRepository;
     private readonly LocationRepository _locationRepository;
 
-
     public Form1(LoginForm loginForm)
     {
         _loginForm = loginForm;
@@ -37,11 +36,11 @@ public partial class Form1 : Form
 
         if (!Global.CurrentUser.IsAdmin)
         {
-            var buttons = this.Descendants<Button>().ToArray();
+            var buttons = this.Descendants<Button>().Where(c=> !c.Name.ToLower().Contains("search")).ToArray();
             foreach (var button in buttons)
                 button.Enabled = false;
 
-            var textBoxes = this.Descendants<TextBox>().ToArray();
+            var textBoxes = this.Descendants<TextBox>().Where(c => !c.Name.ToLower().Contains("search")).ToArray();
             foreach (var textBox in textBoxes)
                 textBox.Enabled = false;
         }
@@ -55,13 +54,9 @@ public partial class Form1 : Form
         tableStadiums.Configuration<Stadium>();
         FillingTableStadiums();
 
-        
-
-
-
-
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
+        
         selectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
         selectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
 
@@ -90,7 +85,7 @@ public partial class Form1 : Form
     }
     #endregion
 
-    #region Ћогика с юзерами
+    #region Ћогика с игроками
     private void FillingTablePlayers(PlayerFilter filter = null)
     {
         tablePlayers.Rows.Clear();
@@ -118,9 +113,6 @@ public partial class Form1 : Form
         if (e is KeyEventArgs && eventKey.KeyCode != Keys.Enter)
             return;
 
-        //var asd = selectTeamPlayerComboBox.SelectedItem;
-        //var qwe = selectTeamPlayerComboBox.SelectedValue;
-
         FillingTablePlayers(new PlayerFilter
         {
             Search = playerSearchTextBox.Text,
@@ -136,32 +128,6 @@ public partial class Form1 : Form
             e.Handled = true;
         }
     }
-    #endregion
-
-
-    #region Ћогика с командами
-    private void searchTeamComboBox_DropDown(object sender, EventArgs e)
-    {
-        var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
-        {
-            Search = thisComboBox.Text,
-        });
-    }
-    #endregion
-
-
-    #region Ћогика с рол€ми
-    private void searchRoleComboBox_DropDown(object sender, EventArgs e)
-    {
-        var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _roleRepository.GetArray(new RoleFilter()
-        {
-            Search = thisComboBox.Text,
-        });
-    }
-    #endregion
-
 
     private void tablePlayers_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
     {
@@ -201,10 +167,37 @@ public partial class Form1 : Form
         propertyPlayerRoleComboBox.SelectedValue = role.ID;
         propertyPlayerRoleComboBox.SelectedText = role.Name;
     }
+    #endregion
+
+
+    #region Ћогика с командами
+    private void searchTeamComboBox_DropDown(object sender, EventArgs e)
+    {
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
+        {
+            Search = thisComboBox.Text,
+        });
+    }
+    #endregion
+
+
+    #region Ћогика с рол€ми
+    private void searchRoleComboBox_DropDown(object sender, EventArgs e)
+    {
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _roleRepository.GetArray(new RoleFilter()
+        {
+            Search = thisComboBox.Text,
+        });
+    }
+    #endregion
+
+
+    
 
     private void playerAddButton_Click(object sender, EventArgs e)
     {
-
         Player player = new Player();
         player.Name = playerNameTextBox.Text;
         player.Surname = playerSurnameTextBox.Text;
@@ -216,35 +209,11 @@ public partial class Form1 : Form
         _playerRepository.Add(player); ;
 
         ButtonGettingPlayers_Click(sender, e);
-
-        //Ќужно сделать добавление игрока
-        //1) нужно собрать€ из полей модельку
-        //  1.1) ѕолучить все пол€ из TextBox-ов
-        //  1.1) ѕолучить ID роли и команды(смотри как работает получение игроков с фильтрацией)
-        //2) написать скрипт в репозитории дл€ добавлени€ 
-        //  2.1) определитьс€ с пол€ми, какие пол€ нужны, см.Ќастройки полей в Ѕƒ
-        //  2.2) написать и протестировать в pgAdmin
-        //  2.3) внедрить в репозиторий, сделать так чтобы добавл€емые пол€ могли динамически измен€тьс€ в строке, а не были статично захордкожены
-        //3) нужно будет сделать проверки на корректноcть
-        //  3.1) им€ не может быть пустой или null
-        //  3.2) фамили€ не может быть пустой или null
-        //  3.3) номер в команде должен быть уникальным
-        //  3.4) игрок не может быть без роль и команды 
     }
 
     #region Ћогика со спонсорами
-    private void FillingTableSponsors(SponsorFilter filter = null)
-    {
-        tableSponsors.Rows.Clear();
-        foreach (var sponsor in _sponsorRepository.GetArray(filter))
 
-            tableSponsors.Rows.Add(sponsor.ID
-                , sponsor.Name
-                , sponsor.Description);
-    }
-
-
-    private void sposorAddButton_Click(object sender, EventArgs e)
+    private void sponsorAddButton_Click(object sender, EventArgs e)
     {
         Sponsor sponsor = new Sponsor();
         sponsor.Name = sponsorNameTextBox.Text;
@@ -252,6 +221,12 @@ public partial class Form1 : Form
 
         _sponsorRepository.Add(sponsor);
 
+        buttonGettingSponsors_Click(sender, e);
+    }
+
+    private void DeleteSponsors_Button_Click(object sender, EventArgs e)
+    {
+        tableSponsors.DeleteObject(_sponsorRepository);
         buttonGettingSponsors_Click(sender, e);
     }
 
@@ -264,13 +239,19 @@ public partial class Form1 : Form
         });
     }
 
+    private void FillingTableSponsors(SponsorFilter filter = null)
+    {
+        tableSponsors.Rows.Clear();
+        foreach (var sponsor in _sponsorRepository.GetArray(filter))
+
+            tableSponsors.Rows.Add(sponsor.ID
+                , sponsor.Name
+                , sponsor.Description);
+    }
+
     #endregion
 
-    private void DeleteSponsors_Button_Click(object sender, EventArgs e)
-    {
-        tableSponsors.DeleteObject(_sponsorRepository);
-        buttonGettingSponsors_Click(sender, e);
-    }
+
 
 
     #region Ћогика со стадионами

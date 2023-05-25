@@ -816,7 +816,7 @@ partial class Form1
         sposorAddButton.TabIndex = 25;
         sposorAddButton.Text = "Добавить";
         sposorAddButton.UseVisualStyleBackColor = true;
-        sposorAddButton.Click += sposorAddButton_Click;
+        sposorAddButton.Click += sponsorAddButton_Click;
         // 
         // button14
         // 
