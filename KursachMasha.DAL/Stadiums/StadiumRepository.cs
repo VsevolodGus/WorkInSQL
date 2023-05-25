@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Npgsql;
 using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
-using System.Text;
-using System.Diagnostics.Metrics;
-using KursachMasha.DAL.Players;
 
 namespace KursachMasha.DAL.Stadiums;
 public class StadiumRepository :

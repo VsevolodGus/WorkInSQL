@@ -13,11 +13,15 @@ public class PlayerRepository :
 
     public void Update(Player obj)
     {
-        var query = $"update from {Table} " +
+        var query = $"update {Table} " +
                         $"set " +
-                        $"Name = {obj.Name}" +
+                        $"name = '{obj.Name}'" +
+                        $", surname = '{obj.Surname}'" +
+                        $", patronymic = '{obj.Patronymic}'" +
+                        $", number_in_team = {obj.Number}" +
+                        $", role_id = {obj.RoleID}" +
                         $", team_id = {obj.TeamID}" +
-                    $"where id = {obj.ID};";
+                    $"\nwhere id = {obj.ID};";
 
         ExecuteQuery(query);
     }

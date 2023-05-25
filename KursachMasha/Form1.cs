@@ -36,7 +36,7 @@ public partial class Form1 : Form
 
         if (!Global.CurrentUser.IsAdmin)
         {
-            var buttons = this.Descendants<Button>().Where(c=> !c.Name.ToLower().Contains("search")).ToArray();
+            var buttons = this.Descendants<Button>().Where(c => !c.Name.ToLower().Contains("search")).ToArray();
             foreach (var button in buttons)
                 button.Enabled = false;
 
@@ -56,7 +56,7 @@ public partial class Form1 : Form
 
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
-        
+
         selectTeamPlayerComboBox.ValueMember = nameof(Team.ID);
         selectTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
 
@@ -67,7 +67,7 @@ public partial class Form1 : Form
 
         selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
         selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
-        
+
     }
 
     #region Общие
@@ -84,6 +84,7 @@ public partial class Form1 : Form
         this.Close();
     }
     #endregion
+
 
     #region Логика с игроками
     private void FillingTablePlayers(PlayerFilter filter = null)
@@ -167,6 +168,59 @@ public partial class Form1 : Form
         propertyPlayerRoleComboBox.SelectedValue = role.ID;
         propertyPlayerRoleComboBox.SelectedText = role.Name;
     }
+
+    private void playerAddButton_Click(object sender, EventArgs e)
+    {
+        Player player = new Player();
+        player.Name = playerNameTextBox.Text;
+        player.Surname = playerSurnameTextBox.Text;
+        player.Patronymic = playerPatronymicTetBox.Text;
+        player.Number = int.Parse(playerNumberTetBox.Text);
+        player.TeamID = (int)selectTeamPlayerComboBox.SelectedValue;
+        player.RoleID = (int)propertyPlayerRoleComboBox.SelectedValue;
+
+        _playerRepository.Add(player); ;
+
+        ButtonGettingPlayers_Click(sender, e);
+    }
+
+    private void button5_Click(object sender, EventArgs e)
+    {
+        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
+        ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
+        
+        var id = (int)tablePlayers.SelectedRows[0].Cells[0].Value;
+        var oldPlayer = _playerRepository.GetByID(id);
+
+        int teamID = (int)(searchTeamComboBox.SelectedValue ?? oldPlayer.TeamID);
+        int roleID = (int)(searchRoleComboBox.SelectedValue ?? oldPlayer.RoleID);
+
+        CheckNumber(teamID, id);
+
+        var player = new Player()
+        {
+            ID = id,
+            Name = playerNameTextBox.Text,
+            Surname = playerSurnameTextBox.Text,
+            Patronymic = playerPatronymicTetBox.Text,
+            Number = int.Parse(playerNumberTetBox.Text),
+            TeamID = teamID,
+            RoleID = roleID,
+        };
+        _playerRepository.Update(player);
+
+        ButtonGettingPlayers_Click(sender, e);
+    }
+
+    private void CheckNumber(int teamID, int? id = null)
+    {
+        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Номер не заполнен");
+        var number = int.Parse(playerNumberTetBox.Text);
+        var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });
+        
+        if(playersInTeam.Any(c=> c.Number == number && (!id.HasValue || c.ID != id))) 
+            MessageBox.Show("Введенный номер уже есть в данной команде");
+    }
     #endregion
 
 
@@ -194,25 +248,7 @@ public partial class Form1 : Form
     #endregion
 
 
-    
-
-    private void playerAddButton_Click(object sender, EventArgs e)
-    {
-        Player player = new Player();
-        player.Name = playerNameTextBox.Text;
-        player.Surname = playerSurnameTextBox.Text;
-        player.Patronymic = playerPatronymicTetBox.Text;
-        player.Number = int.Parse(playerNumberTetBox.Text);
-        player.TeamID = (int)selectTeamPlayerComboBox.SelectedValue;
-        player.RoleID = (int)propertyPlayerRoleComboBox.SelectedValue;
-
-        _playerRepository.Add(player); ;
-
-        ButtonGettingPlayers_Click(sender, e);
-    }
-
     #region Логика со спонсорами
-
     private void sponsorAddButton_Click(object sender, EventArgs e)
     {
         Sponsor sponsor = new Sponsor();
@@ -250,8 +286,6 @@ public partial class Form1 : Form
     }
 
     #endregion
-
-
 
 
     #region Логика со стадионами
@@ -306,6 +340,12 @@ public partial class Form1 : Form
     #endregion
 
 
+    private void ShowMessageBoxIfTextEmpty(TextBox textBox, string messageBoxText)
+    {
+        if (string.IsNullOrEmpty(textBox.Text))
+            MessageBox.Show(messageBoxText);
 
-    
+    }
+
+
 }

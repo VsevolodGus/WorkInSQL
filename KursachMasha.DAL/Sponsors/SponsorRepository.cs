@@ -23,14 +23,6 @@ public sealed class SponsorRepository :
         ExecuteQuery(query);
     }
 
-    public void Delete(int id)
-    {
-        var query = $"delete from {Table} " +
-                    $"where id = {id}"; ;
-
-        ExecuteQuery(query);
-    }
-
     public void Add(Sponsor sponsor)
     {
         var query = $"insert into {Table} (name, description)" +
