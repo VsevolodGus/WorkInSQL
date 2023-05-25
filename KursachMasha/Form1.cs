@@ -167,19 +167,31 @@ public partial class Form1 : Form
         propertyPlayerRoleComboBox.SelectedItem = role;
         propertyPlayerRoleComboBox.SelectedValue = role.ID;
         propertyPlayerRoleComboBox.SelectedText = role.Name;
+
+        searchRoleComboBox_DropDown(propertyPlayerRoleComboBox, e);
+        searchTeamComboBox_DropDown(selectTeamPlayerComboBox, e);
     }
 
     private void playerAddButton_Click(object sender, EventArgs e)
     {
-        Player player = new Player();
-        player.Name = playerNameTextBox.Text;
-        player.Surname = playerSurnameTextBox.Text;
-        player.Patronymic = playerPatronymicTetBox.Text;
-        player.Number = int.Parse(playerNumberTetBox.Text);
-        player.TeamID = (int)selectTeamPlayerComboBox.SelectedValue;
-        player.RoleID = (int)propertyPlayerRoleComboBox.SelectedValue;
+        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
+        ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
 
-        _playerRepository.Add(player); ;
+        var teamID = (int)searchTeamComboBox.SelectedValue;
+        if (!IsCorrectNumber(teamID))
+            return;
+
+        var player = new Player()
+        {
+            Name = playerNameTextBox.Text,
+            Surname = playerSurnameTextBox.Text,
+            Patronymic = playerPatronymicTetBox.Text,
+            Number = int.Parse(playerNumberTetBox.Text),
+            TeamID = teamID,
+            RoleID = (int) searchRoleComboBox.SelectedValue,
+        };
+
+        _playerRepository.Add(player);
 
         ButtonGettingPlayers_Click(sender, e);
     }
@@ -195,7 +207,8 @@ public partial class Form1 : Form
         int teamID = (int)(searchTeamComboBox.SelectedValue ?? oldPlayer.TeamID);
         int roleID = (int)(searchRoleComboBox.SelectedValue ?? oldPlayer.RoleID);
 
-        CheckNumber(teamID, id);
+        if(!IsCorrectNumber(teamID, id))
+            return;
 
         var player = new Player()
         {
@@ -212,14 +225,19 @@ public partial class Form1 : Form
         ButtonGettingPlayers_Click(sender, e);
     }
 
-    private void CheckNumber(int teamID, int? id = null)
+    private bool IsCorrectNumber(int teamID, int? id = null)
     {
         ShowMessageBoxIfTextEmpty(playerNameTextBox, "Номер не заполнен");
         var number = int.Parse(playerNumberTetBox.Text);
         var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });
         
-        if(playersInTeam.Any(c=> c.Number == number && (!id.HasValue || c.ID != id))) 
+        if (playersInTeam.Any(c => c.Number == number && (!id.HasValue || c.ID != id)))
+        {
             MessageBox.Show("Введенный номер уже есть в данной команде");
+            return false;
+        }
+
+        return true;
     }
     #endregion
 
