@@ -1,32 +1,39 @@
-CREATE OR REPLACE FUNCTION get_info_user (search VARCHAR) 
+CREATE OR REPLACE FUNCTION get_info_matches (filter_search VARCHAR
+                                            , first_team_id integer
+                                            , second_team_id integer
+                                            , filter_stadion_id integer) 
     RETURNS TABLE (
         id integer,
-        name VARCHAR,
-        surname varchar,
-        patronymic varchar,
-        number_in_team integer,
-        team_id integer,
-        team_name varchar,
-        role_id integer,
-        role_name varchar) 
+        date date,
+        team1_id integer,
+        team1_name varchar,
+        team2_id integer,
+        team2_name varchar,
+        stadium_id integer,
+        stadium_name varchar) 
 AS $$
 BEGIN
     RETURN QUERY 
-    SELECT 
-        p.id,
-        p.name,
-        p.surname,
-        p.patronymic,
-        p.number_in_team,
-        p.team_id,
-        t.team_name,
-        p.role_id,
-        t.role_name
-    from players p
-    INNER JOIN teams t ON t.id = p.team_id
-    INNER JOIN roles rp ON rp.id = p.role_id
-    WHERE search IS NULL or search = ''
-        or p.name + p.surname + p.patronymic LIKE '%' + search + '%' ;
+    select m.id
+        , m.date
+        , m.team1_id
+        , t1.name as team1_name
+        , m.team2_id
+        , t2.name as team1_name
+        , m.stadium_id
+        , s.name as stadium_name
+    from matches m
+    inner join teams t1 on t1.id = m.team1_id
+    inner join teams t2 on t2.id = m.team2_id
+    inner join stadiums s on s.id = m.stadium_id
+    where (filter_search is null 
+            or filter_search = '' 
+            or t1.name like '%'+filter_search+'%'
+            or t2.name like '%'+filter_search+'%'
+            or s.name like '%'+filter_search+'%')
+          and (first_team_id is null or m.team1_id = first_team_id)
+          and (first_team_id is null or m.team2_id = second_team_id)
+          and (filter_stadion_id is null or m.stadium_id = filter_stadion_id);
 END; $$ 
 
 LANGUAGE 'plpgsql';

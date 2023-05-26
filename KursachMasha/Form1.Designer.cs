@@ -28,7 +28,7 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        DeletePlayers_Button = new Button();
+        playerDeleteButton = new Button();
         tablePlayers = new DataGridView();
         Tabs = new TabControl();
         tabPage1 = new TabPage();
@@ -40,15 +40,15 @@ partial class Form1
         label15 = new Label();
         searchRoleComboBox = new ComboBox();
         label16 = new Label();
-        propertyTeamPlayerComboBox = new ComboBox();
+        teamIDPlayerComboBox = new ComboBox();
         label14 = new Label();
         playerPatronymicTetBox = new TextBox();
         label3 = new Label();
-        buttonGettingPlayers = new Button();
+        playerGettingButton = new Button();
         playerSearchTextBox = new TextBox();
-        propertyPlayerRoleComboBox = new ComboBox();
+        roleIDPlayerComboBox = new ComboBox();
         playerAddButton = new Button();
-        button5 = new Button();
+        playerUpdateButton = new Button();
         playerSurnameTextBox = new TextBox();
         label4 = new Label();
         playerNameTextBox = new TextBox();
@@ -118,15 +118,15 @@ partial class Form1
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
-        // DeletePlayers_Button
+        // playerDeleteButton
         // 
-        DeletePlayers_Button.Location = new Point(296, 233);
-        DeletePlayers_Button.Name = "DeletePlayers_Button";
-        DeletePlayers_Button.Size = new Size(94, 29);
-        DeletePlayers_Button.TabIndex = 2;
-        DeletePlayers_Button.Text = "Удалить";
-        DeletePlayers_Button.UseVisualStyleBackColor = true;
-        DeletePlayers_Button.Click += DeletePlayers_Click;
+        playerDeleteButton.Location = new Point(296, 233);
+        playerDeleteButton.Name = "playerDeleteButton";
+        playerDeleteButton.Size = new Size(94, 29);
+        playerDeleteButton.TabIndex = 2;
+        playerDeleteButton.Text = "Удалить";
+        playerDeleteButton.UseVisualStyleBackColor = true;
+        playerDeleteButton.Click += DeletePlayers_Click;
         // 
         // tablePlayers
         // 
@@ -163,22 +163,22 @@ partial class Form1
         tabPage1.Controls.Add(label15);
         tabPage1.Controls.Add(searchRoleComboBox);
         tabPage1.Controls.Add(label16);
-        tabPage1.Controls.Add(propertyTeamPlayerComboBox);
+        tabPage1.Controls.Add(teamIDPlayerComboBox);
         tabPage1.Controls.Add(label14);
         tabPage1.Controls.Add(playerPatronymicTetBox);
         tabPage1.Controls.Add(label3);
-        tabPage1.Controls.Add(buttonGettingPlayers);
+        tabPage1.Controls.Add(playerGettingButton);
         tabPage1.Controls.Add(playerSearchTextBox);
-        tabPage1.Controls.Add(propertyPlayerRoleComboBox);
+        tabPage1.Controls.Add(roleIDPlayerComboBox);
         tabPage1.Controls.Add(playerAddButton);
-        tabPage1.Controls.Add(button5);
+        tabPage1.Controls.Add(playerUpdateButton);
         tabPage1.Controls.Add(playerSurnameTextBox);
         tabPage1.Controls.Add(label4);
         tabPage1.Controls.Add(playerNameTextBox);
         tabPage1.Controls.Add(label5);
         tabPage1.Controls.Add(label6);
         tabPage1.Controls.Add(tablePlayers);
-        tabPage1.Controls.Add(DeletePlayers_Button);
+        tabPage1.Controls.Add(playerDeleteButton);
         tabPage1.Location = new Point(4, 29);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
@@ -260,14 +260,14 @@ partial class Form1
         label16.TabIndex = 25;
         label16.Text = "Роль";
         // 
-        // selectTeamPlayerComboBox
+        // teamIDPlayerComboBox
         // 
-        propertyTeamPlayerComboBox.FormattingEnabled = true;
-        propertyTeamPlayerComboBox.Location = new Point(85, 190);
-        propertyTeamPlayerComboBox.Name = "selectTeamPlayerComboBox";
-        propertyTeamPlayerComboBox.Size = new Size(305, 28);
-        propertyTeamPlayerComboBox.TabIndex = 24;
-        propertyTeamPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
+        teamIDPlayerComboBox.FormattingEnabled = true;
+        teamIDPlayerComboBox.Location = new Point(85, 190);
+        teamIDPlayerComboBox.Name = "teamIDPlayerComboBox";
+        teamIDPlayerComboBox.Size = new Size(305, 28);
+        teamIDPlayerComboBox.TabIndex = 24;
+        teamIDPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label14
         // 
@@ -294,15 +294,15 @@ partial class Form1
         label3.TabIndex = 21;
         label3.Text = "Отчество";
         // 
-        // buttonGettingPlayers
+        // playerGettingButton
         // 
-        buttonGettingPlayers.Location = new Point(296, 429);
-        buttonGettingPlayers.Name = "buttonGettingPlayers";
-        buttonGettingPlayers.Size = new Size(94, 29);
-        buttonGettingPlayers.TabIndex = 20;
-        buttonGettingPlayers.Text = "Получить";
-        buttonGettingPlayers.UseVisualStyleBackColor = true;
-        buttonGettingPlayers.Click += ButtonGettingPlayers_Click;
+        playerGettingButton.Location = new Point(296, 429);
+        playerGettingButton.Name = "playerGettingButton";
+        playerGettingButton.Size = new Size(94, 29);
+        playerGettingButton.TabIndex = 20;
+        playerGettingButton.Text = "Получить";
+        playerGettingButton.UseVisualStyleBackColor = true;
+        playerGettingButton.Click += ButtonGettingPlayers_Click;
         // 
         // playerSearchTextBox
         // 
@@ -313,14 +313,14 @@ partial class Form1
         playerSearchTextBox.Enter += ButtonGettingPlayers_Click;
         playerSearchTextBox.KeyDown += ButtonGettingPlayers_Click;
         // 
-        // propertyPlayerRoleComboBox
+        // roleIDPlayerComboBox
         // 
-        propertyPlayerRoleComboBox.FormattingEnabled = true;
-        propertyPlayerRoleComboBox.Location = new Point(85, 156);
-        propertyPlayerRoleComboBox.Name = "propertyPlayerRoleComboBox";
-        propertyPlayerRoleComboBox.Size = new Size(305, 28);
-        propertyPlayerRoleComboBox.TabIndex = 18;
-        propertyPlayerRoleComboBox.DropDown += searchRoleComboBox_DropDown;
+        roleIDPlayerComboBox.FormattingEnabled = true;
+        roleIDPlayerComboBox.Location = new Point(85, 156);
+        roleIDPlayerComboBox.Name = "roleIDPlayerComboBox";
+        roleIDPlayerComboBox.Size = new Size(305, 28);
+        roleIDPlayerComboBox.TabIndex = 18;
+        roleIDPlayerComboBox.DropDown += searchRoleComboBox_DropDown;
         // 
         // playerAddButton
         // 
@@ -332,15 +332,15 @@ partial class Form1
         playerAddButton.UseVisualStyleBackColor = true;
         playerAddButton.Click += addPlayerButton_Click;
         // 
-        // button5
+        // playerUpdateButton
         // 
-        button5.Location = new Point(196, 233);
-        button5.Name = "button5";
-        button5.Size = new Size(94, 29);
-        button5.TabIndex = 11;
-        button5.Text = "Обновить";
-        button5.UseVisualStyleBackColor = true;
-        button5.Click += updatePlayerButton_Click;
+        playerUpdateButton.Location = new Point(196, 233);
+        playerUpdateButton.Name = "playerUpdateButton";
+        playerUpdateButton.Size = new Size(94, 29);
+        playerUpdateButton.TabIndex = 11;
+        playerUpdateButton.Text = "Обновить";
+        playerUpdateButton.UseVisualStyleBackColor = true;
+        playerUpdateButton.Click += updatePlayerButton_Click;
         // 
         // playerSurnameTextBox
         // 
@@ -914,7 +914,7 @@ partial class Form1
     }
 
     #endregion
-    private Button DeletePlayers_Button;
+    private Button playerDeleteButton;
     private DataGridView tablePlayers;
     private TabControl Tabs;
     private TabPage tabPage1;
@@ -922,7 +922,7 @@ partial class Form1
     private TabPage tabPage3;
     private TabPage tabPage4;
     private Button playerAddButton;
-    private Button button5;
+    private Button playerUpdateButton;
     private TextBox playerSurnameTextBox;
     private Label label4;
     private TextBox playerNameTextBox;
@@ -954,17 +954,17 @@ partial class Form1
     private Button sposorAddButton;
     private Button button14;
     private Button DeleteSponsors_Button;
-    private ComboBox propertyPlayerRoleComboBox;
+    private ComboBox roleIDPlayerComboBox;
     private ComboBox comboBox4;
     private ComboBox comboBox3;
     private ComboBox comboBox2;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private ComboBox propertyTeamPlayerComboBox;
+    private ComboBox teamIDPlayerComboBox;
     private Label label14;
     private TextBox playerPatronymicTetBox;
     private Label label3;
-    private Button buttonGettingPlayers;
+    private Button playerGettingButton;
     private TextBox playerSearchTextBox;
     private Button button1;
     private Button button17;

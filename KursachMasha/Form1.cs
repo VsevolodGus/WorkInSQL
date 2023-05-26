@@ -57,13 +57,13 @@ public partial class Form1 : Form
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
 
-        propertyTeamPlayerComboBox.ValueMember = nameof(Team.ID);
-        propertyTeamPlayerComboBox.DisplayMember = nameof(Team.Name);
+        teamIDPlayerComboBox.ValueMember = nameof(Team.ID);
+        teamIDPlayerComboBox.DisplayMember = nameof(Team.Name);
 
         searchRoleComboBox.ValueMember = nameof(Role.ID);
         searchRoleComboBox.DisplayMember = nameof(Role.Name);
-        propertyPlayerRoleComboBox.ValueMember = nameof(Role.ID);
-        propertyPlayerRoleComboBox.DisplayMember = nameof(Role.Name);
+        roleIDPlayerComboBox.ValueMember = nameof(Role.ID);
+        roleIDPlayerComboBox.DisplayMember = nameof(Role.Name);
 
         selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
         selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
@@ -138,13 +138,13 @@ public partial class Form1 : Form
         playerPatronymicTetBox.Text = string.Empty;
         playerNumberTetBox.Text = string.Empty;
 
-        propertyTeamPlayerComboBox.SelectedItem = new object();
-        propertyTeamPlayerComboBox.SelectedValue = new object();
-        propertyTeamPlayerComboBox.Text = null;
+        teamIDPlayerComboBox.SelectedItem = new object();
+        teamIDPlayerComboBox.SelectedValue = new object();
+        teamIDPlayerComboBox.Text = null;
 
-        propertyPlayerRoleComboBox.SelectedItem = new object();
-        propertyPlayerRoleComboBox.SelectedValue = new object();
-        propertyPlayerRoleComboBox.Text = null;
+        roleIDPlayerComboBox.SelectedItem = new object();
+        roleIDPlayerComboBox.SelectedValue = new object();
+        roleIDPlayerComboBox.Text = null;
         #endregion
 
         if (e.StateChanged != DataGridViewElementStates.Selected)
@@ -159,17 +159,17 @@ public partial class Form1 : Form
         playerNumberTetBox.Text = player.Number.ToString();
 
         var team = _teamRepository.GetByID(player.TeamID);
-        propertyTeamPlayerComboBox.SelectedItem = team;
-        propertyTeamPlayerComboBox.SelectedValue = team.ID;
-        propertyTeamPlayerComboBox.SelectedText = team.Name;
+        teamIDPlayerComboBox.SelectedItem = team;
+        teamIDPlayerComboBox.SelectedValue = team.ID;
+        teamIDPlayerComboBox.SelectedText = team.Name;
 
         var role = _roleRepository.GetByID(player.RoleID);
-        propertyPlayerRoleComboBox.SelectedItem = role;
-        propertyPlayerRoleComboBox.SelectedValue = role.ID;
-        propertyPlayerRoleComboBox.SelectedText = role.Name;
+        roleIDPlayerComboBox.SelectedItem = role;
+        roleIDPlayerComboBox.SelectedValue = role.ID;
+        roleIDPlayerComboBox.SelectedText = role.Name;
 
-        searchRoleComboBox_DropDown(propertyPlayerRoleComboBox, e);
-        searchTeamComboBox_DropDown(propertyTeamPlayerComboBox, e);
+        searchRoleComboBox_DropDown(roleIDPlayerComboBox, e);
+        searchTeamComboBox_DropDown(teamIDPlayerComboBox, e);
     }
 
     private void addPlayerButton_Click(object sender, EventArgs e)
@@ -178,7 +178,7 @@ public partial class Form1 : Form
         ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
 
         //TODO решить проблему с невыбранными полями при добавление, почему-то Select поля не заполняются
-        var teamID = (int)propertyTeamPlayerComboBox.SelectedValue;
+        var teamID = (int)teamIDPlayerComboBox.SelectedValue;
         if (!IsCorrectNumber(teamID))
             return;
 
@@ -189,7 +189,7 @@ public partial class Form1 : Form
             Patronymic = playerPatronymicTetBox.Text,
             Number = int.Parse(playerNumberTetBox.Text),
             TeamID = teamID,
-            RoleID = (int)propertyPlayerRoleComboBox.SelectedValue,
+            RoleID = (int)roleIDPlayerComboBox.SelectedValue,
         };
 
         _playerRepository.Add(player);
@@ -201,14 +201,14 @@ public partial class Form1 : Form
     {
         ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
         ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
-        
+
         var id = (int)tablePlayers.SelectedRows[0].Cells[0].Value;
         var oldPlayer = _playerRepository.GetByID(id);
 
         int teamID = (int)(searchTeamComboBox.SelectedValue ?? oldPlayer.TeamID);
         int roleID = (int)(searchRoleComboBox.SelectedValue ?? oldPlayer.RoleID);
 
-        if(!IsCorrectNumber(teamID, id))
+        if (!IsCorrectNumber(teamID, id))
             return;
 
         var player = new Player()
@@ -231,7 +231,7 @@ public partial class Form1 : Form
         ShowMessageBoxIfTextEmpty(playerNameTextBox, "Номер не заполнен");
         var number = int.Parse(playerNumberTetBox.Text);
         var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });
-        
+
         if (playersInTeam.Any(c => c.Number == number && (!id.HasValue || c.ID != id)))
         {
             MessageBox.Show("Введенный номер уже есть в данной команде");
