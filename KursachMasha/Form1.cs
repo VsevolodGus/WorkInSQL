@@ -1,5 +1,6 @@
 using KursachMasha.DAL.Locations;
 using KursachMasha.DAL.Players;
+using KursachMasha.DAL.Queries;
 using KursachMasha.DAL.Roles;
 using KursachMasha.DAL.Sponsors;
 using KursachMasha.DAL.Stadiums;
@@ -17,6 +18,7 @@ public partial class Form1 : Form
     private readonly SponsorRepository _sponsorRepository;
     private readonly StadiumRepository _stadiumRepository;
     private readonly LocationRepository _locationRepository;
+    private readonly DataPlayersMatchesQuery _playersMatchesQuery;
 
     public Form1(LoginForm loginForm)
     {
@@ -28,6 +30,7 @@ public partial class Form1 : Form
         _sponsorRepository = new SponsorRepository();
         _stadiumRepository = new StadiumRepository();
         _locationRepository = new LocationRepository();
+        _playersMatchesQuery = new DataPlayersMatchesQuery();
 
 
         InitializeComponent();
@@ -44,6 +47,8 @@ public partial class Form1 : Form
             foreach (var textBox in textBoxes)
                 textBox.Enabled = false;
         }
+
+        tablePlayerCountMatchesDataGridView.Configuration<PlayerMatches>();
 
         tablePlayers.Configuration<Player>();
         FillingTablePlayers();
@@ -365,5 +370,16 @@ public partial class Form1 : Form
     {
         if (string.IsNullOrEmpty(textBox.Text))
             MessageBox.Show(messageBoxText);
+    }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+        tablePlayerCountMatchesDataGridView.Rows.Clear();
+        foreach (var player in _playersMatchesQuery.Execute())
+            tablePlayerCountMatchesDataGridView.Rows.Add(player.ID
+                , player.Name
+                , player.Surname
+                , player.Patronymic
+                , player.CountMatches);
     }
 }

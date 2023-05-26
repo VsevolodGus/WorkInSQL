@@ -104,6 +104,9 @@ partial class Form1
         label13 = new Label();
         sponsorNameTextBox = new TextBox();
         tableSponsors = new DataGridView();
+        tabPage6 = new TabPage();
+        button3 = new Button();
+        tablePlayerCountMatchesDataGridView = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
         ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
@@ -116,6 +119,8 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)tableStadiums).BeginInit();
         tabPage5.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).BeginInit();
+        tabPage6.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)tablePlayerCountMatchesDataGridView).BeginInit();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -147,6 +152,7 @@ partial class Form1
         Tabs.Controls.Add(tabPage3);
         Tabs.Controls.Add(tabPage4);
         Tabs.Controls.Add(tabPage5);
+        Tabs.Controls.Add(tabPage6);
         Tabs.Font = new Font("Segoe UI Emoji", 9F, FontStyle.Regular, GraphicsUnit.Point);
         Tabs.Location = new Point(6, 27);
         Tabs.Name = "Tabs";
@@ -876,6 +882,38 @@ partial class Form1
         tableSponsors.Size = new Size(603, 550);
         tableSponsors.TabIndex = 3;
         // 
+        // tabPage6
+        // 
+        tabPage6.Controls.Add(button3);
+        tabPage6.Controls.Add(tablePlayerCountMatchesDataGridView);
+        tabPage6.Location = new Point(4, 29);
+        tabPage6.Name = "tabPage6";
+        tabPage6.Padding = new Padding(3);
+        tabPage6.Size = new Size(1129, 555);
+        tabPage6.TabIndex = 5;
+        tabPage6.Text = "Кол-во матчей у игроков";
+        tabPage6.UseVisualStyleBackColor = true;
+        // 
+        // button3
+        // 
+        button3.Location = new Point(25, 22);
+        button3.Name = "button3";
+        button3.Size = new Size(414, 233);
+        button3.TabIndex = 30;
+        button3.Text = "Получить список игроков с кол-воматчей в которых они учавствовали";
+        button3.UseVisualStyleBackColor = true;
+        button3.Click += button3_Click;
+        // 
+        // tablePlayerCountMatchesDataGridView
+        // 
+        tablePlayerCountMatchesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        tablePlayerCountMatchesDataGridView.Location = new Point(486, 6);
+        tablePlayerCountMatchesDataGridView.Name = "tablePlayerCountMatchesDataGridView";
+        tablePlayerCountMatchesDataGridView.RowHeadersWidth = 51;
+        tablePlayerCountMatchesDataGridView.RowTemplate.Height = 29;
+        tablePlayerCountMatchesDataGridView.Size = new Size(603, 535);
+        tablePlayerCountMatchesDataGridView.TabIndex = 4;
+        // 
         // menuStrip1
         // 
         menuStrip1.ImageScalingSize = new Size(20, 20);
@@ -919,6 +957,8 @@ partial class Form1
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).EndInit();
+        tabPage6.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)tablePlayerCountMatchesDataGridView).EndInit();
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
         ResumeLayout(false);
@@ -1004,4 +1044,7 @@ partial class Form1
     private Button buttonGettingStadiums;
     private ComboBox selectLocationComboBox;
     private CheckBox isUseForMatchesCheckBox;
+    private TabPage tabPage6;
+    private Button button3;
+    private DataGridView tablePlayerCountMatchesDataGridView;
 }
