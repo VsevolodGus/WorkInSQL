@@ -324,7 +324,7 @@ public partial class Form1 : Form
 
     private void stadiumAddButton_Click(object sender, EventArgs e)
     {
-        Stadium stadium = new Stadium();
+        var stadium = new Stadium();
         stadium.Name = stadiumNameTextBox.Text;
         stadium.Volume = int.Parse(stadiumVolumeTextBox.Text);
         stadium.LocationID = (int)selectLocationComboBox.SelectedValue;
@@ -339,9 +339,9 @@ public partial class Form1 : Form
     {
         FillingTableStadiums(new StadiumFilter
         {
-            Search = stadiumSearchTextBox.Text
+            Search = stadiumSearchTextBox.Text,
+            IsUseForStadions = isUseForMatchesCheckBox.Checked
         });
-
     }
 
     private void DeleteStadium_Button_Click(object sender, EventArgs e)

@@ -77,6 +77,7 @@ partial class Form1
         label8 = new Label();
         label7 = new Label();
         tabPage4 = new TabPage();
+        isUseForMatchesCheckBox = new CheckBox();
         selectLocationComboBox = new ComboBox();
         label24 = new Label();
         stadiumSearchTextBox = new TextBox();
@@ -599,6 +600,7 @@ partial class Form1
         // 
         // tabPage4
         // 
+        tabPage4.Controls.Add(isUseForMatchesCheckBox);
         tabPage4.Controls.Add(selectLocationComboBox);
         tabPage4.Controls.Add(label24);
         tabPage4.Controls.Add(stadiumSearchTextBox);
@@ -620,6 +622,16 @@ partial class Form1
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Стадионы";
         tabPage4.UseVisualStyleBackColor = true;
+        // 
+        // isUseForMatchesCheckBox
+        // 
+        isUseForMatchesCheckBox.AutoSize = true;
+        isUseForMatchesCheckBox.Location = new Point(14, 428);
+        isUseForMatchesCheckBox.Name = "isUseForMatchesCheckBox";
+        isUseForMatchesCheckBox.Size = new Size(352, 24);
+        isUseForMatchesCheckBox.TabIndex = 37;
+        isUseForMatchesCheckBox.Text = "Получить матчи на которых проходили матчи";
+        isUseForMatchesCheckBox.UseVisualStyleBackColor = true;
         // 
         // selectLocationComboBox
         // 
@@ -648,7 +660,7 @@ partial class Form1
         // 
         // buttonGettingStadiums
         // 
-        buttonGettingStadiums.Location = new Point(365, 435);
+        buttonGettingStadiums.Location = new Point(365, 479);
         buttonGettingStadiums.Name = "buttonGettingStadiums";
         buttonGettingStadiums.Size = new Size(94, 29);
         buttonGettingStadiums.TabIndex = 33;
@@ -991,4 +1003,5 @@ partial class Form1
     private TextBox stadiumSearchTextBox;
     private Button buttonGettingStadiums;
     private ComboBox selectLocationComboBox;
+    private CheckBox isUseForMatchesCheckBox;
 }

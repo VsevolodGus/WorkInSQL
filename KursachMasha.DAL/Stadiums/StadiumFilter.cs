@@ -2,7 +2,9 @@
 public class StadiumFilter
 {
 
-    public string Search { get; init;}
+    public string Search { get; init; }
 
     public int? LocationID { get; init; }
+
+    public bool IsUseForStadions {get; init;}
 }

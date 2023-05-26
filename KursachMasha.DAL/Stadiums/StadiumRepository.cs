@@ -58,12 +58,15 @@ public class StadiumRepository :
 
 
         if (!string.IsNullOrEmpty(filter.Search))
-            stringBuilder.Append($"\nand p.name like '%{filter.Search}%'");
+            stringBuilder.Append($"\n\tand p.name like '%{filter.Search}%'");
 
         if (filter.LocationID.HasValue)
-            stringBuilder.Append($"\nand p.location_id = {filter.LocationID}");
+            stringBuilder.Append($"\n\tand p.location_id = {filter.LocationID}");
 
+        if (filter.IsUseForStadions)
+            stringBuilder.Append($"\n\tand s.id = ANY(select m.stadium_id from matches m) ");
 
+        
         stringBuilder.Append(';');
         var sql = stringBuilder.ToString();
         return base.ExecuteGetArrayQuery(sql); 
