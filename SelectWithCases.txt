@@ -1,4 +1,3 @@
-select count(*) from matches m where m.stadium_id = stadium_id;  
 select s.id
 , name
 , CASE

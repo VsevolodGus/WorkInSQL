@@ -316,6 +316,8 @@ public partial class Form1 : Form
             tableStadiums.Rows.Add(stadium.ID
                 , stadium.Name
                 , stadium.Volume
+                , stadium.Size
+                , stadium.Popular
                 , stadium.LocationID
                 , stadium.LocationName);
     }
