@@ -6,7 +6,7 @@ public class DataPlayersMatchesQuery
     private readonly NpgsqlConnection sqlConnection;
     public DataPlayersMatchesQuery()
     {
-        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=kursach; Password=1;");
+        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=postgres; Password=postgres;");
     }
 
     

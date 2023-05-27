@@ -9,6 +9,7 @@ public class RoleRepository :
     protected override string Table => "roles";
 
     public void Add(Role sponsor)
+
     {
         throw new NotImplementedException();
     }

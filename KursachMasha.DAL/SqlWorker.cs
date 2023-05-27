@@ -7,7 +7,7 @@ public abstract class SqlWorker<T>
     protected abstract string Table { get; }
     public SqlWorker()
     {
-        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=kursach; Password=1;");
+        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=postgres; Password=postgres;");
     }
     public void Delete(int id)
     {
