@@ -4,6 +4,8 @@ CREATE TABLE public.matches
     date timestamp without time zone NOT NULL,
     team1_id integer NOT NULL,
     team2_id integer NOT NULL,
+    team1_result integer DEFAULT 0,
+    team2_result integer DEFAULT 0,
     stadium_id integer NOT NULL,
     CONSTRAINT pk_mathes PRIMARY KEY (id)
 );

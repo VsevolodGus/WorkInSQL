@@ -73,14 +73,14 @@ partial class Form1
         label26 = new Label();
         label25 = new Label();
         textBox2 = new TextBox();
-        button4 = new Button();
+        matchGettingButton = new Button();
         tableMatches = new DataGridView();
-        comboBox4 = new ComboBox();
-        comboBox3 = new ComboBox();
-        comboBox2 = new ComboBox();
-        button7 = new Button();
-        button8 = new Button();
-        button9 = new Button();
+        stadiumIDTeamComboBox = new ComboBox();
+        team2IDMatchComboBox = new ComboBox();
+        team1IDMatchComboBox = new ComboBox();
+        matchAddButton = new Button();
+        matchUpdateButton = new Button();
+        matchDeleteButton = new Button();
         DateTimePickerMatch = new DateTimePicker();
         label10 = new Label();
         label9 = new Label();
@@ -555,14 +555,14 @@ partial class Form1
         tabPage3.Controls.Add(label26);
         tabPage3.Controls.Add(label25);
         tabPage3.Controls.Add(textBox2);
-        tabPage3.Controls.Add(button4);
+        tabPage3.Controls.Add(matchGettingButton);
         tabPage3.Controls.Add(tableMatches);
-        tabPage3.Controls.Add(comboBox4);
-        tabPage3.Controls.Add(comboBox3);
-        tabPage3.Controls.Add(comboBox2);
-        tabPage3.Controls.Add(button7);
-        tabPage3.Controls.Add(button8);
-        tabPage3.Controls.Add(button9);
+        tabPage3.Controls.Add(stadiumIDTeamComboBox);
+        tabPage3.Controls.Add(team2IDMatchComboBox);
+        tabPage3.Controls.Add(team1IDMatchComboBox);
+        tabPage3.Controls.Add(matchAddButton);
+        tabPage3.Controls.Add(matchUpdateButton);
+        tabPage3.Controls.Add(matchDeleteButton);
         tabPage3.Controls.Add(DateTimePickerMatch);
         tabPage3.Controls.Add(label10);
         tabPage3.Controls.Add(label9);
@@ -626,15 +626,16 @@ partial class Form1
         textBox2.Size = new Size(273, 23);
         textBox2.TabIndex = 37;
         // 
-        // button4
+        // matchGettingButton
         // 
-        button4.Location = new Point(312, 333);
-        button4.Margin = new Padding(3, 2, 3, 2);
-        button4.Name = "button4";
-        button4.Size = new Size(82, 22);
-        button4.TabIndex = 36;
-        button4.Text = "Получить";
-        button4.UseVisualStyleBackColor = true;
+        matchGettingButton.Location = new Point(312, 333);
+        matchGettingButton.Margin = new Padding(3, 2, 3, 2);
+        matchGettingButton.Name = "matchGettingButton";
+        matchGettingButton.Size = new Size(82, 22);
+        matchGettingButton.TabIndex = 36;
+        matchGettingButton.Text = "Получить";
+        matchGettingButton.UseVisualStyleBackColor = true;
+        matchGettingButton.Click += matchGettingButton_Click;
         // 
         // tableMatches
         // 
@@ -647,62 +648,68 @@ partial class Form1
         tableMatches.Size = new Size(538, 397);
         tableMatches.TabIndex = 24;
         // 
-        // comboBox4
+        // stadiumIDTeamComboBox
         // 
-        comboBox4.FormattingEnabled = true;
-        comboBox4.Location = new Point(100, 130);
-        comboBox4.Margin = new Padding(3, 2, 3, 2);
-        comboBox4.Name = "comboBox4";
-        comboBox4.Size = new Size(169, 24);
-        comboBox4.TabIndex = 23;
+        stadiumIDTeamComboBox.FormattingEnabled = true;
+        stadiumIDTeamComboBox.Location = new Point(100, 130);
+        stadiumIDTeamComboBox.Margin = new Padding(3, 2, 3, 2);
+        stadiumIDTeamComboBox.Name = "stadiumIDTeamComboBox";
+        stadiumIDTeamComboBox.Size = new Size(169, 24);
+        stadiumIDTeamComboBox.TabIndex = 23;
+        stadiumIDTeamComboBox.DropDown += stadiumIDTeamComboBox_DropDown;
         // 
-        // comboBox3
+        // team2IDMatchComboBox
         // 
-        comboBox3.FormattingEnabled = true;
-        comboBox3.Location = new Point(100, 96);
-        comboBox3.Margin = new Padding(3, 2, 3, 2);
-        comboBox3.Name = "comboBox3";
-        comboBox3.Size = new Size(169, 24);
-        comboBox3.TabIndex = 22;
+        team2IDMatchComboBox.FormattingEnabled = true;
+        team2IDMatchComboBox.Location = new Point(100, 96);
+        team2IDMatchComboBox.Margin = new Padding(3, 2, 3, 2);
+        team2IDMatchComboBox.Name = "team2IDMatchComboBox";
+        team2IDMatchComboBox.Size = new Size(169, 24);
+        team2IDMatchComboBox.TabIndex = 22;
+        team2IDMatchComboBox.DropDown += team2IDMatchComboBox_DropDown;
         // 
-        // comboBox2
+        // team1IDMatchComboBox
         // 
-        comboBox2.FormattingEnabled = true;
-        comboBox2.Location = new Point(100, 63);
-        comboBox2.Margin = new Padding(3, 2, 3, 2);
-        comboBox2.Name = "comboBox2";
-        comboBox2.Size = new Size(169, 24);
-        comboBox2.TabIndex = 21;
+        team1IDMatchComboBox.FormattingEnabled = true;
+        team1IDMatchComboBox.Location = new Point(100, 63);
+        team1IDMatchComboBox.Margin = new Padding(3, 2, 3, 2);
+        team1IDMatchComboBox.Name = "team1IDMatchComboBox";
+        team1IDMatchComboBox.Size = new Size(169, 24);
+        team1IDMatchComboBox.TabIndex = 21;
+        team1IDMatchComboBox.DropDown += team1IDMatchComboBox_DropDown;
         // 
-        // button7
+        // matchAddButton
         // 
-        button7.Location = new Point(302, 63);
-        button7.Margin = new Padding(3, 2, 3, 2);
-        button7.Name = "button7";
-        button7.Size = new Size(82, 22);
-        button7.TabIndex = 19;
-        button7.Text = "Добавить";
-        button7.UseVisualStyleBackColor = true;
+        matchAddButton.Location = new Point(302, 63);
+        matchAddButton.Margin = new Padding(3, 2, 3, 2);
+        matchAddButton.Name = "matchAddButton";
+        matchAddButton.Size = new Size(82, 22);
+        matchAddButton.TabIndex = 19;
+        matchAddButton.Text = "Добавить";
+        matchAddButton.UseVisualStyleBackColor = true;
+        matchAddButton.Click += matchAddButton_Click;
         // 
-        // button8
+        // matchUpdateButton
         // 
-        button8.Location = new Point(302, 96);
-        button8.Margin = new Padding(3, 2, 3, 2);
-        button8.Name = "button8";
-        button8.Size = new Size(82, 22);
-        button8.TabIndex = 20;
-        button8.Text = "Обновить";
-        button8.UseVisualStyleBackColor = true;
+        matchUpdateButton.Location = new Point(302, 96);
+        matchUpdateButton.Margin = new Padding(3, 2, 3, 2);
+        matchUpdateButton.Name = "matchUpdateButton";
+        matchUpdateButton.Size = new Size(82, 22);
+        matchUpdateButton.TabIndex = 20;
+        matchUpdateButton.Text = "Обновить";
+        matchUpdateButton.UseVisualStyleBackColor = true;
+        matchUpdateButton.Click += matchUpdateButton_Click;
         // 
-        // button9
+        // matchDeleteButton
         // 
-        button9.Location = new Point(302, 130);
-        button9.Margin = new Padding(3, 2, 3, 2);
-        button9.Name = "button9";
-        button9.Size = new Size(82, 22);
-        button9.TabIndex = 18;
-        button9.Text = "Удалить";
-        button9.UseVisualStyleBackColor = true;
+        matchDeleteButton.Location = new Point(302, 130);
+        matchDeleteButton.Margin = new Padding(3, 2, 3, 2);
+        matchDeleteButton.Name = "matchDeleteButton";
+        matchDeleteButton.Size = new Size(82, 22);
+        matchDeleteButton.TabIndex = 18;
+        matchDeleteButton.Text = "Удалить";
+        matchDeleteButton.UseVisualStyleBackColor = true;
+        matchDeleteButton.Click += matchDeleteButton_Click;
         // 
         // DateTimePickerMatch
         // 
@@ -1159,9 +1166,9 @@ partial class Form1
     private Label label10;
     private Label label9;
     private Label label8;
-    private Button button7;
-    private Button button8;
-    private Button button9;
+    private Button matchAddButton;
+    private Button matchUpdateButton;
+    private Button matchDeleteButton;
     private DateTimePicker DateTimePickerMatch;
     private Button stadiumAddButton;
     private Button button11;
@@ -1178,9 +1185,9 @@ partial class Form1
     private Button button14;
     private Button DeleteSponsors_Button;
     private ComboBox roleIDPlayerComboBox;
-    private ComboBox comboBox4;
-    private ComboBox comboBox3;
-    private ComboBox comboBox2;
+    private ComboBox stadiumIDTeamComboBox;
+    private ComboBox team2IDMatchComboBox;
+    private ComboBox team1IDMatchComboBox;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
     private ComboBox teamIDPlayerComboBox;
@@ -1221,7 +1228,7 @@ partial class Form1
     private DataGridView tableMatches;
     private Label label25;
     private TextBox textBox2;
-    private Button button4;
+    private Button matchGettingButton;
     private Label label27;
     private Label label26;
     private TextBox resultTeam2TextBox;

@@ -1,3 +1,4 @@
+using KursachMasha.DAL.Classes;
 using KursachMasha.DAL.Locations;
 using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Queries;
@@ -5,6 +6,7 @@ using KursachMasha.DAL.Roles;
 using KursachMasha.DAL.Sponsors;
 using KursachMasha.DAL.Stadiums;
 using KursachMasha.DAL.Teams;
+using System.Globalization;
 
 namespace KursachMasha;
 
@@ -19,6 +21,7 @@ public partial class Form1 : Form
     private readonly StadiumRepository _stadiumRepository;
     private readonly LocationRepository _locationRepository;
     private readonly DataPlayersMatchesQuery _playersMatchesQuery;
+    private readonly MatchRepository _matchRepository;
 
     public Form1(LoginForm loginForm)
     {
@@ -31,6 +34,7 @@ public partial class Form1 : Form
         _stadiumRepository = new StadiumRepository();
         _locationRepository = new LocationRepository();
         _playersMatchesQuery = new DataPlayersMatchesQuery();
+        _matchRepository = new MatchRepository();
 
 
         InitializeComponent();
@@ -62,6 +66,9 @@ public partial class Form1 : Form
         tableTeams.Configuration<Team>();
         FillingTableTeam();
 
+        tableMatches.Configuration<Match>();
+        FillingTableMatch();
+
         searchTeamComboBox.ValueMember = nameof(Team.ID);
         searchTeamComboBox.DisplayMember = nameof(Team.Name);
 
@@ -78,6 +85,15 @@ public partial class Form1 : Form
 
         sponsorIDTeamComboBox.ValueMember = nameof(Sponsor.ID);
         sponsorIDTeamComboBox.DisplayMember = nameof(Sponsor.Name);
+
+        team1IDMatchComboBox.ValueMember = nameof(Team.ID);
+        team1IDMatchComboBox.DisplayMember = nameof(Team.Name);
+
+        team2IDMatchComboBox.ValueMember = nameof(Team.ID);
+        team2IDMatchComboBox.DisplayMember = nameof(Team.Name);
+
+        stadiumIDTeamComboBox.ValueMember = nameof(Stadium.ID);
+        stadiumIDTeamComboBox.DisplayMember = nameof(Stadium.Name);
 
     }
 
@@ -474,4 +490,159 @@ public partial class Form1 : Form
             Search = thisComboBox.Text,
         });
     }
+
+
+
+
+    #region Логика c матчами
+
+    private void FillingTableMatch()
+    {
+        tableMatches.Rows.Clear();
+        foreach (var match in _matchRepository.GetArray(null))
+            tableMatches.Rows.Add(match.ID
+                , match.DateTime
+                , match.Team1ID
+                , match.Team1Name
+                , match.Team2ID
+                , match.Team2Name
+                , match.StadiumID
+                , match.StadiumName
+                , match.ResultTeam1
+                , match.ResultTeam2);
+    }
+    private void matchAddButton_Click(object sender, EventArgs e)
+    {
+        //TODO сделать оповещение что не заполнено что-то
+        var match = new Match()
+        {
+            DateTime = DateTimePickerMatch.Value,
+            Team1ID = (int)team1IDMatchComboBox.SelectedValue,
+            Team2ID = (int)team2IDMatchComboBox.SelectedValue,
+            StadiumID = (int)stadiumIDTeamComboBox.SelectedValue,
+            ResultTeam1 = int.Parse(resultTeam1TextBox.Text),
+            ResultTeam2 = int.Parse(resultTeam2TextBox.Text),
+        };
+
+        _matchRepository.Add(match);
+
+        matchGettingButton_Click(sender, e);
+    }
+
+    private void matchUpdateButton_Click(object sender, EventArgs e)
+    {
+        var id = (int)tableMatches.SelectedRows[0].Cells[0].Value;
+        var oldMatch = _matchRepository.GetByID(id);
+
+        int team1ID = (int)(team1IDMatchComboBox.SelectedValue ?? oldMatch.Team1ID);
+        int team2ID = (int)(team1IDMatchComboBox.SelectedValue ?? oldMatch.Team2ID);
+        int stadiumID = (int)(stadiumIDTeamComboBox.SelectedValue ?? oldMatch.StadiumID);
+
+        var match = new Match()
+        {
+            ID = id,
+            DateTime = DateTimePickerMatch.Value,
+            Team1ID = team1ID,
+            Team2ID = team2ID,
+            StadiumID = stadiumID,
+            ResultTeam1 = int.Parse(resultTeam1TextBox.Text),
+            ResultTeam2 = int.Parse(resultTeam2TextBox.Text),
+        };
+
+        _matchRepository.Update(match);
+
+        matchGettingButton_Click(sender, e);
+    }
+
+    private void matchDeleteButton_Click(object sender, EventArgs e)
+    {
+        tableMatches.DeleteObject(_matchRepository);
+        matchGettingButton_Click(sender, e);
+    }
+
+    private void matchGettingButton_Click(object sender, EventArgs e)
+    {
+        FillingTableMatch();
+    }
+
+    private void team1IDMatchComboBox_DropDown(object sender, EventArgs e)
+    {
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
+        {
+            Search = thisComboBox.Text,
+        });
+    }
+
+    private void team2IDMatchComboBox_DropDown(object sender, EventArgs e)
+    {
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
+        {
+            Search = thisComboBox.Text,
+        });
+    }
+
+    private void stadiumIDTeamComboBox_DropDown(object sender, EventArgs e)
+    {
+        var thisComboBox = sender as ComboBox;
+        thisComboBox.DataSource = _stadiumRepository.GetArray(new StadiumFilter()
+        {
+            Search = thisComboBox.Text,
+        });
+    }
+
+    /*  private void searchTeamComboBox_DropDown(object sender, EventArgs e)
+      {
+          var thisComboBox = sender as ComboBox;
+          thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
+          {
+              Search = thisComboBox.Text,
+          });
+      }*/
+
+    /*
+     private void teamUpdateButton_Click(object sender, EventArgs e)
+    {
+        var id = (int)tableTeams.SelectedRows[0].Cells[0].Value;
+        var oldTeam = _teamRepository.GetByID(id);
+
+        int sponsorID = (int)();
+
+        if (!IsCorrectNumber(sponsorID, id))
+            return;
+
+        var team = new Team()
+        {
+            ID = id,
+            Name = teamNameTextBox.Text,
+            SponsorID = sponsorID,
+        };
+        _teamRepository.Update(team);
+
+        teamGettingButton_Click(sender, e);
+    }
+
+
+    private void teamGettingButton_Click(object sender, EventArgs e)
+    {
+        FillingTableTeam(new TeamFilter
+        {
+            Search = teamSearchTextBox.Text
+        });
+
+    }
+
+    private void teamDeleteButton_Click(object sender, EventArgs e)
+    {
+        tableTeams.DeleteObject(_teamRepository);
+        teamGettingButton_Click(sender, e);
+    }
+
+     
+     */
+    #endregion
+
+
+
 }

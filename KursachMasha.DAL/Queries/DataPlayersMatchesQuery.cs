@@ -3,10 +3,10 @@
 namespace KursachMasha.DAL.Queries;
 public class DataPlayersMatchesQuery
 {
-    private readonly NpgsqlConnection sqlConnection;
+    private readonly DataBaseProvider provider;
     public DataPlayersMatchesQuery()
     {
-        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=postgres; Password=postgres;");
+        provider = new DataBaseProvider();
     }
 
     
@@ -24,8 +24,8 @@ public class DataPlayersMatchesQuery
             "\r\nGROUP by p.id" +
             "\r\nHAVING count(*) > 0;";
 
-        sqlConnection.Open();
-        var reader = new NpgsqlCommand(query, sqlConnection).ExecuteReader();
+        provider.SqlConnection.Open();
+        var reader = new NpgsqlCommand(query, provider.SqlConnection).ExecuteReader();
         
         var result = new List<PlayerMatches>();
         while (reader.Read())
@@ -41,7 +41,7 @@ public class DataPlayersMatchesQuery
         }
 
         reader.Close();
-        sqlConnection.Close();
+        provider.SqlConnection.Close();
 
         return result.ToArray();
     }

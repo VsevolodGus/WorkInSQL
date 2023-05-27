@@ -3,11 +3,11 @@
 namespace KursachMasha.DAL;
 public abstract class SqlWorker<T>
 {
-    private readonly NpgsqlConnection sqlConnection;
+    private readonly DataBaseProvider provider;
     protected abstract string Table { get; }
     public SqlWorker()
     {
-        sqlConnection = new NpgsqlConnection("Server=localhost; Port=5432; User Id=postgres; Database=postgres; Password=postgres;");
+        provider = new DataBaseProvider();
     }
     public void Delete(int id)
     {
@@ -27,18 +27,18 @@ public abstract class SqlWorker<T>
 
     protected void ExecuteQuery(string query)
     {
-        sqlConnection.Open();
-        var command = new NpgsqlCommand(query, sqlConnection);
+        provider.SqlConnection.Open();
+        var command = new NpgsqlCommand(query, provider.SqlConnection);
         command.ExecuteNonQuery();
 
-        sqlConnection.Close();
+        provider.SqlConnection.Close();
     }
 
     protected T[] ExecuteGetArrayQuery(string gettingQuery)
     {
-        sqlConnection.Open();
+        provider.SqlConnection.Open();
 
-        var command = new NpgsqlCommand(gettingQuery, sqlConnection);
+        var command = new NpgsqlCommand(gettingQuery, provider.SqlConnection);
         var reader = command.ExecuteReader();
 
         var result = new List<T>();
@@ -46,22 +46,22 @@ public abstract class SqlWorker<T>
             result.Add(Map(reader));
 
         reader.Close();
-        sqlConnection.Close();
+        provider.SqlConnection.Close();
 
         return result.ToArray();
     }
 
     protected T ExecuteGetQuery(string gettingQuery)
     {
-        sqlConnection.Open();
+        provider.SqlConnection.Open();
 
-        var command = new NpgsqlCommand(gettingQuery, sqlConnection);
+        var command = new NpgsqlCommand(gettingQuery, provider.SqlConnection);
         var reader = command.ExecuteReader();
 
         reader.Read();
         var result = Map(reader);
         reader.Close();
-        sqlConnection.Close();
+        provider.SqlConnection.Close();
 
         return result;
     }

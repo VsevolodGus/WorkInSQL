@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KursachMasha.DAL.Classes
 {
-    internal class MatchFilter
+    public class MatchFilter
     {
-        public string Search { get; set; }
+        //public string Search { get; set; }
     }
    
 }
