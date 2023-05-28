@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.add_team(team_name character varying, team_sponsor_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    insert into teams (name, sponsor_id)
+    values (team_name, team_sponsor_id);
+$BODY$;

@@ -1,0 +1,9 @@
+CREATE PROCEDURE public.update_stadium(IN stadium_id integer, IN stadium_name character varying, IN stadium_location_id integer, IN stadium_volume bigint)
+LANGUAGE 'sql'
+AS $BODY$
+    update stadiums
+        SET name = stadium_name
+            , location_id = stadium_location_id
+            , volume = stadium_volume
+    where id = stadium_id;
+$BODY$;

@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.add_location(location_name character varying)
+LANGUAGE 'sql'
+AS $BODY$
+    insert into locations (name)
+    values(location_name);
+$BODY$;

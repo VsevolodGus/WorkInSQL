@@ -1,0 +1,7 @@
+CREATE PROCEDURE public.update_location(IN location_id integer, IN location_name character varying)
+LANGUAGE 'sql'
+AS $BODY$
+    update locations 
+        SET name = location_name
+    where id = location_id;
+$BODY$;

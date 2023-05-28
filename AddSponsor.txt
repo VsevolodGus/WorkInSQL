@@ -1,0 +1,6 @@
+CREATE PROCEDURE public."add-_sponsor"(IN sponsor_name character DEFAULT '', IN sponsor_description character DEFAULT '')
+LANGUAGE 'sql'
+AS $BODY$
+    insert into sponsors (name, description)
+        values (sponsor_name, sponsor_name);
+$BODY$;

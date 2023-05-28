@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.delete_stadium(stadium_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    delete from stadiums
+    where id = stadium_id;
+$BODY$;

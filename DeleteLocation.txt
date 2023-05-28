@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.delete_location(IN location_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    delete from locations
+    where id = location_id;
+$BODY$;

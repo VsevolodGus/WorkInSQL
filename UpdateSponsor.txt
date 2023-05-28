@@ -1,0 +1,8 @@
+CREATE PROCEDURE public.update_sponsor(IN sponsor_description character varying, IN sponsor_name character varying, IN sponsor_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    update sponsors
+        SET name = sponsor_name
+            , description = sponsor_description
+    where id = sponsor_id
+$BODY$;

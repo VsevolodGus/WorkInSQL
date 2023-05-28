@@ -1,0 +1,9 @@
+CREATE PROCEDURE public.update_team(IN team_id integer, IN team_name character varying, IN team_sponsor_id integer, IN team_count_active_players integer)
+LANGUAGE 'sql'
+AS $BODY$
+    update teams
+        SET name = team_name
+            , sponsor_id = team_sponsor_id
+            , count_active_players = team_count_active_players
+    where id = team_id;
+$BODY$;

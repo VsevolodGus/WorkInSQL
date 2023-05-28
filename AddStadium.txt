@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.add_stadium(IN stadium_name character varying, IN stadium_location_id integer, IN stadium_volume bigint)
+LANGUAGE 'sql'
+AS $BODY$
+    insert into stadiums (name, location_id, volume)
+    values(stadium_name, stadium_location_id, stadium_volume);
+$BODY$;

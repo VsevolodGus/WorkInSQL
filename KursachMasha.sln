@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33626.354
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursachMasha", "KursachMasha\KursachMasha.csproj", "{8223D264-124D-400E-854A-D59B3F001DEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursachMasha", "KursachMasha\KursachMasha.csproj", "{8223D264-124D-400E-854A-D59B3F001DEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursachMasha.DAL", "KursachMasha.DAL\KursachMasha.DAL.csproj", "{926C3B5D-5341-4300-9A9F-D629C2664E31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursachMasha.DAL", "KursachMasha.DAL\KursachMasha.DAL.csproj", "{926C3B5D-5341-4300-9A9F-D629C2664E31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9B684A69-81AF-4362-9EF7-997B54424F23}"
 	ProjectSection(SolutionItems) = preProject
@@ -35,6 +35,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SelectScripts", "SelectScri
 		ViewUpdating.txt = ViewUpdating.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProcedureScripts", "ProcedureScripts", "{B8FAACA8-1808-4562-955D-47B6826354CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SponsorProcedure", "SponsorProcedure", "{A09083AF-2D26-4CAB-A921-677DEE4B6939}"
+	ProjectSection(SolutionItems) = preProject
+		AddSponsor.txt = AddSponsor.txt
+		DeleteSponsor.txt = DeleteSponsor.txt
+		UpdateSponsor.txt = UpdateSponsor.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TeamsProcedure", "TeamsProcedure", "{A82DC4D4-B73E-4ED4-83CE-C264077F2C09}"
+	ProjectSection(SolutionItems) = preProject
+		AddTeam.txt = AddTeam.txt
+		DeleteTeam.txt = DeleteTeam.txt
+		UpdateTeam.txt = UpdateTeam.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StadiumProcedure", "StadiumProcedure", "{919CD29C-CE18-4DCC-93CC-B52607A63B5A}"
+	ProjectSection(SolutionItems) = preProject
+		AddStadium.txt = AddStadium.txt
+		DeleteStadium.txt = DeleteStadium.txt
+		UpdateStadium.txt = UpdateStadium.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LocationProcedure", "LocationProcedure", "{4C393B9F-13B2-44F3-90E8-ED841F66B6CA}"
+	ProjectSection(SolutionItems) = preProject
+		AddLocation.txt = AddLocation.txt
+		DeleteLocation.txt = DeleteLocation.txt
+		UpdateLocation.txt = UpdateLocation.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +86,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8B80B6B5-01FA-4D5D-8972-F1C002692C3E} = {9B684A69-81AF-4362-9EF7-997B54424F23}
 		{21EE3F3F-CBD5-45FC-8979-6BA9BBE4CF3C} = {9B684A69-81AF-4362-9EF7-997B54424F23}
+		{B8FAACA8-1808-4562-955D-47B6826354CE} = {9B684A69-81AF-4362-9EF7-997B54424F23}
+		{A09083AF-2D26-4CAB-A921-677DEE4B6939} = {B8FAACA8-1808-4562-955D-47B6826354CE}
+		{A82DC4D4-B73E-4ED4-83CE-C264077F2C09} = {B8FAACA8-1808-4562-955D-47B6826354CE}
+		{919CD29C-CE18-4DCC-93CC-B52607A63B5A} = {B8FAACA8-1808-4562-955D-47B6826354CE}
+		{4C393B9F-13B2-44F3-90E8-ED841F66B6CA} = {B8FAACA8-1808-4562-955D-47B6826354CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E0004D2-B26A-44C5-92F5-73B491936645}
