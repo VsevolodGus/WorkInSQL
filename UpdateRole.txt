@@ -1,0 +1,8 @@
+CREATE PROCEDURE public.update_role(IN role_id integer, IN role_name character varying, IN role_description character varying)
+LANGUAGE 'sql'
+AS $BODY$
+    update roles
+        SET name = role_name
+            , description = role_description
+    where id = role_id;
+$BODY$;

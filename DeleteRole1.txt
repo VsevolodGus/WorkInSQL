@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.delete_role(IN role_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    delete from roles
+    where id = role_id;
+$BODY$;

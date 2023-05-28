@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.add_role(IN role_name character varying, IN role_description character varying)
+LANGUAGE 'sql'
+AS $BODY$
+    insert into roles (name, description)
+    values (role_name, role_description);
+$BODY$;

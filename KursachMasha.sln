@@ -65,6 +65,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LocationProcedure", "Locati
 		UpdateLocation.txt = UpdateLocation.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleProcedure", "RoleProcedure", "{6D08F4C0-9F08-4881-A6D5-627A8047F97E}"
+	ProjectSection(SolutionItems) = preProject
+		AddRole.txt = AddRole.txt
+		DeleteRole1.txt = DeleteRole1.txt
+		UpdateRole.txt = UpdateRole.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +98,7 @@ Global
 		{A82DC4D4-B73E-4ED4-83CE-C264077F2C09} = {B8FAACA8-1808-4562-955D-47B6826354CE}
 		{919CD29C-CE18-4DCC-93CC-B52607A63B5A} = {B8FAACA8-1808-4562-955D-47B6826354CE}
 		{4C393B9F-13B2-44F3-90E8-ED841F66B6CA} = {B8FAACA8-1808-4562-955D-47B6826354CE}
+		{6D08F4C0-9F08-4881-A6D5-627A8047F97E} = {B8FAACA8-1808-4562-955D-47B6826354CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E0004D2-B26A-44C5-92F5-73B491936645}
