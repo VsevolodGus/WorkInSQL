@@ -137,10 +137,9 @@ partial class Form1
         // 
         // playerDeleteButton
         // 
-        playerDeleteButton.Location = new Point(259, 175);
-        playerDeleteButton.Margin = new Padding(3, 2, 3, 2);
+        playerDeleteButton.Location = new Point(296, 233);
         playerDeleteButton.Name = "playerDeleteButton";
-        playerDeleteButton.Size = new Size(82, 22);
+        playerDeleteButton.Size = new Size(94, 29);
         playerDeleteButton.TabIndex = 2;
         playerDeleteButton.Text = "Удалить";
         playerDeleteButton.UseVisualStyleBackColor = true;
@@ -149,12 +148,11 @@ partial class Form1
         // tablePlayers
         // 
         tablePlayers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tablePlayers.Location = new Point(359, 4);
-        tablePlayers.Margin = new Padding(3, 2, 3, 2);
+        tablePlayers.Location = new Point(410, 5);
         tablePlayers.Name = "tablePlayers";
         tablePlayers.RowHeadersWidth = 51;
         tablePlayers.RowTemplate.Height = 29;
-        tablePlayers.Size = new Size(592, 401);
+        tablePlayers.Size = new Size(677, 535);
         tablePlayers.TabIndex = 9;
         tablePlayers.RowStateChanged += tablePlayers_RowStateChanged;
         // 
@@ -167,11 +165,10 @@ partial class Form1
         Tabs.Controls.Add(tabPage5);
         Tabs.Controls.Add(tabPage6);
         Tabs.Font = new Font("Segoe UI Emoji", 9F, FontStyle.Regular, GraphicsUnit.Point);
-        Tabs.Location = new Point(5, 20);
-        Tabs.Margin = new Padding(3, 2, 3, 2);
+        Tabs.Location = new Point(6, 27);
         Tabs.Name = "Tabs";
         Tabs.SelectedIndex = 0;
-        Tabs.Size = new Size(995, 441);
+        Tabs.Size = new Size(1137, 588);
         Tabs.TabIndex = 10;
         // 
         // tabPage1
@@ -200,58 +197,55 @@ partial class Form1
         tabPage1.Controls.Add(label6);
         tabPage1.Controls.Add(tablePlayers);
         tabPage1.Controls.Add(playerDeleteButton);
-        tabPage1.Location = new Point(4, 25);
-        tabPage1.Margin = new Padding(3, 2, 3, 2);
+        tabPage1.Location = new Point(4, 29);
         tabPage1.Name = "tabPage1";
-        tabPage1.Padding = new Padding(3, 2, 3, 2);
-        tabPage1.Size = new Size(987, 412);
+        tabPage1.Padding = new Padding(3, 3, 3, 3);
+        tabPage1.Size = new Size(1129, 555);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
         // 
         // playerNumberTetBox
         // 
-        playerNumberTetBox.Location = new Point(74, 92);
-        playerNumberTetBox.Margin = new Padding(3, 2, 3, 2);
+        playerNumberTetBox.Location = new Point(85, 123);
         playerNumberTetBox.Name = "playerNumberTetBox";
-        playerNumberTetBox.Size = new Size(267, 23);
+        playerNumberTetBox.Size = new Size(305, 27);
         playerNumberTetBox.TabIndex = 32;
-        playerNumberTetBox.KeyPress += playerNumberTextBox;
+        playerNumberTetBox.KeyPress += onlyDigits_TextBoxChange;
         // 
         // label19
         // 
         label19.AutoSize = true;
-        label19.Location = new Point(5, 96);
+        label19.Location = new Point(6, 128);
         label19.Name = "label19";
-        label19.Size = new Size(46, 16);
+        label19.Size = new Size(56, 20);
         label19.TabIndex = 31;
         label19.Text = "Номер";
         // 
         // label18
         // 
         label18.AutoSize = true;
-        label18.Location = new Point(111, 217);
+        label18.Location = new Point(127, 289);
         label18.Name = "label18";
-        label18.Size = new Size(53, 16);
+        label18.Size = new Size(62, 20);
         label18.TabIndex = 30;
         label18.Text = "Фильтр";
         // 
         // label17
         // 
         label17.AutoSize = true;
-        label17.Location = new Point(7, 251);
+        label17.Location = new Point(8, 335);
         label17.Name = "label17";
-        label17.Size = new Size(92, 16);
+        label17.Size = new Size(113, 20);
         label17.TabIndex = 29;
         label17.Text = "Строка поиска";
         // 
         // searchTeamComboBox
         // 
         searchTeamComboBox.FormattingEnabled = true;
-        searchTeamComboBox.Location = new Point(74, 271);
-        searchTeamComboBox.Margin = new Padding(3, 2, 3, 2);
+        searchTeamComboBox.Location = new Point(85, 361);
         searchTeamComboBox.Name = "searchTeamComboBox";
-        searchTeamComboBox.Size = new Size(267, 24);
+        searchTeamComboBox.Size = new Size(305, 28);
         searchTeamComboBox.TabIndex = 28;
         searchTeamComboBox.DropDown += searchTeamComboBox_DropDown;
         searchTeamComboBox.Enter += ButtonGettingPlayers_Click;
@@ -259,19 +253,18 @@ partial class Form1
         // label15
         // 
         label15.AutoSize = true;
-        label15.Location = new Point(7, 273);
+        label15.Location = new Point(8, 364);
         label15.Name = "label15";
-        label15.Size = new Size(59, 16);
+        label15.Size = new Size(72, 20);
         label15.TabIndex = 27;
         label15.Text = "Команда";
         // 
         // searchRoleComboBox
         // 
         searchRoleComboBox.FormattingEnabled = true;
-        searchRoleComboBox.Location = new Point(74, 296);
-        searchRoleComboBox.Margin = new Padding(3, 2, 3, 2);
+        searchRoleComboBox.Location = new Point(85, 395);
         searchRoleComboBox.Name = "searchRoleComboBox";
-        searchRoleComboBox.Size = new Size(267, 24);
+        searchRoleComboBox.Size = new Size(305, 28);
         searchRoleComboBox.TabIndex = 26;
         searchRoleComboBox.DropDown += searchRoleComboBox_DropDown;
         searchRoleComboBox.Enter += ButtonGettingPlayers_Click;
@@ -279,54 +272,51 @@ partial class Form1
         // label16
         // 
         label16.AutoSize = true;
-        label16.Location = new Point(7, 298);
+        label16.Location = new Point(8, 397);
         label16.Name = "label16";
-        label16.Size = new Size(36, 16);
+        label16.Size = new Size(45, 20);
         label16.TabIndex = 25;
         label16.Text = "Роль";
         // 
         // teamIDPlayerComboBox
         // 
         teamIDPlayerComboBox.FormattingEnabled = true;
-        teamIDPlayerComboBox.Location = new Point(74, 142);
-        teamIDPlayerComboBox.Margin = new Padding(3, 2, 3, 2);
+        teamIDPlayerComboBox.Location = new Point(85, 189);
         teamIDPlayerComboBox.Name = "teamIDPlayerComboBox";
-        teamIDPlayerComboBox.Size = new Size(267, 24);
+        teamIDPlayerComboBox.Size = new Size(305, 28);
         teamIDPlayerComboBox.TabIndex = 24;
         teamIDPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label14
         // 
         label14.AutoSize = true;
-        label14.Location = new Point(7, 145);
+        label14.Location = new Point(8, 193);
         label14.Name = "label14";
-        label14.Size = new Size(59, 16);
+        label14.Size = new Size(72, 20);
         label14.TabIndex = 23;
         label14.Text = "Команда";
         // 
         // playerPatronymicTetBox
         // 
-        playerPatronymicTetBox.Location = new Point(74, 67);
-        playerPatronymicTetBox.Margin = new Padding(3, 2, 3, 2);
+        playerPatronymicTetBox.Location = new Point(85, 89);
         playerPatronymicTetBox.Name = "playerPatronymicTetBox";
-        playerPatronymicTetBox.Size = new Size(267, 23);
+        playerPatronymicTetBox.Size = new Size(305, 27);
         playerPatronymicTetBox.TabIndex = 22;
         // 
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(5, 72);
+        label3.Location = new Point(6, 96);
         label3.Name = "label3";
-        label3.Size = new Size(63, 16);
+        label3.Size = new Size(76, 20);
         label3.TabIndex = 21;
         label3.Text = "Отчество";
         // 
         // playerGettingButton
         // 
-        playerGettingButton.Location = new Point(259, 322);
-        playerGettingButton.Margin = new Padding(3, 2, 3, 2);
+        playerGettingButton.Location = new Point(296, 429);
         playerGettingButton.Name = "playerGettingButton";
-        playerGettingButton.Size = new Size(82, 22);
+        playerGettingButton.Size = new Size(94, 29);
         playerGettingButton.TabIndex = 20;
         playerGettingButton.Text = "Получить";
         playerGettingButton.UseVisualStyleBackColor = true;
@@ -334,10 +324,9 @@ partial class Form1
         // 
         // playerSearchTextBox
         // 
-        playerSearchTextBox.Location = new Point(111, 246);
-        playerSearchTextBox.Margin = new Padding(3, 2, 3, 2);
+        playerSearchTextBox.Location = new Point(127, 328);
         playerSearchTextBox.Name = "playerSearchTextBox";
-        playerSearchTextBox.Size = new Size(231, 23);
+        playerSearchTextBox.Size = new Size(263, 27);
         playerSearchTextBox.TabIndex = 19;
         playerSearchTextBox.Enter += ButtonGettingPlayers_Click;
         playerSearchTextBox.KeyDown += ButtonGettingPlayers_Click;
@@ -345,19 +334,17 @@ partial class Form1
         // roleIDPlayerComboBox
         // 
         roleIDPlayerComboBox.FormattingEnabled = true;
-        roleIDPlayerComboBox.Location = new Point(74, 117);
-        roleIDPlayerComboBox.Margin = new Padding(3, 2, 3, 2);
+        roleIDPlayerComboBox.Location = new Point(85, 156);
         roleIDPlayerComboBox.Name = "roleIDPlayerComboBox";
-        roleIDPlayerComboBox.Size = new Size(267, 24);
+        roleIDPlayerComboBox.Size = new Size(305, 28);
         roleIDPlayerComboBox.TabIndex = 18;
         roleIDPlayerComboBox.DropDown += searchRoleComboBox_DropDown;
         // 
         // playerAddButton
         // 
-        playerAddButton.Location = new Point(83, 175);
-        playerAddButton.Margin = new Padding(3, 2, 3, 2);
+        playerAddButton.Location = new Point(95, 233);
         playerAddButton.Name = "playerAddButton";
-        playerAddButton.Size = new Size(82, 22);
+        playerAddButton.Size = new Size(94, 29);
         playerAddButton.TabIndex = 10;
         playerAddButton.Text = "Добавить";
         playerAddButton.UseVisualStyleBackColor = true;
@@ -365,10 +352,9 @@ partial class Form1
         // 
         // playerUpdateButton
         // 
-        playerUpdateButton.Location = new Point(172, 175);
-        playerUpdateButton.Margin = new Padding(3, 2, 3, 2);
+        playerUpdateButton.Location = new Point(197, 233);
         playerUpdateButton.Name = "playerUpdateButton";
-        playerUpdateButton.Size = new Size(82, 22);
+        playerUpdateButton.Size = new Size(94, 29);
         playerUpdateButton.TabIndex = 11;
         playerUpdateButton.Text = "Обновить";
         playerUpdateButton.UseVisualStyleBackColor = true;
@@ -376,44 +362,42 @@ partial class Form1
         // 
         // playerSurnameTextBox
         // 
-        playerSurnameTextBox.Location = new Point(74, 42);
-        playerSurnameTextBox.Margin = new Padding(3, 2, 3, 2);
+        playerSurnameTextBox.Location = new Point(85, 56);
         playerSurnameTextBox.Name = "playerSurnameTextBox";
-        playerSurnameTextBox.Size = new Size(267, 23);
+        playerSurnameTextBox.Size = new Size(305, 27);
         playerSurnameTextBox.TabIndex = 16;
         // 
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new Point(5, 20);
+        label4.Location = new Point(6, 27);
         label4.Name = "label4";
-        label4.Size = new Size(32, 16);
+        label4.Size = new Size(39, 20);
         label4.TabIndex = 12;
         label4.Text = "Имя";
         // 
         // playerNameTextBox
         // 
-        playerNameTextBox.Location = new Point(74, 17);
-        playerNameTextBox.Margin = new Padding(3, 2, 3, 2);
+        playerNameTextBox.Location = new Point(85, 23);
         playerNameTextBox.Name = "playerNameTextBox";
-        playerNameTextBox.Size = new Size(267, 23);
+        playerNameTextBox.Size = new Size(305, 27);
         playerNameTextBox.TabIndex = 15;
         // 
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(5, 47);
+        label5.Location = new Point(6, 63);
         label5.Name = "label5";
-        label5.Size = new Size(62, 16);
+        label5.Size = new Size(74, 20);
         label5.TabIndex = 13;
         label5.Text = "Фамилия";
         // 
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(7, 119);
+        label6.Location = new Point(8, 159);
         label6.Name = "label6";
-        label6.Size = new Size(36, 16);
+        label6.Size = new Size(45, 20);
         label6.TabIndex = 14;
         label6.Text = "Роль";
         // 
@@ -430,11 +414,10 @@ partial class Form1
         tabPage2.Controls.Add(label2);
         tabPage2.Controls.Add(teamNameTextBox);
         tabPage2.Controls.Add(tableTeams);
-        tabPage2.Location = new Point(4, 25);
-        tabPage2.Margin = new Padding(3, 2, 3, 2);
+        tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
-        tabPage2.Padding = new Padding(3, 2, 3, 2);
-        tabPage2.Size = new Size(987, 412);
+        tabPage2.Padding = new Padding(3, 3, 3, 3);
+        tabPage2.Size = new Size(1129, 555);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
@@ -442,26 +425,24 @@ partial class Form1
         // label28
         // 
         label28.AutoSize = true;
-        label28.Location = new Point(6, 265);
+        label28.Location = new Point(7, 353);
         label28.Name = "label28";
-        label28.Size = new Size(92, 16);
+        label28.Size = new Size(113, 20);
         label28.TabIndex = 37;
         label28.Text = "Строка поиска";
         // 
         // teamSearchTextBox
         // 
-        teamSearchTextBox.Location = new Point(124, 263);
-        teamSearchTextBox.Margin = new Padding(3, 2, 3, 2);
+        teamSearchTextBox.Location = new Point(142, 351);
         teamSearchTextBox.Name = "teamSearchTextBox";
-        teamSearchTextBox.Size = new Size(240, 23);
+        teamSearchTextBox.Size = new Size(274, 27);
         teamSearchTextBox.TabIndex = 36;
         // 
         // teamGettingButton
         // 
-        teamGettingButton.Location = new Point(375, 384);
-        teamGettingButton.Margin = new Padding(3, 2, 3, 2);
+        teamGettingButton.Location = new Point(429, 512);
         teamGettingButton.Name = "teamGettingButton";
-        teamGettingButton.Size = new Size(82, 22);
+        teamGettingButton.Size = new Size(94, 29);
         teamGettingButton.TabIndex = 26;
         teamGettingButton.Text = "Получить";
         teamGettingButton.UseVisualStyleBackColor = true;
@@ -470,19 +451,17 @@ partial class Form1
         // sponsorIDTeamComboBox
         // 
         sponsorIDTeamComboBox.FormattingEnabled = true;
-        sponsorIDTeamComboBox.Location = new Point(103, 38);
-        sponsorIDTeamComboBox.Margin = new Padding(3, 2, 3, 2);
+        sponsorIDTeamComboBox.Location = new Point(118, 51);
         sponsorIDTeamComboBox.Name = "sponsorIDTeamComboBox";
-        sponsorIDTeamComboBox.Size = new Size(267, 24);
+        sponsorIDTeamComboBox.Size = new Size(305, 28);
         sponsorIDTeamComboBox.TabIndex = 25;
         sponsorIDTeamComboBox.DropDown += sponsorIDTeamComboBox_DropDown;
         // 
         // teamDeleteButton
         // 
-        teamDeleteButton.Location = new Point(869, 384);
-        teamDeleteButton.Margin = new Padding(3, 2, 3, 2);
+        teamDeleteButton.Location = new Point(993, 512);
         teamDeleteButton.Name = "teamDeleteButton";
-        teamDeleteButton.Size = new Size(82, 22);
+        teamDeleteButton.Size = new Size(94, 29);
         teamDeleteButton.TabIndex = 19;
         teamDeleteButton.Text = "Удалить";
         teamDeleteButton.UseVisualStyleBackColor = true;
@@ -490,10 +469,9 @@ partial class Form1
         // 
         // teamUpdateButton
         // 
-        teamUpdateButton.Location = new Point(781, 384);
-        teamUpdateButton.Margin = new Padding(3, 2, 3, 2);
+        teamUpdateButton.Location = new Point(893, 512);
         teamUpdateButton.Name = "teamUpdateButton";
-        teamUpdateButton.Size = new Size(82, 22);
+        teamUpdateButton.Size = new Size(94, 29);
         teamUpdateButton.TabIndex = 18;
         teamUpdateButton.Text = "Обновить";
         teamUpdateButton.UseVisualStyleBackColor = true;
@@ -501,10 +479,9 @@ partial class Form1
         // 
         // teamAddButton
         // 
-        teamAddButton.Location = new Point(694, 384);
-        teamAddButton.Margin = new Padding(3, 2, 3, 2);
+        teamAddButton.Location = new Point(793, 512);
         teamAddButton.Name = "teamAddButton";
-        teamAddButton.Size = new Size(82, 22);
+        teamAddButton.Size = new Size(94, 29);
         teamAddButton.TabIndex = 17;
         teamAddButton.Text = "Добавить";
         teamAddButton.UseVisualStyleBackColor = true;
@@ -513,38 +490,36 @@ partial class Form1
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(5, 13);
+        label1.Location = new Point(6, 17);
         label1.Name = "label1";
-        label1.Size = new Size(64, 16);
+        label1.Size = new Size(76, 20);
         label1.TabIndex = 15;
         label1.Text = "Название";
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(5, 40);
+        label2.Location = new Point(6, 53);
         label2.Name = "label2";
-        label2.Size = new Size(56, 16);
+        label2.Size = new Size(70, 20);
         label2.TabIndex = 16;
         label2.Text = "Спонсор";
         // 
         // teamNameTextBox
         // 
-        teamNameTextBox.Location = new Point(103, 13);
-        teamNameTextBox.Margin = new Padding(3, 2, 3, 2);
+        teamNameTextBox.Location = new Point(118, 17);
         teamNameTextBox.Name = "teamNameTextBox";
-        teamNameTextBox.Size = new Size(267, 23);
+        teamNameTextBox.Size = new Size(305, 27);
         teamNameTextBox.TabIndex = 1;
         // 
         // tableTeams
         // 
         tableTeams.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableTeams.Location = new Point(375, 4);
-        tableTeams.Margin = new Padding(3, 2, 3, 2);
+        tableTeams.Location = new Point(429, 5);
         tableTeams.Name = "tableTeams";
         tableTeams.RowHeadersWidth = 51;
         tableTeams.RowTemplate.Height = 29;
-        tableTeams.Size = new Size(576, 375);
+        tableTeams.Size = new Size(658, 500);
         tableTeams.TabIndex = 0;
         // 
         // tabPage3
@@ -568,70 +543,71 @@ partial class Form1
         tabPage3.Controls.Add(label9);
         tabPage3.Controls.Add(label8);
         tabPage3.Controls.Add(label7);
-        tabPage3.Location = new Point(4, 25);
-        tabPage3.Margin = new Padding(3, 2, 3, 2);
+        tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
-        tabPage3.Padding = new Padding(3, 2, 3, 2);
-        tabPage3.Size = new Size(987, 412);
+        tabPage3.Padding = new Padding(3, 3, 3, 3);
+        tabPage3.Size = new Size(1129, 555);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Матчи";
         tabPage3.UseVisualStyleBackColor = true;
         // 
         // resultTeam2TextBox
         // 
-        resultTeam2TextBox.Location = new Point(149, 206);
+        resultTeam2TextBox.Location = new Point(170, 275);
+        resultTeam2TextBox.Margin = new Padding(3, 4, 3, 4);
         resultTeam2TextBox.Name = "resultTeam2TextBox";
-        resultTeam2TextBox.Size = new Size(100, 23);
+        resultTeam2TextBox.Size = new Size(114, 27);
         resultTeam2TextBox.TabIndex = 42;
+        resultTeam1TextBox.KeyPress += onlyDigits_TextBoxChange;
         // 
         // resultTeam1TextBox
         // 
-        resultTeam1TextBox.Location = new Point(149, 177);
+        resultTeam1TextBox.Location = new Point(170, 236);
+        resultTeam1TextBox.Margin = new Padding(3, 4, 3, 4);
         resultTeam1TextBox.Name = "resultTeam1TextBox";
-        resultTeam1TextBox.Size = new Size(100, 23);
+        resultTeam1TextBox.Size = new Size(114, 27);
         resultTeam1TextBox.TabIndex = 41;
+        resultTeam1TextBox.KeyPress += onlyDigits_TextBoxChange;
         // 
         // label27
         // 
         label27.AutoSize = true;
-        label27.Location = new Point(11, 212);
+        label27.Location = new Point(13, 283);
         label27.Name = "label27";
-        label27.Size = new Size(132, 16);
+        label27.Size = new Size(161, 20);
         label27.TabIndex = 40;
         label27.Text = "Результат команды 2";
         // 
         // label26
         // 
         label26.AutoSize = true;
-        label26.Location = new Point(11, 180);
+        label26.Location = new Point(13, 240);
         label26.Name = "label26";
-        label26.Size = new Size(132, 16);
+        label26.Size = new Size(161, 20);
         label26.TabIndex = 39;
         label26.Text = "Результат команды 1";
         // 
         // label25
         // 
         label25.AutoSize = true;
-        label25.Location = new Point(3, 292);
+        label25.Location = new Point(3, 389);
         label25.Name = "label25";
-        label25.Size = new Size(92, 16);
+        label25.Size = new Size(113, 20);
         label25.TabIndex = 38;
         label25.Text = "Строка поиска";
         // 
         // textBox2
         // 
-        textBox2.Location = new Point(121, 290);
-        textBox2.Margin = new Padding(3, 2, 3, 2);
+        textBox2.Location = new Point(138, 387);
         textBox2.Name = "textBox2";
-        textBox2.Size = new Size(273, 23);
+        textBox2.Size = new Size(311, 27);
         textBox2.TabIndex = 37;
         // 
         // matchGettingButton
         // 
-        matchGettingButton.Location = new Point(312, 333);
-        matchGettingButton.Margin = new Padding(3, 2, 3, 2);
+        matchGettingButton.Location = new Point(357, 444);
         matchGettingButton.Name = "matchGettingButton";
-        matchGettingButton.Size = new Size(82, 22);
+        matchGettingButton.Size = new Size(94, 29);
         matchGettingButton.TabIndex = 36;
         matchGettingButton.Text = "Получить";
         matchGettingButton.UseVisualStyleBackColor = true;
@@ -640,50 +616,45 @@ partial class Form1
         // tableMatches
         // 
         tableMatches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableMatches.Location = new Point(413, 4);
-        tableMatches.Margin = new Padding(3, 2, 3, 2);
+        tableMatches.Location = new Point(472, 5);
         tableMatches.Name = "tableMatches";
         tableMatches.RowHeadersWidth = 51;
         tableMatches.RowTemplate.Height = 29;
-        tableMatches.Size = new Size(538, 397);
+        tableMatches.Size = new Size(615, 529);
         tableMatches.TabIndex = 24;
         // 
         // stadiumIDTeamComboBox
         // 
         stadiumIDTeamComboBox.FormattingEnabled = true;
-        stadiumIDTeamComboBox.Location = new Point(100, 130);
-        stadiumIDTeamComboBox.Margin = new Padding(3, 2, 3, 2);
+        stadiumIDTeamComboBox.Location = new Point(114, 173);
         stadiumIDTeamComboBox.Name = "stadiumIDTeamComboBox";
-        stadiumIDTeamComboBox.Size = new Size(169, 24);
+        stadiumIDTeamComboBox.Size = new Size(193, 28);
         stadiumIDTeamComboBox.TabIndex = 23;
         stadiumIDTeamComboBox.DropDown += stadiumIDTeamComboBox_DropDown;
         // 
         // team2IDMatchComboBox
         // 
         team2IDMatchComboBox.FormattingEnabled = true;
-        team2IDMatchComboBox.Location = new Point(100, 96);
-        team2IDMatchComboBox.Margin = new Padding(3, 2, 3, 2);
+        team2IDMatchComboBox.Location = new Point(114, 128);
         team2IDMatchComboBox.Name = "team2IDMatchComboBox";
-        team2IDMatchComboBox.Size = new Size(169, 24);
+        team2IDMatchComboBox.Size = new Size(193, 28);
         team2IDMatchComboBox.TabIndex = 22;
         team2IDMatchComboBox.DropDown += team2IDMatchComboBox_DropDown;
         // 
         // team1IDMatchComboBox
         // 
         team1IDMatchComboBox.FormattingEnabled = true;
-        team1IDMatchComboBox.Location = new Point(100, 63);
-        team1IDMatchComboBox.Margin = new Padding(3, 2, 3, 2);
+        team1IDMatchComboBox.Location = new Point(114, 84);
         team1IDMatchComboBox.Name = "team1IDMatchComboBox";
-        team1IDMatchComboBox.Size = new Size(169, 24);
+        team1IDMatchComboBox.Size = new Size(193, 28);
         team1IDMatchComboBox.TabIndex = 21;
         team1IDMatchComboBox.DropDown += team1IDMatchComboBox_DropDown;
         // 
         // matchAddButton
         // 
-        matchAddButton.Location = new Point(302, 63);
-        matchAddButton.Margin = new Padding(3, 2, 3, 2);
+        matchAddButton.Location = new Point(345, 84);
         matchAddButton.Name = "matchAddButton";
-        matchAddButton.Size = new Size(82, 22);
+        matchAddButton.Size = new Size(94, 29);
         matchAddButton.TabIndex = 19;
         matchAddButton.Text = "Добавить";
         matchAddButton.UseVisualStyleBackColor = true;
@@ -691,10 +662,9 @@ partial class Form1
         // 
         // matchUpdateButton
         // 
-        matchUpdateButton.Location = new Point(302, 96);
-        matchUpdateButton.Margin = new Padding(3, 2, 3, 2);
+        matchUpdateButton.Location = new Point(345, 128);
         matchUpdateButton.Name = "matchUpdateButton";
-        matchUpdateButton.Size = new Size(82, 22);
+        matchUpdateButton.Size = new Size(94, 29);
         matchUpdateButton.TabIndex = 20;
         matchUpdateButton.Text = "Обновить";
         matchUpdateButton.UseVisualStyleBackColor = true;
@@ -702,10 +672,9 @@ partial class Form1
         // 
         // matchDeleteButton
         // 
-        matchDeleteButton.Location = new Point(302, 130);
-        matchDeleteButton.Margin = new Padding(3, 2, 3, 2);
+        matchDeleteButton.Location = new Point(345, 173);
         matchDeleteButton.Name = "matchDeleteButton";
-        matchDeleteButton.Size = new Size(82, 22);
+        matchDeleteButton.Size = new Size(94, 29);
         matchDeleteButton.TabIndex = 18;
         matchDeleteButton.Text = "Удалить";
         matchDeleteButton.UseVisualStyleBackColor = true;
@@ -714,45 +683,44 @@ partial class Form1
         // DateTimePickerMatch
         // 
         DateTimePickerMatch.Format = DateTimePickerFormat.Custom;
-        DateTimePickerMatch.Location = new Point(100, 25);
-        DateTimePickerMatch.Margin = new Padding(3, 2, 3, 2);
+        DateTimePickerMatch.Location = new Point(114, 33);
         DateTimePickerMatch.Name = "DateTimePickerMatch";
-        DateTimePickerMatch.Size = new Size(285, 23);
+        DateTimePickerMatch.Size = new Size(325, 27);
         DateTimePickerMatch.TabIndex = 17;
         // 
         // label10
         // 
         label10.AutoSize = true;
-        label10.Location = new Point(11, 130);
+        label10.Location = new Point(13, 173);
         label10.Name = "label10";
-        label10.Size = new Size(57, 16);
+        label10.Size = new Size(69, 20);
         label10.TabIndex = 16;
         label10.Text = "Стадион";
         // 
         // label9
         // 
         label9.AutoSize = true;
-        label9.Location = new Point(11, 96);
+        label9.Location = new Point(13, 128);
         label9.Name = "label9";
-        label9.Size = new Size(68, 16);
+        label9.Size = new Size(84, 20);
         label9.TabIndex = 15;
         label9.Text = "Команда 2";
         // 
         // label8
         // 
         label8.AutoSize = true;
-        label8.Location = new Point(11, 63);
+        label8.Location = new Point(13, 84);
         label8.Name = "label8";
-        label8.Size = new Size(68, 16);
+        label8.Size = new Size(84, 20);
         label8.TabIndex = 14;
         label8.Text = "Команда 1";
         // 
         // label7
         // 
         label7.AutoSize = true;
-        label7.Location = new Point(11, 25);
+        label7.Location = new Point(13, 33);
         label7.Name = "label7";
-        label7.Size = new Size(76, 16);
+        label7.Size = new Size(90, 20);
         label7.TabIndex = 13;
         label7.Text = "Дата матча";
         // 
@@ -773,11 +741,10 @@ partial class Form1
         tabPage4.Controls.Add(label11);
         tabPage4.Controls.Add(tableStadiums);
         tabPage4.ForeColor = Color.Black;
-        tabPage4.Location = new Point(4, 25);
-        tabPage4.Margin = new Padding(3, 2, 3, 2);
+        tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
-        tabPage4.Padding = new Padding(3, 2, 3, 2);
-        tabPage4.Size = new Size(987, 412);
+        tabPage4.Padding = new Padding(3, 3, 3, 3);
+        tabPage4.Size = new Size(1129, 555);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Стадионы";
         tabPage4.UseVisualStyleBackColor = true;
@@ -785,10 +752,9 @@ partial class Form1
         // isUseForMatchesCheckBox
         // 
         isUseForMatchesCheckBox.AutoSize = true;
-        isUseForMatchesCheckBox.Location = new Point(12, 321);
-        isUseForMatchesCheckBox.Margin = new Padding(3, 2, 3, 2);
+        isUseForMatchesCheckBox.Location = new Point(14, 428);
         isUseForMatchesCheckBox.Name = "isUseForMatchesCheckBox";
-        isUseForMatchesCheckBox.Size = new Size(293, 20);
+        isUseForMatchesCheckBox.Size = new Size(352, 24);
         isUseForMatchesCheckBox.TabIndex = 37;
         isUseForMatchesCheckBox.Text = "Получить матчи на которых проходили матчи";
         isUseForMatchesCheckBox.UseVisualStyleBackColor = true;
@@ -796,36 +762,33 @@ partial class Form1
         // selectLocationComboBox
         // 
         selectLocationComboBox.FormattingEnabled = true;
-        selectLocationComboBox.Location = new Point(83, 88);
-        selectLocationComboBox.Margin = new Padding(3, 2, 3, 2);
+        selectLocationComboBox.Location = new Point(95, 117);
         selectLocationComboBox.Name = "selectLocationComboBox";
-        selectLocationComboBox.Size = new Size(188, 24);
+        selectLocationComboBox.Size = new Size(214, 28);
         selectLocationComboBox.TabIndex = 36;
         selectLocationComboBox.DropDown += selectLocationComboBox_DropDown;
         // 
         // label24
         // 
         label24.AutoSize = true;
-        label24.Location = new Point(12, 291);
+        label24.Location = new Point(14, 388);
         label24.Name = "label24";
-        label24.Size = new Size(92, 16);
+        label24.Size = new Size(113, 20);
         label24.TabIndex = 35;
         label24.Text = "Строка поиска";
         // 
         // stadiumSearchTextBox
         // 
-        stadiumSearchTextBox.Location = new Point(130, 289);
-        stadiumSearchTextBox.Margin = new Padding(3, 2, 3, 2);
+        stadiumSearchTextBox.Location = new Point(149, 385);
         stadiumSearchTextBox.Name = "stadiumSearchTextBox";
-        stadiumSearchTextBox.Size = new Size(273, 23);
+        stadiumSearchTextBox.Size = new Size(311, 27);
         stadiumSearchTextBox.TabIndex = 34;
         // 
         // buttonGettingStadiums
         // 
-        buttonGettingStadiums.Location = new Point(319, 359);
-        buttonGettingStadiums.Margin = new Padding(3, 2, 3, 2);
+        buttonGettingStadiums.Location = new Point(365, 479);
         buttonGettingStadiums.Name = "buttonGettingStadiums";
-        buttonGettingStadiums.Size = new Size(82, 22);
+        buttonGettingStadiums.Size = new Size(94, 29);
         buttonGettingStadiums.TabIndex = 33;
         buttonGettingStadiums.Text = "Получить";
         buttonGettingStadiums.UseVisualStyleBackColor = true;
@@ -833,27 +796,25 @@ partial class Form1
         // 
         // stadiumVolumeTextBox
         // 
-        stadiumVolumeTextBox.Location = new Point(161, 58);
-        stadiumVolumeTextBox.Margin = new Padding(3, 2, 3, 2);
+        stadiumVolumeTextBox.Location = new Point(184, 77);
         stadiumVolumeTextBox.Name = "stadiumVolumeTextBox";
-        stadiumVolumeTextBox.Size = new Size(110, 23);
+        stadiumVolumeTextBox.Size = new Size(125, 27);
         stadiumVolumeTextBox.TabIndex = 25;
         // 
         // label23
         // 
         label23.AutoSize = true;
-        label23.Location = new Point(12, 60);
+        label23.Location = new Point(14, 80);
         label23.Name = "label23";
-        label23.Size = new Size(109, 16);
+        label23.Size = new Size(131, 20);
         label23.TabIndex = 24;
         label23.Text = "Размер стадиона";
         // 
         // stadiumAddButton
         // 
-        stadiumAddButton.Location = new Point(332, 22);
-        stadiumAddButton.Margin = new Padding(3, 2, 3, 2);
+        stadiumAddButton.Location = new Point(379, 29);
         stadiumAddButton.Name = "stadiumAddButton";
-        stadiumAddButton.Size = new Size(82, 22);
+        stadiumAddButton.Size = new Size(94, 29);
         stadiumAddButton.TabIndex = 22;
         stadiumAddButton.Text = "Добавить";
         stadiumAddButton.UseVisualStyleBackColor = true;
@@ -861,20 +822,18 @@ partial class Form1
         // 
         // button11
         // 
-        button11.Location = new Point(332, 60);
-        button11.Margin = new Padding(3, 2, 3, 2);
+        button11.Location = new Point(379, 80);
         button11.Name = "button11";
-        button11.Size = new Size(82, 22);
+        button11.Size = new Size(94, 29);
         button11.TabIndex = 23;
         button11.Text = "Обновить";
         button11.UseVisualStyleBackColor = true;
         // 
         // DeleteStadium_Button
         // 
-        DeleteStadium_Button.Location = new Point(332, 94);
-        DeleteStadium_Button.Margin = new Padding(3, 2, 3, 2);
+        DeleteStadium_Button.Location = new Point(379, 125);
         DeleteStadium_Button.Name = "DeleteStadium_Button";
-        DeleteStadium_Button.Size = new Size(82, 22);
+        DeleteStadium_Button.Size = new Size(94, 29);
         DeleteStadium_Button.TabIndex = 21;
         DeleteStadium_Button.Text = "Удалить";
         DeleteStadium_Button.UseVisualStyleBackColor = true;
@@ -882,39 +841,37 @@ partial class Form1
         // 
         // stadiumNameTextBox
         // 
-        stadiumNameTextBox.Location = new Point(161, 23);
-        stadiumNameTextBox.Margin = new Padding(3, 2, 3, 2);
+        stadiumNameTextBox.Location = new Point(184, 31);
         stadiumNameTextBox.Name = "stadiumNameTextBox";
-        stadiumNameTextBox.Size = new Size(110, 23);
+        stadiumNameTextBox.Size = new Size(125, 27);
         stadiumNameTextBox.TabIndex = 17;
         // 
         // label12
         // 
         label12.AutoSize = true;
-        label12.Location = new Point(12, 94);
+        label12.Location = new Point(14, 125);
         label12.Name = "label12";
-        label12.Size = new Size(42, 16);
+        label12.Size = new Size(53, 20);
         label12.TabIndex = 16;
         label12.Text = "Город";
         // 
         // label11
         // 
         label11.AutoSize = true;
-        label11.Location = new Point(12, 26);
+        label11.Location = new Point(14, 35);
         label11.Name = "label11";
-        label11.Size = new Size(122, 16);
+        label11.Size = new Size(145, 20);
         label11.TabIndex = 15;
         label11.Text = "Название стадиона";
         // 
         // tableStadiums
         // 
         tableStadiums.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableStadiums.Location = new Point(436, 4);
-        tableStadiums.Margin = new Padding(3, 2, 3, 2);
+        tableStadiums.Location = new Point(498, 5);
         tableStadiums.Name = "tableStadiums";
         tableStadiums.RowHeadersWidth = 51;
         tableStadiums.RowTemplate.Height = 29;
-        tableStadiums.Size = new Size(528, 404);
+        tableStadiums.Size = new Size(603, 539);
         tableStadiums.TabIndex = 2;
         // 
         // tabPage5
@@ -931,11 +888,10 @@ partial class Form1
         tabPage5.Controls.Add(label13);
         tabPage5.Controls.Add(sponsorNameTextBox);
         tabPage5.Controls.Add(tableSponsors);
-        tabPage5.Location = new Point(4, 25);
-        tabPage5.Margin = new Padding(3, 2, 3, 2);
+        tabPage5.Location = new Point(4, 29);
         tabPage5.Name = "tabPage5";
-        tabPage5.Padding = new Padding(3, 2, 3, 2);
-        tabPage5.Size = new Size(987, 412);
+        tabPage5.Padding = new Padding(3, 3, 3, 3);
+        tabPage5.Size = new Size(1129, 555);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Спонсоры";
         tabPage5.UseVisualStyleBackColor = true;
@@ -943,35 +899,33 @@ partial class Form1
         // label21
         // 
         label21.AutoSize = true;
-        label21.Location = new Point(168, 250);
+        label21.Location = new Point(192, 333);
         label21.Name = "label21";
-        label21.Size = new Size(53, 16);
+        label21.Size = new Size(62, 20);
         label21.TabIndex = 33;
         label21.Text = "Фильтр";
         // 
         // label22
         // 
         label22.AutoSize = true;
-        label22.Location = new Point(5, 293);
+        label22.Location = new Point(6, 391);
         label22.Name = "label22";
-        label22.Size = new Size(92, 16);
+        label22.Size = new Size(113, 20);
         label22.TabIndex = 32;
         label22.Text = "Строка поиска";
         // 
         // sponsorSearchTextBox
         // 
-        sponsorSearchTextBox.Location = new Point(122, 291);
-        sponsorSearchTextBox.Margin = new Padding(3, 2, 3, 2);
+        sponsorSearchTextBox.Location = new Point(139, 388);
         sponsorSearchTextBox.Name = "sponsorSearchTextBox";
-        sponsorSearchTextBox.Size = new Size(273, 23);
+        sponsorSearchTextBox.Size = new Size(311, 27);
         sponsorSearchTextBox.TabIndex = 31;
         // 
         // buttonGettingSponsors
         // 
-        buttonGettingSponsors.Location = new Point(312, 328);
-        buttonGettingSponsors.Margin = new Padding(3, 2, 3, 2);
+        buttonGettingSponsors.Location = new Point(357, 437);
         buttonGettingSponsors.Name = "buttonGettingSponsors";
-        buttonGettingSponsors.Size = new Size(82, 22);
+        buttonGettingSponsors.Size = new Size(94, 29);
         buttonGettingSponsors.TabIndex = 29;
         buttonGettingSponsors.Text = "Получить";
         buttonGettingSponsors.UseVisualStyleBackColor = true;
@@ -980,26 +934,24 @@ partial class Form1
         // label20
         // 
         label20.AutoSize = true;
-        label20.Location = new Point(5, 60);
+        label20.Location = new Point(6, 80);
         label20.Name = "label20";
-        label20.Size = new Size(64, 16);
+        label20.Size = new Size(77, 20);
         label20.TabIndex = 28;
         label20.Text = "Описание";
         // 
         // descriptionNameTextBox
         // 
-        descriptionNameTextBox.Location = new Point(94, 60);
-        descriptionNameTextBox.Margin = new Padding(3, 2, 3, 2);
+        descriptionNameTextBox.Location = new Point(107, 80);
         descriptionNameTextBox.Name = "descriptionNameTextBox";
-        descriptionNameTextBox.Size = new Size(202, 23);
+        descriptionNameTextBox.Size = new Size(230, 27);
         descriptionNameTextBox.TabIndex = 27;
         // 
         // sposorAddButton
         // 
-        sposorAddButton.Location = new Point(330, 24);
-        sposorAddButton.Margin = new Padding(3, 2, 3, 2);
+        sposorAddButton.Location = new Point(377, 32);
         sposorAddButton.Name = "sposorAddButton";
-        sposorAddButton.Size = new Size(82, 22);
+        sposorAddButton.Size = new Size(94, 29);
         sposorAddButton.TabIndex = 25;
         sposorAddButton.Text = "Добавить";
         sposorAddButton.UseVisualStyleBackColor = true;
@@ -1007,20 +959,18 @@ partial class Form1
         // 
         // button14
         // 
-        button14.Location = new Point(330, 60);
-        button14.Margin = new Padding(3, 2, 3, 2);
+        button14.Location = new Point(377, 80);
         button14.Name = "button14";
-        button14.Size = new Size(82, 22);
+        button14.Size = new Size(94, 29);
         button14.TabIndex = 26;
         button14.Text = "Обновить";
         button14.UseVisualStyleBackColor = true;
         // 
         // DeleteSponsors_Button
         // 
-        DeleteSponsors_Button.Location = new Point(330, 96);
-        DeleteSponsors_Button.Margin = new Padding(3, 2, 3, 2);
+        DeleteSponsors_Button.Location = new Point(377, 128);
         DeleteSponsors_Button.Name = "DeleteSponsors_Button";
-        DeleteSponsors_Button.Size = new Size(82, 22);
+        DeleteSponsors_Button.Size = new Size(94, 29);
         DeleteSponsors_Button.TabIndex = 24;
         DeleteSponsors_Button.Text = "Удалить";
         DeleteSponsors_Button.UseVisualStyleBackColor = true;
@@ -1029,50 +979,46 @@ partial class Form1
         // label13
         // 
         label13.AutoSize = true;
-        label13.Location = new Point(5, 26);
+        label13.Location = new Point(6, 35);
         label13.Name = "label13";
-        label13.Size = new Size(152, 16);
+        label13.Size = new Size(182, 20);
         label13.TabIndex = 20;
         label13.Text = "Наименование спонсора";
         // 
         // sponsorNameTextBox
         // 
-        sponsorNameTextBox.Location = new Point(186, 26);
-        sponsorNameTextBox.Margin = new Padding(3, 2, 3, 2);
+        sponsorNameTextBox.Location = new Point(213, 35);
         sponsorNameTextBox.Name = "sponsorNameTextBox";
-        sponsorNameTextBox.Size = new Size(110, 23);
+        sponsorNameTextBox.Size = new Size(125, 27);
         sponsorNameTextBox.TabIndex = 18;
         // 
         // tableSponsors
         // 
         tableSponsors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableSponsors.Location = new Point(427, 4);
-        tableSponsors.Margin = new Padding(3, 2, 3, 2);
+        tableSponsors.Location = new Point(488, 5);
         tableSponsors.Name = "tableSponsors";
         tableSponsors.RowHeadersWidth = 51;
         tableSponsors.RowTemplate.Height = 29;
-        tableSponsors.Size = new Size(528, 412);
+        tableSponsors.Size = new Size(603, 549);
         tableSponsors.TabIndex = 3;
         // 
         // tabPage6
         // 
         tabPage6.Controls.Add(button3);
         tabPage6.Controls.Add(tablePlayerCountMatchesDataGridView);
-        tabPage6.Location = new Point(4, 25);
-        tabPage6.Margin = new Padding(3, 2, 3, 2);
+        tabPage6.Location = new Point(4, 29);
         tabPage6.Name = "tabPage6";
-        tabPage6.Padding = new Padding(3, 2, 3, 2);
-        tabPage6.Size = new Size(987, 412);
+        tabPage6.Padding = new Padding(3, 3, 3, 3);
+        tabPage6.Size = new Size(1129, 555);
         tabPage6.TabIndex = 5;
         tabPage6.Text = "Кол-во матчей у игроков";
         tabPage6.UseVisualStyleBackColor = true;
         // 
         // button3
         // 
-        button3.Location = new Point(22, 16);
-        button3.Margin = new Padding(3, 2, 3, 2);
+        button3.Location = new Point(25, 21);
         button3.Name = "button3";
-        button3.Size = new Size(362, 175);
+        button3.Size = new Size(414, 233);
         button3.TabIndex = 30;
         button3.Text = "Получить список игроков с кол-воматчей в которых они учавствовали";
         button3.UseVisualStyleBackColor = true;
@@ -1081,12 +1027,11 @@ partial class Form1
         // tablePlayerCountMatchesDataGridView
         // 
         tablePlayerCountMatchesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tablePlayerCountMatchesDataGridView.Location = new Point(425, 4);
-        tablePlayerCountMatchesDataGridView.Margin = new Padding(3, 2, 3, 2);
+        tablePlayerCountMatchesDataGridView.Location = new Point(486, 5);
         tablePlayerCountMatchesDataGridView.Name = "tablePlayerCountMatchesDataGridView";
         tablePlayerCountMatchesDataGridView.RowHeadersWidth = 51;
         tablePlayerCountMatchesDataGridView.RowTemplate.Height = 29;
-        tablePlayerCountMatchesDataGridView.Size = new Size(528, 401);
+        tablePlayerCountMatchesDataGridView.Size = new Size(603, 535);
         tablePlayerCountMatchesDataGridView.TabIndex = 4;
         // 
         // menuStrip1
@@ -1095,27 +1040,26 @@ partial class Form1
         menuStrip1.Items.AddRange(new ToolStripItem[] { logoutMenuStrip });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
-        menuStrip1.Padding = new Padding(5, 2, 0, 2);
-        menuStrip1.Size = new Size(972, 24);
+        menuStrip1.Padding = new Padding(6, 3, 0, 3);
+        menuStrip1.Size = new Size(1111, 30);
         menuStrip1.TabIndex = 11;
         menuStrip1.Text = "menuStrip1";
         // 
         // logoutMenuStrip
         // 
         logoutMenuStrip.Name = "logoutMenuStrip";
-        logoutMenuStrip.Size = new Size(54, 20);
+        logoutMenuStrip.Size = new Size(67, 24);
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
         // Form1
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(972, 457);
+        ClientSize = new Size(1111, 609);
         Controls.Add(Tabs);
         Controls.Add(menuStrip1);
         MainMenuStrip = menuStrip1;
-        Margin = new Padding(3, 2, 3, 2);
         Name = "Form1";
         Text = "Курсач";
         FormClosed += Form1_FormClosed;

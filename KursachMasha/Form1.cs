@@ -107,8 +107,15 @@ public partial class Form1 : Form
 
     private void Form1_FormClosed(object sender, FormClosedEventArgs e)
     {
-        //_loginForm.Close();
         this.Close();
+    }
+
+    private void onlyDigits_TextBoxChange(object sender, KeyPressEventArgs e)
+    {
+        if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+        {
+            e.Handled = true;
+        }
     }
     #endregion
 
@@ -149,13 +156,6 @@ public partial class Form1 : Form
         });
     }
 
-    private void playerNumberTextBox(object sender, KeyPressEventArgs e)
-    {
-        if (!(char.IsDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-        {
-            e.Handled = true;
-        }
-    }
 
     private void tablePlayers_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
     {
@@ -476,11 +476,9 @@ public partial class Form1 : Form
     {
         tableStadiums.DeleteObject(_stadiumRepository);
         buttonGettingStadiums_Click(sender, e);
-
-        #endregion
-
-
     }
+    #endregion
+
 
     private void sponsorIDTeamComboBox_DropDown(object sender, EventArgs e)
     {
@@ -591,6 +589,9 @@ public partial class Form1 : Form
             Search = thisComboBox.Text,
         });
     }
+    #endregion
+
+
 
     /*  private void searchTeamComboBox_DropDown(object sender, EventArgs e)
       {
@@ -641,8 +642,4 @@ public partial class Form1 : Form
 
      
      */
-    #endregion
-
-
-
 }
