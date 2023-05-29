@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.add_player(IN player_name character varying, IN player_surname character varying, IN player_patronymic character varying, IN player_number integer, IN player_team_id integer, IN player_role_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    insert into players(name, surname, patronymic, number_in_team, team_id, role_id)
+    values (player_name, player_surname, player_patronymic, player_number, player_team_id, player_role_id);
+$BODY$;

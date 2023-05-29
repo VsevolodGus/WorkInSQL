@@ -1,0 +1,12 @@
+CREATE PROCEDURE public.update_match(IN match_id integer, IN match_date timestamp without time zone, IN match_team1_id integer, IN match_team2_id integer, IN match_team1_result integer, IN match_team2_result integer, IN match_stadium_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    update matches
+        SET date = match_date
+        , team1_id = match_team1_id 
+        , team2_id = match_team2_id 
+        , team1_result = match_team1_result 
+        , team2_result = match_team2_result
+        , stadium_id = match_stadium_id 
+    where id = match_id;
+$BODY$;

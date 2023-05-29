@@ -1,0 +1,11 @@
+CREATE PROCEDURE public.add_match(IN match_date timestamp without time zone, IN match_team1_id integer, IN match_team2_id integer, IN match_team1_result integer, IN match_team2_result integer, IN match_stadium_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    insert into matches (date, team1_id, team2_id, team1_result, team2_result, stadium_id)
+    values (match_date
+           , match_team1_id
+           , match_team2_id
+           , match_team1_result
+           , match_team2_result
+           , match_stadium_id);
+$BODY$;

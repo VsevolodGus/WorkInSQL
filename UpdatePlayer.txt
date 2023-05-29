@@ -1,0 +1,12 @@
+CREATE PROCEDURE public.update_player(IN player_id integer, IN player_name character varying, IN player_surname character varying, IN player_patronymic character varying, IN player_number integer, IN player_team_id integer, IN player_role_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    update players
+        SET name = player_patronymic
+            , surname = player_surname
+            , patronymic = player_patronymic
+            , number_in_team = player_number
+            , team_id = player_team_id
+            , role_id = player_role_id
+     where id = player_id;
+$BODY$;

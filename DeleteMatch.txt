@@ -1,0 +1,6 @@
+CREATE PROCEDURE public.delete_match(IN match_id integer)
+LANGUAGE 'sql'
+AS $BODY$
+    delete from matches
+    where id = match_id;
+$BODY$;
