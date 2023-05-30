@@ -1,0 +1,31 @@
+-- Создание курсора
+--declare my_cursor refcursor;
+DECLARE my_cursor CURSOR FOR
+    SELECT id
+           , team1_result
+           , team2_result
+    FROM matches;
+
+-- Открытие курсора для обновления
+--OPEN my_cursor;-- FOR UPDATE;
+open my_cursor;
+
+-- Итерация по курсору
+LOOP
+    -- Получение следующей строки из курсора
+    FETCH NEXT FROM my_cursor INTO *;
+
+    -- Выход из цикла, если достигнут конец курсора
+    EXIT WHEN NOT FOUND;
+
+    -- Обновление данных в таблице
+    UPDATE matches
+    SET result_match = case when  team1_result > team2_result then 'Первая команда победила!'
+                            when  team1_result < team2_result then 'Вторая команда победила!'
+                            else 'Ничья'
+    WHERE CURRENT OF my_cursor;
+    
+END LOOP;
+
+-- Закрытие курсора
+CLOSE my_cursor;

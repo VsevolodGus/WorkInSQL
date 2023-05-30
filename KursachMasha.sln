@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9B68
 		CreateScalarFunction.txt = CreateScalarFunction.txt
 		CreateTrigger.txt = CreateTrigger.txt
 		CreateVectorFunction.txt = CreateVectorFunction.txt
+		Cursor.txt = Cursor.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreateTableScripts", "CreateTableScripts", "{8B80B6B5-01FA-4D5D-8972-F1C002692C3E}"
