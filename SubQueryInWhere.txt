@@ -1,0 +1,7 @@
+SELECT
+     t.id AS team_id
+    , t.name AS team_name
+FROM teams t
+WHERE t.id IN ( SELECT team_id
+                FROM players 
+                WHERE number_in_team > 10);

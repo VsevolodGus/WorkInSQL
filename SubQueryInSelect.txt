@@ -1,0 +1,11 @@
+SELECT
+    p.name,
+    p.surname,
+    (SELECT COUNT(*) 
+        FROM matches 
+        WHERE team1_id = p.team_id 
+              OR team2_id = p.team_id) AS num_matches,
+    (SELECT name 
+            FROM teams
+            WHERE id = p.team_id) AS team_name
+FROM players p;

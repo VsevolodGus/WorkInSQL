@@ -1,0 +1,15 @@
+SELECT
+    p.id
+    , p.name
+    , p.surname
+    , p.patronymic
+    , p.team_id
+FROM
+    players p
+WHERE
+    EXISTS (
+        SELECT 1
+        FROM matches m
+        WHERE (m.team1_id = p.team_id OR m.team2_id = p.team_id)
+          AND m.date >= '2023-01-01'
+    );

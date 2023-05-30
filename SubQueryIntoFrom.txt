@@ -1,0 +1,15 @@
+SELECT
+    t.id
+    , t.name AS team_name
+    , m.date
+    , m.team1_result
+    , m.team2_result
+FROM
+    (
+        SELECT
+            id,
+            name
+        FROM teams
+        WHERE sponsor_id IS NOT NULL
+    ) AS t
+INNER JOIN matches m ON t.id = m.team1_id OR t.id = m.team2_id;
