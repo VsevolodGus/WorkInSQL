@@ -32,6 +32,7 @@ partial class Form1
         tabPage1 = new TabPage();
         button1 = new Button();
         tabPage2 = new TabPage();
+        button2 = new Button();
         tabPage3 = new TabPage();
         resultTeam2TextBox = new TextBox();
         resultTeam1TextBox = new TextBox();
@@ -53,20 +54,6 @@ partial class Form1
         label8 = new Label();
         label7 = new Label();
         tabPage4 = new TabPage();
-        isUseForMatchesCheckBox = new CheckBox();
-        selectLocationComboBox = new ComboBox();
-        label24 = new Label();
-        stadiumSearchTextBox = new TextBox();
-        buttonGettingStadiums = new Button();
-        stadiumVolumeTextBox = new TextBox();
-        label23 = new Label();
-        stadiumAddButton = new Button();
-        button11 = new Button();
-        DeleteStadium_Button = new Button();
-        stadiumNameTextBox = new TextBox();
-        label12 = new Label();
-        label11 = new Label();
-        tableStadiums = new DataGridView();
         tabPage5 = new TabPage();
         label21 = new Label();
         label22 = new Label();
@@ -85,14 +72,13 @@ partial class Form1
         tablePlayerCountMatchesDataGridView = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        button2 = new Button();
+        button4 = new Button();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
         tabPage3.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)tableMatches).BeginInit();
         tabPage4.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)tableStadiums).BeginInit();
         tabPage5.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).BeginInit();
         tabPage6.SuspendLayout();
@@ -146,6 +132,16 @@ partial class Form1
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(439, 184);
+        button2.Name = "button2";
+        button2.Size = new Size(98, 48);
+        button2.TabIndex = 1;
+        button2.Text = "button2";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
         // 
         // tabPage3
         // 
@@ -350,20 +346,7 @@ partial class Form1
         // 
         // tabPage4
         // 
-        tabPage4.Controls.Add(isUseForMatchesCheckBox);
-        tabPage4.Controls.Add(selectLocationComboBox);
-        tabPage4.Controls.Add(label24);
-        tabPage4.Controls.Add(stadiumSearchTextBox);
-        tabPage4.Controls.Add(buttonGettingStadiums);
-        tabPage4.Controls.Add(stadiumVolumeTextBox);
-        tabPage4.Controls.Add(label23);
-        tabPage4.Controls.Add(stadiumAddButton);
-        tabPage4.Controls.Add(button11);
-        tabPage4.Controls.Add(DeleteStadium_Button);
-        tabPage4.Controls.Add(stadiumNameTextBox);
-        tabPage4.Controls.Add(label12);
-        tabPage4.Controls.Add(label11);
-        tabPage4.Controls.Add(tableStadiums);
+        tabPage4.Controls.Add(button4);
         tabPage4.ForeColor = Color.Black;
         tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
@@ -372,131 +355,6 @@ partial class Form1
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Стадионы";
         tabPage4.UseVisualStyleBackColor = true;
-        // 
-        // isUseForMatchesCheckBox
-        // 
-        isUseForMatchesCheckBox.AutoSize = true;
-        isUseForMatchesCheckBox.Location = new Point(14, 428);
-        isUseForMatchesCheckBox.Name = "isUseForMatchesCheckBox";
-        isUseForMatchesCheckBox.Size = new Size(352, 24);
-        isUseForMatchesCheckBox.TabIndex = 37;
-        isUseForMatchesCheckBox.Text = "Получить матчи на которых проходили матчи";
-        isUseForMatchesCheckBox.UseVisualStyleBackColor = true;
-        // 
-        // selectLocationComboBox
-        // 
-        selectLocationComboBox.FormattingEnabled = true;
-        selectLocationComboBox.Location = new Point(95, 117);
-        selectLocationComboBox.Name = "selectLocationComboBox";
-        selectLocationComboBox.Size = new Size(214, 28);
-        selectLocationComboBox.TabIndex = 36;
-        selectLocationComboBox.DropDown += selectLocationComboBox_DropDown;
-        // 
-        // label24
-        // 
-        label24.AutoSize = true;
-        label24.Location = new Point(14, 388);
-        label24.Name = "label24";
-        label24.Size = new Size(113, 20);
-        label24.TabIndex = 35;
-        label24.Text = "Строка поиска";
-        // 
-        // stadiumSearchTextBox
-        // 
-        stadiumSearchTextBox.Location = new Point(149, 385);
-        stadiumSearchTextBox.Name = "stadiumSearchTextBox";
-        stadiumSearchTextBox.Size = new Size(311, 27);
-        stadiumSearchTextBox.TabIndex = 34;
-        // 
-        // buttonGettingStadiums
-        // 
-        buttonGettingStadiums.Location = new Point(365, 479);
-        buttonGettingStadiums.Name = "buttonGettingStadiums";
-        buttonGettingStadiums.Size = new Size(94, 29);
-        buttonGettingStadiums.TabIndex = 33;
-        buttonGettingStadiums.Text = "Получить";
-        buttonGettingStadiums.UseVisualStyleBackColor = true;
-        buttonGettingStadiums.Click += buttonGettingStadiums_Click;
-        // 
-        // stadiumVolumeTextBox
-        // 
-        stadiumVolumeTextBox.Location = new Point(184, 77);
-        stadiumVolumeTextBox.Name = "stadiumVolumeTextBox";
-        stadiumVolumeTextBox.Size = new Size(125, 27);
-        stadiumVolumeTextBox.TabIndex = 25;
-        // 
-        // label23
-        // 
-        label23.AutoSize = true;
-        label23.Location = new Point(14, 80);
-        label23.Name = "label23";
-        label23.Size = new Size(131, 20);
-        label23.TabIndex = 24;
-        label23.Text = "Размер стадиона";
-        // 
-        // stadiumAddButton
-        // 
-        stadiumAddButton.Location = new Point(379, 29);
-        stadiumAddButton.Name = "stadiumAddButton";
-        stadiumAddButton.Size = new Size(94, 29);
-        stadiumAddButton.TabIndex = 22;
-        stadiumAddButton.Text = "Добавить";
-        stadiumAddButton.UseVisualStyleBackColor = true;
-        stadiumAddButton.Click += stadiumAddButton_Click;
-        // 
-        // button11
-        // 
-        button11.Location = new Point(379, 80);
-        button11.Name = "button11";
-        button11.Size = new Size(94, 29);
-        button11.TabIndex = 23;
-        button11.Text = "Обновить";
-        button11.UseVisualStyleBackColor = true;
-        // 
-        // DeleteStadium_Button
-        // 
-        DeleteStadium_Button.Location = new Point(379, 125);
-        DeleteStadium_Button.Name = "DeleteStadium_Button";
-        DeleteStadium_Button.Size = new Size(94, 29);
-        DeleteStadium_Button.TabIndex = 21;
-        DeleteStadium_Button.Text = "Удалить";
-        DeleteStadium_Button.UseVisualStyleBackColor = true;
-        DeleteStadium_Button.Click += DeleteStadium_Button_Click;
-        // 
-        // stadiumNameTextBox
-        // 
-        stadiumNameTextBox.Location = new Point(184, 31);
-        stadiumNameTextBox.Name = "stadiumNameTextBox";
-        stadiumNameTextBox.Size = new Size(125, 27);
-        stadiumNameTextBox.TabIndex = 17;
-        // 
-        // label12
-        // 
-        label12.AutoSize = true;
-        label12.Location = new Point(14, 125);
-        label12.Name = "label12";
-        label12.Size = new Size(53, 20);
-        label12.TabIndex = 16;
-        label12.Text = "Город";
-        // 
-        // label11
-        // 
-        label11.AutoSize = true;
-        label11.Location = new Point(14, 35);
-        label11.Name = "label11";
-        label11.Size = new Size(145, 20);
-        label11.TabIndex = 15;
-        label11.Text = "Название стадиона";
-        // 
-        // tableStadiums
-        // 
-        tableStadiums.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableStadiums.Location = new Point(498, 5);
-        tableStadiums.Name = "tableStadiums";
-        tableStadiums.RowHeadersWidth = 51;
-        tableStadiums.RowTemplate.Height = 29;
-        tableStadiums.Size = new Size(603, 539);
-        tableStadiums.TabIndex = 2;
         // 
         // tabPage5
         // 
@@ -676,15 +534,15 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
-        // button2
+        // button4
         // 
-        button2.Location = new Point(439, 184);
-        button2.Name = "button2";
-        button2.Size = new Size(98, 48);
-        button2.TabIndex = 1;
-        button2.Text = "button2";
-        button2.UseVisualStyleBackColor = true;
-        button2.Click += button2_Click;
+        button4.Location = new Point(333, 152);
+        button4.Name = "button4";
+        button4.Size = new Size(186, 99);
+        button4.TabIndex = 0;
+        button4.Text = "button4";
+        button4.UseVisualStyleBackColor = true;
+        button4.Click += button4_Click;
         // 
         // Form1
         // 
@@ -704,8 +562,6 @@ partial class Form1
         tabPage3.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)tableMatches).EndInit();
         tabPage4.ResumeLayout(false);
-        tabPage4.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)tableStadiums).EndInit();
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).EndInit();
@@ -731,13 +587,6 @@ partial class Form1
     private Button matchUpdateButton;
     private Button matchDeleteButton;
     private DateTimePicker DateTimePickerMatch;
-    private Button stadiumAddButton;
-    private Button button11;
-    private Button DeleteStadium_Button;
-    private TextBox stadiumNameTextBox;
-    private Label label12;
-    private Label label11;
-    private DataGridView tableStadiums;
     private TabPage tabPage5;
     private Label label13;
     private TextBox sponsorNameTextBox;
@@ -756,13 +605,6 @@ partial class Form1
     private Label label21;
     private Label label22;
     private TextBox sponsorSearchTextBox;
-    private TextBox stadiumVolumeTextBox;
-    private Label label23;
-    private Label label24;
-    private TextBox stadiumSearchTextBox;
-    private Button buttonGettingStadiums;
-    private ComboBox selectLocationComboBox;
-    private CheckBox isUseForMatchesCheckBox;
     private TabPage tabPage6;
     private Button button3;
     private DataGridView tablePlayerCountMatchesDataGridView;
@@ -776,4 +618,5 @@ partial class Form1
     private TextBox resultTeam1TextBox;
     private Button button1;
     private Button button2;
+    private Button button4;
 }

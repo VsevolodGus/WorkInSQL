@@ -17,7 +17,6 @@ public partial class Form1 : Form
     private readonly RoleRepository _roleRepository;
     private readonly SponsorRepository _sponsorRepository;
     private readonly StadiumRepository _stadiumRepository;
-    private readonly LocationRepository _locationRepository;
     private readonly DataPlayersMatchesQuery _playersMatchesQuery;
     private readonly MatchRepository _matchRepository;
 
@@ -29,7 +28,6 @@ public partial class Form1 : Form
         _roleRepository = new RoleRepository();
         _sponsorRepository = new SponsorRepository();
         _stadiumRepository = new StadiumRepository();
-        _locationRepository = new LocationRepository();
         _playersMatchesQuery = new DataPlayersMatchesQuery();
         _matchRepository = new MatchRepository();
 
@@ -56,17 +54,8 @@ public partial class Form1 : Form
         tableSponsors.Configuration<Sponsor>();
         FillingTableSponsors();
 
-        tableStadiums.Configuration<Stadium>();
-        FillingTableStadiums();
-
-
-
         tableMatches.Configuration<Match>();
         FillingTableMatch();
-
-        selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
-        selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
-
 
 
         team1IDMatchComboBox.ValueMember = nameof(Team.ID);
@@ -108,6 +97,11 @@ public partial class Form1 : Form
     private void button2_Click(object sender, EventArgs e)
     {
         new TeamsForm().Show();
+    }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+        new StadiumsForm().Show();
     }
     #endregion
 
@@ -160,7 +154,6 @@ public partial class Form1 : Form
         FillingTableSponsors(new SponsorFilter
         {
             Search = sponsorSearchTextBox.Text
-
         });
     }
 
@@ -168,66 +161,10 @@ public partial class Form1 : Form
     {
         tableSponsors.Rows.Clear();
         foreach (var sponsor in _sponsorRepository.GetArray(filter))
-
             tableSponsors.Rows.Add(sponsor.ID
                 , sponsor.Name
                 , sponsor.Description);
     }
-
-    #endregion
-
-
-    #region Логика со стадионами
-
-    private void FillingTableStadiums(StadiumFilter filter = null)
-    {
-        tableStadiums.Rows.Clear();
-        foreach (var stadium in _stadiumRepository.GetArray(filter))
-            tableStadiums.Rows.Add(stadium.ID
-                , stadium.Name
-                , stadium.Volume
-                , stadium.Size
-                , stadium.Popular
-                , stadium.LocationID
-                , stadium.LocationName);
-    }
-
-    private void stadiumAddButton_Click(object sender, EventArgs e)
-    {
-        var stadium = new Stadium();
-        stadium.Name = stadiumNameTextBox.Text;
-        stadium.Volume = int.Parse(stadiumVolumeTextBox.Text);
-        stadium.LocationID = (int)selectLocationComboBox.SelectedValue;
-
-        _stadiumRepository.Add(stadium);
-
-        buttonGettingStadiums_Click(sender, e);
-
-    }
-
-    private void buttonGettingStadiums_Click(object sender, EventArgs e)
-    {
-        FillingTableStadiums(new StadiumFilter
-        {
-            Search = stadiumSearchTextBox.Text,
-            IsUseForStadions = isUseForMatchesCheckBox.Checked
-        });
-    }
-
-    private void DeleteStadium_Button_Click(object sender, EventArgs e)
-    {
-        tableStadiums.DeleteObject(_stadiumRepository);
-        buttonGettingStadiums_Click(sender, e);
-    }
-    private void selectLocationComboBox_DropDown(object sender, EventArgs e)
-    {
-        var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _locationRepository.GetArray(new LocationFilter()
-        {
-            Search = thisComboBox.Text
-        });
-    }
-
     #endregion
 
 
@@ -241,11 +178,6 @@ public partial class Form1 : Form
                 , player.Patronymic
                 , player.CountMatches);
     }
-
-
-
-
-
 
 
     #region Логика c матчами
@@ -352,54 +284,4 @@ public partial class Form1 : Form
     #endregion
 
 
-
-    /*  private void searchTeamComboBox_DropDown(object sender, EventArgs e)
-      {
-          var thisComboBox = sender as ComboBox;
-          thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
-          {
-              Search = thisComboBox.Text,
-          });
-      }*/
-
-    /*
-     private void teamUpdateButton_Click(object sender, EventArgs e)
-    {
-        var id = (int)tableTeams.SelectedRows[0].Cells[0].Value;
-        var oldTeam = _teamRepository.GetByID(id);
-
-        int sponsorID = (int)();
-
-        if (!IsCorrectNumber(sponsorID, id))
-            return;
-
-        var team = new Team()
-        {
-            ID = id,
-            Name = teamNameTextBox.Text,
-            SponsorID = sponsorID,
-        };
-        _teamRepository.Update(team);
-
-        teamGettingButton_Click(sender, e);
-    }
-
-
-    private void teamGettingButton_Click(object sender, EventArgs e)
-    {
-        FillingTableTeam(new TeamFilter
-        {
-            Search = teamSearchTextBox.Text
-        });
-
-    }
-
-    private void teamDeleteButton_Click(object sender, EventArgs e)
-    {
-        tableTeams.DeleteObject(_teamRepository);
-        teamGettingButton_Click(sender, e);
-    }
-
-     
-     */
 }
