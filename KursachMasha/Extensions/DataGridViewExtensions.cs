@@ -1,7 +1,7 @@
 ﻿using KursachMasha.DAL;
 using System.Reflection;
 
-namespace KursachMasha;
+namespace KursachMasha.Extensions;
 internal static class DataGridViewExtensions
 {
     public static void Configuration<T>(this DataGridView table)
@@ -37,7 +37,7 @@ internal static class DataGridViewExtensions
             objectsID.Add(id);
         }
 
-        if(objectsID.Count != 0)
+        if (objectsID.Count != 0)
             repository.Delete(objectsID.ToArray());
     }
 }

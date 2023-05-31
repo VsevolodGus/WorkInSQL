@@ -1,4 +1,5 @@
 ﻿using KursachMasha.DAL.Sponsors;
+using KursachMasha.Extensions;
 
 namespace KursachMasha;
 public partial class SponsorsForm : Form

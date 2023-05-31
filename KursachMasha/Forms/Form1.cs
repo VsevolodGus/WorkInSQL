@@ -1,8 +1,8 @@
 using KursachMasha.DAL.Classes;
 using KursachMasha.DAL.Queries;
-using KursachMasha.DAL.Roles;
 using KursachMasha.DAL.Stadiums;
 using KursachMasha.DAL.Teams;
+using KursachMasha.Extensions;
 
 namespace KursachMasha;
 
@@ -68,14 +68,6 @@ public partial class Form1 : Form
         this.Close();
     }
 
-    private void onlyDigits_TextBoxChange(object sender, KeyPressEventArgs e)
-    {
-        if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-        {
-            e.Handled = true;
-        }
-    }
-
     private void button1_Click(object sender, EventArgs e)
     {
         new PlayersForm().Show();
@@ -95,6 +87,16 @@ public partial class Form1 : Form
     {
         new SponsorsForm().Show();
     }
+
+    private void onlyDigits_TextBoxChange(object sender, KeyPressEventArgs e)
+    {
+        if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+        {
+            e.Handled = true;
+        }
+    }
+
+
     #endregion
 
     private void button3_Click(object sender, EventArgs e)
