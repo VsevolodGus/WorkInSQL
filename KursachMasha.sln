@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursachMasha.DAL", "Kursach
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9B684A69-81AF-4362-9EF7-997B54424F23}"
 	ProjectSection(SolutionItems) = preProject
+		CreateProcedureSelect.txt = CreateProcedureSelect.txt
 		CreateProcedureWithTransaction.txt = CreateProcedureWithTransaction.txt
 		CreateScalarFunction.txt = CreateScalarFunction.txt
 		CreateTrigger.txt = CreateTrigger.txt

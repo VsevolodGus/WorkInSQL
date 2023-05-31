@@ -1,0 +1,10 @@
+CREATE OR REPLACE PROCEDURE select_sponsor_count_teams_procedure()
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    select sponsors.name, COUNT(teams.id) AS team_count
+    FROM sponsors
+    LEFT JOIN teams ON sponsors.id = teams.sponsor_id
+    GROUP BY sponsors.id;
+END;
+$$;
