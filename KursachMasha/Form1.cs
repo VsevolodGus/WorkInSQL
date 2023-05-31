@@ -6,7 +6,6 @@ using KursachMasha.DAL.Roles;
 using KursachMasha.DAL.Sponsors;
 using KursachMasha.DAL.Stadiums;
 using KursachMasha.DAL.Teams;
-using System.Globalization;
 
 namespace KursachMasha;
 
@@ -14,7 +13,6 @@ public partial class Form1 : Form
 {
     private readonly LoginForm _loginForm;
 
-    private readonly PlayerRepository _playerRepository;
     private readonly TeamRepository _teamRepository;
     private readonly RoleRepository _roleRepository;
     private readonly SponsorRepository _sponsorRepository;
@@ -27,7 +25,6 @@ public partial class Form1 : Form
     {
         _loginForm = loginForm;
 
-        _playerRepository = new PlayerRepository();
         _teamRepository = new TeamRepository();
         _roleRepository = new RoleRepository();
         _sponsorRepository = new SponsorRepository();
@@ -38,6 +35,7 @@ public partial class Form1 : Form
 
 
         InitializeComponent();
+
         DateTimePickerMatch.Format = DateTimePickerFormat.Custom;
         DateTimePickerMatch.CustomFormat = "MM.dd.yyyy hh:mm:ss";
 
@@ -54,8 +52,6 @@ public partial class Form1 : Form
 
         tablePlayerCountMatchesDataGridView.Configuration<PlayerMatches>();
 
-        tablePlayers.Configuration<Player>();
-        FillingTablePlayers();
 
         tableSponsors.Configuration<Sponsor>();
         FillingTableSponsors();
@@ -68,17 +64,6 @@ public partial class Form1 : Form
 
         tableMatches.Configuration<Match>();
         FillingTableMatch();
-
-        searchTeamComboBox.ValueMember = nameof(Team.ID);
-        searchTeamComboBox.DisplayMember = nameof(Team.Name);
-
-        teamIDPlayerComboBox.ValueMember = nameof(Team.ID);
-        teamIDPlayerComboBox.DisplayMember = nameof(Team.Name);
-
-        searchRoleComboBox.ValueMember = nameof(Role.ID);
-        searchRoleComboBox.DisplayMember = nameof(Role.Name);
-        roleIDPlayerComboBox.ValueMember = nameof(Role.ID);
-        roleIDPlayerComboBox.DisplayMember = nameof(Role.Name);
 
         selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
         selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
@@ -94,7 +79,6 @@ public partial class Form1 : Form
 
         stadiumIDTeamComboBox.ValueMember = nameof(Stadium.ID);
         stadiumIDTeamComboBox.DisplayMember = nameof(Stadium.Name);
-
     }
 
     #region Общие
@@ -117,157 +101,13 @@ public partial class Form1 : Form
             e.Handled = true;
         }
     }
-    #endregion
 
-
-    #region Логика с игроками
-    private void FillingTablePlayers(PlayerFilter filter = null)
+    private void button1_Click(object sender, EventArgs e)
     {
-        tablePlayers.Rows.Clear();
-        foreach (var player in _playerRepository.GetArray(filter))
-            tablePlayers.Rows.Add(player.ID
-                , player.Name
-                , player.Surname
-                , player.Patronymic
-                , player.Number
-                , player.TeamID
-                , player.TeamName
-                , player.RoleID
-                , player.RoleName);
-    }
-
-    private void DeletePlayers_Click(object sender, EventArgs e)
-    {
-        tablePlayers.DeleteObject(_playerRepository);
-        ButtonGettingPlayers_Click(sender, e);
-    }
-
-    private void ButtonGettingPlayers_Click(object sender, EventArgs e)
-    {
-        var eventKey = e as KeyEventArgs;
-        if (e is KeyEventArgs && eventKey.KeyCode != Keys.Enter)
-            return;
-
-        FillingTablePlayers(new PlayerFilter
-        {
-            Search = playerSearchTextBox.Text,
-            TeamID = (int?)searchTeamComboBox.SelectedValue,
-            RoleID = (int?)searchRoleComboBox.SelectedValue,
-        });
-    }
-
-
-    private void tablePlayers_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-    {
-        #region Обнуление полей с данными
-        playerNameTextBox.Text = string.Empty;
-        playerSurnameTextBox.Text = string.Empty;
-        playerPatronymicTetBox.Text = string.Empty;
-        playerNumberTetBox.Text = string.Empty;
-
-        teamIDPlayerComboBox.SelectedItem = new object();
-        teamIDPlayerComboBox.SelectedValue = new object();
-        teamIDPlayerComboBox.Text = null;
-
-        roleIDPlayerComboBox.SelectedItem = new object();
-        roleIDPlayerComboBox.SelectedValue = new object();
-        roleIDPlayerComboBox.Text = null;
-        #endregion
-
-        if (e.StateChanged != DataGridViewElementStates.Selected)
-            return;
-
-        var row = tablePlayers.Rows[e.Row.Index];
-
-        var player = _playerRepository.GetByID((int)row.Cells[0].Value);
-        playerNameTextBox.Text = player.Name;
-        playerSurnameTextBox.Text = player.Surname;
-        playerPatronymicTetBox.Text = player.Patronymic;
-        playerNumberTetBox.Text = player.Number.ToString();
-
-        var team = _teamRepository.GetByID(player.TeamID);
-        teamIDPlayerComboBox.SelectedItem = team;
-        teamIDPlayerComboBox.SelectedValue = team.ID;
-        teamIDPlayerComboBox.SelectedText = team.Name;
-
-        var role = _roleRepository.GetByID(player.RoleID);
-        roleIDPlayerComboBox.SelectedItem = role;
-        roleIDPlayerComboBox.SelectedValue = role.ID;
-        roleIDPlayerComboBox.SelectedText = role.Name;
-
-        searchRoleComboBox_DropDown(roleIDPlayerComboBox, e);
-        searchTeamComboBox_DropDown(teamIDPlayerComboBox, e);
-    }
-
-    private void addPlayerButton_Click(object sender, EventArgs e)
-    {
-        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
-        ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
-
-        //TODO решить проблему с невыбранными полями при добавление, почему-то Select поля не заполняются
-        var teamID = (int)teamIDPlayerComboBox.SelectedValue;
-        if (!IsCorrectNumber(teamID))
-            return;
-
-        var player = new Player()
-        {
-            Name = playerNameTextBox.Text,
-            Surname = playerSurnameTextBox.Text,
-            Patronymic = playerPatronymicTetBox.Text,
-            Number = int.Parse(playerNumberTetBox.Text),
-            TeamID = teamID,
-            RoleID = (int)roleIDPlayerComboBox.SelectedValue,
-        };
-
-        _playerRepository.Add(player);
-
-        ButtonGettingPlayers_Click(sender, e);
-    }
-
-    private void updatePlayerButton_Click(object sender, EventArgs e)
-    {
-        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
-        ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
-
-        var id = (int)tablePlayers.SelectedRows[0].Cells[0].Value;
-        var oldPlayer = _playerRepository.GetByID(id);
-
-        int teamID = (int)(searchTeamComboBox.SelectedValue ?? oldPlayer.TeamID);
-        int roleID = (int)(searchRoleComboBox.SelectedValue ?? oldPlayer.RoleID);
-
-        if (!IsCorrectNumber(teamID, id))
-            return;
-
-        var player = new Player()
-        {
-            ID = id,
-            Name = playerNameTextBox.Text,
-            Surname = playerSurnameTextBox.Text,
-            Patronymic = playerPatronymicTetBox.Text,
-            Number = int.Parse(playerNumberTetBox.Text),
-            TeamID = teamID,
-            RoleID = roleID,
-        };
-        _playerRepository.Update(player);
-
-        ButtonGettingPlayers_Click(sender, e);
-    }
-
-    private bool IsCorrectNumber(int teamID, int? id = null)
-    {
-        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Номер не заполнен");
-        var number = int.Parse(playerNumberTetBox.Text);
-        var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });
-
-        if (playersInTeam.Any(c => c.Number == number && (!id.HasValue || c.ID != id)))
-        {
-            MessageBox.Show("Введенный номер уже есть в данной команде");
-            return false;
-        }
-
-        return true;
+        new PlayersForm().Show();
     }
     #endregion
+
 
 
     #region Логика с командами
@@ -442,9 +282,6 @@ public partial class Form1 : Form
 
         int sponsorID = (int)(sponsorIDTeamComboBox.SelectedValue ?? oldTeam.SponsorID);
 
-        if (!IsCorrectNumber(sponsorID, id))
-            return;
-
         var team = new Team()
         {
             ID = id,
@@ -589,6 +426,8 @@ public partial class Form1 : Form
             Search = thisComboBox.Text,
         });
     }
+
+
     #endregion
 
 

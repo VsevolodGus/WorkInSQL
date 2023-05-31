@@ -28,32 +28,8 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        playerDeleteButton = new Button();
-        tablePlayers = new DataGridView();
         Tabs = new TabControl();
         tabPage1 = new TabPage();
-        playerNumberTetBox = new TextBox();
-        label19 = new Label();
-        label18 = new Label();
-        label17 = new Label();
-        searchTeamComboBox = new ComboBox();
-        label15 = new Label();
-        searchRoleComboBox = new ComboBox();
-        label16 = new Label();
-        teamIDPlayerComboBox = new ComboBox();
-        label14 = new Label();
-        playerPatronymicTetBox = new TextBox();
-        label3 = new Label();
-        playerGettingButton = new Button();
-        playerSearchTextBox = new TextBox();
-        roleIDPlayerComboBox = new ComboBox();
-        playerAddButton = new Button();
-        playerUpdateButton = new Button();
-        playerSurnameTextBox = new TextBox();
-        label4 = new Label();
-        playerNameTextBox = new TextBox();
-        label5 = new Label();
-        label6 = new Label();
         tabPage2 = new TabPage();
         label28 = new Label();
         teamSearchTextBox = new TextBox();
@@ -119,7 +95,7 @@ partial class Form1
         tablePlayerCountMatchesDataGridView = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
+        button1 = new Button();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -134,27 +110,6 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)tablePlayerCountMatchesDataGridView).BeginInit();
         menuStrip1.SuspendLayout();
         SuspendLayout();
-        // 
-        // playerDeleteButton
-        // 
-        playerDeleteButton.Location = new Point(296, 233);
-        playerDeleteButton.Name = "playerDeleteButton";
-        playerDeleteButton.Size = new Size(94, 29);
-        playerDeleteButton.TabIndex = 2;
-        playerDeleteButton.Text = "Удалить";
-        playerDeleteButton.UseVisualStyleBackColor = true;
-        playerDeleteButton.Click += DeletePlayers_Click;
-        // 
-        // tablePlayers
-        // 
-        tablePlayers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tablePlayers.Location = new Point(410, 5);
-        tablePlayers.Name = "tablePlayers";
-        tablePlayers.RowHeadersWidth = 51;
-        tablePlayers.RowTemplate.Height = 29;
-        tablePlayers.Size = new Size(677, 535);
-        tablePlayers.TabIndex = 9;
-        tablePlayers.RowStateChanged += tablePlayers_RowStateChanged;
         // 
         // Tabs
         // 
@@ -173,233 +128,14 @@ partial class Form1
         // 
         // tabPage1
         // 
-        tabPage1.Controls.Add(playerNumberTetBox);
-        tabPage1.Controls.Add(label19);
-        tabPage1.Controls.Add(label18);
-        tabPage1.Controls.Add(label17);
-        tabPage1.Controls.Add(searchTeamComboBox);
-        tabPage1.Controls.Add(label15);
-        tabPage1.Controls.Add(searchRoleComboBox);
-        tabPage1.Controls.Add(label16);
-        tabPage1.Controls.Add(teamIDPlayerComboBox);
-        tabPage1.Controls.Add(label14);
-        tabPage1.Controls.Add(playerPatronymicTetBox);
-        tabPage1.Controls.Add(label3);
-        tabPage1.Controls.Add(playerGettingButton);
-        tabPage1.Controls.Add(playerSearchTextBox);
-        tabPage1.Controls.Add(roleIDPlayerComboBox);
-        tabPage1.Controls.Add(playerAddButton);
-        tabPage1.Controls.Add(playerUpdateButton);
-        tabPage1.Controls.Add(playerSurnameTextBox);
-        tabPage1.Controls.Add(label4);
-        tabPage1.Controls.Add(playerNameTextBox);
-        tabPage1.Controls.Add(label5);
-        tabPage1.Controls.Add(label6);
-        tabPage1.Controls.Add(tablePlayers);
-        tabPage1.Controls.Add(playerDeleteButton);
+        tabPage1.Controls.Add(button1);
         tabPage1.Location = new Point(4, 29);
         tabPage1.Name = "tabPage1";
-        tabPage1.Padding = new Padding(3, 3, 3, 3);
+        tabPage1.Padding = new Padding(3);
         tabPage1.Size = new Size(1129, 555);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
-        // 
-        // playerNumberTetBox
-        // 
-        playerNumberTetBox.Location = new Point(85, 123);
-        playerNumberTetBox.Name = "playerNumberTetBox";
-        playerNumberTetBox.Size = new Size(305, 27);
-        playerNumberTetBox.TabIndex = 32;
-        playerNumberTetBox.KeyPress += onlyDigits_TextBoxChange;
-        // 
-        // label19
-        // 
-        label19.AutoSize = true;
-        label19.Location = new Point(6, 128);
-        label19.Name = "label19";
-        label19.Size = new Size(56, 20);
-        label19.TabIndex = 31;
-        label19.Text = "Номер";
-        // 
-        // label18
-        // 
-        label18.AutoSize = true;
-        label18.Location = new Point(127, 289);
-        label18.Name = "label18";
-        label18.Size = new Size(62, 20);
-        label18.TabIndex = 30;
-        label18.Text = "Фильтр";
-        // 
-        // label17
-        // 
-        label17.AutoSize = true;
-        label17.Location = new Point(8, 335);
-        label17.Name = "label17";
-        label17.Size = new Size(113, 20);
-        label17.TabIndex = 29;
-        label17.Text = "Строка поиска";
-        // 
-        // searchTeamComboBox
-        // 
-        searchTeamComboBox.FormattingEnabled = true;
-        searchTeamComboBox.Location = new Point(85, 361);
-        searchTeamComboBox.Name = "searchTeamComboBox";
-        searchTeamComboBox.Size = new Size(305, 28);
-        searchTeamComboBox.TabIndex = 28;
-        searchTeamComboBox.DropDown += searchTeamComboBox_DropDown;
-        searchTeamComboBox.Enter += ButtonGettingPlayers_Click;
-        // 
-        // label15
-        // 
-        label15.AutoSize = true;
-        label15.Location = new Point(8, 364);
-        label15.Name = "label15";
-        label15.Size = new Size(72, 20);
-        label15.TabIndex = 27;
-        label15.Text = "Команда";
-        // 
-        // searchRoleComboBox
-        // 
-        searchRoleComboBox.FormattingEnabled = true;
-        searchRoleComboBox.Location = new Point(85, 395);
-        searchRoleComboBox.Name = "searchRoleComboBox";
-        searchRoleComboBox.Size = new Size(305, 28);
-        searchRoleComboBox.TabIndex = 26;
-        searchRoleComboBox.DropDown += searchRoleComboBox_DropDown;
-        searchRoleComboBox.Enter += ButtonGettingPlayers_Click;
-        // 
-        // label16
-        // 
-        label16.AutoSize = true;
-        label16.Location = new Point(8, 397);
-        label16.Name = "label16";
-        label16.Size = new Size(45, 20);
-        label16.TabIndex = 25;
-        label16.Text = "Роль";
-        // 
-        // teamIDPlayerComboBox
-        // 
-        teamIDPlayerComboBox.FormattingEnabled = true;
-        teamIDPlayerComboBox.Location = new Point(85, 189);
-        teamIDPlayerComboBox.Name = "teamIDPlayerComboBox";
-        teamIDPlayerComboBox.Size = new Size(305, 28);
-        teamIDPlayerComboBox.TabIndex = 24;
-        teamIDPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
-        // 
-        // label14
-        // 
-        label14.AutoSize = true;
-        label14.Location = new Point(8, 193);
-        label14.Name = "label14";
-        label14.Size = new Size(72, 20);
-        label14.TabIndex = 23;
-        label14.Text = "Команда";
-        // 
-        // playerPatronymicTetBox
-        // 
-        playerPatronymicTetBox.Location = new Point(85, 89);
-        playerPatronymicTetBox.Name = "playerPatronymicTetBox";
-        playerPatronymicTetBox.Size = new Size(305, 27);
-        playerPatronymicTetBox.TabIndex = 22;
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(6, 96);
-        label3.Name = "label3";
-        label3.Size = new Size(76, 20);
-        label3.TabIndex = 21;
-        label3.Text = "Отчество";
-        // 
-        // playerGettingButton
-        // 
-        playerGettingButton.Location = new Point(296, 429);
-        playerGettingButton.Name = "playerGettingButton";
-        playerGettingButton.Size = new Size(94, 29);
-        playerGettingButton.TabIndex = 20;
-        playerGettingButton.Text = "Получить";
-        playerGettingButton.UseVisualStyleBackColor = true;
-        playerGettingButton.Click += ButtonGettingPlayers_Click;
-        // 
-        // playerSearchTextBox
-        // 
-        playerSearchTextBox.Location = new Point(127, 328);
-        playerSearchTextBox.Name = "playerSearchTextBox";
-        playerSearchTextBox.Size = new Size(263, 27);
-        playerSearchTextBox.TabIndex = 19;
-        playerSearchTextBox.Enter += ButtonGettingPlayers_Click;
-        playerSearchTextBox.KeyDown += ButtonGettingPlayers_Click;
-        // 
-        // roleIDPlayerComboBox
-        // 
-        roleIDPlayerComboBox.FormattingEnabled = true;
-        roleIDPlayerComboBox.Location = new Point(85, 156);
-        roleIDPlayerComboBox.Name = "roleIDPlayerComboBox";
-        roleIDPlayerComboBox.Size = new Size(305, 28);
-        roleIDPlayerComboBox.TabIndex = 18;
-        roleIDPlayerComboBox.DropDown += searchRoleComboBox_DropDown;
-        // 
-        // playerAddButton
-        // 
-        playerAddButton.Location = new Point(95, 233);
-        playerAddButton.Name = "playerAddButton";
-        playerAddButton.Size = new Size(94, 29);
-        playerAddButton.TabIndex = 10;
-        playerAddButton.Text = "Добавить";
-        playerAddButton.UseVisualStyleBackColor = true;
-        playerAddButton.Click += addPlayerButton_Click;
-        // 
-        // playerUpdateButton
-        // 
-        playerUpdateButton.Location = new Point(197, 233);
-        playerUpdateButton.Name = "playerUpdateButton";
-        playerUpdateButton.Size = new Size(94, 29);
-        playerUpdateButton.TabIndex = 11;
-        playerUpdateButton.Text = "Обновить";
-        playerUpdateButton.UseVisualStyleBackColor = true;
-        playerUpdateButton.Click += updatePlayerButton_Click;
-        // 
-        // playerSurnameTextBox
-        // 
-        playerSurnameTextBox.Location = new Point(85, 56);
-        playerSurnameTextBox.Name = "playerSurnameTextBox";
-        playerSurnameTextBox.Size = new Size(305, 27);
-        playerSurnameTextBox.TabIndex = 16;
-        // 
-        // label4
-        // 
-        label4.AutoSize = true;
-        label4.Location = new Point(6, 27);
-        label4.Name = "label4";
-        label4.Size = new Size(39, 20);
-        label4.TabIndex = 12;
-        label4.Text = "Имя";
-        // 
-        // playerNameTextBox
-        // 
-        playerNameTextBox.Location = new Point(85, 23);
-        playerNameTextBox.Name = "playerNameTextBox";
-        playerNameTextBox.Size = new Size(305, 27);
-        playerNameTextBox.TabIndex = 15;
-        // 
-        // label5
-        // 
-        label5.AutoSize = true;
-        label5.Location = new Point(6, 63);
-        label5.Name = "label5";
-        label5.Size = new Size(74, 20);
-        label5.TabIndex = 13;
-        label5.Text = "Фамилия";
-        // 
-        // label6
-        // 
-        label6.AutoSize = true;
-        label6.Location = new Point(8, 159);
-        label6.Name = "label6";
-        label6.Size = new Size(45, 20);
-        label6.TabIndex = 14;
-        label6.Text = "Роль";
         // 
         // tabPage2
         // 
@@ -416,7 +152,7 @@ partial class Form1
         tabPage2.Controls.Add(tableTeams);
         tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
-        tabPage2.Padding = new Padding(3, 3, 3, 3);
+        tabPage2.Padding = new Padding(3);
         tabPage2.Size = new Size(1129, 555);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
@@ -545,7 +281,7 @@ partial class Form1
         tabPage3.Controls.Add(label7);
         tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
-        tabPage3.Padding = new Padding(3, 3, 3, 3);
+        tabPage3.Padding = new Padding(3);
         tabPage3.Size = new Size(1129, 555);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Матчи";
@@ -558,7 +294,6 @@ partial class Form1
         resultTeam2TextBox.Name = "resultTeam2TextBox";
         resultTeam2TextBox.Size = new Size(114, 27);
         resultTeam2TextBox.TabIndex = 42;
-        resultTeam1TextBox.KeyPress += onlyDigits_TextBoxChange;
         // 
         // resultTeam1TextBox
         // 
@@ -743,7 +478,7 @@ partial class Form1
         tabPage4.ForeColor = Color.Black;
         tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
-        tabPage4.Padding = new Padding(3, 3, 3, 3);
+        tabPage4.Padding = new Padding(3);
         tabPage4.Size = new Size(1129, 555);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Стадионы";
@@ -890,7 +625,7 @@ partial class Form1
         tabPage5.Controls.Add(tableSponsors);
         tabPage5.Location = new Point(4, 29);
         tabPage5.Name = "tabPage5";
-        tabPage5.Padding = new Padding(3, 3, 3, 3);
+        tabPage5.Padding = new Padding(3);
         tabPage5.Size = new Size(1129, 555);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Спонсоры";
@@ -1008,7 +743,7 @@ partial class Form1
         tabPage6.Controls.Add(tablePlayerCountMatchesDataGridView);
         tabPage6.Location = new Point(4, 29);
         tabPage6.Name = "tabPage6";
-        tabPage6.Padding = new Padding(3, 3, 3, 3);
+        tabPage6.Padding = new Padding(3);
         tabPage6.Size = new Size(1129, 555);
         tabPage6.TabIndex = 5;
         tabPage6.Text = "Кол-во матчей у игроков";
@@ -1052,6 +787,16 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
+        // button1
+        // 
+        button1.Location = new Point(492, 92);
+        button1.Name = "button1";
+        button1.Size = new Size(94, 29);
+        button1.TabIndex = 0;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1063,10 +808,8 @@ partial class Form1
         Name = "Form1";
         Text = "Курсач";
         FormClosed += Form1_FormClosed;
-        ((System.ComponentModel.ISupportInitialize)tablePlayers).EndInit();
         Tabs.ResumeLayout(false);
         tabPage1.ResumeLayout(false);
-        tabPage1.PerformLayout();
         tabPage2.ResumeLayout(false);
         tabPage2.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)tableTeams).EndInit();
@@ -1088,20 +831,11 @@ partial class Form1
     }
 
     #endregion
-    private Button playerDeleteButton;
-    private DataGridView tablePlayers;
     private TabControl Tabs;
     private TabPage tabPage1;
     private TabPage tabPage2;
     private TabPage tabPage3;
     private TabPage tabPage4;
-    private Button playerAddButton;
-    private Button playerUpdateButton;
-    private TextBox playerSurnameTextBox;
-    private Label label4;
-    private TextBox playerNameTextBox;
-    private Label label5;
-    private Label label6;
     private TextBox teamNameTextBox;
     private DataGridView tableTeams;
     private Label label1;
@@ -1128,31 +862,16 @@ partial class Form1
     private Button sposorAddButton;
     private Button button14;
     private Button DeleteSponsors_Button;
-    private ComboBox roleIDPlayerComboBox;
     private ComboBox stadiumIDTeamComboBox;
     private ComboBox team2IDMatchComboBox;
     private ComboBox team1IDMatchComboBox;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private ComboBox teamIDPlayerComboBox;
-    private Label label14;
-    private TextBox playerPatronymicTetBox;
-    private Label label3;
-    private Button playerGettingButton;
-    private TextBox playerSearchTextBox;
     private Button teamDeleteButton;
     private Button teamUpdateButton;
     private Button teamAddButton;
-    private Label label18;
-    private Label label17;
-    private ComboBox searchTeamComboBox;
-    private Label label15;
-    private ComboBox searchRoleComboBox;
-    private Label label16;
     private Button teamGettingButton;
     private ComboBox sponsorIDTeamComboBox;
-    private TextBox playerNumberTetBox;
-    private Label label19;
     private Label label20;
     private TextBox descriptionNameTextBox;
     private Button buttonGettingSponsors;
@@ -1179,4 +898,5 @@ partial class Form1
     private TextBox resultTeam1TextBox;
     private Label label28;
     private TextBox teamSearchTextBox;
+    private Button button1;
 }
