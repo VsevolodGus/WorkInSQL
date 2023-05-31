@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace KursachMasha.DAL.Classes;
 
-namespace KursachMasha.DAL.Classes
+public class MatchFilter
 {
-    public class MatchFilter
-    {
-        //public string Search { get; set; }
-    }
-   
+    public string Search { get; set; }
+    public int? Team1ID { get; set; }
+    public int? Team2ID { get; set; }
+    public int? StadiumID { get; set; }
 }
+
