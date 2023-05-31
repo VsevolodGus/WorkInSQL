@@ -1,12 +1,37 @@
-CREATE VIEW view_matches_data
-AS SELECT m.id
-, m.team1_id
-, t1.name as team1_name
-, m.team2_id
-, t2.name as team2_name
-, m.stadium_id
-, s.name as stadium_name
-FROM matches m
-    INNER JOIN teams t1 ON t1.id = m.team1_id
-    INNER JOIN teams t2 ON t2.id = m.team2_id
-    INNER JOIN stadiums s ON s.id = m.stadium_id
+CREATE OR REPLACE VIEW football_championship_view AS
+SELECT
+    p.id AS player_id,
+    p.name AS player_name,
+    p.surname AS player_surname,
+    p.patronymic AS player_patronymic,
+    p.number_in_team,
+    t.id AS team_id,
+    t.name AS team_name,
+    r.id AS role_id,
+    r.name AS role_name,
+    m.id AS match_id,
+    m.date AS match_date,
+    m.team1_id,
+    t1.name AS team1_name,
+    m.team2_id,
+    t2.name AS team2_name,
+    m.team1_result,
+    m.team2_result,
+    s.id AS stadium_id,
+    s.name AS stadium_name,
+    s.volume AS stadium_volume,
+    l.id AS location_id,
+    l.name AS location_name,
+    sp.id AS sponsor_id,
+    sp.name AS sponsor_name,
+    sp.description AS sponsor_description
+FROM
+    players p
+    INNER JOIN teams t ON p.team_id = t.id
+    INNER JOIN roles r ON p.role_id = r.id
+    INNER JOIN matches m ON (m.team1_id = t.id OR m.team2_id = t.id)
+    INNER JOIN teams t1 ON m.team1_id = t1.id
+    INNER JOIN teams t2 ON m.team2_id = t2.id
+    INNER JOIN stadiums s ON m.stadium_id = s.id
+    INNER JOIN locations l ON s.location_id = l.id
+    INNER JOIN sponsors sp ON t.sponsor_id = sp.id;
