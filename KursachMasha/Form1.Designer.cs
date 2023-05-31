@@ -54,25 +54,14 @@ partial class Form1
         label8 = new Label();
         label7 = new Label();
         tabPage4 = new TabPage();
+        button4 = new Button();
         tabPage5 = new TabPage();
-        label21 = new Label();
-        label22 = new Label();
-        sponsorSearchTextBox = new TextBox();
-        buttonGettingSponsors = new Button();
-        label20 = new Label();
-        descriptionNameTextBox = new TextBox();
-        sposorAddButton = new Button();
-        button14 = new Button();
-        DeleteSponsors_Button = new Button();
-        label13 = new Label();
-        sponsorNameTextBox = new TextBox();
-        tableSponsors = new DataGridView();
         tabPage6 = new TabPage();
         button3 = new Button();
         tablePlayerCountMatchesDataGridView = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        button4 = new Button();
+        button5 = new Button();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -80,7 +69,6 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)tableMatches).BeginInit();
         tabPage4.SuspendLayout();
         tabPage5.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)tableSponsors).BeginInit();
         tabPage6.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)tablePlayerCountMatchesDataGridView).BeginInit();
         menuStrip1.SuspendLayout();
@@ -98,7 +86,7 @@ partial class Form1
         Tabs.Location = new Point(6, 27);
         Tabs.Name = "Tabs";
         Tabs.SelectedIndex = 0;
-        Tabs.Size = new Size(1137, 588);
+        Tabs.Size = new Size(1165, 625);
         Tabs.TabIndex = 10;
         // 
         // tabPage1
@@ -107,7 +95,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 29);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(1129, 555);
+        tabPage1.Size = new Size(1157, 592);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
@@ -128,7 +116,7 @@ partial class Form1
         tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1129, 555);
+        tabPage2.Size = new Size(1360, 678);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
@@ -167,7 +155,7 @@ partial class Form1
         tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
         tabPage3.Padding = new Padding(3);
-        tabPage3.Size = new Size(1129, 555);
+        tabPage3.Size = new Size(1157, 592);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Матчи";
         tabPage3.UseVisualStyleBackColor = true;
@@ -351,138 +339,31 @@ partial class Form1
         tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
         tabPage4.Padding = new Padding(3);
-        tabPage4.Size = new Size(1129, 555);
+        tabPage4.Size = new Size(1157, 592);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Стадионы";
         tabPage4.UseVisualStyleBackColor = true;
         // 
+        // button4
+        // 
+        button4.Location = new Point(333, 152);
+        button4.Name = "button4";
+        button4.Size = new Size(186, 99);
+        button4.TabIndex = 0;
+        button4.Text = "button4";
+        button4.UseVisualStyleBackColor = true;
+        button4.Click += button4_Click;
+        // 
         // tabPage5
         // 
-        tabPage5.Controls.Add(label21);
-        tabPage5.Controls.Add(label22);
-        tabPage5.Controls.Add(sponsorSearchTextBox);
-        tabPage5.Controls.Add(buttonGettingSponsors);
-        tabPage5.Controls.Add(label20);
-        tabPage5.Controls.Add(descriptionNameTextBox);
-        tabPage5.Controls.Add(sposorAddButton);
-        tabPage5.Controls.Add(button14);
-        tabPage5.Controls.Add(DeleteSponsors_Button);
-        tabPage5.Controls.Add(label13);
-        tabPage5.Controls.Add(sponsorNameTextBox);
-        tabPage5.Controls.Add(tableSponsors);
+        tabPage5.Controls.Add(button5);
         tabPage5.Location = new Point(4, 29);
         tabPage5.Name = "tabPage5";
         tabPage5.Padding = new Padding(3);
-        tabPage5.Size = new Size(1129, 555);
+        tabPage5.Size = new Size(1157, 592);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Спонсоры";
         tabPage5.UseVisualStyleBackColor = true;
-        // 
-        // label21
-        // 
-        label21.AutoSize = true;
-        label21.Location = new Point(192, 333);
-        label21.Name = "label21";
-        label21.Size = new Size(62, 20);
-        label21.TabIndex = 33;
-        label21.Text = "Фильтр";
-        // 
-        // label22
-        // 
-        label22.AutoSize = true;
-        label22.Location = new Point(6, 391);
-        label22.Name = "label22";
-        label22.Size = new Size(113, 20);
-        label22.TabIndex = 32;
-        label22.Text = "Строка поиска";
-        // 
-        // sponsorSearchTextBox
-        // 
-        sponsorSearchTextBox.Location = new Point(139, 388);
-        sponsorSearchTextBox.Name = "sponsorSearchTextBox";
-        sponsorSearchTextBox.Size = new Size(311, 27);
-        sponsorSearchTextBox.TabIndex = 31;
-        // 
-        // buttonGettingSponsors
-        // 
-        buttonGettingSponsors.Location = new Point(357, 437);
-        buttonGettingSponsors.Name = "buttonGettingSponsors";
-        buttonGettingSponsors.Size = new Size(94, 29);
-        buttonGettingSponsors.TabIndex = 29;
-        buttonGettingSponsors.Text = "Получить";
-        buttonGettingSponsors.UseVisualStyleBackColor = true;
-        buttonGettingSponsors.Click += buttonGettingSponsors_Click;
-        // 
-        // label20
-        // 
-        label20.AutoSize = true;
-        label20.Location = new Point(6, 80);
-        label20.Name = "label20";
-        label20.Size = new Size(77, 20);
-        label20.TabIndex = 28;
-        label20.Text = "Описание";
-        // 
-        // descriptionNameTextBox
-        // 
-        descriptionNameTextBox.Location = new Point(107, 80);
-        descriptionNameTextBox.Name = "descriptionNameTextBox";
-        descriptionNameTextBox.Size = new Size(230, 27);
-        descriptionNameTextBox.TabIndex = 27;
-        // 
-        // sposorAddButton
-        // 
-        sposorAddButton.Location = new Point(377, 32);
-        sposorAddButton.Name = "sposorAddButton";
-        sposorAddButton.Size = new Size(94, 29);
-        sposorAddButton.TabIndex = 25;
-        sposorAddButton.Text = "Добавить";
-        sposorAddButton.UseVisualStyleBackColor = true;
-        sposorAddButton.Click += sponsorAddButton_Click;
-        // 
-        // button14
-        // 
-        button14.Location = new Point(377, 80);
-        button14.Name = "button14";
-        button14.Size = new Size(94, 29);
-        button14.TabIndex = 26;
-        button14.Text = "Обновить";
-        button14.UseVisualStyleBackColor = true;
-        // 
-        // DeleteSponsors_Button
-        // 
-        DeleteSponsors_Button.Location = new Point(377, 128);
-        DeleteSponsors_Button.Name = "DeleteSponsors_Button";
-        DeleteSponsors_Button.Size = new Size(94, 29);
-        DeleteSponsors_Button.TabIndex = 24;
-        DeleteSponsors_Button.Text = "Удалить";
-        DeleteSponsors_Button.UseVisualStyleBackColor = true;
-        DeleteSponsors_Button.Click += DeleteSponsors_Button_Click;
-        // 
-        // label13
-        // 
-        label13.AutoSize = true;
-        label13.Location = new Point(6, 35);
-        label13.Name = "label13";
-        label13.Size = new Size(182, 20);
-        label13.TabIndex = 20;
-        label13.Text = "Наименование спонсора";
-        // 
-        // sponsorNameTextBox
-        // 
-        sponsorNameTextBox.Location = new Point(213, 35);
-        sponsorNameTextBox.Name = "sponsorNameTextBox";
-        sponsorNameTextBox.Size = new Size(125, 27);
-        sponsorNameTextBox.TabIndex = 18;
-        // 
-        // tableSponsors
-        // 
-        tableSponsors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableSponsors.Location = new Point(488, 5);
-        tableSponsors.Name = "tableSponsors";
-        tableSponsors.RowHeadersWidth = 51;
-        tableSponsors.RowTemplate.Height = 29;
-        tableSponsors.Size = new Size(603, 549);
-        tableSponsors.TabIndex = 3;
         // 
         // tabPage6
         // 
@@ -491,7 +372,7 @@ partial class Form1
         tabPage6.Location = new Point(4, 29);
         tabPage6.Name = "tabPage6";
         tabPage6.Padding = new Padding(3);
-        tabPage6.Size = new Size(1129, 555);
+        tabPage6.Size = new Size(1360, 678);
         tabPage6.TabIndex = 5;
         tabPage6.Text = "Кол-во матчей у игроков";
         tabPage6.UseVisualStyleBackColor = true;
@@ -523,7 +404,7 @@ partial class Form1
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new Padding(6, 3, 0, 3);
-        menuStrip1.Size = new Size(1111, 30);
+        menuStrip1.Size = new Size(1189, 30);
         menuStrip1.TabIndex = 11;
         menuStrip1.Text = "menuStrip1";
         // 
@@ -534,21 +415,21 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
-        // button4
+        // button5
         // 
-        button4.Location = new Point(333, 152);
-        button4.Name = "button4";
-        button4.Size = new Size(186, 99);
-        button4.TabIndex = 0;
-        button4.Text = "button4";
-        button4.UseVisualStyleBackColor = true;
-        button4.Click += button4_Click;
+        button5.Location = new Point(468, 148);
+        button5.Name = "button5";
+        button5.Size = new Size(205, 130);
+        button5.TabIndex = 0;
+        button5.Text = "button5";
+        button5.UseVisualStyleBackColor = true;
+        button5.Click += button5_Click;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1111, 609);
+        ClientSize = new Size(1189, 667);
         Controls.Add(Tabs);
         Controls.Add(menuStrip1);
         MainMenuStrip = menuStrip1;
@@ -563,8 +444,6 @@ partial class Form1
         ((System.ComponentModel.ISupportInitialize)tableMatches).EndInit();
         tabPage4.ResumeLayout(false);
         tabPage5.ResumeLayout(false);
-        tabPage5.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)tableSponsors).EndInit();
         tabPage6.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)tablePlayerCountMatchesDataGridView).EndInit();
         menuStrip1.ResumeLayout(false);
@@ -588,23 +467,11 @@ partial class Form1
     private Button matchDeleteButton;
     private DateTimePicker DateTimePickerMatch;
     private TabPage tabPage5;
-    private Label label13;
-    private TextBox sponsorNameTextBox;
-    private DataGridView tableSponsors;
-    private Button sposorAddButton;
-    private Button button14;
-    private Button DeleteSponsors_Button;
     private ComboBox stadiumIDTeamComboBox;
     private ComboBox team2IDMatchComboBox;
     private ComboBox team1IDMatchComboBox;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private Label label20;
-    private TextBox descriptionNameTextBox;
-    private Button buttonGettingSponsors;
-    private Label label21;
-    private Label label22;
-    private TextBox sponsorSearchTextBox;
     private TabPage tabPage6;
     private Button button3;
     private DataGridView tablePlayerCountMatchesDataGridView;
@@ -619,4 +486,5 @@ partial class Form1
     private Button button1;
     private Button button2;
     private Button button4;
+    private Button button5;
 }

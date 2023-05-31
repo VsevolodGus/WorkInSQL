@@ -1,9 +1,6 @@
 using KursachMasha.DAL.Classes;
-using KursachMasha.DAL.Locations;
-using KursachMasha.DAL.Players;
 using KursachMasha.DAL.Queries;
 using KursachMasha.DAL.Roles;
-using KursachMasha.DAL.Sponsors;
 using KursachMasha.DAL.Stadiums;
 using KursachMasha.DAL.Teams;
 
@@ -14,8 +11,6 @@ public partial class Form1 : Form
     private readonly LoginForm _loginForm;
 
     private readonly TeamRepository _teamRepository;
-    private readonly RoleRepository _roleRepository;
-    private readonly SponsorRepository _sponsorRepository;
     private readonly StadiumRepository _stadiumRepository;
     private readonly DataPlayersMatchesQuery _playersMatchesQuery;
     private readonly MatchRepository _matchRepository;
@@ -25,12 +20,9 @@ public partial class Form1 : Form
         _loginForm = loginForm;
 
         _teamRepository = new TeamRepository();
-        _roleRepository = new RoleRepository();
-        _sponsorRepository = new SponsorRepository();
         _stadiumRepository = new StadiumRepository();
         _playersMatchesQuery = new DataPlayersMatchesQuery();
         _matchRepository = new MatchRepository();
-
 
         InitializeComponent();
 
@@ -49,11 +41,6 @@ public partial class Form1 : Form
         }
 
         tablePlayerCountMatchesDataGridView.Configuration<PlayerMatches>();
-
-
-        tableSponsors.Configuration<Sponsor>();
-        FillingTableSponsors();
-
         tableMatches.Configuration<Match>();
         FillingTableMatch();
 
@@ -103,70 +90,12 @@ public partial class Form1 : Form
     {
         new StadiumsForm().Show();
     }
-    #endregion
 
-
-
-    #region Логика с командами
-    private void searchTeamComboBox_DropDown(object sender, EventArgs e)
+    private void button5_Click(object sender, EventArgs e)
     {
-        var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _teamRepository.GetArray(new TeamFilter()
-        {
-            Search = thisComboBox.Text,
-        });
+        new SponsorsForm().Show();
     }
     #endregion
-
-
-    #region Логика с ролями
-    private void searchRoleComboBox_DropDown(object sender, EventArgs e)
-    {
-        var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _roleRepository.GetArray(new RoleFilter()
-        {
-            Search = thisComboBox.Text,
-        });
-    }
-    #endregion
-
-
-    #region Логика со спонсорами
-    private void sponsorAddButton_Click(object sender, EventArgs e)
-    {
-        Sponsor sponsor = new Sponsor();
-        sponsor.Name = sponsorNameTextBox.Text;
-        sponsor.Description = descriptionNameTextBox.Text;
-
-        _sponsorRepository.Add(sponsor);
-
-        buttonGettingSponsors_Click(sender, e);
-    }
-
-    private void DeleteSponsors_Button_Click(object sender, EventArgs e)
-    {
-        tableSponsors.DeleteObject(_sponsorRepository);
-        buttonGettingSponsors_Click(sender, e);
-    }
-
-    private void buttonGettingSponsors_Click(object sender, EventArgs e)
-    {
-        FillingTableSponsors(new SponsorFilter
-        {
-            Search = sponsorSearchTextBox.Text
-        });
-    }
-
-    private void FillingTableSponsors(SponsorFilter filter = null)
-    {
-        tableSponsors.Rows.Clear();
-        foreach (var sponsor in _sponsorRepository.GetArray(filter))
-            tableSponsors.Rows.Add(sponsor.ID
-                , sponsor.Name
-                , sponsor.Description);
-    }
-    #endregion
-
 
     private void button3_Click(object sender, EventArgs e)
     {
@@ -282,6 +211,7 @@ public partial class Form1 : Form
 
 
     #endregion
+
 
 
 }
