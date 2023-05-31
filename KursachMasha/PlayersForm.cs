@@ -5,7 +5,6 @@ using KursachMasha.DAL.Teams;
 namespace KursachMasha;
 public partial class PlayersForm : Form
 {
-    private readonly Form1 _mainForm;
 
     private readonly PlayerRepository _playerRepository;
     private readonly TeamRepository _teamRepository;
@@ -115,8 +114,8 @@ public partial class PlayersForm : Form
 
     private void addPlayerButton_Click(object sender, EventArgs e)
     {
-        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
-        ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
+        playerNameTextBox.ShowMessageBoxIfTextEmpty("Имя не заполнено");
+        playerSurnameTextBox.ShowMessageBoxIfTextEmpty("Фамилия не заполнено");
 
         //TODO решить проблему с невыбранными полями при добавление, почему-то Select поля не заполняются
         var teamID = (int)teamIDPlayerComboBox.SelectedValue;
@@ -140,8 +139,8 @@ public partial class PlayersForm : Form
 
     private void updatePlayerButton_Click(object sender, EventArgs e)
     {
-        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Имя не заполнено");
-        ShowMessageBoxIfTextEmpty(playerSurnameTextBox, "Фамилия не заполнена");
+        playerNameTextBox.ShowMessageBoxIfTextEmpty("Имя не заполнено");
+        playerSurnameTextBox.ShowMessageBoxIfTextEmpty("Фамилия не заполнено");
 
         var id = (int)tablePlayers.SelectedRows[0].Cells[0].Value;
         var oldPlayer = _playerRepository.GetByID(id);
@@ -169,7 +168,8 @@ public partial class PlayersForm : Form
 
     private bool IsCorrectNumber(int teamID, int? id = null)
     {
-        ShowMessageBoxIfTextEmpty(playerNameTextBox, "Номер не заполнен");
+        playerNameTextBox.ShowMessageBoxIfTextEmpty("Номер не заполнен");
+
         var number = int.Parse(playerNumberTetBox.Text);
         var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });
 
@@ -180,12 +180,6 @@ public partial class PlayersForm : Form
         }
 
         return true;
-    }
-
-    private void ShowMessageBoxIfTextEmpty(TextBox textBox, string messageBoxText)
-    {
-        if (string.IsNullOrEmpty(textBox.Text))
-            MessageBox.Show(messageBoxText);
     }
 
 

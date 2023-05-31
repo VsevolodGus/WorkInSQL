@@ -59,8 +59,7 @@ public partial class Form1 : Form
         tableStadiums.Configuration<Stadium>();
         FillingTableStadiums();
 
-        tableTeams.Configuration<Team>();
-        FillingTableTeam();
+
 
         tableMatches.Configuration<Match>();
         FillingTableMatch();
@@ -68,8 +67,7 @@ public partial class Form1 : Form
         selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
         selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
 
-        sponsorIDTeamComboBox.ValueMember = nameof(Sponsor.ID);
-        sponsorIDTeamComboBox.DisplayMember = nameof(Sponsor.Name);
+
 
         team1IDMatchComboBox.ValueMember = nameof(Team.ID);
         team1IDMatchComboBox.DisplayMember = nameof(Team.Name);
@@ -105,6 +103,11 @@ public partial class Form1 : Form
     private void button1_Click(object sender, EventArgs e)
     {
         new PlayersForm().Show();
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        new TeamsForm().Show();
     }
     #endregion
 
@@ -228,12 +231,6 @@ public partial class Form1 : Form
     #endregion
 
 
-    private void ShowMessageBoxIfTextEmpty(TextBox textBox, string messageBoxText)
-    {
-        if (string.IsNullOrEmpty(textBox.Text))
-            MessageBox.Show(messageBoxText);
-    }
-
     private void button3_Click(object sender, EventArgs e)
     {
         tablePlayerCountMatchesDataGridView.Rows.Clear();
@@ -245,86 +242,8 @@ public partial class Form1 : Form
                 , player.CountMatches);
     }
 
-    #region Логика с командами
-
-    private void FillingTableTeam(TeamFilter filter = null)
-    {
-        tableTeams.Rows.Clear();
-        foreach (var team in _teamRepository.GetArray(filter))
-            tableTeams.Rows.Add(team.ID
-                , team.Name
-                , team.SponsorID
-                , team.SponsorName);
-    }
-
-    private void teamAddButton_Click(object sender, EventArgs e)
-    {
-        ShowMessageBoxIfTextEmpty(teamNameTextBox, "Название не заполнено");
-        // TODO сделать шоумесседж для спонсора(из-за комбобокса нельзя тоже так сделать)
 
 
-        var team = new Team()
-        {
-            Name = teamNameTextBox.Text,
-            SponsorID = (int)sponsorIDTeamComboBox.SelectedValue,
-        };
-
-        _teamRepository.Add(team);
-
-        teamGettingButton_Click(sender, e);
-    }
-
-
-    private void teamUpdateButton_Click(object sender, EventArgs e)
-    {
-        var id = (int)tableTeams.SelectedRows[0].Cells[0].Value;
-        var oldTeam = _teamRepository.GetByID(id);
-
-        int sponsorID = (int)(sponsorIDTeamComboBox.SelectedValue ?? oldTeam.SponsorID);
-
-        var team = new Team()
-        {
-            ID = id,
-            Name = teamNameTextBox.Text,
-            SponsorID = sponsorID,
-        };
-        _teamRepository.Update(team);
-
-        teamGettingButton_Click(sender, e);
-    }
-
-
-    private void teamGettingButton_Click(object sender, EventArgs e)
-    {
-        FillingTableTeam(new TeamFilter
-        {
-            Search = teamSearchTextBox.Text
-        });
-
-    }
-
-    private void teamDeleteButton_Click(object sender, EventArgs e)
-    {
-        tableTeams.DeleteObject(_teamRepository);
-        teamGettingButton_Click(sender, e);
-    }
-
-    private void Delete_Button_Click(object sender, EventArgs e)
-    {
-        tableStadiums.DeleteObject(_stadiumRepository);
-        buttonGettingStadiums_Click(sender, e);
-    }
-    #endregion
-
-
-    private void sponsorIDTeamComboBox_DropDown(object sender, EventArgs e)
-    {
-        var thisComboBox = sender as ComboBox;
-        thisComboBox.DataSource = _sponsorRepository.GetArray(new SponsorFilter()
-        {
-            Search = thisComboBox.Text,
-        });
-    }
 
 
 
@@ -426,6 +345,8 @@ public partial class Form1 : Form
             Search = thisComboBox.Text,
         });
     }
+
+
 
 
     #endregion

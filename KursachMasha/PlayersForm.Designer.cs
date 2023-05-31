@@ -192,6 +192,7 @@ partial class PlayersForm
         playerAddButton.TabIndex = 35;
         playerAddButton.Text = "Добавить";
         playerAddButton.UseVisualStyleBackColor = true;
+        playerAddButton.Click += addPlayerButton_Click;
         // 
         // playerUpdateButton
         // 
@@ -201,6 +202,7 @@ partial class PlayersForm
         playerUpdateButton.TabIndex = 36;
         playerUpdateButton.Text = "Обновить";
         playerUpdateButton.UseVisualStyleBackColor = true;
+        playerUpdateButton.Click += updatePlayerButton_Click;
         // 
         // playerSurnameTextBox
         // 
@@ -261,6 +263,7 @@ partial class PlayersForm
         playerDeleteButton.TabIndex = 33;
         playerDeleteButton.Text = "Удалить";
         playerDeleteButton.UseVisualStyleBackColor = true;
+        playerDeleteButton.Click += DeletePlayers_Click;
         // 
         // PlayersForm
         // 

@@ -30,18 +30,8 @@ partial class Form1
     {
         Tabs = new TabControl();
         tabPage1 = new TabPage();
+        button1 = new Button();
         tabPage2 = new TabPage();
-        label28 = new Label();
-        teamSearchTextBox = new TextBox();
-        teamGettingButton = new Button();
-        sponsorIDTeamComboBox = new ComboBox();
-        teamDeleteButton = new Button();
-        teamUpdateButton = new Button();
-        teamAddButton = new Button();
-        label1 = new Label();
-        label2 = new Label();
-        teamNameTextBox = new TextBox();
-        tableTeams = new DataGridView();
         tabPage3 = new TabPage();
         resultTeam2TextBox = new TextBox();
         resultTeam1TextBox = new TextBox();
@@ -95,11 +85,10 @@ partial class Form1
         tablePlayerCountMatchesDataGridView = new DataGridView();
         menuStrip1 = new MenuStrip();
         logoutMenuStrip = new ToolStripMenuItem();
-        button1 = new Button();
+        button2 = new Button();
         Tabs.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)tableTeams).BeginInit();
         tabPage3.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)tableMatches).BeginInit();
         tabPage4.SuspendLayout();
@@ -137,19 +126,19 @@ partial class Form1
         tabPage1.Text = "Игроки";
         tabPage1.UseVisualStyleBackColor = true;
         // 
+        // button1
+        // 
+        button1.Location = new Point(492, 92);
+        button1.Name = "button1";
+        button1.Size = new Size(94, 29);
+        button1.TabIndex = 0;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
         // tabPage2
         // 
-        tabPage2.Controls.Add(label28);
-        tabPage2.Controls.Add(teamSearchTextBox);
-        tabPage2.Controls.Add(teamGettingButton);
-        tabPage2.Controls.Add(sponsorIDTeamComboBox);
-        tabPage2.Controls.Add(teamDeleteButton);
-        tabPage2.Controls.Add(teamUpdateButton);
-        tabPage2.Controls.Add(teamAddButton);
-        tabPage2.Controls.Add(label1);
-        tabPage2.Controls.Add(label2);
-        tabPage2.Controls.Add(teamNameTextBox);
-        tabPage2.Controls.Add(tableTeams);
+        tabPage2.Controls.Add(button2);
         tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
@@ -157,106 +146,6 @@ partial class Form1
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Комнады";
         tabPage2.UseVisualStyleBackColor = true;
-        // 
-        // label28
-        // 
-        label28.AutoSize = true;
-        label28.Location = new Point(7, 353);
-        label28.Name = "label28";
-        label28.Size = new Size(113, 20);
-        label28.TabIndex = 37;
-        label28.Text = "Строка поиска";
-        // 
-        // teamSearchTextBox
-        // 
-        teamSearchTextBox.Location = new Point(142, 351);
-        teamSearchTextBox.Name = "teamSearchTextBox";
-        teamSearchTextBox.Size = new Size(274, 27);
-        teamSearchTextBox.TabIndex = 36;
-        // 
-        // teamGettingButton
-        // 
-        teamGettingButton.Location = new Point(429, 512);
-        teamGettingButton.Name = "teamGettingButton";
-        teamGettingButton.Size = new Size(94, 29);
-        teamGettingButton.TabIndex = 26;
-        teamGettingButton.Text = "Получить";
-        teamGettingButton.UseVisualStyleBackColor = true;
-        teamGettingButton.Click += teamGettingButton_Click;
-        // 
-        // sponsorIDTeamComboBox
-        // 
-        sponsorIDTeamComboBox.FormattingEnabled = true;
-        sponsorIDTeamComboBox.Location = new Point(118, 51);
-        sponsorIDTeamComboBox.Name = "sponsorIDTeamComboBox";
-        sponsorIDTeamComboBox.Size = new Size(305, 28);
-        sponsorIDTeamComboBox.TabIndex = 25;
-        sponsorIDTeamComboBox.DropDown += sponsorIDTeamComboBox_DropDown;
-        // 
-        // teamDeleteButton
-        // 
-        teamDeleteButton.Location = new Point(993, 512);
-        teamDeleteButton.Name = "teamDeleteButton";
-        teamDeleteButton.Size = new Size(94, 29);
-        teamDeleteButton.TabIndex = 19;
-        teamDeleteButton.Text = "Удалить";
-        teamDeleteButton.UseVisualStyleBackColor = true;
-        teamDeleteButton.Click += teamDeleteButton_Click;
-        // 
-        // teamUpdateButton
-        // 
-        teamUpdateButton.Location = new Point(893, 512);
-        teamUpdateButton.Name = "teamUpdateButton";
-        teamUpdateButton.Size = new Size(94, 29);
-        teamUpdateButton.TabIndex = 18;
-        teamUpdateButton.Text = "Обновить";
-        teamUpdateButton.UseVisualStyleBackColor = true;
-        teamUpdateButton.Click += teamUpdateButton_Click;
-        // 
-        // teamAddButton
-        // 
-        teamAddButton.Location = new Point(793, 512);
-        teamAddButton.Name = "teamAddButton";
-        teamAddButton.Size = new Size(94, 29);
-        teamAddButton.TabIndex = 17;
-        teamAddButton.Text = "Добавить";
-        teamAddButton.UseVisualStyleBackColor = true;
-        teamAddButton.Click += teamAddButton_Click;
-        // 
-        // label1
-        // 
-        label1.AutoSize = true;
-        label1.Location = new Point(6, 17);
-        label1.Name = "label1";
-        label1.Size = new Size(76, 20);
-        label1.TabIndex = 15;
-        label1.Text = "Название";
-        // 
-        // label2
-        // 
-        label2.AutoSize = true;
-        label2.Location = new Point(6, 53);
-        label2.Name = "label2";
-        label2.Size = new Size(70, 20);
-        label2.TabIndex = 16;
-        label2.Text = "Спонсор";
-        // 
-        // teamNameTextBox
-        // 
-        teamNameTextBox.Location = new Point(118, 17);
-        teamNameTextBox.Name = "teamNameTextBox";
-        teamNameTextBox.Size = new Size(305, 27);
-        teamNameTextBox.TabIndex = 1;
-        // 
-        // tableTeams
-        // 
-        tableTeams.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        tableTeams.Location = new Point(429, 5);
-        tableTeams.Name = "tableTeams";
-        tableTeams.RowHeadersWidth = 51;
-        tableTeams.RowTemplate.Height = 29;
-        tableTeams.Size = new Size(658, 500);
-        tableTeams.TabIndex = 0;
         // 
         // tabPage3
         // 
@@ -787,15 +676,15 @@ partial class Form1
         logoutMenuStrip.Text = "Выход";
         logoutMenuStrip.Click += LogoutMenuStrip_Click;
         // 
-        // button1
+        // button2
         // 
-        button1.Location = new Point(492, 92);
-        button1.Name = "button1";
-        button1.Size = new Size(94, 29);
-        button1.TabIndex = 0;
-        button1.Text = "button1";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
+        button2.Location = new Point(439, 184);
+        button2.Name = "button2";
+        button2.Size = new Size(98, 48);
+        button2.TabIndex = 1;
+        button2.Text = "button2";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
         // 
         // Form1
         // 
@@ -811,8 +700,6 @@ partial class Form1
         Tabs.ResumeLayout(false);
         tabPage1.ResumeLayout(false);
         tabPage2.ResumeLayout(false);
-        tabPage2.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)tableTeams).EndInit();
         tabPage3.ResumeLayout(false);
         tabPage3.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)tableMatches).EndInit();
@@ -836,10 +723,6 @@ partial class Form1
     private TabPage tabPage2;
     private TabPage tabPage3;
     private TabPage tabPage4;
-    private TextBox teamNameTextBox;
-    private DataGridView tableTeams;
-    private Label label1;
-    private Label label2;
     private Label label7;
     private Label label10;
     private Label label9;
@@ -867,11 +750,6 @@ partial class Form1
     private ComboBox team1IDMatchComboBox;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem logoutMenuStrip;
-    private Button teamDeleteButton;
-    private Button teamUpdateButton;
-    private Button teamAddButton;
-    private Button teamGettingButton;
-    private ComboBox sponsorIDTeamComboBox;
     private Label label20;
     private TextBox descriptionNameTextBox;
     private Button buttonGettingSponsors;
@@ -896,7 +774,6 @@ partial class Form1
     private Label label26;
     private TextBox resultTeam2TextBox;
     private TextBox resultTeam1TextBox;
-    private Label label28;
-    private TextBox teamSearchTextBox;
     private Button button1;
+    private Button button2;
 }
