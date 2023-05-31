@@ -3,5 +3,7 @@ SELECT
     , t.name AS team_name
 FROM teams t
 WHERE t.id IN ( SELECT team_id
-                FROM players 
-                WHERE number_in_team > 10);
+                FROM players p
+                inner join roles r ON r.id = p.role_id
+                WHERE role_id = 1 
+                        and r.name = 'тренер');
