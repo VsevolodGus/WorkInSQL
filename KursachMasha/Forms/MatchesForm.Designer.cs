@@ -61,6 +61,7 @@ partial class MatchesForm
         resultTeam2TextBox.Name = "resultTeam2TextBox";
         resultTeam2TextBox.Size = new Size(114, 27);
         resultTeam2TextBox.TabIndex = 61;
+        resultTeam2TextBox.KeyPress += TextBox_KeyPress;
         // 
         // resultTeam1TextBox
         // 
@@ -69,6 +70,7 @@ partial class MatchesForm
         resultTeam1TextBox.Name = "resultTeam1TextBox";
         resultTeam1TextBox.Size = new Size(114, 27);
         resultTeam1TextBox.TabIndex = 60;
+        resultTeam1TextBox.KeyPress += TextBox_KeyPress;
         // 
         // label27
         // 

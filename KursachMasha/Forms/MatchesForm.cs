@@ -140,4 +140,9 @@ public partial class MatchesForm : Form
                 , match.ResultTeam1
                 , match.ResultTeam2);
     }
+
+    private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        TextBoxExtensions.OnlyDigits_TextBoxChange(e);
+    }
 }

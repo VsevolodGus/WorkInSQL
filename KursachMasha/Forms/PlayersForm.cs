@@ -39,7 +39,7 @@ public partial class PlayersForm : Form
             playerAddButton.Enabled = false;
             playerDeleteButton.Enabled = false;
             playerUpdateButton.Enabled = false;
-            
+
             teamIDPlayerComboBox.Enabled = false;
             roleIDPlayerComboBox.Enabled = false;
 
@@ -217,8 +217,8 @@ public partial class PlayersForm : Form
         });
     }
 
-    private void PlayersForm_FormClosed(object sender, FormClosedEventArgs e)
+    private void playerNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        this.Hide();
+        TextBoxExtensions.OnlyDigits_TextBoxChange(e);
     }
 }

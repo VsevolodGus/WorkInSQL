@@ -57,14 +57,4 @@ public partial class Form1 : Form
     {
         new PlayerMatchCountForm().Show();
     }
-
-    private void onlyDigits_TextBoxChange(object sender, KeyPressEventArgs e)
-    {
-        if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-        {
-            e.Handled = true;
-        }
-    }
-
-
 }

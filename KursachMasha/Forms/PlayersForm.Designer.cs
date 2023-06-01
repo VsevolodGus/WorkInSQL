@@ -55,12 +55,13 @@ partial class PlayersForm
         ((System.ComponentModel.ISupportInitialize)tablePlayers).BeginInit();
         SuspendLayout();
         // 
-        // playerNumberTetBox
+        // playerNumberTextBox
         // 
         playerNumberTextBox.Location = new Point(91, 130);
-        playerNumberTextBox.Name = "playerNumberTetBox";
+        playerNumberTextBox.Name = "playerNumberTextBox";
         playerNumberTextBox.Size = new Size(305, 27);
         playerNumberTextBox.TabIndex = 56;
+        playerNumberTextBox.KeyPress += playerNumberTextBox_KeyPress;
         // 
         // label19
         // 
@@ -143,10 +144,10 @@ partial class PlayersForm
         label14.TabIndex = 47;
         label14.Text = "Команда";
         // 
-        // playerPatronymicTetBox
+        // playerPatronymicTextBox
         // 
         playerPatronymicTextBox.Location = new Point(91, 96);
-        playerPatronymicTextBox.Name = "playerPatronymicTetBox";
+        playerPatronymicTextBox.Name = "playerPatronymicTextBox";
         playerPatronymicTextBox.Size = new Size(305, 27);
         playerPatronymicTextBox.TabIndex = 46;
         // 
@@ -296,7 +297,6 @@ partial class PlayersForm
         Controls.Add(playerDeleteButton);
         Name = "PlayersForm";
         Text = "PlayersForm";
-        FormClosed += PlayersForm_FormClosed;
         ((System.ComponentModel.ISupportInitialize)tablePlayers).EndInit();
         ResumeLayout(false);
         PerformLayout();
