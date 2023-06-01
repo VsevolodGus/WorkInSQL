@@ -15,7 +15,6 @@ public partial class Form1 : Form
 
     private void LogoutMenuStrip_Click(object sender, EventArgs e)
     {
-        //TODO закрытие остальных окон
         Global.CurrentUser = null;
         _loginForm.Show();
         this.Hide();
