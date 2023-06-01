@@ -41,9 +41,9 @@ partial class Form1
         // 
         // button1
         // 
-        button1.Location = new Point(32, 93);
+        button1.Location = new Point(224, 185);
         button1.Name = "button1";
-        button1.Size = new Size(94, 29);
+        button1.Size = new Size(206, 150);
         button1.TabIndex = 0;
         button1.Text = "Игроки";
         button1.UseVisualStyleBackColor = true;
@@ -51,9 +51,9 @@ partial class Form1
         // 
         // button2
         // 
-        button2.Location = new Point(215, 93);
+        button2.Location = new Point(12, 33);
         button2.Name = "button2";
-        button2.Size = new Size(98, 48);
+        button2.Size = new Size(206, 146);
         button2.TabIndex = 1;
         button2.Text = "Команды";
         button2.UseVisualStyleBackColor = true;
@@ -61,9 +61,9 @@ partial class Form1
         // 
         // button6
         // 
-        button6.Location = new Point(215, 225);
+        button6.Location = new Point(224, 33);
         button6.Name = "button6";
-        button6.Size = new Size(94, 29);
+        button6.Size = new Size(206, 146);
         button6.TabIndex = 0;
         button6.Text = "Матчи";
         button6.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@ partial class Form1
         // 
         // button4
         // 
-        button4.Location = new Point(388, 155);
+        button4.Location = new Point(436, 33);
         button4.Name = "button4";
-        button4.Size = new Size(194, 130);
+        button4.Size = new Size(202, 146);
         button4.TabIndex = 0;
         button4.Text = "Стадионы";
         button4.UseVisualStyleBackColor = true;
@@ -81,9 +81,9 @@ partial class Form1
         // 
         // button5
         // 
-        button5.Location = new Point(693, 155);
+        button5.Location = new Point(12, 189);
         button5.Name = "button5";
-        button5.Size = new Size(205, 130);
+        button5.Size = new Size(206, 146);
         button5.TabIndex = 0;
         button5.Text = "Спонсоры";
         button5.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@ partial class Form1
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new Padding(6, 3, 0, 3);
-        menuStrip1.Size = new Size(1366, 30);
+        menuStrip1.Size = new Size(650, 30);
         menuStrip1.TabIndex = 11;
         menuStrip1.Text = "menuStrip1";
         // 
@@ -109,11 +109,11 @@ partial class Form1
         // 
         // button3
         // 
-        button3.Location = new Point(643, 430);
+        button3.Location = new Point(436, 185);
         button3.Name = "button3";
-        button3.Size = new Size(94, 29);
+        button3.Size = new Size(202, 150);
         button3.TabIndex = 12;
-        button3.Text = "button3";
+        button3.Text = "Кол-во матчей в которых участвовали игроки";
         button3.UseVisualStyleBackColor = true;
         button3.Click += button3_Click;
         // 
@@ -121,7 +121,7 @@ partial class Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1366, 740);
+        ClientSize = new Size(650, 351);
         Controls.Add(button3);
         Controls.Add(button5);
         Controls.Add(button4);
