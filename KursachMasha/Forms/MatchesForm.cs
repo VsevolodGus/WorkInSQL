@@ -21,6 +21,20 @@ public partial class MatchesForm : Form
 
         tableMatches.Configuration<Match>();
         FillingTableMatch();
+
+
+        if (!Global.CurrentUser.IsAdmin)
+        {
+            matchAddButton.Enabled = false;
+            matchUpdateButton.Enabled = false;
+            matchDeleteButton.Enabled = false;
+            DateTimePickerMatch.Enabled = false;
+            team1IDMatchComboBox.Enabled = false;
+            team2IDMatchComboBox.Enabled = false;
+            stadiumIDTeamComboBox.Enabled = false;
+            resultTeam1TextBox.Enabled = false;
+            resultTeam2TextBox.Enabled = false;
+        }
     }
 
 

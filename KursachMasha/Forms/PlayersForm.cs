@@ -6,7 +6,6 @@ using KursachMasha.Extensions;
 namespace KursachMasha;
 public partial class PlayersForm : Form
 {
-
     private readonly PlayerRepository _playerRepository;
     private readonly TeamRepository _teamRepository;
     private readonly RoleRepository _roleRepository;
@@ -30,9 +29,25 @@ public partial class PlayersForm : Form
 
         searchRoleComboBox.ValueMember = nameof(Role.ID);
         searchRoleComboBox.DisplayMember = nameof(Role.Name);
+
         roleIDPlayerComboBox.ValueMember = nameof(Role.ID);
         roleIDPlayerComboBox.DisplayMember = nameof(Role.Name);
 
+
+        if (!Global.CurrentUser.IsAdmin)
+        {
+            playerAddButton.Enabled = false;
+            playerDeleteButton.Enabled = false;
+            playerUpdateButton.Enabled = false;
+            
+            teamIDPlayerComboBox.Enabled = false;
+            roleIDPlayerComboBox.Enabled = false;
+
+            playerNameTextBox.Enabled = false;
+            playerSurnameTextBox.Enabled = false;
+            playerPatronymicTextBox.Enabled = false;
+            playerNumberTextBox.Enabled = false;
+        }
     }
 
     private void FillingTablePlayers(PlayerFilter filter = null)
@@ -76,8 +91,8 @@ public partial class PlayersForm : Form
         #region Обнуление полей с данными
         playerNameTextBox.Text = string.Empty;
         playerSurnameTextBox.Text = string.Empty;
-        playerPatronymicTetBox.Text = string.Empty;
-        playerNumberTetBox.Text = string.Empty;
+        playerPatronymicTextBox.Text = string.Empty;
+        playerNumberTextBox.Text = string.Empty;
 
         teamIDPlayerComboBox.SelectedItem = new object();
         teamIDPlayerComboBox.SelectedValue = new object();
@@ -96,8 +111,8 @@ public partial class PlayersForm : Form
         var player = _playerRepository.GetByID((int)row.Cells[0].Value);
         playerNameTextBox.Text = player.Name;
         playerSurnameTextBox.Text = player.Surname;
-        playerPatronymicTetBox.Text = player.Patronymic;
-        playerNumberTetBox.Text = player.Number.ToString();
+        playerPatronymicTextBox.Text = player.Patronymic;
+        playerNumberTextBox.Text = player.Number.ToString();
 
         var team = _teamRepository.GetByID(player.TeamID);
         teamIDPlayerComboBox.SelectedItem = team;
@@ -127,8 +142,8 @@ public partial class PlayersForm : Form
         {
             Name = playerNameTextBox.Text,
             Surname = playerSurnameTextBox.Text,
-            Patronymic = playerPatronymicTetBox.Text,
-            Number = int.Parse(playerNumberTetBox.Text),
+            Patronymic = playerPatronymicTextBox.Text,
+            Number = int.Parse(playerNumberTextBox.Text),
             TeamID = teamID,
             RoleID = (int)roleIDPlayerComboBox.SelectedValue,
         };
@@ -157,8 +172,8 @@ public partial class PlayersForm : Form
             ID = id,
             Name = playerNameTextBox.Text,
             Surname = playerSurnameTextBox.Text,
-            Patronymic = playerPatronymicTetBox.Text,
-            Number = int.Parse(playerNumberTetBox.Text),
+            Patronymic = playerPatronymicTextBox.Text,
+            Number = int.Parse(playerNumberTextBox.Text),
             TeamID = teamID,
             RoleID = roleID,
         };
@@ -171,7 +186,7 @@ public partial class PlayersForm : Form
     {
         playerNameTextBox.ShowMessageBoxIfTextEmpty("Номер не заполнен");
 
-        var number = int.Parse(playerNumberTetBox.Text);
+        var number = int.Parse(playerNumberTextBox.Text);
         var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });
 
         if (playersInTeam.Any(c => c.Number == number && (!id.HasValue || c.ID != id)))

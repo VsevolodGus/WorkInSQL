@@ -86,6 +86,7 @@ partial class TeamsForm
         teamDeleteButton.TabIndex = 44;
         teamDeleteButton.Text = "Удалить";
         teamDeleteButton.UseVisualStyleBackColor = true;
+        teamDeleteButton.Click += teamDeleteButton_Click;
         // 
         // teamUpdateButton
         // 

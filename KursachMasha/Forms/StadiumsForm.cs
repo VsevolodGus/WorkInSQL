@@ -20,6 +20,19 @@ public partial class StadiumsForm : Form
 
         selectLocationComboBox.ValueMember = nameof(MyLocation.ID);
         selectLocationComboBox.DisplayMember = nameof(MyLocation.Name);
+
+
+        if (!Global.CurrentUser.IsAdmin)
+        {
+            stadiumAddButton.Enabled = false;
+            stadiumUpdateButton.Enabled = false;
+            stadiumDeleteButton.Enabled = false;
+
+            stadiumNameTextBox.Enabled = false;
+            stadiumVolumeTextBox.Enabled = false;
+
+            selectLocationComboBox.Enabled = false;
+        }
     }
 
     private void FillingTableStadiums(StadiumFilter filter = null)

@@ -11,18 +11,6 @@ public partial class Form1 : Form
         _loginForm = loginForm;
 
         InitializeComponent();
-
-        if (!Global.CurrentUser.IsAdmin)
-        {
-            var buttons = this.Descendants<Button>().Where(c => !c.Name.ToLower().Contains("search")).ToArray();
-            foreach (var button in buttons)
-                button.Enabled = false;
-
-            var textBoxes = this.Descendants<TextBox>().Where(c => !c.Name.ToLower().Contains("search")).ToArray();
-            foreach (var textBox in textBoxes)
-                textBox.Enabled = false;
-        }
-
     }
 
     private void LogoutMenuStrip_Click(object sender, EventArgs e)
@@ -35,7 +23,9 @@ public partial class Form1 : Form
 
     private void Form1_FormClosed(object sender, FormClosedEventArgs e)
     {
-        this.Close();
+        Global.CurrentUser = null;
+        _loginForm.Show();
+        this.Hide();
     }
 
     private void button1_Click(object sender, EventArgs e)

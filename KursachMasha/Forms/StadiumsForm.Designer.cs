@@ -36,8 +36,8 @@ partial class StadiumsForm
         stadiumVolumeTextBox = new TextBox();
         label23 = new Label();
         stadiumAddButton = new Button();
-        button11 = new Button();
-        DeleteStadium_Button = new Button();
+        stadiumUpdateButton = new Button();
+        stadiumDeleteButton = new Button();
         stadiumNameTextBox = new TextBox();
         label12 = new Label();
         label11 = new Label();
@@ -118,22 +118,22 @@ partial class StadiumsForm
         // 
         // button11
         // 
-        button11.Location = new Point(391, 78);
-        button11.Name = "button11";
-        button11.Size = new Size(94, 29);
-        button11.TabIndex = 44;
-        button11.Text = "Обновить";
-        button11.UseVisualStyleBackColor = true;
+        stadiumUpdateButton.Location = new Point(391, 78);
+        stadiumUpdateButton.Name = "button11";
+        stadiumUpdateButton.Size = new Size(94, 29);
+        stadiumUpdateButton.TabIndex = 44;
+        stadiumUpdateButton.Text = "Обновить";
+        stadiumUpdateButton.UseVisualStyleBackColor = true;
         // 
         // DeleteStadium_Button
         // 
-        DeleteStadium_Button.Location = new Point(391, 123);
-        DeleteStadium_Button.Name = "DeleteStadium_Button";
-        DeleteStadium_Button.Size = new Size(94, 29);
-        DeleteStadium_Button.TabIndex = 42;
-        DeleteStadium_Button.Text = "Удалить";
-        DeleteStadium_Button.UseVisualStyleBackColor = true;
-        DeleteStadium_Button.Click += DeleteStadium_Button_Click;
+        stadiumDeleteButton.Location = new Point(391, 123);
+        stadiumDeleteButton.Name = "DeleteStadium_Button";
+        stadiumDeleteButton.Size = new Size(94, 29);
+        stadiumDeleteButton.TabIndex = 42;
+        stadiumDeleteButton.Text = "Удалить";
+        stadiumDeleteButton.UseVisualStyleBackColor = true;
+        stadiumDeleteButton.Click += DeleteStadium_Button_Click;
         // 
         // stadiumNameTextBox
         // 
@@ -183,8 +183,8 @@ partial class StadiumsForm
         Controls.Add(stadiumVolumeTextBox);
         Controls.Add(label23);
         Controls.Add(stadiumAddButton);
-        Controls.Add(button11);
-        Controls.Add(DeleteStadium_Button);
+        Controls.Add(stadiumUpdateButton);
+        Controls.Add(stadiumDeleteButton);
         Controls.Add(stadiumNameTextBox);
         Controls.Add(label12);
         Controls.Add(label11);
@@ -206,8 +206,8 @@ partial class StadiumsForm
     private TextBox stadiumVolumeTextBox;
     private Label label23;
     private Button stadiumAddButton;
-    private Button button11;
-    private Button DeleteStadium_Button;
+    private Button stadiumUpdateButton;
+    private Button stadiumDeleteButton;
     private TextBox stadiumNameTextBox;
     private Label label12;
     private Label label11;

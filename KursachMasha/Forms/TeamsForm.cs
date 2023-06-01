@@ -24,6 +24,17 @@ public partial class TeamsForm : Form
 
         filterSponsorComboBox.ValueMember = nameof(Sponsor.ID);
         filterSponsorComboBox.DisplayMember = nameof(Sponsor.Name);
+
+
+        if (!Global.CurrentUser.IsAdmin)
+        {
+            teamAddButton.Enabled = false;
+            teamDeleteButton.Enabled = false;
+            teamUpdateButton.Enabled = false;
+
+            teamNameTextBox.Enabled = false;
+            sponsorIDTeamComboBox.Enabled = false;
+        }
     }
 
     private void teamAddButton_Click(object sender, EventArgs e)

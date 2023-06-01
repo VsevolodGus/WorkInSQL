@@ -14,13 +14,24 @@ public partial class SponsorsForm : Form
 
         tableSponsors.Configuration<Sponsor>();
         FillingTableSponsors();
+
+
+        if (!Global.CurrentUser.IsAdmin)
+        {
+            sposorAddButton.Enabled = false;
+            sposorUpdateButton.Enabled = false;
+            sponsorDeleteButton.Enabled = false;
+
+            sponsorNameTextBox.Enabled = false;
+            sponsorDescriptionTextBox.Enabled = false;
+        }
     }
 
     private void sponsorAddButton_Click(object sender, EventArgs e)
     {
         var sponsor = new Sponsor();
         sponsor.Name = sponsorNameTextBox.Text;
-        sponsor.Description = descriptionNameTextBox.Text;
+        sponsor.Description = sponsorDescriptionTextBox.Text;
 
         _sponsorRepository.Add(sponsor);
 

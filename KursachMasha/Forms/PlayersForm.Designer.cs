@@ -28,7 +28,7 @@ partial class PlayersForm
     /// </summary>
     private void InitializeComponent()
     {
-        playerNumberTetBox = new TextBox();
+        playerNumberTextBox = new TextBox();
         label19 = new Label();
         label18 = new Label();
         label17 = new Label();
@@ -38,7 +38,7 @@ partial class PlayersForm
         label16 = new Label();
         teamIDPlayerComboBox = new ComboBox();
         label14 = new Label();
-        playerPatronymicTetBox = new TextBox();
+        playerPatronymicTextBox = new TextBox();
         label3 = new Label();
         playerGettingButton = new Button();
         playerSearchTextBox = new TextBox();
@@ -57,10 +57,10 @@ partial class PlayersForm
         // 
         // playerNumberTetBox
         // 
-        playerNumberTetBox.Location = new Point(91, 130);
-        playerNumberTetBox.Name = "playerNumberTetBox";
-        playerNumberTetBox.Size = new Size(305, 27);
-        playerNumberTetBox.TabIndex = 56;
+        playerNumberTextBox.Location = new Point(91, 130);
+        playerNumberTextBox.Name = "playerNumberTetBox";
+        playerNumberTextBox.Size = new Size(305, 27);
+        playerNumberTextBox.TabIndex = 56;
         // 
         // label19
         // 
@@ -145,10 +145,10 @@ partial class PlayersForm
         // 
         // playerPatronymicTetBox
         // 
-        playerPatronymicTetBox.Location = new Point(91, 96);
-        playerPatronymicTetBox.Name = "playerPatronymicTetBox";
-        playerPatronymicTetBox.Size = new Size(305, 27);
-        playerPatronymicTetBox.TabIndex = 46;
+        playerPatronymicTextBox.Location = new Point(91, 96);
+        playerPatronymicTextBox.Name = "playerPatronymicTetBox";
+        playerPatronymicTextBox.Size = new Size(305, 27);
+        playerPatronymicTextBox.TabIndex = 46;
         // 
         // label3
         // 
@@ -270,7 +270,7 @@ partial class PlayersForm
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1115, 563);
-        Controls.Add(playerNumberTetBox);
+        Controls.Add(playerNumberTextBox);
         Controls.Add(label19);
         Controls.Add(label18);
         Controls.Add(label17);
@@ -280,7 +280,7 @@ partial class PlayersForm
         Controls.Add(label16);
         Controls.Add(teamIDPlayerComboBox);
         Controls.Add(label14);
-        Controls.Add(playerPatronymicTetBox);
+        Controls.Add(playerPatronymicTextBox);
         Controls.Add(label3);
         Controls.Add(playerGettingButton);
         Controls.Add(playerSearchTextBox);
@@ -304,7 +304,7 @@ partial class PlayersForm
 
     #endregion
 
-    private TextBox playerNumberTetBox;
+    private TextBox playerNumberTextBox;
     private Label label19;
     private Label label18;
     private Label label17;
@@ -314,7 +314,7 @@ partial class PlayersForm
     private Label label16;
     private ComboBox teamIDPlayerComboBox;
     private Label label14;
-    private TextBox playerPatronymicTetBox;
+    private TextBox playerPatronymicTextBox;
     private Label label3;
     private Button playerGettingButton;
     private TextBox playerSearchTextBox;
