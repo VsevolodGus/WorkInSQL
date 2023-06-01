@@ -1,8 +1,3 @@
-using KursachMasha.DAL.Classes;
-using KursachMasha.DAL.Queries;
-using KursachMasha.DAL.Stadiums;
-using KursachMasha.DAL.Teams;
-using KursachMasha.Extensions;
 using KursachMasha.Forms;
 
 namespace KursachMasha;
@@ -11,13 +6,9 @@ public partial class Form1 : Form
 {
     private readonly LoginForm _loginForm;
 
-    private readonly DataPlayersMatchesQuery _playersMatchesQuery;
-
     public Form1(LoginForm loginForm)
     {
         _loginForm = loginForm;
-
-        _playersMatchesQuery = new DataPlayersMatchesQuery();
 
         InitializeComponent();
 
@@ -32,12 +23,11 @@ public partial class Form1 : Form
                 textBox.Enabled = false;
         }
 
-        tablePlayerCountMatchesDataGridView.Configuration<PlayerMatches>();
     }
 
-    #region Общие
     private void LogoutMenuStrip_Click(object sender, EventArgs e)
     {
+        //TODO закрытие остальных окон
         Global.CurrentUser = null;
         _loginForm.Show();
         this.Hide();
@@ -74,6 +64,11 @@ public partial class Form1 : Form
         new MatchesForm().Show();
     }
 
+    private void button3_Click(object sender, EventArgs e)
+    {
+        new PlayerMatchCountForm().Show();
+    }
+
     private void onlyDigits_TextBoxChange(object sender, KeyPressEventArgs e)
     {
         if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -83,16 +78,4 @@ public partial class Form1 : Form
     }
 
 
-    #endregion
-
-    private void button3_Click(object sender, EventArgs e)
-    {
-        tablePlayerCountMatchesDataGridView.Rows.Clear();
-        foreach (var player in _playersMatchesQuery.Execute())
-            tablePlayerCountMatchesDataGridView.Rows.Add(player.ID
-                , player.Name
-                , player.Surname
-                , player.Patronymic
-                , player.CountMatches);
-    }
 }
