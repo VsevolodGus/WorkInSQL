@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9B68
 	ProjectSection(SolutionItems) = preProject
 		CreateProcedureSelect.txt = CreateProcedureSelect.txt
 		CreateProcedureWithTransaction.txt = CreateProcedureWithTransaction.txt
+		CreateRoles.txt = CreateRoles.txt
 		CreateScalarFunction.txt = CreateScalarFunction.txt
 		CreateTrigger.txt = CreateTrigger.txt
 		CreateVectorFunction.txt = CreateVectorFunction.txt
