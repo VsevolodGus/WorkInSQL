@@ -168,6 +168,7 @@ partial class PlayersForm
         playerGettingButton.TabIndex = 44;
         playerGettingButton.Text = "Получить";
         playerGettingButton.UseVisualStyleBackColor = true;
+        playerGettingButton.Click += playerGettingButton_Click;
         // 
         // playerSearchTextBox
         // 

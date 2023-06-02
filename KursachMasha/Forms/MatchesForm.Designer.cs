@@ -34,7 +34,7 @@ partial class MatchesForm
         label26 = new Label();
         matchGettingButton = new Button();
         tableMatches = new DataGridView();
-        stadiumIDTeamComboBox = new ComboBox();
+        stadiumIDComboBox = new ComboBox();
         team2IDMatchComboBox = new ComboBox();
         team1IDMatchComboBox = new ComboBox();
         matchAddButton = new Button();
@@ -109,15 +109,16 @@ partial class MatchesForm
         tableMatches.RowTemplate.Height = 29;
         tableMatches.Size = new Size(630, 528);
         tableMatches.TabIndex = 54;
+        tableMatches.RowStateChanged += tableMatches_RowStateChanged;
         // 
         // stadiumIDTeamComboBox
         // 
-        stadiumIDTeamComboBox.FormattingEnabled = true;
-        stadiumIDTeamComboBox.Location = new Point(120, 180);
-        stadiumIDTeamComboBox.Name = "stadiumIDTeamComboBox";
-        stadiumIDTeamComboBox.Size = new Size(193, 28);
-        stadiumIDTeamComboBox.TabIndex = 53;
-        stadiumIDTeamComboBox.DropDown += stadiumIDTeamComboBox_DropDown;
+        stadiumIDComboBox.FormattingEnabled = true;
+        stadiumIDComboBox.Location = new Point(120, 180);
+        stadiumIDComboBox.Name = "stadiumIDTeamComboBox";
+        stadiumIDComboBox.Size = new Size(193, 28);
+        stadiumIDComboBox.TabIndex = 53;
+        stadiumIDComboBox.DropDown += stadiumMatchComboBox_DropDown;
         // 
         // team2IDMatchComboBox
         // 
@@ -126,7 +127,7 @@ partial class MatchesForm
         team2IDMatchComboBox.Name = "team2IDMatchComboBox";
         team2IDMatchComboBox.Size = new Size(193, 28);
         team2IDMatchComboBox.TabIndex = 52;
-        team2IDMatchComboBox.DropDown += team2IDMatchComboBox_DropDown;
+        team2IDMatchComboBox.DropDown += teamMatchComboBox_DropDown;
         // 
         // team1IDMatchComboBox
         // 
@@ -135,7 +136,7 @@ partial class MatchesForm
         team1IDMatchComboBox.Name = "team1IDMatchComboBox";
         team1IDMatchComboBox.Size = new Size(193, 28);
         team1IDMatchComboBox.TabIndex = 51;
-        team1IDMatchComboBox.DropDown += team1IDMatchComboBox_DropDown;
+        team1IDMatchComboBox.DropDown += teamMatchComboBox_DropDown;
         // 
         // matchAddButton
         // 
@@ -226,7 +227,7 @@ partial class MatchesForm
         team2ComboBox.Name = "team2ComboBox";
         team2ComboBox.Size = new Size(327, 28);
         team2ComboBox.TabIndex = 66;
-        team2ComboBox.DropDown += team2IDMatchComboBox_DropDown;
+        team2ComboBox.DropDown += teamMatchComboBox_DropDown;
         // 
         // team1ComboBox
         // 
@@ -235,7 +236,7 @@ partial class MatchesForm
         team1ComboBox.Name = "team1ComboBox";
         team1ComboBox.Size = new Size(325, 28);
         team1ComboBox.TabIndex = 65;
-        team1ComboBox.DropDown += team1IDMatchComboBox_DropDown;
+        team1ComboBox.DropDown += teamMatchComboBox_DropDown;
         // 
         // label1
         // 
@@ -281,7 +282,7 @@ partial class MatchesForm
         Controls.Add(label26);
         Controls.Add(matchGettingButton);
         Controls.Add(tableMatches);
-        Controls.Add(stadiumIDTeamComboBox);
+        Controls.Add(stadiumIDComboBox);
         Controls.Add(team2IDMatchComboBox);
         Controls.Add(team1IDMatchComboBox);
         Controls.Add(matchAddButton);
@@ -307,7 +308,7 @@ partial class MatchesForm
     private Label label26;
     private Button matchGettingButton;
     private DataGridView tableMatches;
-    private ComboBox stadiumIDTeamComboBox;
+    private ComboBox stadiumIDComboBox;
     private ComboBox team2IDMatchComboBox;
     private ComboBox team1IDMatchComboBox;
     private Button matchAddButton;

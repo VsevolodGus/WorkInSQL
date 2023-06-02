@@ -226,4 +226,9 @@ public partial class PlayersForm : Form
     {
         TextBoxExtensions.OnlyDigits_TextBoxChange(e);
     }
+
+    private void playerGettingButton_Click(object sender, EventArgs e)
+    {
+
+    }
 }

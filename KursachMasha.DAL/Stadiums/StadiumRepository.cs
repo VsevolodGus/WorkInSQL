@@ -106,7 +106,7 @@ public class StadiumRepository :
             "              ELSE 'Заброшен'  \r\n    " +
             "              end as Popular\r\n" +
             $"from {Table} s\r\n" +
-            $"INNER JOIN public.locations l ON s.location_id = l.id \r\n" +
+            $"INNER JOIN locations l ON s.location_id = l.id \r\n" +
             $"\r\n\twhere s.id = {id}";
 
        return base.ExecuteGetQuery(query);   
