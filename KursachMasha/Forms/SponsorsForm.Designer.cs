@@ -87,10 +87,10 @@ partial class SponsorsForm
         label20.TabIndex = 41;
         label20.Text = "Описание";
         // 
-        // descriptionNameTextBox
+        // sponsorDescriptionTextBox
         // 
         sponsorDescriptionTextBox.Location = new Point(119, 87);
-        sponsorDescriptionTextBox.Name = "descriptionNameTextBox";
+        sponsorDescriptionTextBox.Name = "sponsorDescriptionTextBox";
         sponsorDescriptionTextBox.Size = new Size(264, 27);
         sponsorDescriptionTextBox.TabIndex = 40;
         // 
@@ -104,20 +104,20 @@ partial class SponsorsForm
         sposorAddButton.UseVisualStyleBackColor = true;
         sposorAddButton.Click += sponsorAddButton_Click;
         // 
-        // button14
+        // sposorUpdateButton
         // 
         sposorUpdateButton.Location = new Point(389, 87);
-        sposorUpdateButton.Name = "button14";
+        sposorUpdateButton.Name = "sposorUpdateButton";
         sposorUpdateButton.Size = new Size(94, 29);
         sposorUpdateButton.TabIndex = 39;
         sposorUpdateButton.Text = "Обновить";
         sposorUpdateButton.UseVisualStyleBackColor = true;
-        sposorUpdateButton.Click += button14_Click;
+        sposorUpdateButton.Click += sponsorUpdate_Button;
         // 
-        // DeleteSponsors_Button
+        // sponsorDeleteButton
         // 
         sponsorDeleteButton.Location = new Point(389, 135);
-        sponsorDeleteButton.Name = "DeleteSponsors_Button";
+        sponsorDeleteButton.Name = "sponsorDeleteButton";
         sponsorDeleteButton.Size = new Size(94, 29);
         sponsorDeleteButton.TabIndex = 37;
         sponsorDeleteButton.Text = "Удалить";
@@ -149,6 +149,7 @@ partial class SponsorsForm
         tableSponsors.RowTemplate.Height = 29;
         tableSponsors.Size = new Size(603, 549);
         tableSponsors.TabIndex = 34;
+        tableSponsors.RowStateChanged += tableSponsors_RowStateChanged;
         // 
         // SponsorsForm
         // 

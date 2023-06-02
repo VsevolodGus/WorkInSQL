@@ -14,7 +14,7 @@ public sealed class SponsorRepository :
 
     public void Update(Sponsor sponsor)
     {
-        var query = $"update from {Table} " +
+        var query = $"update {Table} " +
                         $"SET " +
                         $"Name = {sponsor.Name}" +
                         $", description = {sponsor.Description}" +

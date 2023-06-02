@@ -38,7 +38,6 @@ public partial class TeamsForm : Form
 
     private void teamAddButton_Click(object sender, EventArgs e)
     {
-
         if (!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
             return;
 
@@ -56,6 +55,9 @@ public partial class TeamsForm : Form
 
     private void teamUpdateButton_Click(object sender, EventArgs e)
     {
+        if (!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
+            return;
+
         var id = (int)tableTeams.SelectedRows[0].Cells[0].Value;
         var oldTeam = _teamRepository.GetByID(id);
 
@@ -131,6 +133,5 @@ public partial class TeamsForm : Form
 
 
         sponsorIDTeamComboBox_DropDown(sponsorIDTeamComboBox, e);
-
     }
 }
