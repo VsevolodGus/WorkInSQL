@@ -255,6 +255,7 @@ partial class PlayersForm
         tablePlayers.RowTemplate.Height = 29;
         tablePlayers.Size = new Size(687, 539);
         tablePlayers.TabIndex = 34;
+        tablePlayers.RowStateChanged += tablePlayers_RowStateChanged;
         // 
         // playerDeleteButton
         // 

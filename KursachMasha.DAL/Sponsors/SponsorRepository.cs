@@ -59,6 +59,9 @@ public sealed class SponsorRepository :
 
     public Sponsor GetByID(int id)
     {
-        throw new NotImplementedException();
+        var query = $"select * from {Table}" +
+            $"\n\twhere id = {id};";
+
+        return ExecuteGetQuery(query);
     }
 }

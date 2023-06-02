@@ -1,5 +1,4 @@
-﻿
-using Npgsql;
+﻿using Npgsql;
 using System.Text;
 
 namespace KursachMasha.DAL.Teams;
@@ -11,18 +10,21 @@ public class TeamRepository :
 
     public void Add(Team obj)
     {
-        var query = $"insert into {Table} (name, sponsor_id)" +
-            $"values ('{obj.Name}', '{obj.SponsorID}');";
+        var query = $"insert into {Table} (name, sponsor_id, count_active_players)" +
+            $"values ('{obj.Name}', '{obj.SponsorID}', 0);";
+
         ExecuteQuery(query);
     }
 
     public void Update(Team obj)
     {
-        var query = $"update from {Table} " +
-                       $"set " +
-                       $"Name = {obj.Name}" +
-                       $", location_id = {obj.SponsorID}" +
-                   $"where id = {obj.ID};";
+        var query = $"update {Table} " +
+                       $"\n\tset " +
+                       $"\n\tname = '{obj.Name}'" +
+                       $"\n\t, sponsor_id = {obj.SponsorID}" +
+                   $"\nwhere id = {obj.ID};";
+
+        ExecuteQuery(query);
     }
 
     public Team[] GetArray(TeamFilter filter = null)
@@ -58,8 +60,9 @@ public class TeamRepository :
 
     public Team GetByID(int id)
     {
-        var query = $"SELECT t.id, t.name, t.sponsor_id" +
+        var query = $"SELECT t.id, t.name, t.sponsor_id, s.name" +
             $"\r\n\tFROM public.{Table} t" +
+            $"\r\n\tinner join sponsors s on t.sponsor_id = s.id" +
             $"\r\n\twhere t.id = {id}";
 
         return base.ExecuteGetQuery(query);

@@ -189,7 +189,7 @@ public partial class PlayersForm : Form
     {
         if (!playerNameTextBox.ShowMessageBoxIfNoCorrect("Номер не заполнен"))
             return false;
-        
+
 
         var number = int.Parse(playerNumberTextBox.Text);
         var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });

@@ -38,8 +38,8 @@ public partial class TeamsForm : Form
 
     private void teamAddButton_Click(object sender, EventArgs e)
     {
-        
-        if(!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
+
+        if (!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
             return;
 
         var team = new Team()
@@ -105,5 +105,32 @@ public partial class TeamsForm : Form
         {
             Search = thisComboBox.Text,
         });
+    }
+
+    private void tableTeams_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+    {
+        #region Обнуление полей с данными
+        teamNameTextBox.Text = string.Empty;
+
+        sponsorIDTeamComboBox.SelectedItem = new object();
+        sponsorIDTeamComboBox.SelectedValue = new object();
+        sponsorIDTeamComboBox.Text = null;
+        #endregion
+
+        if (e.StateChanged != DataGridViewElementStates.Selected)
+            return;
+        var row = tableTeams.Rows[e.Row.Index];
+
+        var team = _teamRepository.GetByID((int)row.Cells[0].Value);
+        teamNameTextBox.Text = team.Name;
+
+        var sponsor = _sponsorRepository.GetByID(team.SponsorID);
+        sponsorIDTeamComboBox.SelectedItem = sponsor;
+        sponsorIDTeamComboBox.SelectedValue = sponsor.ID;
+        sponsorIDTeamComboBox.SelectedText = sponsor.Name;
+
+
+        sponsorIDTeamComboBox_DropDown(sponsorIDTeamComboBox, e);
+
     }
 }

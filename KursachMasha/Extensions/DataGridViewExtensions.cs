@@ -7,6 +7,7 @@ internal static class DataGridViewExtensions
     public static void Configuration<T>(this DataGridView table)
     {
         table.AutoGenerateColumns = false;
+        table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         var properties = typeof(T).GetProperties();
         foreach (var column in properties)
         {

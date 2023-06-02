@@ -96,6 +96,7 @@ partial class TeamsForm
         teamUpdateButton.TabIndex = 43;
         teamUpdateButton.Text = "Обновить";
         teamUpdateButton.UseVisualStyleBackColor = true;
+        teamUpdateButton.Click += teamUpdateButton_Click;
         // 
         // teamAddButton
         // 
@@ -105,6 +106,7 @@ partial class TeamsForm
         teamAddButton.TabIndex = 42;
         teamAddButton.Text = "Добавить";
         teamAddButton.UseVisualStyleBackColor = true;
+        teamAddButton.Click += teamAddButton_Click;
         // 
         // label1
         // 
@@ -140,6 +142,7 @@ partial class TeamsForm
         tableTeams.RowTemplate.Height = 29;
         tableTeams.Size = new Size(658, 457);
         tableTeams.TabIndex = 38;
+        tableTeams.RowStateChanged += tableTeams_RowStateChanged;
         // 
         // filterSponsorComboBox
         // 
