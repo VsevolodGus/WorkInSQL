@@ -42,7 +42,7 @@ public class LocationRepository :
         var stringBuilder = new StringBuilder($"select * from {Table}");
 
         if (!string.IsNullOrEmpty(filter.Search))
-            stringBuilder.Append($"where name like %{filter.Search}%");
+            stringBuilder.Append($"\nwhere name like '%{filter.Search}%'");
 
         stringBuilder.Append(';');
 
@@ -61,6 +61,9 @@ public class LocationRepository :
 
     public MyLocation GetByID(int id)
     {
-        throw new NotImplementedException();
+        var query = $"select * from {Table}" +
+            $"\n\twhere id = {id};";
+
+        return ExecuteGetQuery(query);
     }
 }

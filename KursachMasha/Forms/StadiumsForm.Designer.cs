@@ -116,19 +116,20 @@ partial class StadiumsForm
         stadiumAddButton.UseVisualStyleBackColor = true;
         stadiumAddButton.Click += stadiumAddButton_Click;
         // 
-        // button11
+        // stadiumUpdateButton
         // 
         stadiumUpdateButton.Location = new Point(391, 78);
-        stadiumUpdateButton.Name = "button11";
+        stadiumUpdateButton.Name = "stadiumUpdateButton";
         stadiumUpdateButton.Size = new Size(94, 29);
         stadiumUpdateButton.TabIndex = 44;
         stadiumUpdateButton.Text = "Обновить";
         stadiumUpdateButton.UseVisualStyleBackColor = true;
+        stadiumUpdateButton.Click += stadiumUpdateButton_Click;
         // 
-        // DeleteStadium_Button
+        // stadiumDeleteButton
         // 
         stadiumDeleteButton.Location = new Point(391, 123);
-        stadiumDeleteButton.Name = "DeleteStadium_Button";
+        stadiumDeleteButton.Name = "stadiumDeleteButton";
         stadiumDeleteButton.Size = new Size(94, 29);
         stadiumDeleteButton.TabIndex = 42;
         stadiumDeleteButton.Text = "Удалить";
@@ -169,6 +170,7 @@ partial class StadiumsForm
         tableStadiums.RowTemplate.Height = 29;
         tableStadiums.Size = new Size(603, 539);
         tableStadiums.TabIndex = 38;
+        tableStadiums.RowStateChanged += tableStadiums_RowStateChanged;
         // 
         // StadiumsForm
         // 
