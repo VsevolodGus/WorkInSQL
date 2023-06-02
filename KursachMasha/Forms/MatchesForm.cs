@@ -62,7 +62,7 @@ public partial class MatchesForm : Form
     private void matchAddButton_Click(object sender, EventArgs e)
     {
         
-        if (!IsSelectValue(team2IDMatchComboBox, "Не выбрана первая команда")
+        if (!IsSelectValue(team1IDMatchComboBox, "Не выбрана первая команда")
             || !IsSelectValue(team2IDMatchComboBox, "Не выбрана вторая команда")
             || !IsSelectValue(team2IDMatchComboBox, "Не выбран стадион"))
         {
@@ -114,6 +114,9 @@ public partial class MatchesForm : Form
         };
 
         _matchRepository.Update(match);
+        resultTeam1TextBox.Text = string.Empty;
+        resultTeam2TextBox.Text = string.Empty;
+
         matchGettingButton_Click(sender, e);
     }
 
@@ -179,22 +182,18 @@ public partial class MatchesForm : Form
 
         team1IDMatchComboBox.SelectedItem = new object();
         team1IDMatchComboBox.SelectedValue = new object();
-        team1IDMatchComboBox.Text = null;
+        team1IDMatchComboBox.Text = string.Empty;
 
         team2IDMatchComboBox.SelectedItem = new object();
         team2IDMatchComboBox.SelectedValue = new object();
-        team2IDMatchComboBox.Text = null;
+        team2IDMatchComboBox.Text = string.Empty;
 
-        stadiumСomboBox.SelectedItem = new object();
-        stadiumСomboBox.SelectedValue = new object();
-        stadiumСomboBox.Text = null;
+        stadiumIDComboBox.SelectedItem = new object();
+        stadiumIDComboBox.SelectedValue = new object();
+        stadiumIDComboBox.Text = string.Empty;
 
         if (e.StateChanged != DataGridViewElementStates.Selected)
             return;
-
-        teamMatchComboBox_DropDown(team1IDMatchComboBox, e);
-        teamMatchComboBox_DropDown(team2IDMatchComboBox, e);
-        stadiumMatchComboBox_DropDown(stadiumIDComboBox, e);
 
         var row = tableMatches.Rows[e.Row.Index];
 
@@ -218,6 +217,8 @@ public partial class MatchesForm : Form
         stadiumIDComboBox.SelectedValue = stadium.ID;
         stadiumIDComboBox.SelectedText = stadium.Name;
 
-
+        teamMatchComboBox_DropDown(team1IDMatchComboBox, e);
+        teamMatchComboBox_DropDown(team2IDMatchComboBox, e);
+        stadiumMatchComboBox_DropDown(stadiumIDComboBox, e);
     }
 }

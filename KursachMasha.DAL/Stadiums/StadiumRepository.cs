@@ -74,12 +74,16 @@ public class StadiumRepository :
 
     protected override Stadium Map(NpgsqlDataReader sqlDataReader)
     {
+        var id = sqlDataReader.GetInt32(0);
+        var volume = sqlDataReader.GetInt32(2);
+        var locationID = sqlDataReader.GetInt32(3);
+
         return new Stadium()
         {
-            ID = sqlDataReader.GetInt32(0),
+            ID = id,
             Name = sqlDataReader.GetString(1),
-            Volume = sqlDataReader.GetInt32(2),
-            LocationID = sqlDataReader.GetInt32(3),
+            Volume = volume,
+            LocationID = locationID,
             LocationName = sqlDataReader.GetString(4),
             Size = sqlDataReader.GetString(5),
             Popular = sqlDataReader.GetString(6),

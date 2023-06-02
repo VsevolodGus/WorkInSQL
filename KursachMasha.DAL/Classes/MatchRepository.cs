@@ -34,11 +34,13 @@ public class MatchRepository :
                         $"set " +
                         $"date = '{obj.DateTime}'" +
                         $", team1_id = '{obj.Team1ID}'" +
-                        $", team1_id = '{obj.Team2ID}'" +
+                        $", team2_id = '{obj.Team2ID}'" +
                         $", stadium_id = {obj.StadiumID}" +
                         $", team1_result = {obj.ResultTeam1}" +
                         $", team2_result = {obj.ResultTeam2}" +
                     $"\nwhere id = {obj.ID};";
+
+        base.ExecuteQuery(query);
     }
 
     protected override Match Map(NpgsqlDataReader sqlDataReader)
