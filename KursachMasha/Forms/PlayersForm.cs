@@ -130,8 +130,10 @@ public partial class PlayersForm : Form
 
     private void addPlayerButton_Click(object sender, EventArgs e)
     {
-        playerNameTextBox.ShowMessageBoxIfTextEmpty("Имя не заполнено");
-        playerSurnameTextBox.ShowMessageBoxIfTextEmpty("Фамилия не заполнено");
+        if (!playerNameTextBox.ShowMessageBoxIfNoCorrect("Имя не заполнено")
+                || !playerSurnameTextBox.ShowMessageBoxIfNoCorrect("Фамилия не заполнено"))
+            return;
+
 
         //TODO решить проблему с невыбранными полями при добавление, почему-то Select поля не заполняются
         var teamID = (int)teamIDPlayerComboBox.SelectedValue;
@@ -155,8 +157,9 @@ public partial class PlayersForm : Form
 
     private void updatePlayerButton_Click(object sender, EventArgs e)
     {
-        playerNameTextBox.ShowMessageBoxIfTextEmpty("Имя не заполнено");
-        playerSurnameTextBox.ShowMessageBoxIfTextEmpty("Фамилия не заполнено");
+        if (!playerNameTextBox.ShowMessageBoxIfNoCorrect("Имя не заполнено")
+                || !playerSurnameTextBox.ShowMessageBoxIfNoCorrect("Фамилия не заполнено"))
+            return;
 
         var id = (int)tablePlayers.SelectedRows[0].Cells[0].Value;
         var oldPlayer = _playerRepository.GetByID(id);
@@ -184,7 +187,9 @@ public partial class PlayersForm : Form
 
     private bool IsCorrectNumber(int teamID, int? id = null)
     {
-        playerNameTextBox.ShowMessageBoxIfTextEmpty("Номер не заполнен");
+        if (!playerNameTextBox.ShowMessageBoxIfNoCorrect("Номер не заполнен"))
+            return false;
+        
 
         var number = int.Parse(playerNumberTextBox.Text);
         var playersInTeam = _playerRepository.GetArray(new PlayerFilter { TeamID = teamID });

@@ -6,8 +6,7 @@ namespace KursachMasha;
 public partial class TeamsForm : Form
 {
     private readonly TeamRepository _teamRepository;
-    private readonly SponsorRepository _sponsorRepository;
-
+    private readonly SponsorRepository _sponsorRepository
 
     public TeamsForm()
     {
@@ -39,7 +38,9 @@ public partial class TeamsForm : Form
 
     private void teamAddButton_Click(object sender, EventArgs e)
     {
-        teamNameTextBox.ShowMessageBoxIfTextEmpty("Название не заполнено");
+        
+        if(!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
+            return;
 
         var team = new Team()
         {
