@@ -6,7 +6,7 @@ namespace KursachMasha;
 public partial class TeamsForm : Form
 {
     private readonly TeamRepository _teamRepository;
-    private readonly SponsorRepository _sponsorRepository
+    private readonly SponsorRepository _sponsorRepository;
 
     public TeamsForm()
     {
