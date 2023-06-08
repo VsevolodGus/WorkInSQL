@@ -1,15 +1,18 @@
-CREATE PROCEDURE public.relocate_mathes(IN actual_stadium_id integer, IN no_actual_stadium_id integer)
+CREATE or Replace PROCEDURE public.relocate_mathes(IN actual_stadium_id integer, IN no_actual_stadium_id integer)
 LANGUAGE 'sql'
 AS $BODY$
 BEGIN;
+    BEGIN TRANSACTION
+        UPDATE  matches 
+            SET stadium_id = actual_stadium_id
+            where stadium_id = no_actual_stadium_id;
 
-    UPDATE  matches 
-        SET stadium_id = actual_stadium_id
-        where stadium_id = no_actual_stadium_id;
-
-    DELETE from stadiums
-        where id = no_actual_stadium_id;
-COMMIT;
+        DELETE from stadiums
+            where id = no_actual_stadium_id;
+  
+    EXCEPTION 
+        WHEN OTHERS THEN
+        ROLLBACK;
+    commit;  
+end;
 $BODY$;
-ALTER PROCEDURE public.relocate_mathes(integer, integer)
-    OWNER TO postgres;
