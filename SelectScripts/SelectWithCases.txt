@@ -1,5 +1,5 @@
 select s.id
-, name
+, s.name
 , CASE
     WHEN  volume > 0 AND volume <= 1000 THEN 'Небольшой'
     WHEN  volume > 0 AND volume <= 1000 THEN 'Небольшой'
@@ -15,4 +15,6 @@ select s.id
           THEN 'Популярный'
     ELSE 'Заброшен'  
     end as Popular
+, l.name
 from stadiums s
+left join locations l on l.id = s.location_id;

@@ -52,6 +52,7 @@ public class StadiumRepository :
             "                         THEN 'Популярный'\r\n    " +
             "              ELSE 'Заброшен'  \r\n    " +
             "              end as Popular\r\n" +
+            ", l.name\r\n" +
             $"from {Table} s\r\n" +
             $"INNER JOIN public.locations l ON s.location_id = l.id \r\n" +
             "where 1 = 1");
