@@ -27,6 +27,4 @@ public class Player
 
     [ColumnHeadr("Роль")]
     public string RoleName { get; set; }
-
-    public Team Team { get; set; }
 }

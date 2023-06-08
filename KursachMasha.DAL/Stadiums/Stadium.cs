@@ -20,6 +20,4 @@ public class Stadium
 
     [ColumnHeadr("Город")]
     public string LocationName { get; set; }
-    public MyLocation Location { get; set; }
-    public List<Match> Matches { get; set; }
 }

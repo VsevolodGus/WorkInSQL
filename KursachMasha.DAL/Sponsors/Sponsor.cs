@@ -9,5 +9,4 @@ public class Sponsor
 
     [ColumnHeadr("Описание")]
     public string Description { get; set; }
-    public List<Team> Teams { get; set; }
 }
