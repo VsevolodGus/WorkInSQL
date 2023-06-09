@@ -113,6 +113,7 @@ partial class MatchesEditForm
         resultTeam1TextBox.Name = "resultTeam1TextBox";
         resultTeam1TextBox.Size = new Size(190, 27);
         resultTeam1TextBox.TabIndex = 8;
+        resultTeam1TextBox.KeyPress += TextBox_KeyPress;
         // 
         // resultTeam2TextBox
         // 
@@ -120,6 +121,7 @@ partial class MatchesEditForm
         resultTeam2TextBox.Name = "resultTeam2TextBox";
         resultTeam2TextBox.Size = new Size(190, 27);
         resultTeam2TextBox.TabIndex = 9;
+        resultTeam2TextBox.KeyPress += TextBox_KeyPress;
         // 
         // team1IDMatchComboBox
         // 

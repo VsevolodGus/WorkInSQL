@@ -156,4 +156,9 @@ public partial class PlayersEditForm : Form
         _parentForm.Show();
         Hide();
     }
+
+    private void playerNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        TextBoxExtensions.OnlyDigits_TextBoxChange(e);
+    }
 }

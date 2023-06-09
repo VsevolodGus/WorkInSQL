@@ -71,6 +71,7 @@ partial class PlayersEditForm
         playerNumberTextBox.Name = "playerNumberTextBox";
         playerNumberTextBox.Size = new Size(189, 27);
         playerNumberTextBox.TabIndex = 3;
+        playerNumberTextBox.KeyPress += playerNumberTextBox_KeyPress;
         // 
         // label1
         // 

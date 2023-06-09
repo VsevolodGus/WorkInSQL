@@ -42,7 +42,7 @@ public partial class MatchesEditForm : Form
         team1IDMatchComboBox.ValueMember = nameof(Team.ID);
         team1IDMatchComboBox.DisplayMember = nameof(Team.Name);
         team1IDMatchComboBox.DataSource = teams;
-        team1IDMatchComboBox.SelectedItem = teams.FirstOrDefault(c=> c.ID == _currentMath.Team1ID);
+        team1IDMatchComboBox.SelectedItem = teams.FirstOrDefault(c => c.ID == _currentMath.Team1ID);
 
         team2IDMatchComboBox.ValueMember = nameof(Team.ID);
         team2IDMatchComboBox.DisplayMember = nameof(Team.Name);
@@ -54,7 +54,7 @@ public partial class MatchesEditForm : Form
         stadiumIDComboBox.DisplayMember = nameof(Stadium.Name);
         var stadiums = _stadiumRepository.GetArray(null);
         stadiumIDComboBox.DataSource = stadiums;
-        stadiumIDComboBox.SelectedItem = stadiums.FirstOrDefault(c=> c.ID == _currentMath.StadiumID);
+        stadiumIDComboBox.SelectedItem = stadiums.FirstOrDefault(c => c.ID == _currentMath.StadiumID);
 
 
 
