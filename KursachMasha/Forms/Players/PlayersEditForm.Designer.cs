@@ -28,50 +28,49 @@ partial class PlayersEditForm
     /// </summary>
     private void InitializeComponent()
     {
-        textBox1 = new TextBox();
-        textBox2 = new TextBox();
-        textBox3 = new TextBox();
-        textBox4 = new TextBox();
+        playerNameTextBox = new TextBox();
+        playerSurnameTextBox = new TextBox();
+        playerPatronymicTextBox = new TextBox();
+        playerNumberTextBox = new TextBox();
         label1 = new Label();
         label2 = new Label();
         label3 = new Label();
         label4 = new Label();
         label5 = new Label();
         label6 = new Label();
-        comboBox1 = new ComboBox();
-        comboBox2 = new ComboBox();
+        roleIDPlayerComboBox = new ComboBox();
+        teamIDPlayerComboBox = new ComboBox();
         label7 = new Label();
         button1 = new Button();
-        button2 = new Button();
         SuspendLayout();
         // 
-        // textBox1
+        // playerNameTextBox
         // 
-        textBox1.Location = new Point(230, 97);
-        textBox1.Name = "textBox1";
-        textBox1.Size = new Size(189, 27);
-        textBox1.TabIndex = 0;
+        playerNameTextBox.Location = new Point(230, 97);
+        playerNameTextBox.Name = "playerNameTextBox";
+        playerNameTextBox.Size = new Size(189, 27);
+        playerNameTextBox.TabIndex = 0;
         // 
-        // textBox2
+        // playerSurnameTextBox
         // 
-        textBox2.Location = new Point(230, 139);
-        textBox2.Name = "textBox2";
-        textBox2.Size = new Size(189, 27);
-        textBox2.TabIndex = 1;
+        playerSurnameTextBox.Location = new Point(230, 139);
+        playerSurnameTextBox.Name = "playerSurnameTextBox";
+        playerSurnameTextBox.Size = new Size(189, 27);
+        playerSurnameTextBox.TabIndex = 1;
         // 
-        // textBox3
+        // playerPatronymicTextBox
         // 
-        textBox3.Location = new Point(230, 183);
-        textBox3.Name = "textBox3";
-        textBox3.Size = new Size(189, 27);
-        textBox3.TabIndex = 2;
+        playerPatronymicTextBox.Location = new Point(230, 183);
+        playerPatronymicTextBox.Name = "playerPatronymicTextBox";
+        playerPatronymicTextBox.Size = new Size(189, 27);
+        playerPatronymicTextBox.TabIndex = 2;
         // 
-        // textBox4
+        // playerNumberTextBox
         // 
-        textBox4.Location = new Point(230, 228);
-        textBox4.Name = "textBox4";
-        textBox4.Size = new Size(189, 27);
-        textBox4.TabIndex = 3;
+        playerNumberTextBox.Location = new Point(230, 228);
+        playerNumberTextBox.Name = "playerNumberTextBox";
+        playerNumberTextBox.Size = new Size(189, 27);
+        playerNumberTextBox.TabIndex = 3;
         // 
         // label1
         // 
@@ -127,21 +126,23 @@ partial class PlayersEditForm
         label6.TabIndex = 10;
         label6.Text = "Команда";
         // 
-        // comboBox1
+        // roleIDPlayerComboBox
         // 
-        comboBox1.FormattingEnabled = true;
-        comboBox1.Location = new Point(230, 269);
-        comboBox1.Name = "comboBox1";
-        comboBox1.Size = new Size(189, 28);
-        comboBox1.TabIndex = 11;
+        roleIDPlayerComboBox.FormattingEnabled = true;
+        roleIDPlayerComboBox.Location = new Point(230, 269);
+        roleIDPlayerComboBox.Name = "roleIDPlayerComboBox";
+        roleIDPlayerComboBox.Size = new Size(189, 28);
+        roleIDPlayerComboBox.TabIndex = 11;
+        roleIDPlayerComboBox.DropDown += searchRoleComboBox_DropDown;
         // 
-        // comboBox2
+        // teamIDPlayerComboBox
         // 
-        comboBox2.FormattingEnabled = true;
-        comboBox2.Location = new Point(230, 308);
-        comboBox2.Name = "comboBox2";
-        comboBox2.Size = new Size(189, 28);
-        comboBox2.TabIndex = 12;
+        teamIDPlayerComboBox.FormattingEnabled = true;
+        teamIDPlayerComboBox.Location = new Point(230, 308);
+        teamIDPlayerComboBox.Name = "teamIDPlayerComboBox";
+        teamIDPlayerComboBox.Size = new Size(189, 28);
+        teamIDPlayerComboBox.TabIndex = 12;
+        teamIDPlayerComboBox.DropDown += searchTeamComboBox_DropDown;
         // 
         // label7
         // 
@@ -154,63 +155,54 @@ partial class PlayersEditForm
         // 
         // button1
         // 
-        button1.Location = new Point(111, 368);
+        button1.Location = new Point(185, 362);
         button1.Name = "button1";
         button1.Size = new Size(127, 29);
         button1.TabIndex = 14;
         button1.Text = "Сохранить";
         button1.UseVisualStyleBackColor = true;
-        // 
-        // button2
-        // 
-        button2.Location = new Point(294, 368);
-        button2.Name = "button2";
-        button2.Size = new Size(125, 29);
-        button2.TabIndex = 15;
-        button2.Text = "Обновить";
-        button2.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
         // 
         // PlayersEditForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(525, 450);
-        Controls.Add(button2);
         Controls.Add(button1);
         Controls.Add(label7);
-        Controls.Add(comboBox2);
-        Controls.Add(comboBox1);
+        Controls.Add(teamIDPlayerComboBox);
+        Controls.Add(roleIDPlayerComboBox);
         Controls.Add(label6);
         Controls.Add(label5);
         Controls.Add(label4);
         Controls.Add(label3);
         Controls.Add(label2);
         Controls.Add(label1);
-        Controls.Add(textBox4);
-        Controls.Add(textBox3);
-        Controls.Add(textBox2);
-        Controls.Add(textBox1);
+        Controls.Add(playerNumberTextBox);
+        Controls.Add(playerPatronymicTextBox);
+        Controls.Add(playerSurnameTextBox);
+        Controls.Add(playerNameTextBox);
         Name = "PlayersEditForm";
         Text = "PlayersEditForm";
+        FormClosed += Form1_FormClosed;
         ResumeLayout(false);
         PerformLayout();
     }
 
     #endregion
 
-    private TextBox textBox1;
-    private TextBox textBox2;
-    private TextBox textBox3;
-    private TextBox textBox4;
+    private TextBox playerNameTextBox;
+    private TextBox playerSurnameTextBox;
+    private TextBox playerPatronymicTextBox;
+    private TextBox playerNumberTextBox;
     private Label label1;
     private Label label2;
     private Label label3;
     private Label label4;
     private Label label5;
     private Label label6;
-    private ComboBox comboBox1;
-    private ComboBox comboBox2;
+    private ComboBox roleIDPlayerComboBox;
+    private ComboBox teamIDPlayerComboBox;
     private Label label7;
     private Button button1;
-    private Button button2;
 }

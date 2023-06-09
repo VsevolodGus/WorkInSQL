@@ -24,10 +24,6 @@ public partial class MatchesEditForm : Form
         _matchRepository = new MatchRepository();
         _stadiumRepository = new StadiumRepository();
 
-        
-
-
-
         if (id.HasValue)
         {
             _currentMath = _matchRepository.GetByID(id.Value);
