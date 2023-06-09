@@ -16,9 +16,9 @@ public sealed class SponsorRepository :
     {
         var query = $"update {Table} " +
                         $"SET " +
-                        $"Name = {sponsor.Name}" +
-                        $", description = {sponsor.Description}" +
-                    $"where id = {sponsor.ID};";
+                        $"Name = '{sponsor.Name}'" +
+                        $", description = '{sponsor.Description}'" +
+                    $"\nwhere id = {sponsor.ID};";
 
         ExecuteQuery(query);
     }

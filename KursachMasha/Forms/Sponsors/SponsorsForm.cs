@@ -30,27 +30,21 @@ public partial class SponsorsForm : Form
 
     private void sponsorAddButton_Click(object sender, EventArgs e)
     {
-        if (!sponsorNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
-            return;
+        var currentID = (int?)(tableSponsors.SelectedRows.Count != 0
+                    ? tableSponsors.SelectedRows[0].Cells[0].Value
+                    : null);
 
-        var sponsor = new Sponsor()
-        {
-            Name = sponsorNameTextBox.Text,
-            Description = sponsorDescriptionTextBox.Text
-        };
-
-        _sponsorRepository.Add(sponsor);
-
-        buttonGettingSponsors_Click(sender, e);
+        new SponsorsEditForm(this, currentID, true).Show();
+        Hide();
     }
 
     private void DeleteSponsors_Button_Click(object sender, EventArgs e)
     {
         tableSponsors.DeleteObject(_sponsorRepository);
-        buttonGettingSponsors_Click(sender, e);
+        ButtonGettingSponsors_Click(sender, e);
     }
 
-    private void buttonGettingSponsors_Click(object sender, EventArgs e)
+    public void ButtonGettingSponsors_Click(object sender, EventArgs e)
     {
         FillingTableSponsors(new SponsorFilter
         {
@@ -69,34 +63,13 @@ public partial class SponsorsForm : Form
 
     private void sponsorUpdate_Button(object sender, EventArgs e)
     {
-        if (!sponsorNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
-            return;
-
-        var id = (int)tableSponsors.SelectedRows[0].Cells[0].Value;
-
-        var team = new Sponsor()
+        if (tableSponsors.SelectedRows.Count == 0)
         {
-            ID = id,
-            Name = sponsorNameTextBox.Text,
-            Description = sponsorDescriptionTextBox.Text,
-        };
-        _sponsorRepository.Update(team);
-
-        buttonGettingSponsors_Click(sender, e);
-    }
-
-    private void tableSponsors_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-    {
-        sponsorNameTextBox.Text = string.Empty;
-        sponsorDescriptionTextBox.Text = string.Empty;
-
-        if (e.StateChanged != DataGridViewElementStates.Selected)
+            MessageBox.Show("Не был выбран элемент для обновления");
             return;
+        }
 
-        var row = tableSponsors.Rows[e.Row.Index];
-
-        var team = _sponsorRepository.GetByID((int)row.Cells[0].Value);
-        sponsorNameTextBox.Text = team.Name;
-        sponsorDescriptionTextBox.Text = team.Description;
+        new SponsorsEditForm(this, (int?)tableSponsors.SelectedRows[0].Cells[0].Value, false).Show();
+        Hide();
     }
 }

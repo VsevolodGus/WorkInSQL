@@ -76,7 +76,7 @@ partial class SponsorsForm
         buttonGettingSponsors.TabIndex = 42;
         buttonGettingSponsors.Text = "Получить";
         buttonGettingSponsors.UseVisualStyleBackColor = true;
-        buttonGettingSponsors.Click += buttonGettingSponsors_Click;
+        buttonGettingSponsors.Click += ButtonGettingSponsors_Click;
         // 
         // label20
         // 
@@ -149,7 +149,6 @@ partial class SponsorsForm
         tableSponsors.RowTemplate.Height = 29;
         tableSponsors.Size = new Size(603, 549);
         tableSponsors.TabIndex = 34;
-        tableSponsors.RowStateChanged += tableSponsors_RowStateChanged;
         // 
         // SponsorsForm
         // 
