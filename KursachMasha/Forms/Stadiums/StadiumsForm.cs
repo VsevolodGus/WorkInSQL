@@ -47,7 +47,6 @@ public partial class StadiumsForm : Form
 
         new StadiumsEditForm(this, currentID, true).Show();
         Hide();
-
     }
 
     public void buttonGettingStadiums_Click(object sender, EventArgs e)

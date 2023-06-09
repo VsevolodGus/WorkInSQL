@@ -30,8 +30,8 @@
         {
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            sponsorIDTeamComboBox = new ComboBox();
+            teamNameTextBox = new TextBox();
             button1 = new Button();
             label3 = new Label();
             SuspendLayout();
@@ -39,67 +39,74 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(40, 84);
+            label1.Location = new Point(46, 112);
             label1.Name = "label1";
-            label1.Size = new Size(59, 15);
+            label1.Size = new Size(77, 20);
             label1.TabIndex = 0;
             label1.Text = "Название";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 113);
+            label2.Location = new Point(46, 151);
             label2.Name = "label2";
-            label2.Size = new Size(56, 15);
+            label2.Size = new Size(70, 20);
             label2.TabIndex = 1;
             label2.Text = "Спонсор";
             // 
-            // comboBox1
+            // sponsorIDTeamComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(114, 105);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(201, 23);
-            comboBox1.TabIndex = 2;
+            sponsorIDTeamComboBox.FormattingEnabled = true;
+            sponsorIDTeamComboBox.Location = new Point(130, 140);
+            sponsorIDTeamComboBox.Margin = new Padding(3, 4, 3, 4);
+            sponsorIDTeamComboBox.Name = "sponsorIDTeamComboBox";
+            sponsorIDTeamComboBox.Size = new Size(229, 28);
+            sponsorIDTeamComboBox.TabIndex = 2;
+            sponsorIDTeamComboBox.DropDown += sponsorIDTeamComboBox_DropDown;
             // 
-            // textBox1
+            // teamNameTextBox
             // 
-            textBox1.Location = new Point(114, 76);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(201, 23);
-            textBox1.TabIndex = 3;
+            teamNameTextBox.Location = new Point(130, 101);
+            teamNameTextBox.Margin = new Padding(3, 4, 3, 4);
+            teamNameTextBox.Name = "teamNameTextBox";
+            teamNameTextBox.Size = new Size(229, 27);
+            teamNameTextBox.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(40, 159);
+            button1.Location = new Point(46, 212);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(275, 47);
+            button1.Size = new Size(314, 63);
             button1.TabIndex = 4;
             button1.Text = "Сохранить";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(144, 37);
+            label3.Location = new Point(165, 49);
             label3.Name = "label3";
-            label3.Size = new Size(55, 15);
+            label3.Size = new Size(71, 20);
             label3.TabIndex = 6;
             label3.Text = "Команда";
             // 
             // TeamsEditForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(352, 360);
+            ClientSize = new Size(402, 480);
             Controls.Add(label3);
             Controls.Add(button1);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox1);
+            Controls.Add(teamNameTextBox);
+            Controls.Add(sponsorIDTeamComboBox);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "TeamsEditForm";
             Text = "TeamsEditForm";
+            FormClosed += Form1_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -108,8 +115,8 @@
 
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
+        private ComboBox sponsorIDTeamComboBox;
+        private TextBox teamNameTextBox;
         private Button button1;
         private Label label3;
     }

@@ -31,13 +31,9 @@ partial class TeamsForm
         label28 = new Label();
         teamSearchTextBox = new TextBox();
         teamGettingButton = new Button();
-        sponsorIDTeamComboBox = new ComboBox();
         teamDeleteButton = new Button();
         teamUpdateButton = new Button();
         teamAddButton = new Button();
-        label1 = new Label();
-        label2 = new Label();
-        teamNameTextBox = new TextBox();
         tableTeams = new DataGridView();
         filterSponsorComboBox = new ComboBox();
         label3 = new Label();
@@ -69,20 +65,11 @@ partial class TeamsForm
         teamGettingButton.Text = "Получить";
         teamGettingButton.UseVisualStyleBackColor = true;
         // 
-        // sponsorIDTeamComboBox
-        // 
-        sponsorIDTeamComboBox.FormattingEnabled = true;
-        sponsorIDTeamComboBox.Location = new Point(127, 58);
-        sponsorIDTeamComboBox.Name = "sponsorIDTeamComboBox";
-        sponsorIDTeamComboBox.Size = new Size(298, 28);
-        sponsorIDTeamComboBox.TabIndex = 45;
-        sponsorIDTeamComboBox.DropDown += sponsorIDTeamComboBox_DropDown;
-        // 
         // teamDeleteButton
         // 
-        teamDeleteButton.Location = new Point(331, 92);
+        teamDeleteButton.Location = new Point(299, 12);
         teamDeleteButton.Name = "teamDeleteButton";
-        teamDeleteButton.Size = new Size(94, 29);
+        teamDeleteButton.Size = new Size(126, 109);
         teamDeleteButton.TabIndex = 44;
         teamDeleteButton.Text = "Удалить";
         teamDeleteButton.UseVisualStyleBackColor = true;
@@ -90,9 +77,9 @@ partial class TeamsForm
         // 
         // teamUpdateButton
         // 
-        teamUpdateButton.Location = new Point(231, 92);
+        teamUpdateButton.Location = new Point(157, 12);
         teamUpdateButton.Name = "teamUpdateButton";
-        teamUpdateButton.Size = new Size(94, 29);
+        teamUpdateButton.Size = new Size(136, 109);
         teamUpdateButton.TabIndex = 43;
         teamUpdateButton.Text = "Обновить";
         teamUpdateButton.UseVisualStyleBackColor = true;
@@ -100,38 +87,13 @@ partial class TeamsForm
         // 
         // teamAddButton
         // 
-        teamAddButton.Location = new Point(131, 92);
+        teamAddButton.Location = new Point(12, 12);
         teamAddButton.Name = "teamAddButton";
-        teamAddButton.Size = new Size(94, 29);
+        teamAddButton.Size = new Size(139, 109);
         teamAddButton.TabIndex = 42;
         teamAddButton.Text = "Добавить";
         teamAddButton.UseVisualStyleBackColor = true;
         teamAddButton.Click += teamAddButton_Click;
-        // 
-        // label1
-        // 
-        label1.AutoSize = true;
-        label1.Location = new Point(15, 24);
-        label1.Name = "label1";
-        label1.Size = new Size(77, 20);
-        label1.TabIndex = 40;
-        label1.Text = "Название";
-        // 
-        // label2
-        // 
-        label2.AutoSize = true;
-        label2.Location = new Point(15, 60);
-        label2.Name = "label2";
-        label2.Size = new Size(70, 20);
-        label2.TabIndex = 41;
-        label2.Text = "Спонсор";
-        // 
-        // teamNameTextBox
-        // 
-        teamNameTextBox.Location = new Point(127, 24);
-        teamNameTextBox.Name = "teamNameTextBox";
-        teamNameTextBox.Size = new Size(298, 27);
-        teamNameTextBox.TabIndex = 39;
         // 
         // tableTeams
         // 
@@ -142,7 +104,6 @@ partial class TeamsForm
         tableTeams.RowTemplate.Height = 29;
         tableTeams.Size = new Size(658, 457);
         tableTeams.TabIndex = 38;
-        tableTeams.RowStateChanged += tableTeams_RowStateChanged;
         // 
         // filterSponsorComboBox
         // 
@@ -172,13 +133,9 @@ partial class TeamsForm
         Controls.Add(label28);
         Controls.Add(teamSearchTextBox);
         Controls.Add(teamGettingButton);
-        Controls.Add(sponsorIDTeamComboBox);
         Controls.Add(teamDeleteButton);
         Controls.Add(teamUpdateButton);
         Controls.Add(teamAddButton);
-        Controls.Add(label1);
-        Controls.Add(label2);
-        Controls.Add(teamNameTextBox);
         Controls.Add(tableTeams);
         Name = "TeamsForm";
         Text = "TeamsForm";
@@ -192,13 +149,9 @@ partial class TeamsForm
     private Label label28;
     private TextBox teamSearchTextBox;
     private Button teamGettingButton;
-    private ComboBox sponsorIDTeamComboBox;
     private Button teamDeleteButton;
     private Button teamUpdateButton;
     private Button teamAddButton;
-    private Label label1;
-    private Label label2;
-    private TextBox teamNameTextBox;
     private DataGridView tableTeams;
     private ComboBox filterSponsorComboBox;
     private Label label3;

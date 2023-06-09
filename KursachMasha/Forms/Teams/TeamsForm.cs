@@ -18,9 +18,6 @@ public partial class TeamsForm : Form
         tableTeams.Configuration<Team>();
         FillingTableTeam();
 
-        sponsorIDTeamComboBox.ValueMember = nameof(Sponsor.ID);
-        sponsorIDTeamComboBox.DisplayMember = nameof(Sponsor.Name);
-
         filterSponsorComboBox.ValueMember = nameof(Sponsor.ID);
         filterSponsorComboBox.DisplayMember = nameof(Sponsor.Name);
 
@@ -31,63 +28,45 @@ public partial class TeamsForm : Form
             teamDeleteButton.Enabled = false;
             teamUpdateButton.Enabled = false;
 
-            teamNameTextBox.Enabled = false;
-            sponsorIDTeamComboBox.Enabled = false;
         }
     }
 
     private void teamAddButton_Click(object sender, EventArgs e)
     {
-        if (!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
-            return;
+        var currentID = (int?)(tableTeams.SelectedRows.Count != 0
+                    ? tableTeams.SelectedRows[0].Cells[0].Value
+                    : null);
 
-        var team = new Team()
-        {
-            Name = teamNameTextBox.Text,
-            SponsorID = (int)sponsorIDTeamComboBox.SelectedValue,
-        };
-
-        _teamRepository.Add(team);
-
-        teamGettingButton_Click(sender, e);
+        new TeamsEditForm(this, currentID, true).Show();
+        Hide();
     }
 
 
     private void teamUpdateButton_Click(object sender, EventArgs e)
     {
-        if (!teamNameTextBox.ShowMessageBoxIfNoCorrect("Название не заполнено"))
-            return;
-
-        var id = (int)tableTeams.SelectedRows[0].Cells[0].Value;
-        var oldTeam = _teamRepository.GetByID(id);
-
-        int sponsorID = (int)(sponsorIDTeamComboBox.SelectedValue ?? oldTeam.SponsorID);
-
-        var team = new Team()
+        if (tableTeams.SelectedRows.Count == 0)
         {
-            ID = id,
-            Name = teamNameTextBox.Text,
-            SponsorID = sponsorID,
-        };
-        _teamRepository.Update(team);
+            MessageBox.Show("Не был выбран элемент для обновления");
+            return;
+        }
 
-        teamGettingButton_Click(sender, e);
+        new TeamsEditForm(this, (int?)tableTeams.SelectedRows[0].Cells[0].Value, false).Show();
+        Hide();
     }
 
 
-    private void teamGettingButton_Click(object sender, EventArgs e)
+    public void GetTeamsButton_Click(object sender, EventArgs e)
     {
         FillingTableTeam(new TeamFilter
         {
             Search = teamSearchTextBox.Text
         });
-
     }
 
     private void teamDeleteButton_Click(object sender, EventArgs e)
     {
         tableTeams.DeleteObject(_teamRepository);
-        teamGettingButton_Click(sender, e);
+        GetTeamsButton_Click(sender, e);
     }
 
     private void FillingTableTeam(TeamFilter filter = null)
@@ -107,31 +86,5 @@ public partial class TeamsForm : Form
         {
             Search = thisComboBox.Text,
         });
-    }
-
-    private void tableTeams_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-    {
-        #region Обнуление полей с данными
-        teamNameTextBox.Text = string.Empty;
-
-        sponsorIDTeamComboBox.SelectedItem = new object();
-        sponsorIDTeamComboBox.SelectedValue = new object();
-        sponsorIDTeamComboBox.Text = null;
-        #endregion
-
-        if (e.StateChanged != DataGridViewElementStates.Selected)
-            return;
-        var row = tableTeams.Rows[e.Row.Index];
-
-        var team = _teamRepository.GetByID((int)row.Cells[0].Value);
-        teamNameTextBox.Text = team.Name;
-
-        var sponsor = _sponsorRepository.GetByID(team.SponsorID);
-        sponsorIDTeamComboBox.SelectedItem = sponsor;
-        sponsorIDTeamComboBox.SelectedValue = sponsor.ID;
-        sponsorIDTeamComboBox.SelectedText = sponsor.Name;
-
-
-        sponsorIDTeamComboBox_DropDown(sponsorIDTeamComboBox, e);
     }
 }
