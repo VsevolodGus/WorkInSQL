@@ -39,6 +39,9 @@ public class LocationRepository :
 
     public MyLocation[] GetArray(LocationFilter filter)
     {
+        if(filter is null)
+            filter = new LocationFilter();
+
         var stringBuilder = new StringBuilder($"select * from {Table}");
 
         if (!string.IsNullOrEmpty(filter.Search))

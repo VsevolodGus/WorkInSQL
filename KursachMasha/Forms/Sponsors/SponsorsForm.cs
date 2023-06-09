@@ -22,9 +22,6 @@ public partial class SponsorsForm : Form
             sposorAddButton.Enabled = false;
             sposorUpdateButton.Enabled = false;
             sponsorDeleteButton.Enabled = false;
-
-            sponsorNameTextBox.Enabled = false;
-            sponsorDescriptionTextBox.Enabled = false;
         }
     }
 

@@ -13,7 +13,7 @@ public class StadiumRepository :
 
     public void Update(Stadium obj)
     {
-        var query = $"update from {Table} " +
+        var query = $"update {Table} " +
                         $"set " +
                         $"Name = {obj.Name}" +
                         $", location_id = {obj.LocationID}" +

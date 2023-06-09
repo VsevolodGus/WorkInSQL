@@ -29,18 +29,12 @@ partial class StadiumsForm
     private void InitializeComponent()
     {
         isUseForMatchesCheckBox = new CheckBox();
-        selectLocationComboBox = new ComboBox();
         label24 = new Label();
         stadiumSearchTextBox = new TextBox();
         buttonGettingStadiums = new Button();
-        stadiumVolumeTextBox = new TextBox();
-        label23 = new Label();
         stadiumAddButton = new Button();
         stadiumUpdateButton = new Button();
         stadiumDeleteButton = new Button();
-        stadiumNameTextBox = new TextBox();
-        label12 = new Label();
-        label11 = new Label();
         tableStadiums = new DataGridView();
         ((System.ComponentModel.ISupportInitialize)tableStadiums).BeginInit();
         SuspendLayout();
@@ -54,15 +48,6 @@ partial class StadiumsForm
         isUseForMatchesCheckBox.TabIndex = 51;
         isUseForMatchesCheckBox.Text = "Получить матчи на которых проходили матчи";
         isUseForMatchesCheckBox.UseVisualStyleBackColor = true;
-        // 
-        // selectLocationComboBox
-        // 
-        selectLocationComboBox.FormattingEnabled = true;
-        selectLocationComboBox.Location = new Point(107, 124);
-        selectLocationComboBox.Name = "selectLocationComboBox";
-        selectLocationComboBox.Size = new Size(272, 28);
-        selectLocationComboBox.TabIndex = 50;
-        selectLocationComboBox.DropDown += selectLocationComboBox_DropDown;
         // 
         // label24
         // 
@@ -90,27 +75,11 @@ partial class StadiumsForm
         buttonGettingStadiums.UseVisualStyleBackColor = true;
         buttonGettingStadiums.Click += buttonGettingStadiums_Click;
         // 
-        // stadiumVolumeTextBox
-        // 
-        stadiumVolumeTextBox.Location = new Point(176, 84);
-        stadiumVolumeTextBox.Name = "stadiumVolumeTextBox";
-        stadiumVolumeTextBox.Size = new Size(203, 27);
-        stadiumVolumeTextBox.TabIndex = 46;
-        // 
-        // label23
-        // 
-        label23.AutoSize = true;
-        label23.Location = new Point(26, 87);
-        label23.Name = "label23";
-        label23.Size = new Size(128, 20);
-        label23.TabIndex = 45;
-        label23.Text = "Размер стадиона";
-        // 
         // stadiumAddButton
         // 
-        stadiumAddButton.Location = new Point(391, 36);
+        stadiumAddButton.Location = new Point(12, 12);
         stadiumAddButton.Name = "stadiumAddButton";
-        stadiumAddButton.Size = new Size(94, 29);
+        stadiumAddButton.Size = new Size(150, 157);
         stadiumAddButton.TabIndex = 43;
         stadiumAddButton.Text = "Добавить";
         stadiumAddButton.UseVisualStyleBackColor = true;
@@ -118,9 +87,9 @@ partial class StadiumsForm
         // 
         // stadiumUpdateButton
         // 
-        stadiumUpdateButton.Location = new Point(391, 78);
+        stadiumUpdateButton.Location = new Point(183, 12);
         stadiumUpdateButton.Name = "stadiumUpdateButton";
-        stadiumUpdateButton.Size = new Size(94, 29);
+        stadiumUpdateButton.Size = new Size(146, 157);
         stadiumUpdateButton.TabIndex = 44;
         stadiumUpdateButton.Text = "Обновить";
         stadiumUpdateButton.UseVisualStyleBackColor = true;
@@ -128,38 +97,13 @@ partial class StadiumsForm
         // 
         // stadiumDeleteButton
         // 
-        stadiumDeleteButton.Location = new Point(391, 123);
+        stadiumDeleteButton.Location = new Point(347, 12);
         stadiumDeleteButton.Name = "stadiumDeleteButton";
-        stadiumDeleteButton.Size = new Size(94, 29);
+        stadiumDeleteButton.Size = new Size(138, 157);
         stadiumDeleteButton.TabIndex = 42;
         stadiumDeleteButton.Text = "Удалить";
         stadiumDeleteButton.UseVisualStyleBackColor = true;
         stadiumDeleteButton.Click += DeleteStadium_Button_Click;
-        // 
-        // stadiumNameTextBox
-        // 
-        stadiumNameTextBox.Location = new Point(177, 38);
-        stadiumNameTextBox.Name = "stadiumNameTextBox";
-        stadiumNameTextBox.Size = new Size(202, 27);
-        stadiumNameTextBox.TabIndex = 41;
-        // 
-        // label12
-        // 
-        label12.AutoSize = true;
-        label12.Location = new Point(26, 132);
-        label12.Name = "label12";
-        label12.Size = new Size(51, 20);
-        label12.TabIndex = 40;
-        label12.Text = "Город";
-        // 
-        // label11
-        // 
-        label11.AutoSize = true;
-        label11.Location = new Point(26, 42);
-        label11.Name = "label11";
-        label11.Size = new Size(145, 20);
-        label11.TabIndex = 39;
-        label11.Text = "Название стадиона";
         // 
         // tableStadiums
         // 
@@ -170,7 +114,6 @@ partial class StadiumsForm
         tableStadiums.RowTemplate.Height = 29;
         tableStadiums.Size = new Size(603, 539);
         tableStadiums.TabIndex = 38;
-        tableStadiums.RowStateChanged += tableStadiums_RowStateChanged;
         // 
         // StadiumsForm
         // 
@@ -178,18 +121,12 @@ partial class StadiumsForm
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 560);
         Controls.Add(isUseForMatchesCheckBox);
-        Controls.Add(selectLocationComboBox);
         Controls.Add(label24);
         Controls.Add(stadiumSearchTextBox);
         Controls.Add(buttonGettingStadiums);
-        Controls.Add(stadiumVolumeTextBox);
-        Controls.Add(label23);
         Controls.Add(stadiumAddButton);
         Controls.Add(stadiumUpdateButton);
         Controls.Add(stadiumDeleteButton);
-        Controls.Add(stadiumNameTextBox);
-        Controls.Add(label12);
-        Controls.Add(label11);
         Controls.Add(tableStadiums);
         Name = "StadiumsForm";
         Text = "StadiumsForm";
@@ -201,17 +138,11 @@ partial class StadiumsForm
     #endregion
 
     private CheckBox isUseForMatchesCheckBox;
-    private ComboBox selectLocationComboBox;
     private Label label24;
     private TextBox stadiumSearchTextBox;
     private Button buttonGettingStadiums;
-    private TextBox stadiumVolumeTextBox;
-    private Label label23;
     private Button stadiumAddButton;
     private Button stadiumUpdateButton;
     private Button stadiumDeleteButton;
-    private TextBox stadiumNameTextBox;
-    private Label label12;
-    private Label label11;
     private DataGridView tableStadiums;
 }
