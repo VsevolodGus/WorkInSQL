@@ -71,6 +71,15 @@ public class MatchRepository :
             $"\r\n\tINNER JOIN stadiums s ON m.stadium_id = s.id" +
             $"\r\n\twhere 1 = 1");
 
+        if(filter.Team1ID.HasValue)
+            stringBuilder.AppendLine($"\r\tand m.team1_id = {filter.Team1ID.Value}");
+
+        if (filter.Team2ID.HasValue)
+            stringBuilder.AppendLine($"\r\tand m.team2_id = {filter.Team2ID.Value}");
+
+        if (filter.StadiumID.HasValue)
+            stringBuilder.AppendLine($"\r\tand m.stadium_id = {filter.StadiumID.Value}");
+
         stringBuilder.Append(';');
         var sql = stringBuilder.ToString();
         return base.ExecuteGetArrayQuery(sql);
