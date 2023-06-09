@@ -1,6 +1,11 @@
 ﻿namespace KursachMasha.DAL.Classes;
 public class Match
 {
+
+    public Match()
+    {
+        DateTime = DateTime.Now;
+    }
     public int ID { get; set; }
     
     [ColumnHeadr("Дата")]

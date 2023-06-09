@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationManifest>MatchesEditForm .manifest</ApplicationManifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="MatchesEditForm .manifest" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KursachMasha.DAL\KursachMasha.DAL.csproj" />
