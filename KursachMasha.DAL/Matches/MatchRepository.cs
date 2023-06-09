@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Classes;
+namespace KursachMasha.DAL.Mathes;
 public class MatchRepository :
     SqlWorker<Match>
     , ISqlWorkerEntity<Match, MatchFilter>

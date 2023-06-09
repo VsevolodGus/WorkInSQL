@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Classes;
+﻿namespace KursachMasha.DAL.Mathes;
 public class Match
 {
 

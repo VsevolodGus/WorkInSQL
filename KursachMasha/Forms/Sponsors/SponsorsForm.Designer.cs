@@ -32,13 +32,9 @@ partial class SponsorsForm
         label22 = new Label();
         sponsorSearchTextBox = new TextBox();
         buttonGettingSponsors = new Button();
-        label20 = new Label();
-        sponsorDescriptionTextBox = new TextBox();
         sposorAddButton = new Button();
         sposorUpdateButton = new Button();
         sponsorDeleteButton = new Button();
-        label13 = new Label();
-        sponsorNameTextBox = new TextBox();
         tableSponsors = new DataGridView();
         ((System.ComponentModel.ISupportInitialize)tableSponsors).BeginInit();
         SuspendLayout();
@@ -78,27 +74,11 @@ partial class SponsorsForm
         buttonGettingSponsors.UseVisualStyleBackColor = true;
         buttonGettingSponsors.Click += ButtonGettingSponsors_Click;
         // 
-        // label20
-        // 
-        label20.AutoSize = true;
-        label20.Location = new Point(18, 87);
-        label20.Name = "label20";
-        label20.Size = new Size(79, 20);
-        label20.TabIndex = 41;
-        label20.Text = "Описание";
-        // 
-        // sponsorDescriptionTextBox
-        // 
-        sponsorDescriptionTextBox.Location = new Point(119, 87);
-        sponsorDescriptionTextBox.Name = "sponsorDescriptionTextBox";
-        sponsorDescriptionTextBox.Size = new Size(264, 27);
-        sponsorDescriptionTextBox.TabIndex = 40;
-        // 
         // sposorAddButton
         // 
-        sposorAddButton.Location = new Point(389, 39);
+        sposorAddButton.Location = new Point(12, 12);
         sposorAddButton.Name = "sposorAddButton";
-        sposorAddButton.Size = new Size(94, 29);
+        sposorAddButton.Size = new Size(143, 152);
         sposorAddButton.TabIndex = 38;
         sposorAddButton.Text = "Добавить";
         sposorAddButton.UseVisualStyleBackColor = true;
@@ -106,9 +86,9 @@ partial class SponsorsForm
         // 
         // sposorUpdateButton
         // 
-        sposorUpdateButton.Location = new Point(389, 87);
+        sposorUpdateButton.Location = new Point(179, 12);
         sposorUpdateButton.Name = "sposorUpdateButton";
-        sposorUpdateButton.Size = new Size(94, 29);
+        sposorUpdateButton.Size = new Size(140, 152);
         sposorUpdateButton.TabIndex = 39;
         sposorUpdateButton.Text = "Обновить";
         sposorUpdateButton.UseVisualStyleBackColor = true;
@@ -116,29 +96,13 @@ partial class SponsorsForm
         // 
         // sponsorDeleteButton
         // 
-        sponsorDeleteButton.Location = new Point(389, 135);
+        sponsorDeleteButton.Location = new Point(339, 12);
         sponsorDeleteButton.Name = "sponsorDeleteButton";
-        sponsorDeleteButton.Size = new Size(94, 29);
+        sponsorDeleteButton.Size = new Size(155, 152);
         sponsorDeleteButton.TabIndex = 37;
         sponsorDeleteButton.Text = "Удалить";
         sponsorDeleteButton.UseVisualStyleBackColor = true;
         sponsorDeleteButton.Click += DeleteSponsors_Button_Click;
-        // 
-        // label13
-        // 
-        label13.AutoSize = true;
-        label13.Location = new Point(18, 42);
-        label13.Name = "label13";
-        label13.Size = new Size(187, 20);
-        label13.TabIndex = 36;
-        label13.Text = "Наименование спонсора";
-        // 
-        // sponsorNameTextBox
-        // 
-        sponsorNameTextBox.Location = new Point(225, 42);
-        sponsorNameTextBox.Name = "sponsorNameTextBox";
-        sponsorNameTextBox.Size = new Size(158, 27);
-        sponsorNameTextBox.TabIndex = 35;
         // 
         // tableSponsors
         // 
@@ -159,13 +123,9 @@ partial class SponsorsForm
         Controls.Add(label22);
         Controls.Add(sponsorSearchTextBox);
         Controls.Add(buttonGettingSponsors);
-        Controls.Add(label20);
-        Controls.Add(sponsorDescriptionTextBox);
         Controls.Add(sposorAddButton);
         Controls.Add(sposorUpdateButton);
         Controls.Add(sponsorDeleteButton);
-        Controls.Add(label13);
-        Controls.Add(sponsorNameTextBox);
         Controls.Add(tableSponsors);
         Name = "SponsorsForm";
         Text = "SponsorsForm";
@@ -180,12 +140,8 @@ partial class SponsorsForm
     private Label label22;
     private TextBox sponsorSearchTextBox;
     private Button buttonGettingSponsors;
-    private Label label20;
-    private TextBox sponsorDescriptionTextBox;
     private Button sposorAddButton;
     private Button sposorUpdateButton;
     private Button sponsorDeleteButton;
-    private Label label13;
-    private TextBox sponsorNameTextBox;
     private DataGridView tableSponsors;
 }
