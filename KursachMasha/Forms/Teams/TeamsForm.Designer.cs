@@ -1,4 +1,4 @@
-﻿namespace KursachMasha;
+﻿namespace Kursach;
 
 partial class TeamsForm
 {

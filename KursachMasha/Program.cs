@@ -1,4 +1,4 @@
-namespace KursachMasha;
+namespace Kursach;
 
 internal static class Program
 {

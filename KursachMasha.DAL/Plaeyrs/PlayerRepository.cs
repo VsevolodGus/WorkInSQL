@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Players;
+namespace Kursach.DAL.Players;
 public class PlayerRepository :
     SqlWorker<Player>
     , ISqlWorkerEntity<Player, PlayerFilter>

@@ -1,7 +1,7 @@
-﻿using KursachMasha.DAL.Queries;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Queries;
+using Kursach.Extensions;
 
-namespace KursachMasha.Forms;
+namespace Kursach.Forms;
 public partial class PlayerMatchCountForm : Form
 {
     private readonly DataPlayersMatchesQuery _playersMatchesQuery;

@@ -1,10 +1,10 @@
-﻿using KursachMasha.DAL.Mathes;
-using KursachMasha.DAL.Stadiums;
-using KursachMasha.DAL.Teams;
-using KursachMasha.Extensions;
-using KursachMasha.Forms;
+﻿using Kursach.DAL.Mathes;
+using Kursach.DAL.Stadiums;
+using Kursach.DAL.Teams;
+using Kursach.Extensions;
+using Kursach.Forms;
 
-namespace KursachMasha;
+namespace Kursach;
 public partial class MatchesEditForm : Form
 {
     private readonly bool _isAdd;

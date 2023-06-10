@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Teams;
+﻿namespace Kursach.DAL.Teams;
 public class TeamFilter
 {
     public string Search { get; init; }

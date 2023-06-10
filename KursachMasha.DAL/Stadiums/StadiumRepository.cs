@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Stadiums;
+namespace Kursach.DAL.Stadiums;
 public class StadiumRepository :
     SqlWorker<Stadium>
     , ISqlWorkerEntity<Stadium, StadiumFilter>

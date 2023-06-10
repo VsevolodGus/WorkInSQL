@@ -1,8 +1,8 @@
-﻿using KursachMasha.DAL.Queries;
-using KursachMasha.Extensions;
-using static KursachMasha.DAL.Queries.GetNoReservePlayersTeamQuery;
+﻿using Kursach.DAL.Queries;
+using Kursach.Extensions;
+using static Kursach.DAL.Queries.GetNoReservePlayersTeamQuery;
 
-namespace KursachMasha;
+namespace Kursach;
 
 public partial class ReservePlayersForm : Form
 {

@@ -1,9 +1,9 @@
-﻿using KursachMasha.DAL.Players;
-using KursachMasha.DAL.Roles;
-using KursachMasha.DAL.Teams;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Players;
+using Kursach.DAL.Roles;
+using Kursach.DAL.Teams;
+using Kursach.Extensions;
 
-namespace KursachMasha;
+namespace Kursach;
 public partial class PlayersEditForm : Form
 {
 

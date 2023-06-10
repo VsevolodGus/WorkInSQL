@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace KursachMasha.DAL.Queries
+namespace Kursach.DAL.Queries
 {
     public class GetNoReservePlayersTeamQuery
     {

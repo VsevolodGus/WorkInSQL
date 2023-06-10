@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Sponsors;
+namespace Kursach.DAL.Sponsors;
 
 public sealed class SponsorRepository :
     SqlWorker<Sponsor>

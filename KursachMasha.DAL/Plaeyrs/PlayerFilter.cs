@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Players;
+﻿namespace Kursach.DAL.Players;
 public class PlayerFilter
 {
     public string Search { get; init; }

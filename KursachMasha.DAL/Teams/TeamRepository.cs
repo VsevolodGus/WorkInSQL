@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Teams;
+namespace Kursach.DAL.Teams;
 public class TeamRepository :
     SqlWorker<Team>
     , ISqlWorkerEntity<Team, TeamFilter>

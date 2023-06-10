@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Locations;
+namespace Kursach.DAL.Locations;
 public class LocationRepository :
     SqlWorker<MyLocation>
     , ISqlWorkerEntity<MyLocation, LocationFilter>

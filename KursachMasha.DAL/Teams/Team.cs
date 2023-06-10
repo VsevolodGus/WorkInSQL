@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Teams;
+﻿namespace Kursach.DAL.Teams;
 public class Team
 {
     public int ID { get; set; }

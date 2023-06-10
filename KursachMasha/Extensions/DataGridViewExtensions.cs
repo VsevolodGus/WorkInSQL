@@ -1,7 +1,7 @@
-﻿using KursachMasha.DAL;
+﻿using Kursach.DAL;
 using System.Reflection;
 
-namespace KursachMasha.Extensions;
+namespace Kursach.Extensions;
 internal static class DataGridViewExtensions
 {
     public static void Configuration<T>(this DataGridView table)

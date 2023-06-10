@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Stadiums;
+﻿namespace Kursach.DAL.Stadiums;
 public class Stadium
 {
     public int ID { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.Forms;
+﻿namespace Kursach.Forms;
 
 partial class PlayerMatchCountForm
 {

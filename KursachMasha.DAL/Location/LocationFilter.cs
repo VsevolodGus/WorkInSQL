@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Locations;
+﻿namespace Kursach.DAL.Locations;
 
 public class LocationFilter
 {

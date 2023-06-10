@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Users;
+﻿namespace Kursach.DAL.Users;
 public class User
 {
     public int ID { get; init; }

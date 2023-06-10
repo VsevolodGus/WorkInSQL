@@ -1,6 +1,6 @@
-﻿using KursachMasha.DAL.Users;
+﻿using Kursach.DAL.Users;
 
-namespace KursachMasha;
+namespace Kursach;
 
 public partial class LoginForm : Form
 {

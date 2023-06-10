@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL;
+﻿namespace Kursach.DAL;
 
 public interface ISqlWorkerEntityManipulation<T>
     where T : class

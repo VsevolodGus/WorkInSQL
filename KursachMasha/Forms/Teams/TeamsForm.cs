@@ -1,8 +1,8 @@
-﻿using KursachMasha.DAL.Sponsors;
-using KursachMasha.DAL.Teams;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Sponsors;
+using Kursach.DAL.Teams;
+using Kursach.Extensions;
 
-namespace KursachMasha;
+namespace Kursach;
 public partial class TeamsForm : Form
 {
     private readonly TeamRepository _teamRepository;

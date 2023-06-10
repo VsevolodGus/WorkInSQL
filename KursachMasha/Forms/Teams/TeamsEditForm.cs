@@ -1,9 +1,9 @@
-﻿using KursachMasha.DAL.Locations;
-using KursachMasha.DAL.Sponsors;
-using KursachMasha.DAL.Teams;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Locations;
+using Kursach.DAL.Sponsors;
+using Kursach.DAL.Teams;
+using Kursach.Extensions;
 
-namespace KursachMasha;
+namespace Kursach;
 
 public partial class TeamsEditForm : Form
 {

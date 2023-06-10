@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL;
+﻿namespace Kursach.DAL;
 
 [AttributeUsage(AttributeTargets.Property)]
 public class ColumnHeadrAttribute : Attribute

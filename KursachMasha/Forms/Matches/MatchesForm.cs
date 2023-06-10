@@ -1,9 +1,9 @@
-﻿using KursachMasha.DAL.Mathes;
-using KursachMasha.DAL.Stadiums;
-using KursachMasha.DAL.Teams;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Mathes;
+using Kursach.DAL.Stadiums;
+using Kursach.DAL.Teams;
+using Kursach.Extensions;
 
-namespace KursachMasha.Forms;
+namespace Kursach.Forms;
 
 public partial class MatchesForm : Form
 {

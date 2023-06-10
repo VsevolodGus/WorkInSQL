@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace KursachMasha.DAL.Users;
+namespace Kursach.DAL.Users;
 public class UserRepository : SqlWorker<User>
 {
     protected override string Table => "users";

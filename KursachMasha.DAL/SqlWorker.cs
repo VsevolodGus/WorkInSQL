@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace KursachMasha.DAL;
+namespace Kursach.DAL;
 public abstract class SqlWorker<T>
 {
     private readonly DataBaseProvider provider;

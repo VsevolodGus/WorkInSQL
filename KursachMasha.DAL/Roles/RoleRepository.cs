@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Text;
 
-namespace KursachMasha.DAL.Roles;
+namespace Kursach.DAL.Roles;
 public class RoleRepository :
     SqlWorker<Role>
     , ISqlWorkerEntity<Role, RoleFilter>

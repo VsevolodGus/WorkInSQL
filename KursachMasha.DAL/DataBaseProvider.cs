@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace KursachMasha.DAL;
+namespace Kursach.DAL;
 internal class DataBaseProvider
 {
     public readonly NpgsqlConnection SqlConnection;

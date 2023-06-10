@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.Extensions;
+﻿namespace Kursach.Extensions;
 internal static class TextBoxExtensions
 {
     internal static bool ShowMessageBoxIfNoCorrect(this TextBox textBox, string messageBoxText)

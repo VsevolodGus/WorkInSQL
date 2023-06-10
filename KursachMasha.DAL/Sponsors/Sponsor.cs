@@ -1,4 +1,4 @@
-﻿namespace KursachMasha.DAL.Sponsors;
+﻿namespace Kursach.DAL.Sponsors;
 public class Sponsor
 {
     public int ID { get; set; }

@@ -1,7 +1,7 @@
-﻿using KursachMasha.DAL.Sponsors;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Sponsors;
+using Kursach.Extensions;
 
-namespace KursachMasha;
+namespace Kursach;
 public partial class SponsorsForm : Form
 {
     private readonly SponsorRepository _sponsorRepository;

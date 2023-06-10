@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace KursachMasha.DAL.Mathes;
+namespace Kursach.DAL.Mathes;
 public class MatchRepository :
     SqlWorker<Match>
     , ISqlWorkerEntity<Match, MatchFilter>

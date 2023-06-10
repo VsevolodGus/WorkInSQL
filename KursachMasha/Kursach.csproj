@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KursachMasha.DAL\KursachMasha.DAL.csproj" />
+    <ProjectReference Include="..\KursachMasha.DAL\Kursach.DAL.csproj" />
   </ItemGroup>
 
 </Project>

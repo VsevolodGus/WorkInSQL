@@ -1,8 +1,8 @@
-﻿using KursachMasha.DAL.Locations;
-using KursachMasha.DAL.Stadiums;
-using KursachMasha.Extensions;
+﻿using Kursach.DAL.Locations;
+using Kursach.DAL.Stadiums;
+using Kursach.Extensions;
 
-namespace KursachMasha;
+namespace Kursach;
 
 public partial class StadiumsEditForm : Form
 {

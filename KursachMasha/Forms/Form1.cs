@@ -1,6 +1,6 @@
-using KursachMasha.Forms;
+using Kursach.Forms;
 
-namespace KursachMasha;
+namespace Kursach;
 
 public partial class Form1 : Form
 {
