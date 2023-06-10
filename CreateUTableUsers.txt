@@ -1,0 +1,8 @@
+CREATE TABLE public.users
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
+    login character varying(50) NOT NULL,
+    password character varying NOT NULL,
+    is_admin boolean NOT NULL DEFAULT false,
+    PRIMARY KEY (id)
+);

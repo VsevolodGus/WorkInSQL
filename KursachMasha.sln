@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreateTableScripts", "Creat
 		CreateSponsors.txt = CreateSponsors.txt
 		CreateStadiums.txt = CreateStadiums.txt
 		CreateTeams.txt = CreateTeams.txt
+		CreateUTableUsers.txt = CreateUTableUsers.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SelectScripts", "SelectScripts", "{21EE3F3F-CBD5-45FC-8979-6BA9BBE4CF3C}"
