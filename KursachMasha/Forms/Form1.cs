@@ -57,4 +57,10 @@ public partial class Form1 : Form
     {
         new PlayerMatchCountForm().Show();
     }
+
+    private void button7_Click(object sender, EventArgs e)
+    {
+
+        new ReservePlayersForm().Show();
+    }
 }
