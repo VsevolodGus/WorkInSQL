@@ -1,9 +1,4 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KursachMasha.DAL.Queries
 {
@@ -26,7 +21,7 @@ namespace KursachMasha.DAL.Queries
                   "\r\n\tinner join roles r ON r.id = p.role_id" +
                   "\r\n\twhere role_id <> 2 AND r.name <> 'тренер')";
 
-            
+
             provider.SqlConnection.Open();
             var reader = new NpgsqlCommand(query, provider.SqlConnection).ExecuteReader();
 
