@@ -6,5 +6,5 @@ public class StadiumFilter
 
     public int? LocationID { get; init; }
 
-    public bool IsUse {get; init;}
+    public bool IsUse { get; init; }
 }

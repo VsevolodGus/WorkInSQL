@@ -26,7 +26,7 @@ public class PlayerRepository :
         ExecuteQuery(query);
     }
 
-    
+
 
     public void Add(Player obj)
     {
@@ -38,7 +38,7 @@ public class PlayerRepository :
 
     public Player[] GetArray(PlayerFilter filter)
     {
-        if(filter is null)
+        if (filter is null)
             filter = new PlayerFilter();
 
         var stringBuilder = new StringBuilder($"SELECT " +
@@ -61,7 +61,7 @@ public class PlayerRepository :
         var sql = stringBuilder.ToString();
         return base.ExecuteGetArrayQuery(sql);
     }
-    
+
     protected override Player Map(NpgsqlDataReader sqlDataReader)
     {
         return new Player()
@@ -72,7 +72,7 @@ public class PlayerRepository :
             Patronymic = sqlDataReader.GetString(3),
             Number = sqlDataReader.GetInt32(4),
             TeamID = sqlDataReader.GetInt32(5),
-            RoleID= sqlDataReader.GetInt32(6),
+            RoleID = sqlDataReader.GetInt32(6),
             TeamName = sqlDataReader.GetString(7),
             RoleName = sqlDataReader.GetString(8),
         };

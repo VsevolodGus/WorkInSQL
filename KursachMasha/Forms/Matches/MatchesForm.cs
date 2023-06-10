@@ -43,7 +43,7 @@ public partial class MatchesForm : Form
     private void matchAddButton_Click(object sender, EventArgs e)
     {
         var currentID = (int?)(tableMatches.SelectedRows.Count != 0
-                            ? tableMatches.SelectedRows[0].Cells[0].Value 
+                            ? tableMatches.SelectedRows[0].Cells[0].Value
                             : null);
 
         new MatchesEditForm(this, currentID, true).Show();

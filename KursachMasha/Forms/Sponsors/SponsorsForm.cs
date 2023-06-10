@@ -1,5 +1,4 @@
 ﻿using KursachMasha.DAL.Sponsors;
-using KursachMasha.DAL.Teams;
 using KursachMasha.Extensions;
 
 namespace KursachMasha;

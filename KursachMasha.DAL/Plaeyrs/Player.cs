@@ -1,6 +1,4 @@
-﻿using KursachMasha.DAL.Teams;
-
-namespace KursachMasha.DAL.Players;
+﻿namespace KursachMasha.DAL.Players;
 
 public class Player
 {
@@ -11,7 +9,7 @@ public class Player
 
     [ColumnHeadr("Фамилия")]
     public string Surname { get; set; }
-    
+
     [ColumnHeadr("Отчество")]
     public string Patronymic { get; set; }
 

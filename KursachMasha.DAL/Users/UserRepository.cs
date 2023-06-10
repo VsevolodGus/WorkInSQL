@@ -1,8 +1,8 @@
 ﻿namespace KursachMasha.DAL.Users;
 public class UserRepository
 {
-    private readonly User[] users = new User[] 
-    { 
+    private readonly User[] users = new User[]
+    {
         new User()
         {
             ID = Guid.NewGuid(),
@@ -20,5 +20,5 @@ public class UserRepository
     };
 
     public User GetByLoginAndPassword(string login, string password)
-        => users.FirstOrDefault(c=> c.Login.Equals(login) && c.Password.Equals(password));
+        => users.FirstOrDefault(c => c.Login.Equals(login) && c.Password.Equals(password));
 }

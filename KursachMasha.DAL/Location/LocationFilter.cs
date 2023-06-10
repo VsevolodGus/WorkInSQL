@@ -2,5 +2,5 @@
 
 public class LocationFilter
 {
-    public string Search { get; init;}
+    public string Search { get; init; }
 }

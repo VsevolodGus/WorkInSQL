@@ -1,5 +1,4 @@
-﻿using KursachMasha.DAL.Stadiums;
-using Npgsql;
+﻿using Npgsql;
 
 namespace KursachMasha.DAL.Queries;
 
@@ -10,7 +9,7 @@ internal class FifthQuery
     {
         sqlConnection = new NpgsqlConnection();
     }
-    public void Execute(int stadiumID) 
+    public void Execute(int stadiumID)
     {
         var query = "select s.* from sponsors s " +
            "inner join teams t ON t.sponsor_id = s.id " +

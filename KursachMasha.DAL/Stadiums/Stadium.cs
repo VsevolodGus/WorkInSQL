@@ -1,7 +1,4 @@
-﻿using KursachMasha.DAL.Mathes;
-using KursachMasha.DAL.Locations;
-
-namespace KursachMasha.DAL.Stadiums;
+﻿namespace KursachMasha.DAL.Stadiums;
 public class Stadium
 {
     public int ID { get; set; }

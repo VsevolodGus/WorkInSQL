@@ -9,7 +9,7 @@ public partial class PlayerMatchCountForm : Form
     public PlayerMatchCountForm()
     {
         InitializeComponent();
-    
+
         _playersMatchesQuery = new DataPlayersMatchesQuery();
 
         tablePlayerCountMatchesDataGridView.Configuration<PlayerMatches>();

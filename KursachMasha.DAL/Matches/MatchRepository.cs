@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using System.Text;
 
 namespace KursachMasha.DAL.Mathes;
 public class MatchRepository :
@@ -71,6 +70,6 @@ public class MatchRepository :
         return base.ExecuteGetArrayQuery(sql);
     }
 
-    
+
 }
 

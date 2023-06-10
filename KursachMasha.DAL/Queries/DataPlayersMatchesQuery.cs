@@ -9,7 +9,7 @@ public class DataPlayersMatchesQuery
         provider = new DataBaseProvider();
     }
 
-    
+
     public PlayerMatches[] Execute()
     {
         var query = "select " +
@@ -26,7 +26,7 @@ public class DataPlayersMatchesQuery
 
         provider.SqlConnection.Open();
         var reader = new NpgsqlCommand(query, provider.SqlConnection).ExecuteReader();
-        
+
         var result = new List<PlayerMatches>();
         while (reader.Read())
         {

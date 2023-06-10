@@ -20,7 +20,7 @@ public abstract class SqlWorker<T>
     public void Delete(int[] ids)
     {
         var query = $"delete from {Table} " +
-                    $"where id in ({string.Join(',',ids)})";
+                    $"where id in ({string.Join(',', ids)})";
 
         ExecuteQuery(query);
     }
@@ -66,7 +66,7 @@ public abstract class SqlWorker<T>
         return result;
     }
 
-   
+
 
     protected abstract T Map(NpgsqlDataReader sqlDataReader);
 }

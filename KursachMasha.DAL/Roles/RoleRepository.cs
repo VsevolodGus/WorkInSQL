@@ -49,10 +49,10 @@ public class RoleRepository :
 
     protected override Role Map(NpgsqlDataReader reader)
     {
-        return new Role() 
+        return new Role()
         {
             ID = reader.GetInt32(0),
-            Name= reader.GetString(1),
+            Name = reader.GetString(1),
             Description = reader.GetString(2)
         };
     }

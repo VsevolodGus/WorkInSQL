@@ -33,7 +33,7 @@ public sealed class SponsorRepository :
 
     public Sponsor[] GetArray(SponsorFilter filter)
     {
-        if(filter is null)
+        if (filter is null)
             filter = new SponsorFilter();
 
         var stringBuilder = new StringBuilder($"select * from {Table}");

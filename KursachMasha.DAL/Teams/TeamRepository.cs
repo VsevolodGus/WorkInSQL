@@ -31,7 +31,7 @@ public class TeamRepository :
     {
         if (filter is null)
             filter = new TeamFilter();
-        
+
         var stringBuilder = new StringBuilder($"SELECT t.id, t.name, t.sponsor_id, s.name" +
             $"\r\n\tFROM public.{Table} t" +
             $"\r\n\tinner join sponsors s on t.sponsor_id = s.id" +
@@ -47,7 +47,7 @@ public class TeamRepository :
         return ExecuteGetArrayQuery(stringBuilder.ToString());
     }
 
-   
+
 
     protected override Team Map(NpgsqlDataReader sqlDataReader)
         => new Team()
