@@ -63,25 +63,11 @@ public class MatchRepository :
         if (filter is null)
             filter = new MatchFilter();
 
-        var stringBuilder = new StringBuilder($"SELECT " +
-            $"m.id, m.date, m.team1_id, t1.name, m.team2_id, t2.name, m.stadium_id, s.name, m.team1_result, m.team2_result" +
-            $"\r\n\tFROM matches m " +
-            $"\r\n\tINNER JOIN teams t1 ON m.team1_id = t1.id " +
-            $"\r\n\tINNER JOIN teams t2 ON m.team2_id = t2.id " +
-            $"\r\n\tINNER JOIN stadiums s ON m.stadium_id = s.id" +
-            $"\r\n\twhere 1 = 1");
+        var sql = $"select * from get_info_matches('{filter.Search ?? ""}'" +
+            $",{filter.Team1ID?.ToString() ?? "null"}" +
+            $",{filter.Team2ID?.ToString() ?? "null"}" +
+            $",{filter.StadiumID?.ToString() ?? "null"})";
 
-        if(filter.Team1ID.HasValue)
-            stringBuilder.AppendLine($"\r\tand m.team1_id = {filter.Team1ID.Value}");
-
-        if (filter.Team2ID.HasValue)
-            stringBuilder.AppendLine($"\r\tand m.team2_id = {filter.Team2ID.Value}");
-
-        if (filter.StadiumID.HasValue)
-            stringBuilder.AppendLine($"\r\tand m.stadium_id = {filter.StadiumID.Value}");
-
-        stringBuilder.Append(';');
-        var sql = stringBuilder.ToString();
         return base.ExecuteGetArrayQuery(sql);
     }
 
